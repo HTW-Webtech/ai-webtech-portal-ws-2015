@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Always force latest IE rendering engine or request Chrome Frame -->
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="theme-color" content="{{ site.color }}">
+     <base href="<%= current_page_path(current_page) %>" />
+
+     <title><%= current_page.data.title || "The Middleman" %></title>
+
+    <%= stylesheet_link_tag "style" %>
+    <%= javascript_include_tag  "all" %>
+     <link rel="shortcut icon" href="/favicon.ico">
+     <link rel="apple-touch-icon" href="/icon.png">
+     <link rel="manifest" href="/manifest.json">
+     <!-- <script async src="/assets/scripts/cache.js"></script> -->
+  </head>
+
+  <body class="<%= page_classes %> <%= current_page_dir(current_page) %>">
+    <div class="masthead">
+      <div class="container">
+        <form action="/search" method="GET">
+          <input type="search" name="q" required>
+        </form>
+        <h3 class="masthead-title">
+          <a href="/" title="Home"><%= recursive_data(:course_title, current_page) %></a>
+            <small><%= recursive_data(:course_tagline, current_page) %></small>
+        </h3>
+      </div>
+    </div>
+
+    <div class="container content">
+      <%= yield %>
+    </div>
+  </body>
+</html>
