@@ -1,0 +1,78 @@
+//
+// VARIABLES
+// --------------------------------------------------
+
+
+// HTW Fonts
+// -------------------------
+
+$htw-font-family-hedings: "Signika", serif;
+$htw-font-family-text:    Verdana, sans-serif;
+
+
+// Poole Fonts
+// -------------------------
+
+$font-family-sans-serif:  "PT Sans", Helvetica, Arial, sans-serif;
+$font-family-serif:       "Noto Serif", Georgia, "Times New Roman", serif;
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier- New", monospace;
+
+
+// Used Fonts
+// -------------------------
+
+$font-family-headings:    $htw-font-family-hedings;
+$font-family-text:        $font-family-serif;
+$font-family-code:        $font-family-monospace;
+
+
+// HTW Colors
+// -------------------------
+
+$htw-green:               #76b900;
+$htw-orange:              #ff5f00;
+$htw-blue:                #0082d1;
+$htw-gray:                #afafaf;
+
+$htw-green-light:         lighten($htw-green, 50%);
+$htw-orange-light:        lighten($htw-orange, 50%);
+$htw-blue-light:          lighten($htw-blue, 50%);
+
+
+// Poole Colors
+// -------------------------
+
+$poole-gray:              #515151;
+$poole-darkGray:          #313131;
+$poole-white:             #fff;
+$poole-blue:              #268bd2;
+
+
+// Used Colors
+// -------------------------
+
+$color-text:              $poole-gray;
+$color-bg:                $poole-white;
+$color-darkGray:          $poole-darkGray;
+$color-lightGray:         #ccc;
+$color-lighterGray:       #f9f9f9;
+$link-color:              $htw-blue;
+$red:                     #b90019;
+
+
+// Font Sizes
+// -------------------------
+
+$font-size-base:          16px;
+$font-size-large:         ceil($font-size-base * 1.25);
+$font-size-huge:          ceil($font-size-base * 1.5);
+$font-size-small:         ceil($font-size-base * 0.85);
+
+$line-height-base:        1.42857;
+$line-height-computed:    floor($font-size-base * $line-height-base);
+
+
+// Icons
+// -------------------------
+
+$search-icon:             'data:image/svg+xml;utf8,<svg height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"><path d="M111.642 112.146c-53.535 53.535-53.586 140.39-.05 193.926 45.763 45.764 116.02 52.228 168.622 19.978l105.04 105.04c12.495 12.495 32.76 12.495 45.255 0 12.494-12.494 12.494-32.76 0-45.255L325.433 280.76c32.208-52.646 25.754-122.842-19.968-168.564-53.535-53.535-140.29-53.585-193.824-.05zm162.762 162.76c-36.353 36.354-95.297 36.354-131.65.002-36.352-36.353-36.352-95.297 0-131.65 36.352-36.352 95.297-36.353 131.65 0 36.353 36.352 36.352 95.297 0 131.65z" fill="#{$color-lightGray}"/></svg>';
