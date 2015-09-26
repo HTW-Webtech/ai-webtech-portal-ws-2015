@@ -1,18 +1,4 @@
 ###
-# Compass
-###
-
-# Change Compass configuration
-# compass_config do |config|
-#   config.output_style = :compact
-# end
-
-###
-# Sprockets
-##
-# sprockets.append_path 'sass/'
-
-###
 # Page options, layouts, aliases and proxies
 ###
 
@@ -28,10 +14,12 @@
 # with_layout :admin do
 #   page "/admin/*"
 # end
+# page "*/aufgaben/*", layout: :_aufgabe
 
-# Proxy pages (https://middlemanapp.com/advanced/dynamic_pages/)
-# proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
-#  :which_fake_page => "Rendering a fake page with a local variable" }
+# With no layout
+page '/*.xml', layout: false
+page '/*.json', layout: false
+page '/*.txt', layout: false
 
 ###
 # Helpers
@@ -59,12 +47,9 @@ helpers do
   end
 end
 
-# Automatic image dimensions on image_tag helper
-# activate :automatic_image_sizes
-
 # Reload the browser automatically whenever files change
 configure :development do
-  activate :livereload, apply_css_live: false
+  activate :livereload, apply_js_live: false
 end
 
 activate :directory_indexes
@@ -76,14 +61,11 @@ activate :directory_indexes
 #   end
 # end
 
-set :css_dir, 'stylesheets'
-
-set :js_dir, 'javascripts'
-
 set :images_dir, 'images'
-set :markdown_engine, :redcarpet
+# set :markdown_engine, :kramdown
+# set :markdown, syntax_highlighter: :rouge
 set :liquid_engine, :liquid
-set :sass_assets_paths, ['sass']
+set :sass_assets_paths, ['source/sass']
 
 # Build-specific configuration
 configure :build do
@@ -102,3 +84,5 @@ configure :build do
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
 end
+
+# require_relative './extensions/before_build_example'

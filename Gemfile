@@ -2,13 +2,11 @@
 # the following line to use "http://" instead
 source 'https://rubygems.org'
 
-gem 'middleman'
+gem 'middleman', '4.0.0.rc.1'
 
-# Live-reloading plugin
 gem 'middleman-livereload'
+gem 'bootstrap-sass'
 
-gem 'middleman-rouge' # Syntax highlighting for the page
-gem 'redcarpet'
-
-gem 'liquid'
-gem 'byebug'
+group :development do
+  gem 'byebug'
+end
