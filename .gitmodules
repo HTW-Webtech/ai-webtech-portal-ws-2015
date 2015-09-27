@@ -1,0 +1,3 @@
+[submodule "source/vendor/reveal.js"]
+	path = source/vendor/reveal.js
+	url = git@github.com:grekko/reveal.js.git
