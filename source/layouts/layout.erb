@@ -7,7 +7,7 @@
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <base href="<%= current_page_path(current_page) %>" />
 
-     <title><%= current_page.data.title || 'The Middleman' %></title>
+     <title><%= page_title(current_page) %></title>
 
     <%= stylesheet_link_tag 'site' %>
     <%= javascript_include_tag 'all' %>
