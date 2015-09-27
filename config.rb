@@ -27,6 +27,10 @@ page '/*.txt', layout: false
 # Helpers
 ###
 helpers do
+  def page_title(current_page)
+    current_page.data.title || 'Webentwicklung'
+  end
+
   def recursive_data(field, page)
     page.data.fetch(field.to_s) do
       page.parent ? recursive_data(field, page.parent) : ''
@@ -68,9 +72,6 @@ activate :directory_indexes
 # end
 
 set :images_dir, 'images'
-# set :markdown_engine, :kramdown
-# set :markdown, syntax_highlighter: :rouge
-set :liquid_engine, :liquid
 set :sass_assets_paths, ['source/sass']
 
 # Build-specific configuration
@@ -82,7 +83,7 @@ configure :build do
   # activate :minify_javascript
 
   # Enable cache buster
-  # activate :asset_hash
+  activate :asset_hash
 
   # Use relative URLs
   # activate :relative_assets
