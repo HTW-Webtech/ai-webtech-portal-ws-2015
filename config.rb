@@ -1,3 +1,5 @@
+require 'slim'
+
 ###
 # Page options, layouts, aliases and proxies
 ###
@@ -5,7 +7,7 @@
 # Per-page layout changes:
 #
 # With no layout
-# page "/path/to/file.html", :layout => false
+page 'site/slides/*', layout: false
 #
 # With alternative layout
 # page "/path/to/file.html", :layout => :otherlayout
@@ -29,6 +31,10 @@ helpers do
     page.data.fetch(field.to_s) do
       page.parent ? recursive_data(field, page.parent) : ''
     end
+  end
+
+  def slides_link(title, slide_name)
+    link_to title, "/vendor/reveal.js/?sourcePath=site/slides/#{slide_name}"
   end
 
   def current_page_dir(page)
@@ -84,5 +90,3 @@ configure :build do
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
 end
-
-# require_relative './extensions/before_build_example'
