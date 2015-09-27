@@ -17,7 +17,8 @@
   </head>
 
   <body class="<%= page_classes %> <%= current_page_dir(current_page) %>">
-    <div class="container">
+    <%= partial 'layouts/navigation', locals: { current_page: current_page } %>
+    <div class="container" style="margin-top: 60px;">
       <div class="row">
         <div class="col-md-12">
           <%= yield %>

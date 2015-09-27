@@ -8,6 +8,7 @@ require 'slim'
 #
 # With no layout
 page 'site/slides/*', layout: false
+page 'site/slides/index.html', layout: 'layout'
 #
 # With alternative layout
 # page "/path/to/file.html", :layout => :otherlayout
@@ -23,12 +24,21 @@ page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
 
+# Sprockets
+sprockets.append_path 'source/sass/'
+
 ###
 # Helpers
 ###
 helpers do
   def page_title(current_page)
     current_page.data.title || 'Webentwicklung'
+  end
+
+  def nav_link_to(title, url)
+    opts = {}
+    opts[:class] = 'active' if current_page.path.start_with? url
+    link_to title, url, opts
   end
 
   def recursive_data(field, page)
