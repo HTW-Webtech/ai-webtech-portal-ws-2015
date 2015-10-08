@@ -6,10 +6,10 @@ nav.navbar.navbar-default.navbar-fixed-top
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand href="#" WebTech
+      a.navbar-brand href="/" WebTech
     #navbar-collapse.navbar-collapse.collapse
       ul.nav.navbar-nav
-        li= nav_link_to 'Übersicht', '/site'
-        li= nav_link_to 'Präsentationen', '/site/slides'
-        li= nav_link_to 'Übungen', '/site/exercises'
-        li= nav_link_to 'Zeitplan', '/site/timetable'
+        = nav_li_link 'Übersicht', '/site/dashboard'
+        = nav_li_link 'Präsentationen', '/site/slides'
+        = nav_li_link 'Übungen', '/site/exercises'
+        = nav_li_link 'Zeitplan', '/site/timetable'
