@@ -35,6 +35,8 @@ GEM
     fastimage (1.6.8)
       addressable (~> 2.3, >= 2.3.5)
     ffi (1.9.10)
+    foreman (0.78.0)
+      thor (~> 0.19.1)
     haml (4.0.7)
       tilt
     hamster (1.0.0)
@@ -116,8 +118,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   bootstrap-sass
   byebug
+  foreman
   middleman (= 4.0.0.rc.1)
   middleman-livereload
   middleman-sprockets (= 4.0.0.rc.1)
