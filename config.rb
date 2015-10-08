@@ -51,7 +51,7 @@ helpers do
     end
   end
 
-  def slides_link(title, slide_name, available_at = Date.current)
+  def link_to_slides(title, slide_name, available_at = Date.current)
     if Date.current >= available_at
       link_to title, "http://localhost:1947/?sourceURI=http://localhost:8011/site/slides/#{slide_name}", target: '_blank'
     else
