@@ -10,5 +10,6 @@ gem 'slim', '>= 3.0'
 gem 'bootstrap-sass', require: false
 
 group :development do
+  gem 'foreman'
   gem 'byebug'
 end
