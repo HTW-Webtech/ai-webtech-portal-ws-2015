@@ -47,8 +47,16 @@ helpers do
     end
   end
 
-  def slides_link(title, slide_name)
-    link_to title, "/vendor/reveal.js/?sourcePath=site/slides/#{slide_name}"
+  def slides_link(title, slide_name, available_at = Date.current)
+    if Date.current >= available_at
+      link_to title, "http://localhost:1947/?sourceURI=http://localhost:8011/site/slides/#{slide_name}", target: '_blank'
+    else
+      "<abbr title='Verfügbar ab: #{available_at}'>#{title}</abbr>"
+    end
+  end
+
+  def slide_image_tag(src)
+    image_tag 'http://localhost:8011/images/slides/' + src
   end
 
   def current_page_dir(page)
