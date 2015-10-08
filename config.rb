@@ -1,5 +1,8 @@
 require 'slim'
 
+# activesupport
+require 'active_support/time'
+
 ###
 # Page options, layouts, aliases and proxies
 ###

@@ -9,6 +9,8 @@ gem 'middleman-livereload'
 gem 'slim', '>= 3.0'
 gem 'bootstrap-sass', require: false
 
+gem 'activesupport', require: false
+
 group :development do
   gem 'foreman'
   gem 'byebug'
