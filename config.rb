@@ -35,10 +35,11 @@ helpers do
     current_page.data.title || 'Webentwicklung'
   end
 
-  def nav_link_to(title, url)
-    opts = {}
-    opts[:class] = 'active' if current_page.path.start_with? url
-    link_to title, url, opts
+  def nav_li_link(title, url, opts = {})
+    anchor = link_to title, url, opts
+    page_path = "/#{current_page.path}"
+    li_class = page_path.start_with?(url) ? 'active' : ''
+    "<li class='#{li_class}'>#{anchor}</li>"
   end
 
   def recursive_data(field, page)
