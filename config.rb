@@ -109,11 +109,7 @@ configure :build do
 
   # Use relative URLs
   # activate :relative_assets
-
-  # Or use a different image path
-  # set :http_prefix, "/Content/images/"
 end
-
 
 class AccessControlAllowAllOrigins
   def initialize(app)
