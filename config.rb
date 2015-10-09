@@ -1,21 +1,20 @@
+# Load Slim lang
 require 'slim'
 
-# activesupport
+# Load ActiveSupport::Time
 require 'active_support/time'
 
-# Load lib code
+# Load code from lib directory
 Dir[__dir__ + '/lib/**/*.rb'].each { |rb| require_relative rb }
 
 # Server middlewares
 use Middlewares::AccessControlAllowAllOrigins
 
-###
-# Page options, layouts, aliases and proxies
-###
-
-# Per-page layout changes:
-#
-# With no layout
+# TODO:
+# Slides currently have to layout since they are fetched by reveal.js
+# and presented in a different context (with another layout).
+# A much nicer approach would be to serve two separate files, one for
+# reveal.js and a readable/printable version which lives beside.
 page 'site/slides/*', layout: false
 page 'site/slides/index.html', layout: 'layout'
 
