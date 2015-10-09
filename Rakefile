@@ -16,7 +16,7 @@ namespace :deploy do
   end
 
   def local_path
-    './build'
+    './build/*'
   end
 
   def remote_path
