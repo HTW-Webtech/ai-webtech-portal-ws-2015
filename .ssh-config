@@ -1,0 +1,9 @@
+Host development
+  HostName localhost
+  Port 2222
+  User igelmund
+
+Host production
+  Hostname 141.45.146.159
+  User local
+
