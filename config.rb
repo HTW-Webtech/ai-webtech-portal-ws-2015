@@ -3,6 +3,12 @@ require 'slim'
 # activesupport
 require 'active_support/time'
 
+# Load lib code
+Dir[__dir__ + '/lib/**/*.rb'].each { |rb| require_relative rb }
+
+# Server middlewares
+use Middlewares::AccessControlAllowAllOrigins
+
 ###
 # Page options, layouts, aliases and proxies
 ###
@@ -111,18 +117,3 @@ configure :build do
   # activate :relative_assets
 end
 
-class AccessControlAllowAllOrigins
-  def initialize(app)
-    @app = app
-  end
-
-  def call(env)
-    status, headers, response = @app.call(env)
-
-		headers['Access-Control-Allow-Origin'] = '*'
-
-    [status, headers, response]
-  end
-end
-
-use AccessControlAllowAllOrigins
