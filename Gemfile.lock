@@ -95,6 +95,7 @@ GEM
     rack (1.6.4)
     rack-livereload (0.3.16)
       rack
+    rake (10.4.2)
     rb-fsevent (0.9.6)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -125,6 +126,7 @@ DEPENDENCIES
   middleman (= 4.0.0.rc.1)
   middleman-livereload
   middleman-sprockets (= 4.0.0.rc.1)
+  rake
   slim (>= 3.0)
 
 BUNDLED WITH

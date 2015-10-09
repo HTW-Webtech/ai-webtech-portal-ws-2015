@@ -6,10 +6,13 @@ gem 'middleman', '4.0.0.rc.1'
 gem 'middleman-sprockets', '4.0.0.rc.1'
 
 gem 'middleman-livereload'
+
 gem 'slim', '>= 3.0'
 gem 'bootstrap-sass', require: false
 
 gem 'activesupport', require: false
+
+gem 'rake'
 
 group :development do
   gem 'foreman'
