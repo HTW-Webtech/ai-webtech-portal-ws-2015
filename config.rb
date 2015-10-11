@@ -26,15 +26,15 @@ page '/*.txt', layout: false
 # Sprockets
 sprockets.append_path 'source/sass/'
 
-###
-# Helpers
-###
-helpers AppHelpers
-
 # Reload the browser automatically whenever files change
 configure :development do
   activate :livereload, apply_js_live: false
 end
+
+###
+# Helpers
+###
+helpers AppHelpers
 
 activate :directory_indexes
 

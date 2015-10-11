@@ -16,9 +16,18 @@ module AppHelpers
     end
   end
 
+  # TODO: Fixme
+  def revealjs_host
+    if Middleman::Application.config.environment.to_s == 'development'
+      'http://localhost:1947'
+    else
+      'http://slides.htw-webtech.igelmund.info'
+    end
+  end
+
   def link_to_slides(title, slide_name, available_at = Date.current)
     if Date.current >= available_at
-      link_to title, "http://localhost:1947/?sourceURI=http://localhost:8011/site/slides/#{slide_name}", target: '_blank'
+      link_to title, "#{revealjs_host}/?sourceURI=http://localhost:8011/site/slides/#{slide_name}", target: '_blank'
     else
       "<abbr title='Verfügbar ab: #{available_at}'>#{title}</abbr>"
     end
