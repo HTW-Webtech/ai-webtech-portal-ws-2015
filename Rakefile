@@ -40,10 +40,14 @@ namespace :deploy do
   end
 
   task :dev do
+    # TODO: FIXME
+    ENV['RAILS_ENV'] = 'development'
     deploy :development
   end
 
   task :prod do
+    # TODO: FIXME
+    ENV['RAILS_ENV'] = 'production'
     deploy :production
   end
 end
