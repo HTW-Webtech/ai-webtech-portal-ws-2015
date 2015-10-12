@@ -11,7 +11,8 @@ gem 'slim', '>= 3.0'
 gem 'bootstrap-sass', require: false
 
 gem 'activesupport', require: false
-
+gem 'complex_config', require: 'complex_config/rude'
+gem 'tins' # dep of complex_config
 gem 'rake'
 
 group :development do

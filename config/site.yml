@@ -1,0 +1,8 @@
+development:
+  revealjs_host: 'http://localhost:1947'
+  slides_host: 'http://localhost:8011'
+
+production:
+  revealjs_host: 'http://revealjs.htw-webtech.igelmund.info'
+  slides_host: 'http://slides.htw-webtech.igelmund.info'
+

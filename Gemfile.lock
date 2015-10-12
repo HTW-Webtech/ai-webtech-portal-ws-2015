@@ -25,6 +25,8 @@ GEM
     columnize (0.9.0)
     compass-import-once (1.0.5)
       sass (>= 3.2, < 3.5)
+    complex_config (0.3.0)
+      json
     contracts (0.9)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
@@ -109,6 +111,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
+    tins (1.6.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.2)
@@ -122,12 +125,14 @@ DEPENDENCIES
   activesupport
   bootstrap-sass
   byebug
+  complex_config
   foreman
   middleman (= 4.0.0.rc.1)
   middleman-livereload
   middleman-sprockets (= 4.0.0.rc.1)
   rake
   slim (>= 3.0)
+  tins
 
 BUNDLED WITH
    1.10.6
