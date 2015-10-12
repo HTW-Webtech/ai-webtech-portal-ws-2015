@@ -1,0 +1,79 @@
+section data-background=slide_image_src('images/slides/git/swiss-knife.jpg')
+  h1 Tooling
+  ul
+    li.fragment
+      | Sofware-Entwickler produzieren Code/Text. Verschiedene Probleme:
+      ul
+        li.fragment Mehrere Personen editieren denselben Code?
+        li.fragment Hotfixes/Patches für alte Versionen?
+        li.fragment Wie experimentiert man mal für ein Feature?
+        li.fragment Copy/Paste everywhere?
+    li.fragment Antwort: Version Control Systems
+    li.fragment
+      | Aktueller defacto Standard: <abbr title="Distributed Version Control System">DVCS</abbr>
+      ul
+        li.fragment Distributed Version Control System
+        li.fragment GIT, Mercurial, Bazaar
+
+section data-background=slide_image_src('images/slides/git/git-logo.jpg')
+
+  section
+    h1 Git
+    ul
+      li.fragment
+        | Git ist eine Software zur verteilten Versionsverwaltung. Vorteile/Nachteile?
+        ul
+          li.fragment Mächtige <em>Branching-</em> und <em>Merging</em>-Mechanismen
+          li.fragment Dezentrales Hosting. Jeder ist Server
+          li.fragment Krypto-basierte Versionierung
+          li.fragment Speicher-effizient, verdammt schnell
+          li.fragment Kontext!
+
+  section
+    h1 Git basics
+    ul
+      li.fragment
+        | Lingua Git:
+        ul
+          li.fragment Aktuelle Version: 2.7.0 (Stand: 12. Okt 2015)
+          li.fragment <em>git init</em>
+          li.fragment <em>git add [file]</em>
+          li.fragment <em>git commit -m commit message</em>
+          li.fragment <em>git log</em>
+          li.fragment <em>git push [remote] [branch]</em>
+          li.fragment <em>git checkout [branch]</em>
+          li.fragment <em>git bisect</em>
+          li.fragment …
+
+  section
+    h1 Git Live Coding
+
+  section data-background=
+    h1 Git principles
+    ul
+      li.fragment Everything is a SHA1!
+      li.fragment
+        | Commit
+        ul
+          li.fragment Author, Datum, Beschreibung, Tree, Parent-Commit
+      li.fragment
+        | Tree
+        ul
+          li.fragment Verzeichnis-ähnlich: Liste von Trees und Blobs
+      li.fragment
+        | Blob
+        ul
+          li.fragment Datei-Inhalt, Datei-Typ (Exe, Link, Text)
+
+  section
+    h1 Git Ressourcen
+    ul
+      li Github.com: <a href="https://try.github.io/">"TryGithub.io"</a> Interaktiv git lernen.
+      li Offizielles Buch: <a href="https://git-scm.com/book/en/v2">"Pro Git"</a> Sehr empfehlenswert.
+
+section
+  h2 Quellen
+  ul
+    li Swiss knife: <a href="https://pixabay.com/static/uploads/photo/2014/12/18/19/24/swiss-army-knife-572667_640.jpg">pixabay</a>
+    li Git data model: <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-Objects">git-scm</a>
+
