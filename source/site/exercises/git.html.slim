@@ -1,18 +1,63 @@
 h1 Git-Übung
 p Bei dieser Übung gibt es noch keine Punkte. Git ist jedoch die Grundlage für alle weiteren Übungen.
+  Wer noch gar keine Erfahrung mit Versionskontroll-Software hat, sollte sich die <a href="#videos">Videos</a>
+  am Ende dieser Seite anschauen.
 
 h2 Ziel
-p <em>git</em> ist installiert und konfiguriert. Noch mal <a href="https://try.github.io/">TryGithub</a> anschauen und
-  dann auf dem eigenen Computer mit <em>git commit</em> experimentieren.
+p Git ist auf Eurem Computer richtig konfiguriert. D.h. der folgende Befehl erzeugt die richige Ausgabe:
+pre
+  git config --get-regexp user<br/>
+  user.name Dein Name<br/>
+  user.email s000000htw-berlin.de<br/>
 
-ol
-  li <a href="https://git-scm.com/download">Git installieren</a>
-  li Konfiguration
-    li: pre
-          | git config --global user.name "Your Name"
-          | git config --global user.email "s?????@htw-berlin.de"
-  li Mit <a href="https://try.github.io/>TryGithub</a> die Basics lernen
-  li
-    | Selber experimentieren
-    ul
-      li <em>gitk</em> statt Command-Line
+p Um das zu Erreichen öffnet Ihr das Terminal auf der Ubuntu-Virtualmachine und gebt den folgenden Befehl ein:
+pre
+  git config --global user.name "Dein Name"</br>
+  git config --global user.email "s000000@htw-berlin.de"
+
+p Um den Umgang mit Git zu üben findet ihr Im Folgenden eine Übersicht von Lern-Ressourcen.
+
+h2 Lern-Ressourcen
+p Eine Übersicht von kostenfreien Inhalten, die ihr Nutzen könnt und sollt um die Übungen lösen
+  zu können.
+
+ul
+  li Inhalte mit einem <span class="required"/> sind als Pflicht-Lektüre zu verstehen.
+  li Inhalte mit einem <span class="recommended"/> sind empfohlen, aber gehen ggf. inhaltlich über den Kurs hinaus.
+  li Inhalte mit einem <span class="mentioned"/> sind wahrsch. nicht relevant, aber interessant oder unterhaltsam.
+
+h3#learn-general Generelles
+a href="https://try.github.io/" target="_blank"
+  h4.required Code school - Try Git
+p Interaktives Git-Tutorial im Browser. Erklärt in 25 Schritten alle wichtigen Git
+  Befehle.
+
+h3#learn-youtube Youtube
+
+a href="https://www.youtube.com/embed/zbKdDsNNOhg" target="_blank"
+  h4.required Version Control System Introduction - Georgia Tech - Software Development Process
+p Kurzes und prägnantes Video das erklärt warum Versionskontrolle wichtig ist
+
+a href="https://www.youtube.com/embed/Y9XZQO1n_7c?t=2m10s" target="_blank"
+  h4.recommended Learn Git in 20 Minutes
+p Erklärt in ruhigem Tempo die wichtigsten Git-Befehle. Zwar passiert das in dem Beispiel unter Windows, aber
+  die Befehle sind unter jedem Betriebssytem dieselben. Erst ab Minute <strong>2:10</strong> wird es m.E. interessant.
+
+a href="https://www.youtube.com/embed/o4PFDKIc2fs" target="_blank"
+  h4.mentioned Please. Stop Using Git.
+p Wer davon überzeugt ist, nicht mehr ohne Git arbeiten zu wollen.
+
+
+h3#learn-lynda Lynda-Videos
+
+a href="http://www.lynda.com/Git-tutorials/Git-Essential-Training/100222-2.html" target="_blank"
+  h4.recommended Git Essential Training
+p Sehr empfohlen. Detaillierte Informationen zu den wichtigsten Git features. Geht oft über das hinaus, was wir machen
+  werden. Nicht alle Git Funktionen müssen verstanden werden. Die Videos eignen sich sehr gut die wichtigen Funtkionen
+  nachzuschlagen und gut erklärt zu bekommen.
+
+a href="http://www.lynda.com/Version-Control-tutorials/Fundamentals-Software-Version-Control/106788-2.html" target="_blank"
+  h4.mentioned Fundamentals of Software Version Control
+p Fast 3 Stunden Video-Material zu verschiedenen Systemen zur Versionskontrolle. Sehr umfassend. Sprengt den Rahmen
+  dieser Veranstaltung und hat keinerlei Relevanz für Eure praktische Arbeit. Wer sich aber für das Thema interessiert
+  kann hier etwas schlauer werden.
