@@ -14,5 +14,9 @@
 /.sass-cache
 /.cache
 
+# Ignore logs
+/logs/*
+!/logs/.gitkeep
+
 # Ignore .DS_store file
 .DS_Store
