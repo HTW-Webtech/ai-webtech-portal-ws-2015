@@ -29,7 +29,7 @@ module AppHelpers
   end
 
   def slide_image_src(src)
-    "#{cc(:site).slides_host}/#{src}"
+    "#{cc(:site).slides_host}/images/slides/#{src}"
   end
 
   def current_page_dir(page)
