@@ -27,12 +27,13 @@ section
           li.fragment 1. formale Beschreibung von HTML <a href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/Tags.html" target="_blank">(Berners-Lee, 1990)</a>
           li.fragment 1. Web-Browser (Berners-Lee)
       li.fragment
-        | HTTP nutzt TCP, Port 80/443 (<abbr title="Internet Assigned Numbers Authority">IANA</a>)
+        | HTTP nutzt TCP (<abbr title="Internet Assigned Numbers Authority">IANA</a>)
         ul
           li.fragment TCP Port 80: HTTP
           li.fragment TCP Port 443: HTTPs
 
-    aside.notes Wer weiß warum HTTP auf 2 unterschiedlichen Ports angewendert wird?
+    aside.notes
+      | Wer weiß warum HTTP auf 2 unterschiedlichen Ports angewendert wird?
 
   section
     h2 Request-Response Zyklus
@@ -112,10 +113,20 @@ section
   section data-background=slide_image_src('http/bg-cookies.png')
     h2 HTTP: Cookie
     ul
-      li.fragment HTTP ist zustandslos
-      li.fragment Keine Verwaltung von Nutzer-Sitzungen
-      li.fragment Session-Management findet auf Application-Layer statt
-      li.fragment Cookies ermöglichen Nutzer-Tracking
+      li.fragment
+        | HTTP ist zustandslos
+        ul
+          li.fragment Skaliert sehr effizient
+          li.fragment Vereinfach das Protokoll und die Server-Implementierung
+          li.fragment Session-Management findet auf Application-Layer statt. Bspw. mit Cookies
+      li.fragment Cookie ist Client-Server State, kein Protokoll-State
+
+
+    aside.notes
+      | - Zustandslos heisst, dass der Server einen Request beantworten können muss, ohne
+        irgendwelche Kontext-Informationen vorzuhalten. Dinge wie Session-Management über
+        Cookies machen HTTP nicht per se zustandsbehaftet, sondern sind vielmehr ein Feature
+        on Top.
 
   section
     h2 HTTP: Cookie-Management
@@ -131,6 +142,8 @@ section
 
     h3.fragment Google Chrome: DevTools Cookies
     img.fragment src=slide_image_src('http/google-chrome-cookies.png') height='300px'
+
+    h3.fragment Cookies live
 
 
   section
@@ -151,7 +164,32 @@ section
 
 section
   section
-    h2 cURL & HTTPie
+    h2 HTTP2 ist da
+    ul
+      li.fragment HTTP 1.0 ist etwa 25 Jahre alt. HTTP 1.1 etwa 15 Jahre
+      li.fragment
+        | Besonderheiten von HTTP/2 (h2)
+        ul
+          li.fragment Rückwärtskompatibel
+          li.fragment Wurde von Google stark beeinflusst (SPDY)
+          li.fragment Binary statt Text
+          li.fragment Multiplexed
+
+    aside.notes
+      | Binary protocols are more efficient to parse, more compact “on the wire”, and most importantly, they are much less error-prone, compared to textual protocols like HTTP/1.x, because they often
+        have a number of affordances to “help” with things like whitespace handling, capitalization, line endings, blank links and so on.
+        It’s true that HTTP/2 isn’t usable through telnet, but we already have some tool support, such as a Wireshark plugin.
+
+      a.fragment href="https://http2.github.io/faq/" target="_blank" FAQ zu HTTP/2
+
+
+section
+  section
+    h2 HTTP im Terminal: cURL & HTTPie
+    ul
+      li.fragment: a href="http://curl.haxx.se/" target="_blank" Command line tool and library for transferring data with URL syntax
+      li.fragment: a href="https://github.com/jkbrzt/httpie" target="_blank" HTTPie: a CLI, cURL-like tool for humans
+
 
 section
   h1 Quellen
