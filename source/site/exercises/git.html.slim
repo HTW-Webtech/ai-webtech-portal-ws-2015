@@ -1,23 +1,44 @@
 h1 Git-Übung
-p Bei dieser Übung gibt es noch keine Punkte. Git ist jedoch die Grundlage für alle weiteren Übungen.
-  Wer noch gar keine Erfahrung mit Versionskontroll-Software hat, sollte sich die <a href="#videos">Videos</a>
-  am Ende dieser Seite anschauen.
+p Bei dieser Übung gibt es keine Punkte. Jedoch ist der Umgang mit Git Voraussetzung für die Bearbeitung
+  der folgenden Übungen. Wer noch gar keine Erfahrung mit Versionskontroll-Software hat, findet im
+  <a href="git/#learning">Lern-Bereich</a> eine Vielzahl von Links zu wichtigen Inhalten.
 
 h2 Ziel
-p Git ist auf Eurem Computer richtig konfiguriert. D.h. der folgende Befehl erzeugt die richige Ausgabe:
+p Nach dieser Übung soll Git richtig konfiguriert, sowie die basalen Funktionalitäten wie <samp>git add</samp>,
+  <samp>git commit</samp>, <samp>git push</samp> etc. verstanden und verinnerlicht worden sein.
+  Bei Rückfragen bitte einfach bei mir melden.
+
+h3 Git Konfiguration
+p Jeder git commit referenziert den Commit-Author (Das bist Du). Damit Git den Author in den Commits richtig
+  eintragen kann, müssen diese Informationen für Git konfiguriert werden.
+p Die aktuelle Git Konfiguration für den Author kann im Terminal über den folgenden Befehl ausgewertet werden.
 pre
-  git config --get-regexp user<br/>
-  user.name Dein Name<br/>
-  user.email s000000htw-berlin.de<br/>
+  | git config --get-regexp user<br/>
+  | user.name Dein Name<br/>
+  | user.email s000000htw-berlin.de<br/>
 
-p Um das zu Erreichen öffnet Ihr das Terminal auf der Ubuntu-Virtualmachine und gebt den folgenden Befehl ein:
+p Um Git nun den richtigen Author (Deinen Namen und Deine E-Mail Adresse) mitzuteilen, kann der folgende Befehl
+  im Terminal ausgeführt werden.
 pre
-  git config --global user.name "Dein Name"</br>
-  git config --global user.email "s000000@htw-berlin.de"
+  | git config --global user.name "Max Mustermann"</br>
+  | git config --global user.email "s000001@htw-berlin.de"
 
-p Um den Umgang mit Git zu üben findet ihr Im Folgenden eine Übersicht von Lern-Ressourcen.
+p Ein weitere Mal <samp>git config --get-regexp user</samp> im Terminal ausführen und schon sollte Git den
+  richtigen Namen und die richtige E-Mail anzeigen.
+pre
+  | git config --get-regexp user<br/>
+  | user.name Max Mustermann<br/>
+  | user.email s000001-berlin.de<br/>
 
-h2 Lern-Ressourcen
+
+h3 Git Lernen
+p Um Git zu lernen können die Lern-Videos und Webseiten aus dem Lern-Bereich genutzt werden.
+
+p Wer sich nach den Lern-Inhalten noch unsicher fühlt, soll sich an mich wenden. Das grundlegende Verständnis von
+  Git und dessen Funktionalität ist wesentlich für den übrigen Teil der Veranstaltung.
+
+
+h2#learning Lern-Bereich
 p Eine Übersicht von kostenfreien Inhalten, die ihr Nutzen könnt und sollt um die Übungen lösen
   zu können.
 
