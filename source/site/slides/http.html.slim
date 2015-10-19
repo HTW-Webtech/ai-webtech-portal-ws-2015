@@ -35,6 +35,12 @@ section
     aside.notes Wer weiß warum HTTP auf 2 unterschiedlichen Ports angewendert wird?
 
   section
+    h2 Request-Response Zyklus
+    figure
+      img src=slide_image_src('http/request-response.gif')
+      figcaption: a href="http://www.w3.org/wiki/How_does_the_Internet_work" How does the Internet work
+
+  section
     h2 Kommunikations-Architektur
     ul
       li.fragment Client-Server-Modell mit Request-Response Zyklus
@@ -84,9 +90,53 @@ section
       li.fragment Cookie-Management (Set-Cookie)
 
   section
+    h2 HTTP: Authentication
+    h3.fragment Client: GET Request
+    pre.fragment: code.http
+      | GET / HTTP/1.1
+        …
+
+    h3.fragment Server: GET Response
+    pre.fragment: code.http
+      | HTTP/1.1 401 Authorization Required
+        …
+
+    h3.fragment Client GET Response
+    pre.fragment: code.http
+      | GET / HTTP/1.1
+        Authorization: Basic QWxhZGRpbjpvcGoPPHNlc2FtZQ==
+
+    img.fragment src=slide_image_src('http/basic-auth-modal.png') height='200px'
+
+
+  section data-background=slide_image_src('http/bg-cookies.png')
+    h2 HTTP: Cookie
+    ul
+      li.fragment HTTP ist zustandslos
+      li.fragment Keine Verwaltung von Nutzer-Sitzungen
+      li.fragment Session-Management findet auf Application-Layer statt
+      li.fragment Cookies ermöglichen Nutzer-Tracking
+
+  section
+    h2 HTTP: Cookie-Management
+    h3.fragment Client: GET Request
+    pre.fragment: code.http
+      | GET / HTTP/1.1
+        …
+
+    h3.fragment Server: GET Response
+    pre.fragment: code.http
+      | Set-Cookie: …; expires=Thu, 31-Dec-2015 12:00:00 GMT; path=/; domain=.google.de
+        …
+
+    h3.fragment Google Chrome: DevTools Cookies
+    img.fragment src=slide_image_src('http/google-chrome-cookies.png') height='300px'
+
+
+  section
     h2 HTTP: Status-Codes
-    h3 Server-Response
-    pre: code.http
+    h3.fragment Server-Response
+    pre.fragment: code.http
       | HTTP/1.1 302 Found
         …
 
