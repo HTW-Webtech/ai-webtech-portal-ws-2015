@@ -1,0 +1,101 @@
+section
+  section
+    h2 Hypertext Transfer Protocol
+    ul
+      li.fragment Lingua Franca des Webs (!= Internet)
+      li.fragment Kommunikation zwischen Server und Client/Browser
+      li.fragment Request-Response Zyklus
+      li.fragment Zustandsloses Protokoll
+      li.fragment Seit Mai 2015: HTTP/2
+
+
+  section
+    h2 Web != Internet
+    ul
+      li.fragment
+        | 1. "WorldWideWeb"-Konzept <a href="http://www.w3.org/Proposal.html" target="_blank">(Berners-Lee, 1990)</a>
+        ul
+          li.fragment Ein Kind der Frustration von Berners-Lee
+          li.fragment Entwurf der Web-Architektur: "Information Management: A Proposal" <a href="http://www.w3.org/History/1989/proposal.html" target="_blank">(Berners-Lee, 1989)</a>
+          li.fragment 1. formale Definition von HTTP <a href="http://www.w3.org/Protocols/HTTP/AsImplemented.html" target="_blank">(Berners-Lee, 1991)</a>
+          li.fragment 1. formale Beschreibung von HTML <a href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/Tags.html" target="_blank">(Berners-Lee, 1990)</a>
+          li.fragment 1. Web-Browser (Berners-Lee)
+      li.fragment
+        | HTTP nutzt TCP, Port 80/443 (<abbr title="Internet Assigned Numbers Authority">IANA</a>)
+        ul
+          li.fragment TCP Port 80: HTTP
+          li.fragment TCP Port 443: HTTPs
+
+    aside.notes Wer weiß warum HTTP auf 2 unterschiedlichen Ports angewendert wird?
+
+  section
+    h2 Kommunikations-Architektur
+    ul
+      li.fragment Client-Server-Modell mit Request-Response Zyklus
+      li.fragment
+        | HTTP-Verbs: GET, POST, PATCH, DELETE… insgesamt 9
+        ul
+          li.fragment GET: Ressource laden (HTML, Bild, Video, …)
+          li.fragment HEAD: Meta-Daten Ressource (Zuletzt bearbeitet, …)
+          li.fragment POST: Ressource erzeugen/Daten versenden (Registrierung, Suche, …)
+          li.fragment DELETE: Löscht eine Ressource
+          li.fragment PUT: Ressource erzeugen (Wie POST, aber <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html" target="_blank">idempotent</a>)
+
+  section
+    h2 Beispiel: GET
+    h3 Client-Request
+    pre: code.language-http
+      | GET / HTTP/1.1
+        Host: www.google.com
+        Connection: keep-alive
+        User-Agent: HTTPie/0.9.2
+        Accept: text/html;q=0.9, */*;q=0.8
+        Accept-Encoding: gzip, deflate
+        Accept-Language: en-US, en;
+
+    h3 Server-Response
+    pre: code.language-http
+      | HTTP/1.1 302 Found
+        Cache-Control: private
+        Content-Length: 258
+        Content-Type: text/html; charset=UTF-8
+        Date: Mon, 1 Oct 2015 00:00:00 GMT
+        Location: http://www.google.de/?gfe_rd=cr&ei=-…
+        Server: GFE/2.0
+
+        &lt;HTML&gt;…&lt;/HTML&gt;
+
+
+    a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html" target="_blank"
+      | HTTP 1.1 Header Fields Spec
+
+  section
+    h2 HTTP: Header-Funktionalität
+    ul
+      li.fragment Caching (Control, Invalidation, E-Tags)
+      li.fragment Authentication (Basic access authentication)
+      li.fragment Web-Security (Access-Control, Content-Security-Policy)
+      li.fragment Cookie-Management (Set-Cookie)
+
+  section
+    h2 HTTP: Status-Codes
+    h3 Server-Response
+    pre: code.http
+      | HTTP/1.1 302 Found
+        …
+
+    ul
+      li.fragment 1xx information - Bearbeitung des Requests dauert an
+      li.fragment 2xx success - Alles OK
+      li.fragment 3xx redirect - Die Ressource ist umgezogen
+      li.fragment 4xx client error - Client-Anfrage problematisch: Auth fail, Syntax error
+      li.fragment 5xx server error - Server hat technische Probleme: Gateway/Upstream timeout
+
+    a.fragment href="http://httpstatus.es/" target="_blank" Liste von HTTP status codes mit Beschreibung
+
+
+
+section
+  h1 Quellen
+  ol
+    li: a href="http://httpstatus.es/" Database of HTTP status codes with their IETF + Wikipedia descriptions
