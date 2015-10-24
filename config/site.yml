@@ -3,6 +3,6 @@ development:
   slides_host: 'http://localhost:8011'
 
 production:
-  revealjs_host: 'http://revealjs.htw-webtech.igelmund.info'
-  slides_host: 'http://slides.htw-webtech.igelmund.info'
+  revealjs_host: 'http://revealjs.htw-webtech.com'
+  slides_host: 'http://slides.htw-webtech.com'
 
