@@ -108,7 +108,7 @@ section
       |
 
   section
-    h2 Bedeutung für Entwickler
+    h2 Konsequenzen
 
     ol
       li.fragment Browser-Hersteller definieren die Wirklichkeit
@@ -146,6 +146,14 @@ section
       li.fragment meta (author, lang, custom properties)
       li.fragment script (javascript)
       li.fragment link (stylesheets)
+      li.fragment: pre: code.language-html= html_escape
+        | <head>
+            <meta charset=UTF-8" />
+            <meta name="author" content="Gregory Igelmund" />
+            <meta name="generator" content="Foobar" />
+            <meta name="keywords" content="webentwicklung, …" />
+            <link rel="stylesheet" type="text/css" href="style.css" />
+            <script type="text/javascript" src="script.js" />
 
   section
     h2 Embedded
@@ -154,6 +162,12 @@ section
       li.fragment video
       li.fragment canvas
       li.fragment iframe
+      li.fragment: pre: code.language-html= html_escape
+        | <video src="videofile.ogg" autoplay poster="poster.jpg">
+            Sorry, your browser doesn't support embedded videos,
+            but don't worry, you can <a href="videofile.ogg">download it</a>
+            and watch it with your favorite video player!
+          </video>
 
   section
     h2 Form
@@ -162,6 +176,13 @@ section
       li.fragment label (bezieht sich auf input)
       li.fragment progress (%-Anzeige)
       li.fragment select (Auswahl von Elementen)
+      li.fragment: pre: code.language-html= html_escape
+        | <!-- Simple form which will send a POST request -->
+          <form action="" method="post">
+            <label for="POST-name">Name:</label>
+            <input id="POST-name" type="text" name="name">
+            <input type="submit" value="Save">
+          </form>
 
 section
   section
@@ -173,7 +194,7 @@ section
       li.fragment
         | Mit Microformats:
         pre: code= html_escape
-          | Am <time datetime="2015-02-25 12:00">25. Februar</time> hat …
+          | Am <abbrev title="2015-02-25 12:00">25. Februar</abbrev> hat …
       li.fragment
         | Mit Microdata:
         pre: code= html_escape
@@ -199,7 +220,7 @@ section
             and similar information) automatically.
 
   section
-    h2 Microformats heute: hCard
+    h2 Microformats: hCard
     pre.fragment: code.language-html= html_escape
       | <link rel="profile" href="http://microformats.org/profile/hcard">
         ...
@@ -217,7 +238,7 @@ section
         | Im den meisten Browsern nur mit Erweiterung nutzbar!
 
   section
-    h2 Microformats heute: hEvent
+    h2 Microformats: hCalendar
     pre.fragment: code.language-html= html_escape
       | <p class="vevent">
           The <span class="summary">Wikipedia launched</span>
