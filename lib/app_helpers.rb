@@ -24,8 +24,8 @@ module AppHelpers
     end
   end
 
-  def slide_image_tag(src)
-    image_tag slide_image_src(src)
+  def slide_image_tag(src, opts = {})
+    image_tag slide_image_src(src), opts
   end
 
   def html_escape(&block)

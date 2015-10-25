@@ -26,14 +26,20 @@ section
           li.fragment Microdata (Semantic Web, maschinenlesbares Web)
           li.fragment Accessibility (Screenreader)
 
+    aside.notes
+      | - Meta-Informationen: Author, Sprache des Dokuments, Encoding, Redirect
+        - User-Input: Webcam oder Geolocation gehören hier auch dazu. Auch wenn das heute JS und nicht HTML ist
+        - Microdata oder Semantic Web: Dazu gehören eine Vielzahl von Technologien, die helfen sollen HTML-Dokumente maschinenlesbar(er) zu machen
+        - Accessibilty: Image-alt-text, Reihenfolge beim vorlesen von Inhalt
+
   section
     h2 HTML-Dokumente bestehen aus Tags
     = slide_image_tag 'html/html-element.png'
 
   section
-    h2 HTML-Dokumente sind als Baum abgebildet
-    = slide_image_tag 'html/html-dom-tree.png'
-    pre: code contenteditable=true onkeyup='javascript:function(event) { debugger; };'
+    h2 HTML/DOM-Tree
+    = slide_image_tag 'html/html-dom-tree.png', style: 'height: 240px;'
+    pre: code
       = html_escape
         | <html>
             <head>
@@ -45,18 +51,182 @@ section
           </html>
 
   section
-    h2 So.. a link
-    blockquote.fragment
-      p A relationship between two resources […] by means of a <strong>URI</strong>.
-      cite http://www.w3.org/2003/glossary/subglossary/webarch.rdf
+    h2 Beispiel:
+    pre: code
+      = html_escape
+        | <!doctype html>
+          <html lang="de">
+            <head>
+              <meta charset="utf-8">
+              <title>Der Waschbär</title>
+              <meta name="description" content="Alles wichtige über den Waschbären">
+            </head>
+            <body>
+              <h1>Der Waschbär</h1>
+              <p>
+                Der <b>Waschbär</b> (<i>Procyon lotor</i>), auch als <b>Nordamerikanischer
+                Waschbär</b> oder altertümlich als <b>Schupp</b> bezeichnet, ist ein in
+                Nordamerika heimisches mittelgroßes <a href="/wiki/S%C3%A4ugetiere"
+                title="Säugetiere">Säugetier</a>. Seit Mitte des 20. Jahrhunderts ist er
+                als <a href="/wiki/Neozoon" title="Neozoon" class="mw-redirect">Neozoon</a>
+                …
+                und <a href="/wiki/Mischwald" title="Mischwald">Mischwäldern</a>.
+              </p>
+            </body>
+          </html>
+
+section
+  section
+    h2 Geschichte von HTML
+
+    ol
+      li.fragment 1996: Standard vom W3C <a href="http://www.w3.org/History.html" target="_blank">W3C History</a>
+      li.fragment 2004: WHATWG-Gründung <a href="https://whatwg.org/news/start" target="_blank">Mailing-Liste</a>
+      li.fragment 2008: Einigung zwischen W3C/WHATWG zu HTML5 <a href="http://www.w3.org/QA/2008/01/html5-is-html-and-xml.html" target="_blank">W3C-News</a>
+      li.fragment
+        | 2011: Trennung von W3C/WHATG <a href="http://www.i-programmer.info/news/191-htmlcss/4531-which-html5-whatwg-and-w3c-split.html" target="_blank">WHATWG/W3C Split</a>
+        ul
+          li.fragment W3C: HTML5 + Snapshots
+          li.fragment WHATWG: "Living Standard"
+
+    aside.notes
+      | - W3C: Konstante Versionierung. Mäßige, aber zuverlässige und stetige Entwicklung. Rigide in der Syntax, da ursprünglich XML
+        - WHATWG: Flexiblere Spec. Weniger Restriktionen. Weniger Semantic. Mehr an der Messy Realität orientiert.
 
   section
-    h2: em URI.. hmm
-    h3.fragment or
-    h3.fragment Uniform Resource Identifier
-    blockquote.fragment
-      p A global identifier in the context of the World Wide Web.
-      cite http://www.w3.org/2003/glossary/subglossary/webarch.rdf
+    h2 2 Standards > 1 Standard
+
+    figure
+      = slide_image_tag 'html/w3c-vs-whatwg-spec.png'
+      figcaption
+        => html_escape
+          | <section>-Tag
+        | im #{link_to 'MDN', 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section'}
+
+
+    aside.notes
+      |
 
   section
-    = slide_image_tag 'html/not-sure-winning.jpg'
+    h2 Bedeutung für Entwickler
+
+    ol
+      li.fragment Browser-Hersteller definieren die Wirklichkeit
+      li.fragment Über Feature-Support informieren, bspw. bei <a href="http://caniuse.com/" target="_blank">caniuse.com</a>
+      li.fragment Feature-Detection mit Hilfe von <a href="https://modernizr.com/" target="_blank">Modernizr</a>
+
+    aside.notes
+      | - W3C: Konstante Versionierung. Mäßige, aber zuverlässige und stetige Entwicklung. Rigide in der Syntax, da ursprünglich XML
+        - WHATWG: Flexiblere Spec. Weniger Restriktionen. Weniger Semantic. Mehr an der Messy Realität orientiert.
+
+  section
+    h2 Modernizr
+    .fragment= slide_image_tag 'html/feature-detection-modernizr.png'
+
+  section
+    h2 Caniuse.com
+    .fragment= slide_image_tag 'html/caniuse.png'
+
+section
+  section
+    h2 HTML Content categories
+    ul
+      li.fragment Metadata
+      li.fragment Flow content
+      li.fragment Sectioning content
+      li.fragment Heading content
+      li.fragment Phrasing content
+      li.fragment Embedded content
+      li.fragment Interactive content
+      li.fragment Form-associated content
+
+  section
+    h2 Metadata
+    ul
+      li.fragment meta (author, lang, custom properties)
+      li.fragment script (javascript)
+      li.fragment link (stylesheets)
+
+  section
+    h2 Embedded
+    ul
+      li.fragment audio
+      li.fragment video
+      li.fragment canvas
+      li.fragment iframe
+
+  section
+    h2 Form
+    ul
+      li.fragment input (text, button, color, date, email)
+      li.fragment label (bezieht sich auf input)
+      li.fragment progress (%-Anzeige)
+      li.fragment select (Auswahl von Elementen)
+
+section
+  section
+    h2 Semantic Web / Microdata / Microformats
+    ul
+      li.fragment HTML ist zwar maschinenlesbar, aber die meisten Informationen sind im Text versteckt
+      li.fragment: code= html_escape
+        | Am 25. Februar hat ein Waschbär in der Nähe von Cochem…
+      li.fragment
+        | Mit Microformats:
+        pre: code= html_escape
+          | Am <time datetime="2015-02-25 12:00">25. Februar</time> hat …
+      li.fragment
+        | Mit Microdata:
+        pre: code= html_escape
+          | <section itemscope itemtype="http://schema.org/Date">
+            Am <span itemprop="date">25. Februar</span> hat …
+      li.fragment
+        | Mit RDF:
+        pre: code= html_escape
+          | <div vocab="http://schema.org/" typeof="Date">
+            Am <span property="date">25. Februar</span> hat …
+
+      aside.notes
+        | - Microdata: Microdata is a WHATWG HTML specification used to nest metadata within existing content on web pages.
+            Search engines, web crawlers, and browsers can extract and process
+            Microdata from a web page and use it to provide a richer browsing experience for users.
+          - RDF: The Semantic Web is an extension of the Web through standards by the World Wide Web Consortium (W3C).
+            The standards promote common data formats and exchange protocols on the Web, most fundamentally the
+            Resource Description Framework (RDF).
+          - Microformats: A microformat (sometimes abbreviated μF) is a World Wide Web-based approach to semantic markup which
+            uses HTML/XHTML tags supported for other purposes to convey additional metadata[1] and other attributes in web
+            pages and other contexts that support (X)HTML, such as RSS. This approach allows software to process
+            information intended for end-users (such as contact information, geographic coordinates, calendar events,
+            and similar information) automatically.
+
+  section
+    h2 Microformats heute: hCard
+    ul
+      pre: code.language-html= html_escape
+        | <link rel="profile" href="http://microformats.org/profile/hcard">
+          ...
+          <ul class="vcard">
+              <li class="fn">Joe Doe</li>
+              <li class="nickname">Jo</li>
+              <li class="org">The Example Company</li>
+              <li class="tel">604-555-1234</li>
+              <li>
+                <a class="url" href="…">http://example.com/</a>
+              </li>
+          </ul>
+
+      aside.notes
+        | Im den meisten Browsern nur mit Erweiterung nutzbar!
+
+  section
+    h2 Microformats heute: hEvent
+    ul
+      pre: code.language-html= html_escape
+        | <p class="vevent">
+            The <span class="summary">Wikipedia launched</span>
+            on 15 January 2001 with a party from
+            <abbr class="dtstart" title="2001-01-15T14:00:00+06:00">2</abbr>
+            -<abbr class="dtend"title="2001-01-15T16:00:00+06:00 ">4</abbr>
+            pm at <span class="location">Jimmy Wales' house</span>
+
+      aside.notes
+        | Im den meisten Browsern nur mit Erweiterung nutzbar!
