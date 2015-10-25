@@ -200,33 +200,34 @@ section
 
   section
     h2 Microformats heute: hCard
-    ul
-      pre: code.language-html= html_escape
-        | <link rel="profile" href="http://microformats.org/profile/hcard">
-          ...
-          <ul class="vcard">
-              <li class="fn">Joe Doe</li>
-              <li class="nickname">Jo</li>
-              <li class="org">The Example Company</li>
-              <li class="tel">604-555-1234</li>
-              <li>
-                <a class="url" href="…">http://example.com/</a>
-              </li>
-          </ul>
+    pre.fragment: code.language-html= html_escape
+      | <link rel="profile" href="http://microformats.org/profile/hcard">
+        ...
+        <ul class="vcard">
+            <li class="fn">Joe Doe</li>
+            <li class="nickname">Jo</li>
+            <li class="org">The Example Company</li>
+            <li class="tel">604-555-1234</li>
+            <li>
+              <a class="url" href="…">http://example.com/</a>
+            </li>
+        </ul>
 
       aside.notes
         | Im den meisten Browsern nur mit Erweiterung nutzbar!
 
   section
     h2 Microformats heute: hEvent
-    ul
-      pre: code.language-html= html_escape
-        | <p class="vevent">
-            The <span class="summary">Wikipedia launched</span>
-            on 15 January 2001 with a party from
-            <abbr class="dtstart" title="2001-01-15T14:00:00+06:00">2</abbr>
-            -<abbr class="dtend"title="2001-01-15T16:00:00+06:00 ">4</abbr>
-            pm at <span class="location">Jimmy Wales' house</span>
+    pre.fragment: code.language-html= html_escape
+      | <p class="vevent">
+          The <span class="summary">Wikipedia launched</span>
+          on 15 January 2001 with a party from
+          <abbr class="dtstart" title="2001-01-15T14:00:00+06:00">2</abbr>
+          -<abbr class="dtend"title="2001-01-15T16:00:00+06:00 ">4</abbr>
+          pm at <span class="location">Jimmy Wales' house</span>
 
-      aside.notes
-        | Im den meisten Browsern nur mit Erweiterung nutzbar!
+    aside.notes
+      | Im den meisten Browsern nur mit Erweiterung nutzbar!
+
+section
+  h2 Done
