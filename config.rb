@@ -3,6 +3,7 @@ require 'slim'
 
 # Load ActiveSupport::Time
 require 'active_support/time'
+require 'active_support/core_ext/string/output_safety'
 
 # Load code from lib directory
 Dir[__dir__ + '/lib/**/*.rb'].each { |rb| require_relative rb }

@@ -28,6 +28,10 @@ module AppHelpers
     image_tag slide_image_src(src)
   end
 
+  def html_escape(&block)
+    ERB::Util.html_escape String.new(block.call)
+  end
+
   def slide_image_src(src)
     "#{cc(:site).slides_host}/images/slides/#{src}"
   end
