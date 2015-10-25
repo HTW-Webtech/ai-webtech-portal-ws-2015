@@ -4,61 +4,56 @@ section
   /  h2.fragment 10 min. live-coding a basic html page
 
   section
-    h1 HTML
+    h2 HTML
     p.fragment <em>H</em>yper<em>T</em>ext <em>M</em>arkup <em>L</em>anguage
 
   section
-    h1 Hypertext
+    h2 Hypertext
     ul
       li.fragment Hypertext ist Text, der mit anderen Texten verknüpft ist: <a href="#">Der Link</a>
       li.fragment Dank dem Web (und DNS, etc.) können Dokumente global eindeutig referenziert werden
 
   section
-    h1 Markup Language
+    h2 Markup Language
     ul
       li.fragment HTML beschreibt komplexe Dokumente
       li.fragment
         | Dazu gehören neben Darstellung von Text:
         ul
+          li.fragment Meta-Informationen zum Dokument (Author, Sprache)
           li.fragment Bilder, Videos, Ton (Multimedia)
           li.fragment Formulare (User-Input/Interaktion)
-          li.fragment Microdata (Semantic Web)
+          li.fragment Microdata (Semantic Web, maschinenlesbares Web)
           li.fragment Accessibility (Screenreader)
 
-    h1 Markup Language
-    ul
-      li.fragment HTML beschreibt Hypertext-Multimedia-Dokumente
-      li.fragment
-        |Dazu gehören neben Text:
-        ul
-          li.fragment Bilder
-          li.fragment Video
-          li.fragment Audio
-          li.fragment Formulare
-          li.fragment …
-
-    h1 HTML-Documents
-    ul
-      li.fragment HTML Dokumente sind
-      li.fragment
-        |Dazu gehören neben Text:
-        ul
-          li.fragment Bilder
-          li.fragment Video
-          li.fragment Audio
-          li.fragment Formulare
-          li.fragment …
+  section
+    h2 HTML-Dokumente bestehen aus Tags
+    = slide_image_tag 'html/html-element.png'
 
   section
-    h1 So.. a link
+    h2 HTML-Dokumente sind als Baum abgebildet
+    = slide_image_tag 'html/html-dom-tree.png'
+    pre: code contenteditable=true onkeyup='javascript:function(event) { debugger; };'
+      = html_escape
+        | <html>
+            <head>
+              <title>Hallo Welt</title>
+            </head>
+            <body>
+              <p>Text</p>
+            </body>
+          </html>
+
+  section
+    h2 So.. a link
     blockquote.fragment
       p A relationship between two resources […] by means of a <strong>URI</strong>.
       cite http://www.w3.org/2003/glossary/subglossary/webarch.rdf
 
   section
-    h1: em URI.. hmm
-    h2.fragment or
-    h2.fragment Uniform Resource Identifier
+    h2: em URI.. hmm
+    h3.fragment or
+    h3.fragment Uniform Resource Identifier
     blockquote.fragment
       p A global identifier in the context of the World Wide Web.
       cite http://www.w3.org/2003/glossary/subglossary/webarch.rdf
