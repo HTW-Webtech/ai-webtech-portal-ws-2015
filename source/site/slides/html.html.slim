@@ -10,7 +10,7 @@ section
   section
     h2 Hypertext
     ul
-      li.fragment Hypertext ist Text, der mit anderen Texten verknüpft ist: <a href="#">Der Link</a>
+      li.fragment Hypertext ist Text, der mit anderen Texten über einen <a href="#">Link</a> verknüpft ist
       li.fragment Dank dem Web (und DNS, etc.) können Dokumente global eindeutig referenziert werden
 
   section
@@ -94,7 +94,20 @@ section
         - WHATWG: Flexiblere Spec. Weniger Restriktionen. Weniger Semantic. Mehr an der Messy Realität orientiert.
 
   section
-    h2 2 Standards > 1 Standard
+    h2 2 Standards ⚡
+
+    figure
+      = slide_image_tag 'html/w3c-vs-whatwg-spec.png'
+      figcaption
+        => html_escape
+          | <section>-Tag
+        | im #{link_to 'MDN', 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section'}
+
+    aside.notes
+      |
+
+  section
+    h2 Standards > 1 Standard
 
     figure
       = slide_image_tag 'html/w3c-vs-whatwg-spec.png'
