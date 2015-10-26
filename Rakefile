@@ -39,12 +39,14 @@ namespace :deploy do
     '/var/apps/slides/public'
   end
 
+  desc 'Deploy slides to virtual machine'
   task :dev do
     # TODO: FIXME
     ENV['RAILS_ENV'] = 'development'
     deploy :development
   end
 
+  desc 'Deploy slides to production'
   task :prod do
     # TODO: FIXME
     ENV['RAILS_ENV'] = 'production'
