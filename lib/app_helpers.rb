@@ -25,7 +25,7 @@ module AppHelpers
 
   def link_to_slides(title, slides_name, available_at = Date.current)
     if Date.current >= available_at
-      "<a href='/site/slides/#{slides_name}'>#{title}</a> (#{slides_link(slides_name)})"
+      "<a href='/site/slides/#{slides_name}.html'>#{title}</a> (#{slides_link(slides_name)})"
     else
       "<abbr title='Verfügbar ab: #{available_at}'>#{title}</abbr>"
     end
@@ -36,19 +36,19 @@ module AppHelpers
   end
 
   def revealjs_url(slides_name)
-    "#{cc(:site).revealjs_host}/?sourceURI=#{cc(:site).slides_host}/site/slides/revealjs/#{slides_name}"
+    "#{cc(:site).revealjs_host}/?sourceURI=#{cc(:site).slides_host}/site/slides/revealjs/#{slides_name}.html"
   end
 
   def slide_image_tag(src, opts = {})
     image_tag slide_image_src(src), opts
   end
 
-  def html_escape(&block)
-    ERB::Util.html_escape String.new(block.call)
-  end
-
   def slide_image_src(src)
     "#{cc(:site).slides_host}/images/slides/#{src}"
+  end
+
+  def html_escape(&block)
+    ERB::Util.html_escape String.new(block.call)
   end
 
   def current_page_dir(page)

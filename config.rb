@@ -10,19 +10,13 @@ Dir[__dir__ + '/lib/**/*.rb'].each { |rb| require_relative rb }
 
 # Reveal.js configuration
 use Middlewares::AccessControlAllowAllOrigins
-# TODO:
-# Slides currently have to layout since they are fetched by reveal.js
-# and presented in a different context (with another layout).
-# A much nicer approach would be to serve two separate files, one for
-# reveal.js and a readable/printable version which lives beside.
 page 'site/slides/revealjs/*', layout: false
 page 'site/slides/index.html', layout: 'layout'
 
-require 'byebug'
 Dir[__dir__ + '/source/site/slides/*'].each do |exercise_file|
-  # proxy '/site/slides/revealjs/git.html', '/site/slides/git.html'
-  # Generate proxy files for each slide deck
-  byebug
+  file_name = File.basename(exercise_file).split('.html').first
+  html_file = "#{file_name}.html"
+  proxy "/site/slides/revealjs/#{html_file}", "/site/slides/#{html_file}"
 end
 
 # Template Engines
