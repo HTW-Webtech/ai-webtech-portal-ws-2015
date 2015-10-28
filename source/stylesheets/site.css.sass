@@ -1,14 +1,30 @@
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
-// @import "bootstrap-paper/variables"
-// @import "bootstrap-paper/bootswatch"
-
 @import "bootstrap-custom/site"
 @import "bootstrap-yeti/variables"
 @import "bootstrap-yeti/bootswatch"
 
-@import "mixins"
-@import "typography"
+=circle($content)
+  display: inline-block
+  border-radius: 50%
+  width: 1.2em
+  height: 1.2em
+  text-align: center
+  margin: 0 0.2em
+  border: 1px solid
+  line-height: 1em
+  content: $content
 
-@import "exercises"
+// Typography
+body
+  font-size: 1.6em
+  line-height: 1.5em
+
+h1, h2
+  border-bottom: 1px #444 dotted
+  padding-bottom: 0.25em
+
+h1, h2, h3, h4
+  margin-bottom: 0.5em
+
