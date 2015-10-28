@@ -4,10 +4,17 @@ module AppHelpers
   end
 
   def nav_li_link(title, url, opts = {})
-    anchor = link_to title, url, opts
-    page_path = "/#{current_page.path}"
-    li_class = page_path.start_with?(url) ? 'active' : ''
-    "<li class='#{li_class}'>#{anchor}</li>"
+    "<li class='#{nav_li_class(url)}'>#{link_to(title, url, opts)}</li>"
+  end
+
+  def nav_li_class(url)
+    if current_page.path.include? url.split('/').last.split('.html').first
+      'active'
+    end
+  end
+
+  def file_from_url(url)
+    url.split('/').last.split('.').first
   end
 
   def recursive_data(field, page)

@@ -1,7 +1,7 @@
 # Git-Übung
 Bei dieser Übung gibt es keine Punkte. Jedoch ist der Umgang mit Git Voraussetzung für die Bearbeitung
 der folgenden Übungen. Wer noch gar keine Erfahrung mit Versionskontroll-Software hat, findet im
-[Lern-Bereich](git/#learning) Links zu wichtigen Inhalten.
+[Lern-Bereich](#lern-bereich) Links zu wichtigen Inhalten.
 
 # Ziel
 Nach dieser Übung soll Git richtig konfiguriert, sowie die basalen Funktionalitäten wie `git add`,
@@ -37,7 +37,7 @@ user.email s000001-berlin.de
 ~~~
 
 
-# Git Lernen
+# Lern-Bereich
 Wer sich nach den Lern-Inhalten noch unsicher fühlt, soll sich an mich wenden. Das grundlegende Verständnis von
 Git und dessen Funktionalität ist wesentlich für den übrigen Teil der Veranstaltung.
 

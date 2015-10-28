@@ -31,8 +31,6 @@ set :markdown_engine, :kramdown
 # Sprockets
 sprockets.append_path 'source/sass/'
 
-# Create a sub-directory and index.html for each template
-activate :directory_indexes
 set :images_dir, 'images'
 set :sass_assets_paths, ['source/sass']
 helpers AppHelpers # Load external helper files
