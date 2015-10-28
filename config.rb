@@ -8,7 +8,7 @@ require 'active_support/core_ext/string/output_safety'
 # Load code from lib directory
 Dir[__dir__ + '/lib/**/*.rb'].each { |rb| require_relative rb }
 
-# Server middlewares
+# Reveal.js configuration
 use Middlewares::AccessControlAllowAllOrigins
 
 # TODO:
@@ -19,31 +19,24 @@ use Middlewares::AccessControlAllowAllOrigins
 page 'site/slides/*', layout: false
 page 'site/slides/index.html', layout: 'layout'
 
-# With no layout
-page '/*.xml', layout: false
-page '/*.json', layout: false
-page '/*.txt', layout: false
+# Template Engines
+set :markdown_engine, :kramdown
 
 # Sprockets
 sprockets.append_path 'source/sass/'
 
-# Reload the browser automatically whenever files change
-configure :development do
-  activate :livereload, apply_js_live: false
-end
-
-###
-# Helpers
-###
-helpers AppHelpers
-
+# Create a sub-directory and index.html for each template
 activate :directory_indexes
-
 set :images_dir, 'images'
 set :sass_assets_paths, ['source/sass']
+helpers AppHelpers # Load external helper files
 
-# Build-specific configuration
+# Production configuration
 configure :build do
   activate :asset_hash # Enable cache buster
 end
 
+# Development configuration
+configure :development do
+  activate :livereload, apply_js_live: false
+end
