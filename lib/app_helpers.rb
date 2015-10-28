@@ -48,10 +48,6 @@ module AppHelpers
     __extract_paths(page).pop
   end
 
-  def current_page_path(page)
-    paths = __extract_paths(page).map { |part| "#{part}/" }
-    "/#{paths.join}"
-  end
 
   def __extract_paths(page)
     page.path.split(?/).tap do |paths|
