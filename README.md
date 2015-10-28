@@ -1,6 +1,9 @@
 # Webententwicklung AI WS 2015
 Description: TODO
 
+# Live
+http://slides.htw-webtech.com
+
 # Git repo klonen
 ```
 git clone --recursive https://github.com/HTW-Webtech/ai-webtech-ws-2015
