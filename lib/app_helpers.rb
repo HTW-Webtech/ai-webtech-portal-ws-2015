@@ -16,12 +16,20 @@ module AppHelpers
     end
   end
 
-  def link_to_slides(title, slide_name, available_at = Date.current)
+  def link_to_slides(title, slides_name, available_at = Date.current)
     if Date.current >= available_at
-      link_to title, "#{cc(:site).revealjs_host}/?sourceURI=#{cc(:site).slides_host}/site/slides/#{slide_name}", target: '_blank'
+      "<a href='/site/slides/#{slides_name}'>#{title}</a> (#{slides_link(slides_name)})"
     else
       "<abbr title='Verfügbar ab: #{available_at}'>#{title}</abbr>"
     end
+  end
+
+  def slides_link(slides_name)
+    link_to 'Slides', revealjs_url(slides_name), target: '_blank'
+  end
+
+  def revealjs_url(slides_name)
+    "#{cc(:site).revealjs_host}/?sourceURI=#{cc(:site).slides_host}/site/slides/revealjs/#{slides_name}"
   end
 
   def slide_image_tag(src, opts = {})
@@ -49,5 +57,10 @@ module AppHelpers
     page.path.split(?/).tap do |paths|
       paths.pop
     end
+  end
+
+  # Markdown helpers
+  def md_image(path, alt, opts = {})
+    "![#{alt}](images/#{path} '#{alt}')"
   end
 end
