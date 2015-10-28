@@ -1,15 +1,16 @@
-# htw-webtech-middleman
+# Webententwicklung AI WS 2015
+Description: TODO
 
-Clone this repo with submodules:
+# Git repo klonen
 ```
-git clone ---recursive URL your-repo
+git clone --recursive https://github.com/HTW-Webtech/ai-webtech-ws-2015
 ```
 
 # TODOs
-[] rake deploy sollte rsync benutzen und nicht das build-dir clearen
-[] HTML ohne entities schreiben müssen?
-[] Safari seems to have issues with rendering the slids (revealjs)
-[] Sprungmarken scrollen den Content hinter die Navigations-Leiste (welche fixed am top ist)
+- [ ] Add description
+- [ ] rake deploy sollte rsync benutzen und nicht das build-dir clearen
+- [ ] Safari seems to have issues with rendering the slids (revealjs)
+- [ ] Sprungmarken/fragment-links scrollen den content hinter die Navigations-Leiste (welche fixed am top ist)
 
 # License
 http://grekko.mit-license.org/
