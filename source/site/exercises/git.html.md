@@ -53,11 +53,11 @@ Git und dessen Funktionalität ist wesentlich für den übrigen Teil der Veranst
   Wer davon überzeugt ist, nicht mehr ohne Git arbeiten zu wollen.
 
 ## Lynda-Videos
-* [Git Essential Training](http://www.lynda.com/Git-tutorials/Git-Essential-Training/100222-2.html):
+* [Git Essential Training: Kevin Skoglund](http://www.lynda.com/Git-tutorials/Git-Essential-Training/100222-2.html):
   Sehr empfohlen. Detaillierte Informationen zu den wichtigsten Git features. Geht oft über das hinaus, was wir machen
   werden. Nicht alle Git Funktionen müssen verstanden werden. Die Videos eignen sich sehr gut die wichtigen Funtkionen
   nachzuschlagen und gut erklärt zu bekommen.
-* [Fundamentals of Software Version Control](http://www.lynda.com/Version-Control-tutorials/Fundamentals-Software-Version-Control/106788-2.html):
+* [Fundamentals of Software Version Control: Michael Lehman](http://www.lynda.com/Version-Control-tutorials/Fundamentals-Software-Version-Control/106788-2.html):
   Fast 3 Stunden Video-Material zu verschiedenen Systemen zur Versionskontrolle. Sehr umfassend. Sprengt den Rahmen
   dieser Veranstaltung und hat keinerlei Relevanz für Eure praktische Arbeit. Wer sich aber für das Thema interessiert
   kann hier etwas schlauer werden.
