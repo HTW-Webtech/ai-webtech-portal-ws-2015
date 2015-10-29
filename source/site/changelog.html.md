@@ -2,7 +2,7 @@
 Auf dieser Seite werden Änderungen an diesem Lern-Portal protokolliert.
 
 ## 29. Oktober 2015
-* Lern-Inhalte für die [HTML Übung](/site/exercises/html) hinzugefügt
+* Lern-Inhalte für die [HTML Übung](/site/exercises/html#learning) hinzugefügt
 
 ## 25. Oktober 2015
 * Neue Domain: webtech.com statt htw-webtech.igelmund.info
