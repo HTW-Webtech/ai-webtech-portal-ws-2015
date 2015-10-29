@@ -31,7 +31,8 @@ helpers AppHelpers # Load external helper files
 
 # Production configuration
 configure :build do
-  activate :asset_hash # Enable cache buster
+  # activate :asset_hash # Currently breaks when parsing prism.js
+  # activate :minify_javascript
 end
 
 # Development configuration
