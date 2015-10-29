@@ -10,6 +10,7 @@ git clone --recursive https://github.com/HTW-Webtech/ai-webtech-ws-2015
 ```
 
 # TODOs
+- [ ] Evaluate gitter.im for frontpage (https://sidecar.gitter.im/)
 - [ ] Add description
 - [ ] Reformat slides
 - [ ] rake deploy sollte rsync benutzen und nicht das build-dir clearen
