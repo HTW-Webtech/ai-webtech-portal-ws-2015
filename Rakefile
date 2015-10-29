@@ -1,54 +1,41 @@
+require 'complex_config/rude'
+
 namespace :deploy do
+  def log(msg, env = '?')
+    puts "[#{env}] #{msg}"
+  end
+
   def deploy(env)
-    clean_build
-    puts "Deploying to #{env}"
-    puts "Removing all current files from: #{remote_path}"
-    cleanup env
-    puts "Copying all files from #{build_dir_path} to: #{remote_path}"
-    scp_build_dir env
+    clean_build env
+    rsync_files env
   end
 
-  def clean_build
-    puts 'Removes current build dir'
-    puts `rm -rf #{build_dir_path}`
-    build
+  def rsync_files(env)
+    puts "Rsyncing local files from #{cc(:site).build_dir_path} to remote: #{cc(:site).remote_path}", env
+    sh "rsync -avz --progress #{cc(:site).build_dir_path} #{cc(:site).rsync_host}:#{cc(:site).remote_path}"
   end
 
-  def build
-    puts "Building the current project in: #{build_dir_path}"
-    puts `bundle exec middleman build`
+  def clean_build(env)
+    log "Removing all files from current build: #{cc(:site).build_dir_path}", env
+    sh "rm -rf #{cc(:site).build_dir_path}/*"
+    log "Generating latest build: #{cc(:site).build_dir_path}", env
+    sh 'bundle exec middleman build'
   end
 
   def build
     puts `bundle exec middleman build`
   end
 
-  def cleanup(env)
-    puts `ssh #{env} -F .ssh-config 'cd #{remote_path}/ && sudo rm -rf ./*'`
-  end
-
-  def scp_build_dir(env)
-    puts `scp -r -F .ssh-config #{build_dir_path} #{env}:#{remote_path} > /dev/tty`
-  end
-
-  def build_dir_path
-    './build/*'
-  end
-
-  def remote_path
-    '/var/apps/slides/public'
-  end
-
-  desc 'Deploy slides to virtual machine'
-  task :dev do
-    # TODO: FIXME
-    ENV['RAILS_ENV'] = 'development'
-    deploy :development
+  desc 'Deploy slides to staging: virual machine'
+  task :stg do
+    # TODO: complex config does primarily respect the RAILS_ENV
+    ENV['RAILS_ENV'] = 'staging'
+    deploy :staging
   end
 
   desc 'Deploy slides to production'
-  task :prod do
-    # TODO: FIXME
+  task :prd do
+    # TODO: complex config does primarily respect the RAILS_ENV
     ENV['RAILS_ENV'] = 'production'
     deploy :production
   end

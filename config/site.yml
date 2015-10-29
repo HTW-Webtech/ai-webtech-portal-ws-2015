@@ -1,8 +1,16 @@
-development:
-  revealjs_host: 'http://localhost:1947'
-  slides_host: 'http://localhost:8011'
+all: &all
+  build_dir_path: ./build
+  remote_path: /var/apps/slides/public
+
+staging:
+  <<: *all
+  revealjs_host: http://localhost:1947
+  slides_host: http://localhost:8011
+  rsync_host: htw-aris-vagrant # Configure this in your ~/.ssh/config
 
 production:
-  revealjs_host: 'http://revealjs.htw-webtech.com'
-  slides_host: 'http://slides.htw-webtech.com'
+  <<: *all
+  revealjs_host: http://revealjs.htw-webtech.com
+  slides_host: http://slides.htw-webtech.com
+  rsync_host: aris # Configure in ~/.ssh/config
 
