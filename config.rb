@@ -33,6 +33,7 @@ helpers AppHelpers # Load external helper files
 configure :build do
   # activate :asset_hash # Currently breaks when parsing prism.js
   # activate :minify_javascript
+  activate :gzip
 end
 
 # Development configuration
