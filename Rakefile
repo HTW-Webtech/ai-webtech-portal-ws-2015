@@ -12,7 +12,7 @@ namespace :deploy do
 
   def rsync_files(env)
     puts "Rsyncing local files from #{cc(:site).build_dir_path} to remote: #{cc(:site).remote_path}", env
-    sh "rsync -avz --progress #{cc(:site).build_dir_path} #{cc(:site).rsync_host}:#{cc(:site).remote_path}"
+    sh "rsync -avhze ssh --delete --progress #{cc(:site).build_dir_path}/ #{cc(:site).rsync_host}:#{cc(:site).remote_path}"
   end
 
   def clean_build(env)
