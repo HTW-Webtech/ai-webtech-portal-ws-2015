@@ -3,4 +3,6 @@
 /* Bootstrap depends on jQuery */
 //= require bootstrap-sprockets
 
+//= require vendor/_jquery.oembed.js
 //= require vendor/_prism
+//= require initialize/_oembed
