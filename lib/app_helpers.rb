@@ -61,9 +61,4 @@ module AppHelpers
       paths.pop
     end
   end
-
-  # Markdown helpers
-  def md_image(path, alt, opts = {})
-    "![#{alt}](images/#{path} '#{alt}')"
-  end
 end
