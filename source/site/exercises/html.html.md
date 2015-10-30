@@ -22,13 +22,13 @@ Dein Vorgesetzter hätte gerne eine Webseite mit drei Unterseiten:
 
 
 ### Startseite
-<%= md_image 'exercises/html/start.png', 'Die Startseite: index.html' %>
+![Die Startseite: index.html](exercises/html/start.png)
 
 ### Kontakt-Formular
-<%= md_image 'exercises/html/contact.png', 'Die Kontakt-Seite: contact.html' %>
+![Die Kontakt-Seite: contact.html](exercises/html/contact.png)
 
 ### Impressum
-<%= md_image 'exercises/html/imprint.png', 'Die Impressum-Seite: imprint.html' %>
+![Die Impressum Seite: imprint.html](exercises/html/imprint.png)
 
 
 ## Technische Anforderungen
@@ -53,8 +53,9 @@ Das Formular verschickt die Eingaben via `POST` an die Adresse `/contact`. Versc
 * message
 
 ## Ressourcen
+Bazinga-Logo:
 
-<%= md_image 'exercises/html/bazinga-logo.png', 'Bazinga-Logo' %>
+![Bazinga-Logo](exercises/html/bazinga-logo.png)
 
 
 # Lern-Bereich
