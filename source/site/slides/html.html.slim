@@ -44,41 +44,39 @@ section
   section
     h2 HTML/DOM-Tree
     = slide_image_tag 'html/html-dom-tree.png', style: 'height: 240px;'
-    pre: code
-      = html_escape
-        | <html>
-            <head>
-              <title>Hallo Welt</title>
-            </head>
-            <body>
-              <p>Text</p>
-            </body>
-          </html>
+    = html_code
+      | <html>
+          <head>
+            <title>Hallo Welt</title>
+          </head>
+          <body>
+            <p>Text</p>
+          </body>
+        </html>
 
   section
     h2 Beispiel:
-    pre: code
-      = html_escape
-        | <!doctype html>
-          <html lang="de">
-            <head>
-              <meta charset="utf-8">
-              <title>Der Waschbär</title>
-              <meta name="description" content="Alles wichtige über den Waschbären">
-            </head>
-            <body>
-              <h1>Der Waschbär</h1>
-              <p>
-                Der <b>Waschbär</b> (<i>Procyon lotor</i>), auch als <b>Nordamerikanischer
-                Waschbär</b> oder altertümlich als <b>Schupp</b> bezeichnet, ist ein in
-                Nordamerika heimisches mittelgroßes <a href="/wiki/S%C3%A4ugetiere"
-                title="Säugetiere">Säugetier</a>. Seit Mitte des 20. Jahrhunderts ist er
-                als <a href="/wiki/Neozoon" title="Neozoon" class="mw-redirect">Neozoon</a>
-                …
-                und <a href="/wiki/Mischwald" title="Mischwald">Mischwäldern</a>.
-              </p>
-            </body>
-          </html>
+    = html_code
+      | <!doctype html>
+        <html lang="de">
+          <head>
+            <meta charset="utf-8">
+            <title>Der Waschbär</title>
+            <meta name="description" content="Alles wichtige über den Waschbären">
+          </head>
+          <body>
+            <h1>Der Waschbär</h1>
+            <p>
+              Der <b>Waschbär</b> (<i>Procyon lotor</i>), auch als <b>Nordamerikanischer
+              Waschbär</b> oder altertümlich als <b>Schupp</b> bezeichnet, ist ein in
+              Nordamerika heimisches mittelgroßes <a href="/wiki/S%C3%A4ugetiere"
+              title="Säugetiere">Säugetier</a>. Seit Mitte des 20. Jahrhunderts ist er
+              als <a href="/wiki/Neozoon" title="Neozoon" class="mw-redirect">Neozoon</a>
+              …
+              und <a href="/wiki/Mischwald" title="Mischwald">Mischwäldern</a>.
+            </p>
+          </body>
+        </html>
 
 section
   section
@@ -104,7 +102,7 @@ section
     figure
       = slide_image_tag 'html/w3c-vs-whatwg-spec.png'
       figcaption
-        => html_escape
+        => html_code
           | <section>-Tag
         | im #{link_to 'MDN', 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section'}
 
@@ -117,7 +115,7 @@ section
     figure
       = slide_image_tag 'html/w3c-vs-whatwg-spec.png'
       figcaption
-        => html_escape
+        => html_code
           | <section>-Tag
         | im #{link_to 'MDN', 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section'}
 
@@ -164,7 +162,7 @@ section
       li.fragment meta (author, lang, custom properties)
       li.fragment script (javascript)
       li.fragment link (stylesheets)
-      li.fragment: pre: code.language-html= html_escape
+      li.fragment = html_code
         | <head>
             <meta charset=UTF-8" />
             <meta name="author" content="Gregory Igelmund" />
@@ -180,7 +178,7 @@ section
       li.fragment video
       li.fragment canvas
       li.fragment iframe
-      li.fragment: pre: code.language-html= html_escape
+      li.fragment = html_code
         | <video src="videofile.ogg" autoplay poster="poster.jpg">
             Sorry, your browser doesn't support embedded videos,
             but don't worry, you can <a href="videofile.ogg">download it</a>
@@ -194,7 +192,7 @@ section
       li.fragment label (bezieht sich auf input)
       li.fragment progress (%-Anzeige)
       li.fragment select (Auswahl von Elementen)
-      li.fragment: pre: code.language-html= html_escape
+      li.fragment = html_code
         | <!-- Simple form which will send a POST request -->
           <form action="" method="post">
             <label for="POST-name">Name:</label>
@@ -207,20 +205,20 @@ section
     h2 Semantic Web / Microdata / Microformats
     ul
       li.fragment HTML ist zwar maschinenlesbar, aber die meisten Informationen sind im Text versteckt
-      li.fragment: code= html_escape
+      li.fragment code= html_code
         | Am 25. Februar hat ein Waschbär in der Nähe von Cochem…
       li.fragment
         | Mit Microformats:
-        pre: code= html_escape
+        = html_code
           | Am <abbrev title="2015-02-25 12:00">25. Februar</abbrev> hat …
       li.fragment
         | Mit Microdata:
-        pre: code= html_escape
+        = html_code
           | <section itemscope itemtype="http://schema.org/Date">
             Am <span itemprop="date">25. Februar</span> hat …
       li.fragment
         | Mit RDF:
-        pre: code= html_escape
+        = html_code
           | <div vocab="http://schema.org/" typeof="Date">
             Am <span property="date">25. Februar</span> hat …
 
@@ -239,7 +237,7 @@ section
 
   section
     h2 Microformats: hCard
-    pre.fragment: code.language-html= html_escape
+    = html_code
       | <link rel="profile" href="http://microformats.org/profile/hcard">
         ...
         <ul class="vcard">
@@ -257,7 +255,7 @@ section
 
   section
     h2 Microformats: hCalendar
-    pre.fragment: code.language-html= html_escape
+    = html_code
       | <p class="vevent">
           The <span class="summary">Wikipedia launched</span>
           on 15 January 2001 with a party from

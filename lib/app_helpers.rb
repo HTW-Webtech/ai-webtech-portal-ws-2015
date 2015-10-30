@@ -47,6 +47,11 @@ module AppHelpers
     "#{cc(:site).slides_host}/images/slides/#{src}"
   end
 
+  def html_code(&block)
+    escaped_html = html_escape { block.call }
+    "<pre><code class='language-html'>#{escaped_html}</code></pre>"
+  end
+
   def html_escape(&block)
     ERB::Util.html_escape String.new(block.call)
   end
