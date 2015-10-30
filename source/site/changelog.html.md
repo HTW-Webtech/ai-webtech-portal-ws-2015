@@ -3,6 +3,7 @@ Auf dieser Seite werden Änderungen an diesem Lern-Portal protokolliert.
 
 ### 30. Oktober 2015
 * Virtualbox-Setup von der Startseite in die [Setup Übung](/site/exercises/setup.html) verschoben
+* [Gitter-Chat](/#gitter-chat) hinzugefügt.
 
 ### 29. Oktober 2015
 * Lern-Inhalte für die [HTML Übung](/site/exercises/html.html#lern-bereich) hinzugefügt
