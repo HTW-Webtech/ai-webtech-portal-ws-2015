@@ -111,14 +111,10 @@ section
 
   section
     h2 Markup validieren
-
-    figure
-      = slide_image_tag 'html/w3c-vs-whatwg-spec.png'
-      figcaption
-        => html_code
-          | <section>-Tag
-        | im #{link_to 'MDN', 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section'}
-
+    ul
+      li.fragment W3C bietet Dienst zum validieren von HTML5 https://validator.w3.org/
+      li.fragment
+        = slide_image_tag 'html/w3c-validator.png'
 
     aside.notes
       |
@@ -205,7 +201,7 @@ section
     h2 Semantic Web / Microdata / Microformats
     ul
       li.fragment HTML ist zwar maschinenlesbar, aber die meisten Informationen sind im Text versteckt
-      li.fragment code= html_code
+      li.fragment = html_code
         | Am 25. Februar hat ein Waschbär in der Nähe von Cochem…
       li.fragment
         | Mit Microformats:
