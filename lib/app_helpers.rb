@@ -32,7 +32,7 @@ module AppHelpers
   end
 
   def slides_link(slides_name)
-    link_to 'Slides', revealjs_url(slides_name), target: '_blank'
+    link_to 'View slides', revealjs_url(slides_name), target: '_blank'
   end
 
   def revealjs_url(slides_name)
