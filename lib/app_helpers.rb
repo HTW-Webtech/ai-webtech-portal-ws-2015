@@ -23,20 +23,20 @@ module AppHelpers
     end
   end
 
-  def link_to_slides(title, slides_name, available_at = Date.current)
+  def link_to_slides(title, slides_name, theme: 'black', available_at: Date.current)
     if Date.current >= available_at
-      "<a href='/site/slides/#{slides_name}.html'>#{title}</a> (#{slides_link(slides_name)})"
+      "<a href='/site/slides/#{slides_name}.html'>#{title}</a> (#{slides_link(slides_name, theme: theme)})"
     else
-      "<abbr title='Verfügbar ab: #{available_at}'>#{title}</abbr>"
+      "<abbr title='Noch nicht verfügbar'>#{title}</abbr>"
     end
   end
 
-  def slides_link(slides_name)
-    link_to 'View slides', revealjs_url(slides_name), target: '_blank'
+  def slides_link(slides_name, theme:)
+    link_to 'View slides', revealjs_url(slides_name, theme: theme), target: '_blank'
   end
 
-  def revealjs_url(slides_name)
-    "#{cc(:site).revealjs_host}/?sourceURI=#{cc(:site).slides_host}/site/slides/revealjs/#{slides_name}.html"
+  def revealjs_url(slides_name, theme:)
+    "#{cc(:site).revealjs_host}/?theme=#{theme}&sourceURI=#{cc(:site).slides_host}/site/slides/revealjs/#{slides_name}.html"
   end
 
   def slide_image_tag(src, opts = {})
