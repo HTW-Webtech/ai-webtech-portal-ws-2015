@@ -16,6 +16,26 @@
   line-height: 1em
   content: $content
 
+// http://www.paulund.co.uk/creating-different-css3-box-shadows-effects
+.image-box-shadow
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.1) inset
+
+  &:before, &:after
+    content: ""
+    position: absolute
+    z-index: -1
+    box-shadow: 0 0 20px rgba(0,0,0,0.8)
+    top: 10px
+    bottom: 10px
+    left: 0
+    right: 0
+    border-radius: 100px / 10px
+
+  &:after
+    right: 10px
+    left: auto
+    transform: skew(8deg) rotate(3deg)
+
 // Typography
 body
   font-size: 1.6em
@@ -27,4 +47,12 @@ h1, h2
 
 h1, h2, h3, h4
   margin-bottom: 0.5em
+
+
+// Embedded images
+p img
+  max-width: 85%
+  margin: 10px
+  border-radius: 2%
+  @extend .image-box-shadow
 
