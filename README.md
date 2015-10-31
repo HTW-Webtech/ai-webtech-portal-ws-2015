@@ -1,13 +1,13 @@
 # Webententwicklung AI WS 2015
-Dieses Repository fasst alle Informationen zur VA "WS 2015: Webentwicklung" im Studiengang Angewandte Informatik
-zusammen. Dazu gehören alle Lern-Inhalte (Slides, Links), Übungsaufgaben und Termine zu der Veranstaltung.
+Dieses Repository enthält die Lern-Inhalte zur VA "WS 2015: Webentwicklung" im Studiengang Angewandte Informatik.
+Dies umfasst die Präsentationen, Links und Übungsaufgaben.
 
 # Live
-http://slides.htw-webtech.com
+http://portal.htw-webtech.com
 
 # Git repo klonen
 ```
-git clone --recursive https://github.com/HTW-Webtech/ai-webtech-ws-2015
+git clone --recursive https://github.com/HTW-Webtech/ai-webtech-portal-ws-2015
 ```
 
 # TODOs

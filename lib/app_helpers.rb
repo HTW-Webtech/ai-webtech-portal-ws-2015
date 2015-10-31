@@ -36,7 +36,7 @@ module AppHelpers
   end
 
   def revealjs_url(slides_name, theme:)
-    "#{cc(:site).revealjs_host}/?theme=#{theme}&sourceURI=#{cc(:site).slides_host}/site/slides/revealjs/#{slides_name}.html"
+    "#{cc(:site).revealjs_host}/?theme=#{theme}&sourceURI=#{cc(:site).portal_host}/site/slides/revealjs/#{slides_name}.html"
   end
 
   def slide_image_tag(src, opts = {})
@@ -48,7 +48,7 @@ module AppHelpers
   end
 
   def slide_image_src(src)
-    "#{cc(:site).slides_host}/images/slides/#{src}"
+    "#{cc(:site).portal_host}/images/slides/#{src}"
   end
 
   def html_code(&block)

@@ -1,4 +1,4 @@
-# Load Slim lang
+# Load Slim lang; Used for slides templating
 require 'slim'
 
 # Load ActiveSupport::Time
