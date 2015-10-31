@@ -9,6 +9,7 @@
      <title><%= page_title(current_page) %></title>
 
     <%= stylesheet_link_tag 'vendor/prism' %>
+    <%= stylesheet_link_tag 'vendor/github-buttons' %>
     <%= stylesheet_link_tag 'site' %>
     <link rel="icon" href="/images/favicon.icns" sizes="128x128">
     <link rel="icon" href="/images/favicon.png" type="image/x-icon">
@@ -19,6 +20,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
+          <a class="button icon edit pull-right" target="_blank" href="<%= edit_on_github_url(current_page) %>">Edit on github</a>
           <%= yield %>
         </div>
       </div>

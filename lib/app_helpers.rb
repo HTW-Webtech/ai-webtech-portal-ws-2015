@@ -43,6 +43,10 @@ module AppHelpers
     image_tag slide_image_src(src), opts
   end
 
+  def edit_on_github_url(page)
+    "#{cc(:site).github_repo_url}/blob/master/source/#{page.file_descriptor.relative_path}"
+  end
+
   def slide_image_src(src)
     "#{cc(:site).slides_host}/images/slides/#{src}"
   end

@@ -1,0 +1,119 @@
+section
+
+  section
+    h2 CSS
+    ul
+      li.fragment <em>C</em>ascacding <em>S</em>tyle <em>S</em>heets
+      li.fragment HTML beschreibt den Inhalt eines Dokumentes
+      li.fragment CSS beschreibt die Präsentation eines HTML/XML-Dokumentes
+      li.fragment Beispiel: <a href="http://www.csszengarden.com/">CSS Zengarden</a>
+
+  section
+    h2 Syntax
+    p= slide_image_tag 'css/selector.png'
+    ul
+      li.fragment Der Selektor addressiert die Elemente auf welche sich die Regeln beziehen
+      li.fragment Die Regeln beeinflussen die Darstellung des Browsers
+
+  section
+    h2 Einfaches Beispiel
+    <pre class="_cssdeck_embed" data-pane="html,css,output" data-href="cogy1xxq" data-version="0"></pre><script async src="http://cssdeck.com/assets/js/embed.js"></script>
+
+  section
+    h2 Syntax: CSS Selektor-Arten
+    ul
+      li.fragment Problem: Wie adressiere ich die Elemente meines Dokuments? Lösung: Selektoren
+      li.fragment <a href="http://www.w3.org/TR/css3-selectors/#type-selectors">(Element) Type-Selektoren</a>: h1, p, li
+      li.fragment <a href="http://www.w3.org/TR/css3-selectors/#id-selectors">ID-Selektoren</a>: #navigation, #footer, #submit-order
+      li.fragment 🎯 <a href="http://www.w3.org/TR/css3-selectors/#class-html">Class-Selektoren</a>: .logo, .button, .call-to-action
+      li.fragment 🎯 <a href="http://www.w3.org/TR/css3-selectors/#pseudo-classes">Pseudo-Class-Selektoren</a>: :hover, :active, :first-child
+      li.fragment 🎯 <a href="http://www.w3.org/TR/css3-selectors/#attribute-selectors">Attribute-Selektoren</a>: [target=_blank], [href^=mailto], [checked=true]
+      li.fragment ⚠️ <a href="http://www.w3.org/TR/css3-selectors/#pseudo-elements">Pseudo-Element-Selektoren</a>: ::first-letter, ::first-line
+
+  section
+    h2 Syntax: Class-Selektoren
+    <pre class="_cssdeck_embed" data-pane="output,html,css" data-user="grekko" data-href="0t9yxb6k" data-version="0"></pre><script async src="http://cssdeck.com/assets/js/embed.js"></script>
+
+  section
+    h2 Syntax: Attribut-Selektoren
+
+  section
+    h2 Cascading #1
+    ul
+      li.fragment
+        | Verschiedene priorisierte Style-Quellen
+        ol
+          li.fragment Browser-defaults
+          li.fragment User-styles
+          li.fragment <strong>Document-styles</strong> 🎯  (Diese können wir beeinflussen)
+      li.fragment Höher priorisierte styles überschreiben andere
+
+  section
+    h2 Cascading #2
+    ul
+      li.fragment Die Reihenfolge ist wichtig
+      li.fragment = html_code
+        | <style>
+            p {
+              font-size: 14px;
+            }
+            p {
+              font-size: 8px;
+            }
+          </style>
+      li.fragment Die letzte Regel gewinnt!
+
+  section
+    h2 Spezifizität
+    ul
+      li.fragment Der &lt;strong&gt;-Tag ist im Browser-default fett
+      li.fragment = html_code
+        | <style>
+            strong {
+              font-weight: normal;
+            }
+          </style>
+      li.fragment Jetzt nicht mehr
+
+  section
+    h2 Cascading-Beispiel #2
+    ul
+
+  section
+    h2 Cascading-Beispiel #2
+    ul
+      li.fragment Die Reihenfolge spielt eine Rolle
+      li.fragment = html_code
+        | <style>
+            strong {
+              font-weight: normal;
+            }
+            strong {
+              font-weight: bold;
+            }
+          </style>
+      li.fragment Die letzte Regel gewinnt
+
+
+  section
+    h2 CSS Media Types
+    pre.fragment: code
+      = html_escape
+        | <html>
+            <head>
+              <link rel="stylesheet" type="text/css" media="screen, print, tv, tty" />
+            </head>
+            <body>
+              <p>Text</p>
+            </body>
+          </html>
+    ul
+      li.fragment
+        | Unterstützt verschiedene Ausgabe-Medien <a href="http://www.w3.org/TR/CSS21/media.html">(W3C: Media Types)</a>, u.a.:
+        ul
+          li.fragment handheld: Bildschirm auf mobilen Endgeräten (⚡ <a href="http://meiert.com/en/blog/20090630/handheld-media-type-rip/">Kein Support</a>)
+          li.fragment speech: "Intended for speech synthesizers."
+          li.fragment … einige mehr die man selten/nie sieht: braille, tv, tty, projection, …
+          li.fragment print: Druckvorschau, Druck
+          li.fragment screen: Quasi der Standard
+
