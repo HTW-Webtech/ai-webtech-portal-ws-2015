@@ -1,7 +1,7 @@
 shared: &shared
   build_dir_path: ./build
   remote_path: /var/apps/slides/public
-  github_repo_url: https://github.com/HTW-Webtech/ai-webtech-ws-2015
+  github_repo_url: https://github.com/HTW-Webtech/ai-webtech-portal-ws-2015
 
 development: &development
   <<: *shared
