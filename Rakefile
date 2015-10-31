@@ -29,7 +29,7 @@ namespace :deploy do
   desc 'Deploy slides to staging: virual machine'
   task :stg do
     # TODO: complex config does primarily respect the RAILS_ENV
-    ENV['RAILS_ENV'] = 'staging'
+    ENV['RAILS_ENV'] = 'development'
     deploy :staging
   end
 

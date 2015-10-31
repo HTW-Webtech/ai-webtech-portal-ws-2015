@@ -3,7 +3,7 @@ shared: &shared
   remote_path: /var/apps/slides/public
   github_repo_url: https://github.com/HTW-Webtech/ai-webtech-portal-ws-2015
 
-development: &development
+development:
   <<: *shared
   revealjs_host: http://localhost:1947
   slides_host: http://localhost:8011
