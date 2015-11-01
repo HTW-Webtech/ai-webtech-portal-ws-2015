@@ -2,9 +2,13 @@
 Auf dieser Seite werden Änderungen an diesem Lern-Portal protokolliert.
 
 ### 31. Oktober 2015
-* <a href="" class="button icon edit">Edit-on-Github</a> Link auf allen Inhaltsseiten hinzugefügt. Wenn Fehler in den Folien/Texten gefunden
-  werden, ist es nun möglich und erwünscht diese via Github zu korrigieren. Dazu wird jedoch ein
-  kostenloser Github-Account benöigt.
+* Neuen Menüpunkt: "[Handbuch](manual.html)" hinzugefügt. Das Handbuch enthält Informationen zu einigen
+  Features dieser Webseite.
+* Neuen <a href="" class="button icon edit">Edit-on-Github</a>-Link auf allen Inhaltsseiten hinzugefügt. Dieser Button führt
+  zum Quellcode dieser Webseite auf [Github](https://github.com). Wenn Fehler in den Folien/Texten gefunden werden,
+  ist es nun möglich und erwünscht diese via Github zu korrigieren. Mehr dazu
+* Inhalt im [Handbuch](manual.html) über die Bearbeitung von Inhalten dieser Webseite mit dem
+  <a href="" class="button icon edit">Edit-on-Github</a> hinzugefügt.
 
 ### 30. Oktober 2015
 * Virtualbox-Setup von der Startseite in die [Setup Übung](/site/exercises/setup.html) verschoben
