@@ -12,6 +12,11 @@ Wenn Sie Fragen haben, können Sie mich unter <mailto:igelmund@htw-berlin.de> er
 * <http://jenkins.htw-webtech.com>: Das Jenkins-CI führt die funktionalen Tests für die Übungen durch.
 * <http://files.htw-webtech.com>: Im Download-Bereich können Dateien (wie bspw. das Virtualbox-Image) heruntergeladen werden.
 
+# Wartung und Aktualität von Inhalten
+Jeder ist aufgerufen vermeintlich fehlerhafte, obsolete oder veraltete Inhalte via github Pull-Request
+zu überarbeiten. Die Vorgehensweise dafür ist im [Handbuch](site/manual.html) beschrieben.
+
+
 # Gitter Chat
 Zu experimentellen Zwecken ist auf dieser Seite ein Chat-Modul eingebunden, dass es ermöglichen soll über
 die Übungen, Inhalte etc. zu diskutieren. Um an dem Chat teilzunehmen kann der "Open Chat"-Button unten
