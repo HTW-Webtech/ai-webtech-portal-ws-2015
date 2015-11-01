@@ -23,7 +23,7 @@ section
     h2 Syntax: CSS Selektor-Arten
     ul
       li.fragment Problem: Wie adressiere ich die Elemente meines Dokuments? Lösung: Selektoren
-      li.fragment ⚠️ <a href="http://www.w3.org/TR/css3-selectors/#type-selectors">(Element) Type-Selektoren</a>: h1, p, li
+      li.fragment <a href="http://www.w3.org/TR/css3-selectors/#type-selectors">(Element) Type-Selektoren</a>: h1, p, li
       li.fragment ⚠️ <a href="http://www.w3.org/TR/css3-selectors/#id-selectors">ID-Selektoren</a>: #navigation, #footer, #submit-order
       li.fragment <a href="http://www.w3.org/TR/css3-selectors/#class-html">Class-Selektoren</a>: .logo, .button, .call-to-action
       li.fragment <a href="http://www.w3.org/TR/css3-selectors/#pseudo-classes">Pseudo-Class-Selektoren</a>: :hover, :active, :first-child
@@ -90,37 +90,47 @@ section
     = cssdeck_snippet 'pvecsyea', show: 'html,css'
 
   section
-    h2 Cascading-Beispiel #2
+    h2 CSS mit HTML verheiraten
     ul
+      li.fragment Verschiedene Arten CSS mit einem HTML-Dokument zu verknüpfen
+      li.fragment Teil des HTML-Dokument vs. Extern (include via @import oder link-Tag)
+      li.fragment Es gibt Front End Frameworks die CSS aus (guten) technischen Gründen im HTML embedden
+      li.fragment
+        | Im Normalfall wird CSS jedoch getrennt vom HTML-Dokument gepflegt
+        ul
+          li.fragment Wiederverwendbarkeit von CSS
+          li.fragment Separates Browser-Caching für HTML und CSS
 
   section
-    h2 Cascading-Beispiel #2
-    ul
-      li.fragment Die Reihenfolge spielt eine Rolle
-      li.fragment = html_code
-        | <style>
-            strong {
-              font-weight: normal;
-            }
-            strong {
-              font-weight: bold;
-            }
-          </style>
-      li.fragment Die letzte Regel gewinnt
+    h2 CSS include via link-Tag
+    p HTML:
+    = code_block
+      | <html>
+          <head>
+            <link rel="stylesheet" type="text/css" media="screen" />
+          </head>
+          <body>
+            <p>Text</p>
+          </body>
+        </html>
 
+    p CSS:
+    = code_block language: 'css'
+      | p {
+          color: grey;
+        }
 
   section
-    h2 CSS Media Types
-    pre.fragment: code
-      = html_escape
-        | <html>
-            <head>
-              <link rel="stylesheet" type="text/css" media="screen, print, tv, tty" />
-            </head>
-            <body>
-              <p>Text</p>
-            </body>
-          </html>
+    h2 CSS include: Media Types
+    = code_block
+      | <html>
+          <head>
+            <link rel="stylesheet" type="text/css" media="screen, print, tv, tty" />
+          </head>
+          <body>
+            <p>Text</p>
+          </body>
+        </html>
     ul
       li.fragment
         | Unterstützt verschiedene Ausgabe-Medien <a href="http://www.w3.org/TR/CSS21/media.html">(W3C: Media Types)</a>, u.a.:

@@ -44,7 +44,7 @@ section
   section
     h2 HTML/DOM-Tree
     = slide_image_tag 'html/html-dom-tree.png', style: 'height: 240px;'
-    = html_code
+    = code_block
       | <html>
           <head>
             <title>Hallo Welt</title>
@@ -56,7 +56,7 @@ section
 
   section
     h2 Beispiel:
-    = html_code
+    = code_block
       | <!doctype html>
         <html lang="de">
           <head>
@@ -102,7 +102,7 @@ section
     figure
       = slide_image_tag 'html/w3c-vs-whatwg-spec.png'
       figcaption
-        => html_code
+        => code_block
           | <section>-Tag
         | im #{link_to 'MDN', 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section'}
 
@@ -158,7 +158,7 @@ section
       li.fragment meta (author, lang, custom properties)
       li.fragment script (javascript)
       li.fragment link (stylesheets)
-      li.fragment = html_code
+      li.fragment = code_block
         | <head>
             <meta charset=UTF-8" />
             <meta name="author" content="Gregory Igelmund" />
@@ -174,7 +174,7 @@ section
       li.fragment video
       li.fragment canvas
       li.fragment iframe
-      li.fragment = html_code
+      li.fragment = code_block
         | <video src="videofile.ogg" autoplay poster="poster.jpg">
             Sorry, your browser doesn't support embedded videos,
             but don't worry, you can <a href="videofile.ogg">download it</a>
@@ -188,7 +188,7 @@ section
       li.fragment label (bezieht sich auf input)
       li.fragment progress (%-Anzeige)
       li.fragment select (Auswahl von Elementen)
-      li.fragment = html_code
+      li.fragment = code_block
         | <!-- Simple form which will send a POST request -->
           <form action="" method="post">
             <label for="POST-name">Name:</label>
@@ -201,20 +201,20 @@ section
     h2 Semantic Web / Microdata / Microformats
     ul
       li.fragment HTML ist zwar maschinenlesbar, aber die meisten Informationen sind im Text versteckt
-      li.fragment = html_code
+      li.fragment = code_block
         | Am 25. Februar hat ein Waschbär in der Nähe von Cochem…
       li.fragment
         | Mit Microformats:
-        = html_code
+        = code_block
           | Am <abbrev title="2015-02-25 12:00">25. Februar</abbrev> hat …
       li.fragment
         | Mit Microdata:
-        = html_code
+        = code_block
           | <section itemscope itemtype="http://schema.org/Date">
             Am <span itemprop="date">25. Februar</span> hat …
       li.fragment
         | Mit RDF:
-        = html_code
+        = code_block
           | <div vocab="http://schema.org/" typeof="Date">
             Am <span property="date">25. Februar</span> hat …
 
@@ -233,7 +233,7 @@ section
 
   section
     h2 Microformats: hCard
-    = html_code
+    = code_block
       | <link rel="profile" href="http://microformats.org/profile/hcard">
         ...
         <ul class="vcard">
@@ -251,7 +251,7 @@ section
 
   section
     h2 Microformats: hCalendar
-    = html_code
+    = code_block
       | <p class="vevent">
           The <span class="summary">Wikipedia launched</span>
           on 15 January 2001 with a party from

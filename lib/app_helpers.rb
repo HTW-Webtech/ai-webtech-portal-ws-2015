@@ -56,9 +56,9 @@ module AppHelpers
     "<script async src='http://cssdeck.com/assets/js/embed.js'></script>"
   end
 
-  def html_code(&block)
+  def code_block(language: 'html', &block)
     escaped_html = html_escape { block.call }
-    "<pre><code class='language-html'>#{escaped_html}</code></pre>"
+    "<pre><code class='language-#{language}'>#{escaped_html}</code></pre>"
   end
 
   def html_escape(&block)
