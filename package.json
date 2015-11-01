@@ -1,0 +1,22 @@
+{
+  "name": "htw.portal",
+  "version": "1.0.0",
+  "description": "Dependency management for local dev utils",
+  "main": "",
+  "dependencies": {},
+  "devDependencies": {
+    "imageoptim-cli": "^1.11.6"
+  },
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HTW-Webtech/ai-webtech-portal-ws-2015.git"
+  },
+  "author": "Gregory Igelmund",
+  "license": "MIT",
+  "bugs": {
+  },
+  "homepage": "https://github.com/HTW-Webtech/ai-webtech-portal-ws-2015#readme"
+}

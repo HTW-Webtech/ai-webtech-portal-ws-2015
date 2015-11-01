@@ -21,5 +21,8 @@
 # Ignore .DS_store file
 .DS_Store
 
+# Ignore node modules
+node_modules/*
+
 # Ignore ctags file
 tags
