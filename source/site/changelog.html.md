@@ -1,6 +1,11 @@
 # Changelog
 Auf dieser Seite werden Änderungen an diesem Lern-Portal protokolliert.
 
+### 31. Oktober 2015
+* Edit-on-Github Link auf allen Inhaltsseiten hinzugefügt. Wenn Fehler in den Folien/Texten gefunden
+  werden, ist es nun möglich und erwünscht diese via Github zu korrigieren. Dazu wird jedoch ein
+  kostenloser Github-Account benöigt.
+
 ### 30. Oktober 2015
 * Virtualbox-Setup von der Startseite in die [Setup Übung](/site/exercises/setup.html) verschoben
 * [Gitter-Chat](/#gitter-chat) hinzugefügt.
