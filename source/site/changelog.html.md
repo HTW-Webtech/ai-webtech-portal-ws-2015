@@ -2,7 +2,7 @@
 Auf dieser Seite werden Änderungen an diesem Lern-Portal protokolliert.
 
 ### 31. Oktober 2015
-* Edit-on-Github Link auf allen Inhaltsseiten hinzugefügt. Wenn Fehler in den Folien/Texten gefunden
+* <a href="" class="button icon edit">Edit-on-Github</a> Link auf allen Inhaltsseiten hinzugefügt. Wenn Fehler in den Folien/Texten gefunden
   werden, ist es nun möglich und erwünscht diese via Github zu korrigieren. Dazu wird jedoch ein
   kostenloser Github-Account benöigt.
 
