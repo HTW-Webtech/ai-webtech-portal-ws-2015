@@ -51,6 +51,11 @@ module AppHelpers
     "#{cc(:site).portal_host}/images/slides/#{src}"
   end
 
+  def cssdeck_snippet(id, version: 0, show: 'html,css,output', height: 400)
+    "<pre class='_cssdeck_embed' data-pane='#{show}' data-height=#{height} data-user='grekko' data-href='#{id}' data-version='#{version}'></pre>" +
+    "<script async src='http://cssdeck.com/assets/js/embed.js'></script>"
+  end
+
   def html_code(&block)
     escaped_html = html_escape { block.call }
     "<pre><code class='language-html'>#{escaped_html}</code></pre>"

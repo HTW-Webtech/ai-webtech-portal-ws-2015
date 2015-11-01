@@ -17,63 +17,77 @@ section
 
   section
     h2 Einfaches Beispiel
-    <pre class="_cssdeck_embed" data-pane="html,css,output" data-href="cogy1xxq" data-version="0"></pre><script async src="http://cssdeck.com/assets/js/embed.js"></script>
+    = cssdeck_snippet 'cogy1xxq'
 
   section
     h2 Syntax: CSS Selektor-Arten
     ul
       li.fragment Problem: Wie adressiere ich die Elemente meines Dokuments? Lösung: Selektoren
-      li.fragment <a href="http://www.w3.org/TR/css3-selectors/#type-selectors">(Element) Type-Selektoren</a>: h1, p, li
-      li.fragment <a href="http://www.w3.org/TR/css3-selectors/#id-selectors">ID-Selektoren</a>: #navigation, #footer, #submit-order
-      li.fragment 🎯 <a href="http://www.w3.org/TR/css3-selectors/#class-html">Class-Selektoren</a>: .logo, .button, .call-to-action
-      li.fragment 🎯 <a href="http://www.w3.org/TR/css3-selectors/#pseudo-classes">Pseudo-Class-Selektoren</a>: :hover, :active, :first-child
-      li.fragment 🎯 <a href="http://www.w3.org/TR/css3-selectors/#attribute-selectors">Attribute-Selektoren</a>: [target=_blank], [href^=mailto], [checked=true]
-      li.fragment ⚠️ <a href="http://www.w3.org/TR/css3-selectors/#pseudo-elements">Pseudo-Element-Selektoren</a>: ::first-letter, ::first-line
+      li.fragment ⚠️ <a href="http://www.w3.org/TR/css3-selectors/#type-selectors">(Element) Type-Selektoren</a>: h1, p, li
+      li.fragment ⚠️ <a href="http://www.w3.org/TR/css3-selectors/#id-selectors">ID-Selektoren</a>: #navigation, #footer, #submit-order
+      li.fragment <a href="http://www.w3.org/TR/css3-selectors/#class-html">Class-Selektoren</a>: .logo, .button, .call-to-action
+      li.fragment <a href="http://www.w3.org/TR/css3-selectors/#pseudo-classes">Pseudo-Class-Selektoren</a>: :hover, :active, :first-child
+      li.fragment <a href="http://www.w3.org/TR/css3-selectors/#attribute-selectors">Attribute-Selektoren</a>: [target=_blank], [href^=mailto], [checked=true]
+      li.fragment <a href="http://www.w3.org/TR/css3-selectors/#pseudo-elements">Pseudo-Element-Selektoren</a>: ::first-letter, ::first-line
+      li.fragment <a href="http://www.w3.org/TR/css3-selectors/#combinators">Kombinations-Selektoren</a>: nav a, nav > a, h1 + p
 
   section
-    h2 Syntax: Class-Selektoren
-    <pre class="_cssdeck_embed" data-pane="output,html,css" data-user="grekko" data-href="0t9yxb6k" data-version="0"></pre><script async src="http://cssdeck.com/assets/js/embed.js"></script>
+    h2 Class-Selektoren
+    = cssdeck_snippet '0t9yxb6k'
 
   section
-    h2 Syntax: Attribut-Selektoren
+    h2 Attribut-Selektoren
+    = cssdeck_snippet 'uyxabcye'
 
   section
-    h2 Cascading #1
+    h2 Pseudo-Class-Selektoren
+    p
+      | :active, :hover, a:visited, checkbox:checked
+    = cssdeck_snippet 'on0cclrr'
+
+  section
+    h2 Pseudo-Element-Selektoren
+    p
+      | ::before und ::after
+    = cssdeck_snippet 'xtqwae6l'
+
+  section
+    h2 Kombinations-Selektoren
+    p
+      | a > b, a + b, a ~ b
+    p Übernommen von Beier (<a href="https://beier.f4.htw-berlin.de/presentations/css/">Unterlagen: Webentwicklung</a>)
+    = cssdeck_snippet 'qf5aqlnv'
+
+  section
+    h2 Cascading: Grundlagen
     ul
       li.fragment
         | Verschiedene priorisierte Style-Quellen
         ol
           li.fragment Browser-defaults
-          li.fragment User-styles
-          li.fragment <strong>Document-styles</strong> 🎯  (Diese können wir beeinflussen)
-      li.fragment Höher priorisierte styles überschreiben andere
+          li.fragment wird überschrieben von User-styles (Google Chrome hat User-styles <a href="http://src.chromium.org/viewvc/chrome?revision=234007&view=revision">entfernt</a>)
+          li.fragment wird überschrieben von <strong>Document-styles</strong> 🎯  (Diese können wir beeinflussen)
 
   section
-    h2 Cascading #2
+    h2 Cascading: Vererbung
     ul
-      li.fragment Die Reihenfolge ist wichtig
-      li.fragment = html_code
-        | <style>
-            p {
-              font-size: 14px;
-            }
-            p {
-              font-size: 8px;
-            }
-          </style>
-      li.fragment Die letzte Regel gewinnt!
+      li.fragment Die Reihenfolge ist wichtig. Der letzte gewinnt*.
+      li.fragment= cssdeck_snippet 'lla1ly1a'
 
   section
-    h2 Spezifizität
+    h2 Cascading: Spezifizität
     ul
-      li.fragment Der &lt;strong&gt;-Tag ist im Browser-default fett
-      li.fragment = html_code
-        | <style>
-            strong {
-              font-weight: normal;
-            }
-          </style>
-      li.fragment Jetzt nicht mehr
+      li.fragment Mächtiges (und komplexes) Regelwerk für die Priorisierung von Regeln
+      li.fragment
+        | Grundlegende Ordnung
+        ul
+          li.fragment Je spezifischer/genauer ein Selektor, desto wichtiger ist er
+          li.fragment Selektoren können kombiniert werden. Ein Tag kann mehrere CSS-Klassen haben, bspw: class="foo bar"
+          li.fragment Je mehr CSS-Klassen von einem Selektor adressiert werden, desto spezifischer ist er
+
+  section
+    h2 Cascading: Spezifizität Beispiel
+    = cssdeck_snippet 'pvecsyea', show: 'html,css'
 
   section
     h2 Cascading-Beispiel #2
