@@ -1,0 +1,15 @@
+#!/bin/sh ruby
+
+require 'fileutils'
+IMAGEOPTIM_BIN_PATH='node_modules/.bin/imageoptim'
+
+images = `git diff --name-only --cached -- source/images`.lines.map &:chomp
+if images.any?
+  images.each do |image_path|
+    system "echo '#{image_path}' | #{IMAGEOPTIM_BIN_PATH}"
+    system "git add '#{image_path}'"
+  end
+else
+  puts "Skipping imageoption since there are no modified or new images to be commited"
+end
+

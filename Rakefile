@@ -1,4 +1,5 @@
 require 'complex_config/rude'
+require 'fileutils'
 
 namespace :deploy do
   def log(msg, env = '?')
@@ -39,4 +40,28 @@ namespace :deploy do
     ENV['RAILS_ENV'] = 'production'
     deploy :production
   end
+end
+
+namespace :setup do
+  task default: [:symlink_githooks, :npm_install]
+
+  desc 'Symlink githooks'
+  task :symlink_githooks do
+    puts "Creating git-hook symlinks"
+    FileUtils.cd('.git/hooks') do
+      FileUtils.ln_sf Dir['../../config/git-hooks/*'], '.', verbose: true
+    end
+  end
+
+  desc 'Install node modules'
+  task :npm_install do
+    sh 'npm install'
+  end
+end
+
+desc 'Setup for development'
+task setup: ['setup:default']
+
+task :default do
+  system "rake -sT"
 end
