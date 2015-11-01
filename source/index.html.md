@@ -19,6 +19,6 @@ zu überarbeiten. Die Vorgehensweise dafür ist im [Handbuch](site/manual.html) 
 
 # Gitter Chat
 Zu experimentellen Zwecken ist auf dieser Seite ein Chat-Modul eingebunden, dass es ermöglichen soll über
-die Übungen, Inhalte etc. zu diskutieren. Um an dem Chat teilzunehmen kann der "Open Chat"-Button unten
-rechts auf der Seite benutzt werden.
+die Übungen, Inhalte etc. zu diskutieren. Um an dem Chat teilzunehmen kann der
+!["Open Chat"](images/home/open-chat-gitter.png)-Button unten rechts auf der Seite benutzt werden.
 
