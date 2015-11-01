@@ -10,7 +10,7 @@ section
 
   section
     h2 Syntax
-    p= slide_image_tag 'css-basics/selector.png'
+    = slide_image_tag 'css-basics/selector.png'
     ul
       li.fragment Der Selektor addressiert die Elemente auf welche sich die Regeln beziehen
       li.fragment Die Regeln beeinflussen die Darstellung des Browsers
@@ -82,15 +82,19 @@ section
         | Grundlegende Ordnung
         ul
           li.fragment Je spezifischer/genauer ein Selektor, desto wichtiger ist er
-          li.fragment Selektoren können kombiniert werden. Ein Tag kann mehrere CSS-Klassen haben, bspw: class="foo bar"
-          li.fragment Je mehr CSS-Klassen von einem Selektor adressiert werden, desto spezifischer ist er
+          li.fragment Selektoren können kombiniert werden. Ein Tag kann mehrere CSS-Klassen haben
+          li.fragment Je mehr CSS-Klassen von einem Selektor adressiert werden, desto spezifischer ist er, desto höher ist seine Priorität
+    = code_block
+      | <body>
+         <div class="notice important">This is a very important message</div>
+        </body>
 
   section
     h2 Cascading: Spezifizität Beispiel
     = cssdeck_snippet 'pvecsyea', show: 'html,css'
 
   section
-    h2 CSS mit HTML verheiraten
+    h2 CSS mit HTML verknüpfen
     ul
       li.fragment Verschiedene Arten CSS mit einem HTML-Dokument zu verknüpfen
       li.fragment Teil des HTML-Dokument vs. Extern (include via @import oder link-Tag)
@@ -141,3 +145,40 @@ section
           li.fragment print: Druckvorschau, Druck
           li.fragment screen: Quasi der Standard
 
+section
+  section
+    h2 Pause: Ein bisschen Geschichte
+    ul
+      li.fragment CSS definiert heutzutage eine Fülle an Features. Wie kam es dazu?
+      li.fragment <a href="http://www.w3.org/People/howcome/p/cascade.html">1994: Proposal von Håkon W Lie</a>
+      li.fragment <a href="http://www.w3.org/Style/LieBos2e/history/Overview.html">1996: CSS Level 1 veröffentlicht</a>
+      li.fragment <a href="http://www.w3.org/Style/LieBos2e/history/Overview.html">1997: Gründing einer CSS Working-Group innerhalb W3C</a>
+      li.fragment <a href="http://www.w3.org/standards/history/CSS2">1998: CSS Level 2 veröffentlicht</a>
+      li.fragment <a href="http://www.w3.org/standards/history/CSS2">2011: CSS Level 2 rev1 veröffentlicht</a>
+      li.fragment 13 Jahre zwischen CSS 2 und 2.1
+      li.fragment Seitdem modulare Lösung
+
+    aside.notes
+      | 158 CSS-Properties aktuell laut css-tricks.com
+      / $('.almanac-list.property-list.group .page_item')
+
+  section
+    h2 CSS 3 Modules
+    = slide_image_tag 'css-basics/css3-modules.png'
+
+
+  section
+    h2 CSS 3 Module: Beispiele
+    ul
+      li.fragment
+        a href="http://www.w3.org/TR/css3-color/" Color Module:
+        ul
+          li.fragment Color-Units: <abbr title="red, green, blue">rgb</abbr>, <abbr title="hue, saturation, lightness">hsl</abbr>
+          li.fragment Extended color keywords: <span style="color: green">green</span>, <span style="color: magenta">magenta</span>, <span style="color: mediumaquamarine">mediumaquamarine</span>
+      li.fragment
+        a href="http://www.w3.org/TR/css3-flexbox/" Flexible Box Layout:
+        ul
+          li.fragment= slide_image_tag 'css-basics/css3-flexbox-example.png'
+
+  section
+    h1 Done

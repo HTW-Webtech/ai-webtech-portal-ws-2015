@@ -7,7 +7,7 @@ Das hat auch geklappt und heute hast du deinen ersten Tag im 2-wöchtigen Prakti
 
 | Deadline              | Punkte (Code) | Punkte (Review) |
 |---------------------------------------------------------|
-| 15.11.2015, 23.59 Uhr | 2             | 2               |
+| 8.11.2015, 23.59 Uhr  | 2             | 2               |
 {: .table .table-bordered }
 
 ## Briefing
