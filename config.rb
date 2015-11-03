@@ -22,16 +22,11 @@ end
 # Template Engines
 set :markdown_engine, :kramdown
 
-# Sprockets
-# sprockets.append_path 'source/sass/'
-# set :sass_assets_paths, ['source/sass']
-
 set :images_dir, 'images'
 helpers AppHelpers # Load external helper files
 
 # Production configuration
 configure :build do
-  # activate :asset_hash # Currently breaks when parsing prism.js
   # activate :minify_javascript
 end
 
