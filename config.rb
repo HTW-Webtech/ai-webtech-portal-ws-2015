@@ -23,10 +23,10 @@ end
 set :markdown_engine, :kramdown
 
 # Sprockets
-sprockets.append_path 'source/sass/'
+# sprockets.append_path 'source/sass/'
+# set :sass_assets_paths, ['source/sass']
 
 set :images_dir, 'images'
-set :sass_assets_paths, ['source/sass']
 helpers AppHelpers # Load external helper files
 
 # Production configuration
