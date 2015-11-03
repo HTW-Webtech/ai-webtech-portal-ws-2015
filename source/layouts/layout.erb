@@ -24,7 +24,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <a class="button icon edit pull-right" target="_blank" href="<%= view_on_github_url(current_page) %>">Edit on github</a>
+          <a class="button icon edit pull-left" target="_blank" href="<%= view_on_github_url(current_page) %>">Edit on github</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
           <%= yield %>
         </div>
       </div>
@@ -40,7 +44,11 @@
     <style>
       /* Gitter style fix for top nav */
       .gitter-chat-embed {
-        top: 80px;
+        /* top: 80px; */
+      }
+
+      body {
+        padding-bottom: 50px;
       }
     </style>
   </body>
