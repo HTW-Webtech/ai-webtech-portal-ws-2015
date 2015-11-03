@@ -32,5 +32,5 @@ end
 
 # Development configuration
 configure :development do
-  activate :livereload, apply_js_live: false
+  activate :livereload, host: '127.0.0.1', apply_js_live: false
 end
