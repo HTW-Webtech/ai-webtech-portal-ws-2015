@@ -14,6 +14,8 @@ gem 'activesupport', require: false
 gem 'complex_config', require: 'complex_config/rude'
 gem 'rake'
 
+gem 'mini_magick'
+
 group :development do
   gem 'foreman'
   gem 'byebug'
