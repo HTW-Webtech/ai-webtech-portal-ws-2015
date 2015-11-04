@@ -17,3 +17,9 @@ zu sehen. Auch diese Seite kann auf Github bearbeitet werden!
   Großartige Einführung in die Funktionalitäten von Github.com.
 * Auf [Github-Education](https://education.github.com/) gibt es für Studierende zum kostenfreien Github-Account zusätzlich private Repositories,
   verschiedene Software-Lizenzen etc.
+
+
+## Coding-Guidelines
+* [HTML, CSS Code Guidelines by @mdo](http://codeguide.co/)
+  Eine Art Leitfaden mit nachvollziehbaren Tipps für die Arbeit mit HTML/CSS. Es gibt den Guide wurde auch [ins Deutsche](http://backendbutters.github.io/code-guide) übersetzt.
+

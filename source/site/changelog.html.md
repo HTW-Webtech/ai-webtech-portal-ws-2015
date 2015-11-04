@@ -1,6 +1,9 @@
 # Changelog
 Auf dieser Seite werden Änderungen an diesem Lern-Portal protokolliert.
 
+### 4. November
+* Link zu HTML/CSS Coding-Guidelines in das [Handbuch](manual.html) eingetragen.
+
 ### 31. Oktober 2015
 * Neuen Menüpunkt: "[Handbuch](manual.html)" hinzugefügt. Das Handbuch enthält Informationen zu einigen
   Features dieser Webseite.
