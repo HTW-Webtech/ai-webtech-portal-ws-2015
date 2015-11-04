@@ -1,11 +1,14 @@
 #!/bin/sh ruby
 
 require 'fileutils'
+require 'mini_magick'
 IMAGEOPTIM_BIN_PATH='node_modules/.bin/imageoptim'
 
 images = `git diff --name-only --cached -- source/images`.lines.map &:chomp
 if images.any?
   images.each do |image_path|
+    mini_magick_image = MiniMagick::Image.new image_path
+    mini_magick_image.resize('700x1000>')
     system "echo '#{image_path}' | #{IMAGEOPTIM_BIN_PATH}"
     system "git add '#{image_path}'"
   end
