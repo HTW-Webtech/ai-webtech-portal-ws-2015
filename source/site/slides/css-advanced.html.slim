@@ -1,40 +1,78 @@
 section
   section
+    h2 Agenda
+    ul
+      li
+        | Grundlagen
+        ul
+          li CSS Box Model
+          li CSS Property: box-sizing
+          li CSS Stacking Context
+          li CSS Property: display
+          li CSS Property: position
+          li CSS Property: float
+          li CSS Normalize vs Reset
+      li
+        | CSS Layouts
+        ul
+          li The old/current way
+          li The old/current way
+      li
+        | Responsive Layouts
+        ul
+          li Media queries
+      li
+        | CSS Transitions & Transformations
+        ul
+          li TODO
+
+section
+  section
     h2 CSS Box Model
     /https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model
     /http://www.w3schools.com/css/css_boxmodel.asp
     /https://css-tricks.com/the-css-box-model/
+    = slide_image_tag 'css-advanced/box-model.png'
+
+  section
+  h2 CSS Property: box-sizing
+  = cssdeck_snippet 'ybjxl2yr'
 
   section
     h2 CSS Stacking Context
     /https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
 
   section
-    h2 CSS-Eigenschaft: display
-    /https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
-    /https://beier.f4.htw-berlin.de/presentations/css/
+  h2 CSS Property: display
+  /= cssdeck_snippet ''
 
   section
-    h2 CSS-Eigenschaft: position
-    /https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context
-    /https://beier.f4.htw-berlin.de/presentations/css/
+  h2 CSS Property: position
+  /= cssdeck_snippet ''
+
+  section
+  h2 CSS Property: float
+  /= cssdeck_snippet ''
+
+  section
+  h2 CSS Normalize vs Reset
+  ul
+    li.fragment Jeder Browser bringt seine Default-Styles mit
+    li.fragment 1. Ansatz: Reset via <a href="http://meyerweb.com/eric/tools/css/reset/">reset.css</a>
+    li.fragment= slide_image_tag 'css-advanced/reset-css.png'
+    li.fragment 2. Ansatz: Normalize via <a href="https://necolas.github.io/normalize.css/">normalize.css</a> 🌟
 
 section
   section
-    h2 CSS Layouts: Classic ways
+    h2 CSS Layouting
+
+  section
+    h2 The classic/current way
     /http://www.lynda.com/Web-Interactive-CSS-training/CSS-Page-Layouts/86003-2.html
     /http://learnlayout.com/
 
-    h2 CSS Layouts: Normalize vs Reset
-    ul
-      li.fragment Jeder Browser bringt seine Default-Styles mit
-      li.fragment 1. Ansatz: Reset via <a href="http://meyerweb.com/eric/tools/css/reset/">reset.css</a>
-      li.fragment= slide_image_tag 'css-advanced/reset-css.png'
-      li.fragment 2. Ansatz: Normalize via <a href="https://necolas.github.io/normalize.css/">normalize.css</a> 🌟
-
-section
   section
-    h2 CSS Layouts: Flexbox way
+    h2 The Flexbox way
     /https://css-tricks.com/snippets/css/a-guide-to-flexbox/
     /http://www.lynda.com/CSS-tutorials/Advanced-Responsive-Layouts-CSS-Flexbox/383780-2.html
     /http://philipwalton.github.io/solved-by-flexbox/
