@@ -82,26 +82,44 @@ section
     = cssdeck_snippet 'qf5aqlnv'
 
   section
-    h2 Cascading: Grundlagen
+    h2 Cascading: Vererbung von Eigenschaften
     ul
+      li.fragment HTML ist als Baum-Struktur beschrieben
+      li.fragment Manche CSS-Regeln werden von Eltern auf Kinder vererbt
       li.fragment
-        | Verschiedene priorisierte Style-Quellen
+        | Sortierung
         ol
-          li.fragment Browser-defaults
-          li.fragment wird überschrieben von User-styles (Google Chrome hat User-styles <a href="http://src.chromium.org/viewvc/chrome?revision=234007&view=revision">entfernt</a>)
-          li.fragment wird überschrieben von <strong>Document-styles</strong> 🎯  (Diese können wir beeinflussen)
+          li.fragment Quelle und Wichtigkeit: Author > Browser (!important)
+          li.fragment Spezifizität
+          li.fragment Reihenfolge im Stylesheet (Last man standing)
 
   section
     h2 Cascading: Vererbung
-    p Die Reihenfolge ist wichtig. Der letzte gewinnt*.
-    = cssdeck_snippet 'lla1ly1a'
+    ul
+      li.fragment
+        a href="https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance" Inherited Properties
+        ul
+          li.fragment color
+          li.fragment direction
+          li.fragment font-size
+          li.fragment text-align
+      li.fragment
+        | Non-Inherited Properties
+        ul
+          li.fragment background-color
+          li.fragment border
+      li.fragment Übersicht auf <a href="http://www.w3.org/TR/CSS21/propidx.html">w3.org</a>
+
+  section
+    h2 Cascading: Vererbung Beispiel
+    = cssdeck_snippet 'ksnrvtnq'
 
   section
     h2 Cascading: Spezifizität
     ul
       li.fragment Mächtiges (und komplexes) Regelwerk für die Priorisierung von Regeln
       li.fragment
-        | Grundlegende Ordnung
+        | Ordnung
         ul
           li.fragment Je spezifischer/genauer ein Selektor, desto wichtiger ist er
           li.fragment Selektoren können kombiniert werden. Ein Tag kann mehrere CSS-Klassen haben
@@ -110,6 +128,11 @@ section
   section
     h2 Cascading: Spezifizität Beispiel #2
     = cssdeck_snippet 'pvecsyea'
+
+  section
+    h2 Reihenfolge
+    p Cascading: Reihenfolge
+    = cssdeck_snippet 'r8l4rrsj'
 
   section
     h2 CSS mit HTML verknüpfen
