@@ -19,7 +19,12 @@ zu sehen. Auch diese Seite kann auf Github bearbeitet werden!
   verschiedene Software-Lizenzen etc.
 
 
-## Coding-Guidelines
+## Links
+Eine Sammlung interessanter Links zu Artikeln, Tutorials etc.
+
+### HTML, CSS
 * [HTML, CSS Code Guidelines by @mdo](http://codeguide.co/)
   Eine Art Leitfaden mit nachvollziehbaren Tipps für die Arbeit mit HTML/CSS. Es gibt den Guide wurde auch [ins Deutsche](http://backendbutters.github.io/code-guide) übersetzt.
+* [How browsers work](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
+  Eine umfassende Einführung in die Software-Archtitektur moderner Browser. Dazu gehören UI, CSS-Rendering-Engines, JavaScript-Runtimes, HTML-Parser etc.
 
