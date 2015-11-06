@@ -2,26 +2,27 @@ section
   section
     h2 Agenda
     ul
-      li
+      li.fragment
         | Grundlagen
         ul
-          li CSS Box Model
-          li CSS Property: box-sizing
-          li CSS Stacking Context
-          li CSS Property: display
-          li CSS Property: position
-          li CSS Property: float
-          li CSS Normalize vs Reset
-      li
+          li Box Model
+          li Stacking Context
+          li Properties: box-sizing, display, position, float
+          li CSS Normalize vs CSS Reset
+      li.fragment
         | CSS Layouts
         ul
-          li The old/current way
-          li The old/current way
-      li
+          li The current (old) way
+          li The Flexbox way
+
+  section
+    h2 Agenda #2
+    ul
+      li.fragment
         | Responsive Layouts
         ul
           li Media queries
-      li
+      li.fragment
         | CSS Transitions & Transformations
         ul
           li TODO
@@ -32,35 +33,49 @@ section
     /https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model
     /http://www.w3schools.com/css/css_boxmodel.asp
     /https://css-tricks.com/the-css-box-model/
+    ul
+      li.fragment
+        | Jedes HTML-Element ist ein Rechteck mit folgenden Eigenschaften
+        ul
+          li.fragment width x height (Innhaltsbereich: content box)
+          li.fragment padding (Innenabstand von Inhalt zum Rand)
+          li.fragment border (Der Rand einer Box, kann auch 0 sein)
+          li.fragment margin (Außenabstand einer Box)
+
+  section
+    h2 CSS Box Model Beispiel
     = slide_image_tag 'css-advanced/box-model.png'
 
   section
-  h2 CSS Property: box-sizing
-  = cssdeck_snippet 'ybjxl2yr'
+    h2 CSS Box Model im Google Chrome
+
+  section
+    h2 CSS Property: box-sizing
+    = cssdeck_snippet 'ybjxl2yr'
 
   section
     h2 CSS Stacking Context
     /https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
 
   section
-  h2 CSS Property: display
-  /= cssdeck_snippet ''
+    h2 CSS Property: display
+    /= cssdeck_snippet ''
 
   section
-  h2 CSS Property: position
-  /= cssdeck_snippet ''
+    h2 CSS Property: position
+    /= cssdeck_snippet ''
 
   section
-  h2 CSS Property: float
-  /= cssdeck_snippet ''
+    h2 CSS Property: float
+    /= cssdeck_snippet ''
 
   section
-  h2 CSS Normalize vs Reset
-  ul
-    li.fragment Jeder Browser bringt seine Default-Styles mit
-    li.fragment 1. Ansatz: Reset via <a href="http://meyerweb.com/eric/tools/css/reset/">reset.css</a>
-    li.fragment= slide_image_tag 'css-advanced/reset-css.png'
-    li.fragment 2. Ansatz: Normalize via <a href="https://necolas.github.io/normalize.css/">normalize.css</a> 🌟
+    h2 CSS Normalize vs Reset
+    ul
+      li.fragment Jeder Browser bringt seine Default-Styles mit
+      li.fragment 1. Ansatz: Reset via <a href="http://meyerweb.com/eric/tools/css/reset/">reset.css</a>
+      li.fragment= slide_image_tag 'css-advanced/reset-css.png'
+      li.fragment 2. Ansatz: Normalize via <a href="https://necolas.github.io/normalize.css/">normalize.css</a> 🌟
 
 section
   section
