@@ -5,6 +5,7 @@ section
       li.fragment
         | Grundlagen
         ul
+          li Reset vs Normalize
           li Box Model
           li Stacking Context
           li Properties: box-sizing, display, position, float
@@ -29,6 +30,19 @@ section
 
 section
   section
+    h2 CSS Normalize vs Reset
+    ul
+      li.fragment Jeder Browser bringt seine Default-Styles mit
+      li.fragment
+        | Probleme:
+        ul
+          li.fragment margin/padding sind unterschiedlich
+          li.fragment Schriftgrößen (h1, h2, …) unterscheiden sich
+      li.fragment 1. Ansatz: Reset via <a href="http://meyerweb.com/eric/tools/css/reset/">reset.css</a>
+      li.fragment= slide_image_tag 'css-advanced/reset-css.png'
+      li.fragment 2. Ansatz: Normalize via <a href="https://necolas.github.io/normalize.css/">normalize.css</a> 🌟
+
+  section
     h2 CSS Box Model
     /https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model
     /http://www.w3schools.com/css/css_boxmodel.asp
@@ -51,59 +65,165 @@ section
 
   section
     h2 CSS Property: box-sizing
-    = cssdeck_snippet 'ybjxl2yr'
+    ul
+      li.fragment Grundsätzlich 2 Arten die Breite zu berechnen
+      li.fragment Eigenschaft: box-sizing
+      li.fragment Default: border-box vs IE6: content-box
+      li.fragment= cssdeck_snippet 'ybjxl2yr'
 
   section
     h2 CSS Stacking Context
+    ul
+      li.fragment Dritte Dimension in CSS (z-Achse oder z-index)
+      li.fragment Grundregel: Kinder-Element liegen "höher" als Eltern-Elemente
+      li.fragment Idee: Man möchte Elemente *in den Hintergrund* legen
+      li.fragment Lösung: Man nutzt den z-index
+    .fragment= slide_image_tag 'css-advanced/stacking-context.png'
     /https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
 
   section
+    h2 Elemente-Fluss (Flow)
+    p.fragment Alle* Elemente folgenden dem Flow (Elemente-Fluss)
+    .fragment= cssdeck_snippet '9wcxbmix'
+
+  section
     h2 CSS Property: display
-    /= cssdeck_snippet ''
+    ul
+      li.fragment display steuert das Verhalten der Elemente im Flow
+      li.fragment display: inline | block | inline-block | none | … | grid | flex
+      li.fragment inline: Nur so breit/hoch wie Inhalt (Text/Bild) vorgibt
+      li.fragment block: Nimmt volle verfügbare Breite des Parents ein
+      li.fragment inline-block: So breit/hoch wie Inhalt. Manipulierbar
+      li.fragment none: Element wird nicht gerendert
+      li.fragment weitere: … table, table-caption, table-group, …
+      li.fragment grid: (experimentelles Grid-Layout) Nur IE: 8% global Support
+      li.fragment flex: (Flexbox Layout) Später mehr dazu
+
+  section
+    h2 CSS Property: display Code
+    = cssdeck_snippet 'ajnhujyy'
 
   section
     h2 CSS Property: position
-    /= cssdeck_snippet ''
+    ul
+      li.fragment position beeinflusst die Position und Orientierung von Elemente
+      li.fragment Positionierung via: top | left | right | bottom
+      li.fragment static: Das Standard-Verhalten, ignoriert z-index
+      li.fragment relative: Positionierbar. Berücksichtigt z-index. Rahmen für absolute. Flow bleibt.
+      li.fragment absolute: Positionierbar relativ zu parent (!= static)
+      li.fragment fixed: Positionierbar relativ zum Viewport des Browsers.
+
+  section
+    h2 CSS Property: position Code
+    = cssdeck_snippet 'vhegcrx1'
 
   section
     h2 CSS Property: float
-    /= cssdeck_snippet ''
-
-  section
-    h2 CSS Normalize vs Reset
     ul
-      li.fragment Jeder Browser bringt seine Default-Styles mit
-      li.fragment 1. Ansatz: Reset via <a href="http://meyerweb.com/eric/tools/css/reset/">reset.css</a>
-      li.fragment= slide_image_tag 'css-advanced/reset-css.png'
-      li.fragment 2. Ansatz: Normalize via <a href="https://necolas.github.io/normalize.css/">normalize.css</a> 🌟
+      li.fragment Floating-Elemente werden aus dem Flow entfernt
+      li.fragment float: left | right
+      li.fragment text und inline-Elemente umfließen float-Elemente
+      li.fragment Floating-Elemente verhalten sich wie Block-Elemente (margin, …)
 
-section
-  section
-    h2 CSS Layouting
+    .fragment= slide_image_tag 'css-advanced/floating-images.png'
 
   section
-    h2 The classic/current way
+    h2 CSS Property: float #2
+    ul
+      li.fragment Beliebtes Werkzeug für Layouts
+      li.fragment Float-Verhalten kann jedoch komplex sein
+      li.fragment Bspw. Clearing
+    .fragment= cssdeck_snippet 'hrgwwkak'
+
+  section
     /http://www.lynda.com/Web-Interactive-CSS-training/CSS-Page-Layouts/86003-2.html
     /http://learnlayout.com/
+    h2 Layout mit Floats
+    p.fragment Dynamisches Layout mit Problemen
+    .fragment= cssdeck_snippet 'xa6rghqn'
 
   section
     h2 The Flexbox way
     /https://css-tricks.com/snippets/css/a-guide-to-flexbox/
     /http://www.lynda.com/CSS-tutorials/Advanced-Responsive-Layouts-CSS-Flexbox/383780-2.html
     /http://philipwalton.github.io/solved-by-flexbox/
+    ul
+      li.fragment Neuer Ansatz: Flexible Box Layout oder: Flexbox
+      li.fragment W3C: Flexible Layout Module Level 1 (<a href="http://www.w3.org/TR/css-flexbox-1/">seit 2009</a>)
+      li.fragment Flex-Container und Flex-Items mit 2-Achsen (main, cross)
+    .fragment= slide_image_tag 'css-advanced/flexbox-layout.png'
+
+  section
+    h2 Flexbox Beispiel
+    p Identisches Markup zum Float-Beispiel
+    = cssdeck_snippet 'vbfwlhpw'
+
+  section
+    h2 Flexbox Konfiguration
+    ul
+      li.fragment display: flex
+      li.fragment flex-direction: row | column | row-reversed | column-reversed
+      li.fragment flex: n | n px | n %
+      li.fragment align-items: flex-start | flex-end | center | space-between | space-aroud …
 
 section
   section
-    h2 Responsive Web Design: Media queries
+    h2 Responsive Web Design
+    ul
+      li.fragment Neue Geräteklassen = Neue Herausforderungen
+      li.fragment Bildschirmgröße: Layout
+      li.fragment Touch statt Pointer: kein Hover
+      li.fragment Orientation: Landspace vs Portrait
+      li.fragment Bandbreite: GPRS, Edge, …
+      li.fragment Browser: Android, Opera Mini, …
+
+  section
     /http://www.w3.org/TR/css3-mediaqueries/
     /http://learnlayout.com/media-queries.html
     /https://css-tricks.com/css-media-queries/
+    h2 Media Queries
+    ul
+      li.fragment W3C: Media Queries (<a href="http://www.w3.org/TR/css3-mediaqueries/">seit 2012</a>)
+      li.fragment Konditionale für CSS Regeln
+      li.fragment @media KONDITION { CSS-CODE }
+      li.fragment Konditionen: min-width | screen | orientation …
+    .fragment= code_block show: 'css,output'
+      | <link rel="stylesheet" media="(max-width: 800px)" href="example.css" />
+        <style>
+          @media (max-width: 800px) {
+            .ads {
+              display: none;
+            }
+          }
+        </style>
 
+  section
+    h2 Media Query Beispiel
+    = cssdeck_snippet 'rjp1hs2o'
 
 section
   section
-    h2 CSS Transitions & Transformations
+    h2 CSS Transitions
     /http://www.lynda.com/Dreamweaver-tutorials/CSS-Transitions-Transforms/101072-2.html
+    ul
+      li.fragment W3C: CSS Transitions (<a href="http://www.w3.org/TR/css3-transitions/">seit 2013</a>)
+      li.fragment Ändern der Darstellung via CSS animiert statt prompt
+      li.fragment transition-property: width (Limitierung von Eigenschaften)
+      li.fragment transition-duration: 2s
+      li.fragment transition-delay: 2s (Limitierung von Eigenschaften
+      li.fragment transition: <property> <duration> <timing-function> <delay>
+
+  section
+    h2 CSS Transitions Beispiel
+    = cssdeck_snippet 'g6jgcnw1'
+
+  section
+    h2 CSS Tansforms
+    /http://www.lynda.com/Dreamweaver-tutorials/CSS-Transitions-Transforms/101072-2.html
+    ul
+      li.fragment W3C: CSS Transitions (<a href="http://www.w3.org/TR/css3-transitions/">seit 2013</a>)
+      li.fragment Ändern der Darstellung via CSS animiert statt prompt
+    .fragment= cssdeck_snippet 'rjp1hs2o'
 
 section
   section
