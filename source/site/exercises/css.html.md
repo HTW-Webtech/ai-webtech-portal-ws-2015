@@ -57,6 +57,7 @@ Die neue Twotter-Webseite soll die Folgenden Anforderungen erfüllen:
 
 Es gibt keine Vorgaben für die ästhetische Umsetzung, aber Kreativität ist gewünscht. Wer sich unkreativ fühlt, findet
 auf den folgenden Seiten vielleicht Inspiration:
+
 * <http://www.wix.com/website/templates>
 * <https://wordpress.org/themes/browse/popular/>
 * <https://www.dudamobile.com/responsive-website/templates>
