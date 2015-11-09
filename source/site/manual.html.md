@@ -23,3 +23,5 @@ zu sehen. Auch diese Seite kann auf Github bearbeitet werden!
 * [HTML, CSS Code Guidelines by @mdo](http://codeguide.co/)
   Eine Art Leitfaden mit nachvollziehbaren Tipps für die Arbeit mit HTML/CSS. Es gibt den Guide wurde auch [ins Deutsche](http://backendbutters.github.io/code-guide) übersetzt.
 
+## Online-Tutorials
+* [Advanced HTML und CSS](http://learn.shayhowe.com/advanced-html-css/)
