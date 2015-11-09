@@ -1,0 +1,98 @@
+/
+  Agenda:
+  - History
+    - Warum entwickelt?
+    - Welche Features?
+    - Designed to be simple vs strict mode
+    - Heute von ECMA weiterentwickelt. Codename: ECMAScript
+    - Aktuelle Version ES5 Harmony, ES6 is coming
+  - Beispiel-Code Fibonacci
+  - Syntax:
+    - Datentypen
+    - Kontrollstrukturen
+    - == und === Probleme
+  - Wird extrem optimiert. Performance-Vergleich
+    - Talk von CodeMirror Guy
+    - Verschiedene JS-Engines
+  - JavaScript im Browser
+    - Single-Threaded Sandbox
+  - JavaScript auf dem Server
+    - NodeJS
+
+
+section
+  section
+    h2 Agenda
+
+  section
+    h2 Warum JavaScript?
+    ul
+      li.fragment 1994: Von Brendan Eich bei Netspace entworfen
+      li.fragment Für Browser-Scripting konzipiert
+      li.fragment Unter Zeitdruck erdacht und implementiert
+      li.fragment Sehr beschränkte Sprach-Features
+      li.fragment 2015: Fast alles anders
+
+  section
+    h2 JavaScript-Features
+    ul
+      li.fragment Skriptsprache -> Interpreter != langsam
+      li.fragment Protoypische Vererbung, keine Klassen (bisher) (TODO: ES6?)
+      li.fragment Arrays und Objekte sind literale
+      li.fragment Single-Threaded (im Browser)
+      li.fragment Type coercion (! Achtung)
+      li.fragment Fehlertolerant (strict mode)
+
+  section
+    h2 Fibonacci in JavaScript
+    = jsfiddle_snippet ''
+
+  section
+    h2 Heute
+    ul
+      li.fragment Seit ? von ECMA gepflegt
+      li.fragment Aktuelle Version 5: "Harmony"
+      li.fragment Nächste Version 6: "Harmony"
+      li.fragment Wahnsinnig performant, dank Googles V8
+
+  section
+    h2 Syntax: Variablen, Strings, Integer, Float
+    = jsfiddle_snippet ''
+
+  section
+    h2 Syntax: Kontrollstrukturen
+    / - Einfache if-else clause
+    / - Switch case
+    / - for loop
+    = jsfiddle_snippet ''
+
+  section
+    h2 Syntax: Funktionen
+    / - Beispiel-Funktion mit und ohne Name
+    / - Funktionen können in Variablen gespeichert werden
+    / - Funktionen können properties auf Objekten sein
+    = jsfiddle_snippet ''
+
+  section
+    h2 Syntax: Array, Object
+    = jsfiddle_snippet ''
+
+section
+  section
+    h2 JavaScript im Browser
+    ul
+      li.fragment Verheiraten von JavaScript und HTML
+      li.fragment DOM: Document Object Model
+      li.fragment
+        | Browser-APIs
+        ul
+          li.fragment Web Storage: Cookies, localStorage, sessionStorage, IndexedDB, WebSQL
+          li.fragment WebWorkers:
+          li.fragment WebRTC:
+          li.fragment WebGL:
+          li.fragment HTMLCanvasElement:
+          li.fragment GeoLocation:
+          li.fragment BatteryManager:
+          li.fragment Notifications API:
+          li.fragment GeoLocation:
+
