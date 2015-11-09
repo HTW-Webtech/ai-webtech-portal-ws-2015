@@ -1,6 +1,11 @@
 # Changelog
 Auf dieser Seite werden Änderungen an diesem Lern-Portal protokolliert.
 
+### 9. November
+* [CSS-Übung](exercises/css.html) veröffentlicht.
+* [Folien](slides.html) für CSS Fortgeschritten veröffentlicht.
+* Link zu HTML und CSS Tutorial zum [Handbuch](manual.html) hinzugefügt.
+
 ### 4. November
 * Link zu HTML/CSS Coding-Guidelines in das [Handbuch](manual.html) eingetragen.
 

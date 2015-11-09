@@ -5,9 +5,9 @@ Das hat auch geklappt und heute hast du deinen ersten Tag im 2-wöchtigen Prakti
 
 ## Allgemeines
 
-| Deadline              | Punkte (Code) | Punkte (Review) |
-|---------------------------------------------------------|
-| 8.11.2015, 23.59 Uhr  | 2             | 2               |
+| Abgabe bis            | Punkte (Tests) | Punkte (Review) |
+|----------------------------------------------------------|
+| 8.11.2015, 23.59 Uhr  | 2              | 2               |
 {: .table .table-bordered }
 
 ## Briefing
