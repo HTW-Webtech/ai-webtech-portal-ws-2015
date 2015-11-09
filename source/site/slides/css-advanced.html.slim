@@ -2,31 +2,12 @@ section
   section
     h2 Agenda
     ul
-      li.fragment
-        | Grundlagen
-        ul
-          li Reset vs Normalize
-          li Box Model
-          li Stacking Context
-          li Properties: box-sizing, display, position, float
-          li CSS Normalize vs CSS Reset
-      li.fragment
-        | CSS Layouts
-        ul
-          li The current (old) way
-          li The Flexbox way
-
-  section
-    h2 Agenda #2
-    ul
-      li.fragment
-        | Responsive Layouts
-        ul
-          li Media queries
-      li.fragment
-        | CSS Transitions & Transformations
-        ul
-          li TODO
+      li.fragment CSS Rendering
+      li.fragment Box Model
+      li.fragment Layouting the old/current way
+      li.fragment Layouting the new way
+      li.fragment CSS Transitions
+      li.fragment CSS Transformations
 
 section
   section
@@ -44,9 +25,6 @@ section
 
   section
     h2 CSS Box Model
-    /https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model
-    /http://www.w3schools.com/css/css_boxmodel.asp
-    /https://css-tricks.com/the-css-box-model/
     ul
       li.fragment
         | Jedes HTML-Element ist ein Rechteck mit folgenden Eigenschaften
@@ -79,7 +57,6 @@ section
       li.fragment Idee: Man möchte Elemente *in den Hintergrund* legen
       li.fragment Lösung: Man nutzt den z-index
     .fragment= slide_image_tag 'css-advanced/stacking-context.png'
-    /https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
 
   section
     h2 Elemente-Fluss (Flow)
@@ -136,17 +113,12 @@ section
     .fragment= cssdeck_snippet 'hrgwwkak'
 
   section
-    /http://www.lynda.com/Web-Interactive-CSS-training/CSS-Page-Layouts/86003-2.html
-    /http://learnlayout.com/
     h2 Layout mit Floats
     p.fragment Dynamisches Layout mit Problemen
     .fragment= cssdeck_snippet 'xa6rghqn'
 
   section
     h2 The Flexbox way
-    /https://css-tricks.com/snippets/css/a-guide-to-flexbox/
-    /http://www.lynda.com/CSS-tutorials/Advanced-Responsive-Layouts-CSS-Flexbox/383780-2.html
-    /http://philipwalton.github.io/solved-by-flexbox/
     ul
       li.fragment Neuer Ansatz: Flexible Box Layout oder: Flexbox
       li.fragment W3C: Flexible Layout Module Level 1 (<a href="http://www.w3.org/TR/css-flexbox-1/">seit 2009</a>)
@@ -178,16 +150,13 @@ section
       li.fragment Browser: Android, Opera Mini, …
 
   section
-    /http://www.w3.org/TR/css3-mediaqueries/
-    /http://learnlayout.com/media-queries.html
-    /https://css-tricks.com/css-media-queries/
     h2 Media Queries
     ul
       li.fragment W3C: Media Queries (<a href="http://www.w3.org/TR/css3-mediaqueries/">seit 2012</a>)
       li.fragment Konditionale für CSS Regeln
       li.fragment @media KONDITION { CSS-CODE }
       li.fragment Konditionen: min-width | screen | orientation …
-    .fragment= code_block show: 'css,output'
+    .fragment= code_block
       | <link rel="stylesheet" media="(max-width: 800px)" href="example.css" />
         <style>
           @media (max-width: 800px) {
@@ -204,7 +173,6 @@ section
 section
   section
     h2 CSS Transitions
-    /http://www.lynda.com/Dreamweaver-tutorials/CSS-Transitions-Transforms/101072-2.html
     ul
       li.fragment W3C: CSS Transitions (<a href="http://www.w3.org/TR/css3-transitions/">seit 2013</a>)
       li.fragment Ändern der Darstellung via CSS animiert statt prompt
@@ -219,11 +187,14 @@ section
 
   section
     h2 CSS Tansforms
-    /http://www.lynda.com/Dreamweaver-tutorials/CSS-Transitions-Transforms/101072-2.html
     ul
-      li.fragment W3C: CSS Transitions (<a href="http://www.w3.org/TR/css3-transitions/">seit 2013</a>)
-      li.fragment Ändern der Darstellung via CSS animiert statt prompt
-    .fragment= cssdeck_snippet 'rjp1hs2o'
+      li.fragment W3C: CSS Transforms Module Level 1 (<a href="http://www.w3.org/TR/css3-transforms/">seit 2013</a>)
+      li.fragment Manipulation der Koordinaten im 3D-Raum
+      li.fragment Elemente-Flow bleibt erhalten
+
+  section
+    h2 CSS Tansforms Beispiel
+    = cssdeck_snippet 'lmo06z1r'
 
 section
   section
