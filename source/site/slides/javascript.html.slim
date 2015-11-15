@@ -20,79 +20,227 @@
     - NodeJS
 
 
+    /http://kangax.github.io/compat-table/es5/
+
+
 section
   section
     h2 Agenda
 
   section
-    h2 Warum JavaScript?
+    h2 Was ist JavaScript?
+    = cssdeck_snippet 'sf3ghn76', show: 'html,output'
+
+  section
+    h2 Was bisher geschah
+    /https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript
     ul
-      li.fragment 1994: Von Brendan Eich bei Netspace entworfen
-      li.fragment Für Browser-Scripting konzipiert
-      li.fragment Unter Zeitdruck erdacht und implementiert
-      li.fragment Sehr beschränkte Sprach-Features
-      li.fragment 2015: Fast alles anders
+      li.fragment Für den Browser konzipierte Skriptsprache
+      li.fragment 1994: Unter Zeitdruck von Brandon Eich für Netscape 4.0 erdacht und implementiert
+      li.fragment 1996-97: ECMA (CDROM, JSON, C#, …, ECMAScript)
+      li.fragment
+        | 2005:
+        ul
+          li.fragment Jesse James Gerret prägte den Begriff <abbr title="Asynchronous JavaScript and XML">AJAX</abbr>
+          li.fragment JavaScript Bibliotheken wie Prototype.js, Mootools, jQuery werden populär
+      li.fragment
+        | 2009:
+        ul
+          li.fragment ECMAScript 5 durch Zusammenschluss verschiedener Parteien
+          li.fragment Ryan Dahl veröffentlicht NodeJS - Eventgetriebenes JS auf dem Server
+      li.fragment 2015: ECMAScript 6: "Harmony" / "ES.next" approved
 
   section
     h2 JavaScript-Features
     ul
-      li.fragment Skriptsprache -> Interpreter != langsam
-      li.fragment Protoypische Vererbung, keine Klassen (bisher) (TODO: ES6?)
-      li.fragment Arrays und Objekte sind literale
+      li.fragment Skriptsprache -> Interpretiert
+      li.fragment Kein manuelles Memory-Management (GC)
+      li.fragment Protoypische Vererbung, seit ES6 auch Klassen
       li.fragment Single-Threaded (im Browser)
-      li.fragment Type coercion (! Achtung)
       li.fragment Fehlertolerant (strict mode)
 
   section
     h2 Fibonacci in JavaScript
-    = jsfiddle_snippet ''
+    = js_snippet 'adatciy1'
 
   section
-    h2 Heute
-    ul
-      li.fragment Seit ? von ECMA gepflegt
-      li.fragment Aktuelle Version 5: "Harmony"
-      li.fragment Nächste Version 6: "Harmony"
-      li.fragment Wahnsinnig performant, dank Googles V8
+    h2 Kommentare, Variablen
+    = code_block language: 'javascript' do
+      | // a one line comment
+        /* this is a longer,
+           multi-line comment
+        */
+        // Debugging
+        console.log("hello world"); // => "hello world"
+        debugger; // JS interpreter hält hier an
+        // Deklaration von Variablen
+        var a; // a ist nun undefined
+        console.log(a); // => undefined
+        console.log(b); // => ReferenceError
 
   section
-    h2 Syntax: Variablen, Strings, Integer, Float
-    = jsfiddle_snippet ''
+    h2 Datentypen
+    = code_block language: 'javascript' do
+      | typeof false; typeof true // "Boolean"
+			  typeof 1; // "Number"
+			  typeof 3.1415; // "Number". Alle Zahlen in JS sind als Floating Point gespeichert
+			  10000000000000000 === 10000000000000001 // => true; 64bit, 1 sign, 10 scale, 53 precision
+			  typeof null; // "object"
+			  typeof "Hi"; // "String"
+        new RegExp()
+        new Date()
+        …
 
   section
-    h2 Syntax: Kontrollstrukturen
-    / - Einfache if-else clause
-    / - Switch case
-    / - for loop
-    = jsfiddle_snippet ''
+    h2 Kontrollstrukturen
+    = code_block language: 'javascript' do
+      | if(true) {
+          console.log(42);
+        else {
+          console.log("Will never happen!");
+        }
+        while(true) {
+          console.log("Will never end");
+        }
+        switch(number) {
+          case 1:
+            console.log("Is 1!");
+          break;
+        }
 
   section
-    h2 Syntax: Funktionen
-    / - Beispiel-Funktion mit und ohne Name
-    / - Funktionen können in Variablen gespeichert werden
-    / - Funktionen können properties auf Objekten sein
-    = jsfiddle_snippet ''
+    /https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
+    h2 Operatoren
+    = code_block language: 'javascript' do
+      | 1 == 1 // Gleichheit
+        1 == "1" // => true
+        1 === 1 // Strikte Gleichheit
+        1 === "1" // => false
+        1 >= 2 // => true
+        10 / 2 + 4 // => 9
+        var i=0; i++; // => 1
+        true && false // => false
+        false || true // => true
 
   section
-    h2 Syntax: Array, Object
-    = jsfiddle_snippet ''
+    h2 Funktionen
+    = code_block language: 'javascript' do
+      | function a() {
+          return 42;
+        }
+        var square = function(x) {
+          return x*x;
+        }
+        square(a()) // => 42^2 = 1764
+
+  section
+    h2 Arrays und Objekt-Literale
+    = code_block language: 'javascript' do
+      | var arr = [1, true, "Bar", new Date()]
+        var obj = {
+          foo: 'bar',
+          'foo 2': 'baz',
+          bar: function() {
+            return 42;
+          }
+        }
+        obj.foo // => 'bar'
+        obj['foo 2'] // => 'baz'
+        obj.bar // => function() { }
+        obj.bar() // => 42
+
+  section
+    h2 Unser 1. funktionales Programm
+    = code_block language: 'javascript' do
+      | var Bob = {
+          ageInYears: 42,
+          heightInCm: 175,
+          weightInKg: 80
+        }
+        var BmiForPerson = function(person) {
+          var heightInM = person.heightInCm / 100;
+          return person.weightInKg / ( heightInM * heightInM );
+        };
+        BmiForPerson(Bob) // => 26.122…
+
+  section
+    h2 JavaScript und HTML
+    = code_block language: 'html' do
+      | <html>
+          <head>…</head>
+          <body>
+            …
+            <script src="js/jquery.js"></script>
+            <script src="http://google-cdn.com/js/jquery-plugin.js"></script>
+            <script>
+              alert("Ich warte bis alle externen Skripte sind geladen!");
+            </script>
+          <body>
+        </html>
 
 section
-  section
-    h2 JavaScript im Browser
-    ul
-      li.fragment Verheiraten von JavaScript und HTML
-      li.fragment DOM: Document Object Model
-      li.fragment
-        | Browser-APIs
-        ul
-          li.fragment Web Storage: Cookies, localStorage, sessionStorage, IndexedDB, WebSQL
-          li.fragment WebWorkers:
-          li.fragment WebRTC:
-          li.fragment WebGL:
-          li.fragment HTMLCanvasElement:
-          li.fragment GeoLocation:
-          li.fragment BatteryManager:
-          li.fragment Notifications API:
-          li.fragment GeoLocation:
 
+  section
+    /https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction
+    h2 Document Object Model (DOM)
+    ul
+      li.fragment API: JS -> HTML/Browser
+      li.fragment Spezifiert Interfaces für Interaktion mit HTML-Elementen
+      li.fragment
+        | Bietet Zugriff auf diverse Browser-APIs
+        ul
+          li.fragment HTML-Manipulation
+          li.fragment Browser/Window Eigenschaften
+          li.fragment Event-Handling
+          li.fragment Web Storage API
+          li.fragment Battery Status API
+          li.fragment getUserMedia
+  section
+    / Element im DOM ausblenden
+    h2 HTML-Manipulation
+    = js_snippet 'xltpmf7x'
+
+  section
+    / Element im DOM ausblenden
+    h2 HTML-Manipulation #2
+    = js_snippet 'lphc1u0n'
+
+  section
+    h2 Browser/Window Eigenschaften
+    = code_block language: 'javascript' do
+      | window.innerHeight // => 920
+        window.location.href // => Gibt aktuelle Web-Adresse zurück
+        window.location.href = "https://www.google.com" // Adress-Eingabe via JS
+        window.localStorage // Zugriff auf den LocalStorage vom Browser
+
+  section
+    h2 Event-Handling
+    ul
+      li.fragment Browser erzeugt UI Events bei Nutzer-Interaktion
+      li.fragment Bspw. Mausklick, Tastatur-Eingabe, Fenster wird bewegt
+      li.fragment Diese UI Events können via Eventhandler mit JavaScript genutzt werden
+      li.fragment UI Events folgenden einem 3-Phasen-Konzept: Capture->Target->Bubble
+
+  section
+    h2 Event-Handling #2
+    = slide_image_tag 'javascript/event-model-dispatch-flow.png'
+
+  section
+    h2 Event-Handling #3
+    = js_snippet 'fvhqsnwt'
+
+  section
+    h2 Event-Handling Tricks
+    = js_snippet 'z5pzhvus'
+
+  section
+    h2 Web Storage API: localStorage
+    = js_snippet 'xnkaimrp'
+
+  section
+    h2 Battery Status API
+    = js_snippet 'tfffqhax'
+
+  section
+    h2 Geolocation
+    = js_snippet 'mugganh4'

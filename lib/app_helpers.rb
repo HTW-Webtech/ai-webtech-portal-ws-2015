@@ -56,6 +56,14 @@ module AppHelpers
     "<script async src='http://cssdeck.com/assets/js/embed.js'></script>"
   end
 
+  def jsfiddle_snippet(id, height: 400)
+    "<iframe width='100%' sandbox='allow-modals allow-same-origin allow-scripts' height='#{height}' src='//jsfiddle.net/gregoryigelmund/#{id}/embedded/' allowfullscreen='allowfullscreen' frameborder='0'></iframe>"
+  end
+
+  def js_snippet(id)
+    cssdeck_snippet(id, show: 'js')
+  end
+
   def code_block(language: 'html', &block)
     escaped_html = html_escape { block.call }
     "<pre><code class='language-#{language}'>#{escaped_html}</code></pre>"
