@@ -26,25 +26,30 @@
 section
   section
     h2 Agenda
+    ul
+      li.fragment Wozu JavaScript?
 
   section
-    h2 Was ist JavaScript?
+    h2 Wozu JavaScript?
     = cssdeck_snippet 'sf3ghn76', show: 'html,output'
 
   section
     h2 Was bisher geschah
     /https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript
     ul
-      li.fragment Für den Browser konzipierte Skriptsprache
       li.fragment 1994: Unter Zeitdruck von Brandon Eich für Netscape 4.0 erdacht und implementiert
-      li.fragment 1996-97: ECMA (CDROM, JSON, C#, …, ECMAScript)
+      li.fragment 1996-97: <abbr title="European Computer Manufacturers Association">ECMA</abbr> übernimmt das Projekt und nennt es ECMAScript (Weitere: CDROM, JSON, …)
       li.fragment
         | 2005:
         ul
           li.fragment Jesse James Gerret prägte den Begriff <abbr title="Asynchronous JavaScript and XML">AJAX</abbr>
           li.fragment JavaScript Bibliotheken wie Prototype.js, Mootools, jQuery werden populär
+
+  section
+    h2 Was bisher geschah #2
+    ul
       li.fragment
-        | 2009:
+        | 2009: Womit wir aktuell (noch) arbeiten
         ul
           li.fragment ECMAScript 5 durch Zusammenschluss verschiedener Parteien
           li.fragment Ryan Dahl veröffentlicht NodeJS - Eventgetriebenes JS auf dem Server
@@ -58,10 +63,6 @@ section
       li.fragment Protoypische Vererbung, seit ES6 auch Klassen
       li.fragment Single-Threaded (im Browser)
       li.fragment Fehlertolerant (strict mode)
-
-  section
-    h2 Fibonacci in JavaScript
-    = js_snippet 'adatciy1'
 
   section
     h2 Kommentare, Variablen
@@ -82,11 +83,12 @@ section
     h2 Datentypen
     = code_block language: 'javascript' do
       | typeof false; typeof true // "Boolean"
-			  typeof 1; // "Number"
-			  typeof 3.1415; // "Number". Alle Zahlen in JS sind als Floating Point gespeichert
-			  10000000000000000 === 10000000000000001 // => true; 64bit, 1 sign, 10 scale, 53 precision
-			  typeof null; // "object"
-			  typeof "Hi"; // "String"
+        typeof 1; // "Number"
+        typeof 3.1415; // "Number". Zahlen sind 64bit Floats
+                      // 1 sign, 10 scale, 53 precision
+        10000000000000000 === 10000000000000001 // => true
+        typeof null; // "object"
+        typeof "Hi"; // "String"
         new RegExp()
         new Date()
         …
@@ -117,21 +119,50 @@ section
         1 === 1 // Strikte Gleichheit
         1 === "1" // => false
         1 >= 2 // => true
-        10 / 2 + 4 // => 9
-        var i=0; i++; // => 1
+        10 / 2 // => 5
+        9 % 2 // => 1
+        var i=0;
+        i++; // => 1
         true && false // => false
         false || true // => true
 
   section
+    h2 Implicit Type Coercion
+    = code_block language: 'javascript' do
+      | "Hi " + 42 // => "Hi 42"
+        7 * "42" // => 294
+        1 == "1" // => true
+        !!"42" // => true
+        !!"" // => false
+        !!0 // => false
+
+    h2 Explicit Cocercion
+    = code_block language: 'javascript' do
+      | "Hi" + 42.toString() // "Hi 42"
+        7 * Number.parseInt("42") // => 294
+        Boolean("42") // => true
+
+  section
     h2 Funktionen
     = code_block language: 'javascript' do
-      | function a() {
+      | function answer() {
           return 42;
-        }
+        } // a wurde nun an das globale Window-Objekt gehangen
+
         var square = function(x) {
           return x*x;
         }
-        square(a()) // => 42^2 = 1764
+
+        square(answer()) // => 42^2 = 1764
+
+  section
+    / Wie bekomme ich Einblick in den Code, was er tut etc.
+    h2 Development-Zyklus mit dem Debugger
+    = js_snippet 'ueb6bztw'
+
+  section
+    h2 Fibonacci in JavaScript
+    = js_snippet 'adatciy1'
 
   section
     h2 Arrays und Objekt-Literale
@@ -150,7 +181,7 @@ section
         obj.bar() // => 42
 
   section
-    h2 Unser 1. funktionales Programm
+    h2 Beispiel: BMI-Rechner
     = code_block language: 'javascript' do
       | var Bob = {
           ageInYears: 42,
@@ -194,11 +225,12 @@ section
           li.fragment Event-Handling
           li.fragment Web Storage API
           li.fragment Battery Status API
-          li.fragment getUserMedia
+          li.fragment GeoLocation
+          li.fragment …
   section
     / Element im DOM ausblenden
     h2 HTML-Manipulation
-    = js_snippet 'xltpmf7x'
+    = cssdeck_snippet 'xltpmf7x', show: 'html,output'
 
   section
     / Element im DOM ausblenden
@@ -227,20 +259,28 @@ section
 
   section
     h2 Event-Handling #3
-    = js_snippet 'fvhqsnwt'
+    = cssdeck_snippet 'fvhqsnwt', show: 'js,output'
 
   section
     h2 Event-Handling Tricks
-    = js_snippet 'z5pzhvus'
+    = cssdeck_snippet 'z5pzhvus', show: 'js,output'
 
   section
     h2 Web Storage API: localStorage
-    = js_snippet 'xnkaimrp'
+    = cssdeck_snippet 'xnkaimrp', show: 'js,output'
 
   section
     h2 Battery Status API
-    = js_snippet 'tfffqhax'
+    = cssdeck_snippet 'tfffqhax', show: 'js,output'
 
   section
     h2 Geolocation
-    = js_snippet 'mugganh4'
+    = cssdeck_snippet 'mugganh4', show: 'js,output'
+
+section
+  section
+    h2 Links
+    ul
+      li <a href="https://github.com/getify/You-Dont-Know-JS" You Don't Know JS</a> - Kyle Simpson kostenlos auf github.com
+      li <a href="http://eloquentjavascript.net/">Eloquent JavaScript</a> - Marijn Haverbeke
+
