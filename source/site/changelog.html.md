@@ -1,6 +1,9 @@
 # Changelog
 Auf dieser Seite werden Änderungen an diesem Lern-Portal protokolliert.
 
+### 16. November
+* [JavaScript Folien](slides/javascript.html) veröffentlicht.
+
 ### 9. November
 * [CSS-Übung](exercises/css.html) veröffentlicht.
 * [Folien](slides.html) für CSS Fortgeschritten veröffentlicht.
