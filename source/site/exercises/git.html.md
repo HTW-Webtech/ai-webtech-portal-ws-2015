@@ -39,6 +39,8 @@ Verständnis von Git und dessen Funktionalität ist wesentlich für den übrigen
 ## Einstieg
 * [Code school - Try Git](https://try.github.io)
   Interaktives Git-Tutorial im Browser. Erklärt in 25 Schritten alle wichtigen Git Befehle.
+* [Codeacademy: Create and explore a simple Git-managed project](https://www.codecademy.com/learn/learn-git)
+  Interaktives Beginner-Tutorial der codeacademy.
 * [Version Control System Introduction - Georgia Tech - Software Development Process](https://www.youtube.com/embed/zbKdDsNNOhg)
   Kurzes und prägnantes Video das erklärt warum Versionskontrolle wichtig ist
 * [Learn Git in 20 Minutes](https://www.youtube.com/embed/Y9XZQO1n_7c?t=2m10)
