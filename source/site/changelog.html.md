@@ -1,6 +1,9 @@
 # Changelog
 Auf dieser Seite werden Änderungen an diesem Lern-Portal protokolliert.
 
+### 21. November
+* Neues Git-Tutorial von Codeacademy zu den Lern-Inhalten der [Git-Übung](exercises/git.html) eingetragen
+
 ### 16. November
 * [JavaScript Folien](slides/javascript.html) veröffentlicht.
 
