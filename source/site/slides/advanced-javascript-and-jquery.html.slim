@@ -1,0 +1,68 @@
+/
+section
+  section
+    h2 Agenda
+    ul
+      li.fragment Mini-JS-App Live Coding
+      li.fragment
+        | jQuery
+        ul
+          li.fragment Traversieren
+          li.fragment Manipulieren
+          li.fragment Events
+          li.fragment Effekte
+
+section
+  section
+    h2 Mini-JS App Live Coding
+    = jsfiddle_snippet 'x336jr62'
+
+section
+  section
+    h2 jQuery
+    p Zitat von der jQuery-Webseite:
+    quote
+      | jQuery is a […] JavaScript library. It makes […] document traversal and manipulation, event handling, animation, and Ajax much simpler with an
+        easy-to-use API that works across a multitude of browsers. […]
+
+  section
+    h2 jQuery API
+    = code_block language: 'javascript' do
+      | // Spaghetti-Code API-style
+        $('.strong').parent().animate({ opacity: 0.5 }, 500);
+        $(':hidden').toggle().css('border', '1px black solid').data('foo')…
+        // Fast jede jQuery-Methode gibt wieder eine jQuery-Collection zurück.
+        // Auf diese Weise können API-Aufrufe verkettet (chaining) werden.
+        // Dies führt jedoch auch schnell zu Spaghetti-Code.
+
+  section
+    h2 Traversieren
+    = code_block language: 'javascript' do
+      | $('#id') => jQuery-Collection
+        $('.klasse'), $('body > nav'), $('element[attr]') // Alle CSS2 und CSS3-Selektoren
+        $('div:odd'), $(':hidden'), $(':checked'), $('h1:gt(n)') // jQuery Selektor-Extensions (!kein W3C-Standard)
+
+  section
+    h2 Manipulieren
+    = code_block language: 'javascript' do
+      | $('#id').hide(); // display: none;
+        $('.klasse').css('border', '1px red dashed'); // Schreibt inline-style
+        $('p > h1').html('Überschriften sind doch alle gleich'); // HTML-Markup überschreiben
+        $('<div class="test">Hi!</div>').appendTo('body'); // Füht neues Markup hinzu
+        $('h2').remove(); // Löscht Markup
+        $('input[type=text]').val('Lalala'); // Überschreibt Inhalt aller Text-Inputs
+
+  section
+    h2 Events
+    = cssdeck_snippet 'fqroxknr'
+
+  section
+    h2 Effekte
+    = cssdeck_snippet '9ogxki17'
+
+  section
+    h2 Links
+    ul
+      li: a href="http://try.jquery.com" try.jquery.com
+      li: a href="http://learn.jquery.com" learn.jquery.com
+      li: a href="http://api.jquery.com" api.jquery.com
