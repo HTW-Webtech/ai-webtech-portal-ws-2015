@@ -86,4 +86,3 @@ Die Texte und Bilder für die Webseite können Sie ebenfalls frei auswählen.
   Sehr umfassende Videos zu den verschiedenen Layout-Möglichkeiten in CSS. Sehr gut gemacht.
 * [Advanced Responsive Layouts with CSS Flexbox: Morten Rand-Hendriksen](http://www.lynda.com/CSS-tutorials/Advanced-Responsive-Layouts-CSS-Flexbox/383780-2.html)
   Sehr umfangreiche Einführung in verschiedene Flexbox Layout-Techniken.
-* [](http://www.lynda.com/Dreamweaver-tutorials/CSS-Transitions-Transforms/101072-2.html)
