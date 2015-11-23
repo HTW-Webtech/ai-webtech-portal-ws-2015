@@ -108,8 +108,8 @@ Die Features zu jeder der 3 Seiten:
   Verschiedene JS-Bücher von Kyle Simpson kostenlos auf github.com. Interessant sind vor allem
   "this & Object Prototypes" sowie "Scope & Closures".
 * [Eloquent JavaScript](http://eloquentjavascript.net)
-  Sehr sehr gut geschriebene Einführung in JavaScript von Marijn Haverbeke. Es gibt zu den verschiedenen
-  Aspekten von JavaScript jeweils sehr tief gehende Übungen.
+  Sehr gut geschriebene Einführung in JavaScript von Marijn Haverbeke. Es gibt zu den verschiedenen
+  Aspekten von JavaScript jeweils tief gehende Übungen.
 
 ## Lynda-Videos
 * [JavaScript Essential Training](http://www.lynda.com/JavaScript-tutorials/JavaScript-Essential-Training/81266-2.html)
