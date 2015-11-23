@@ -67,6 +67,14 @@ Auf der Startseite kann der Nutzer verfolgen wie viele Lernkarten angelegt, sowi
 richtige oder falsche Antworten bisher gegeben wurden.
 
 
+### Template
+
+Ein anderer Entwickler von BgUGs hat bereits eine Vorlage entwickelt, die dafür werden kann um
+die App fertig zu stellen.
+
+* [Template Download](/downloads/exercises/javascript/flashcards-template.zip)
+
+
 ## Technische Anforderungen
 
 Die Features zu jeder der 3 Seiten:
