@@ -4,6 +4,8 @@ Web-Entwickler angenommen. Das nächste Projekt an dem du arbeiten sollst ist um
 die bisherigen Aufgaben.
 
 ## Allgemeines
+Für diese Aufgabe gibt es 2 bis 4 Punkte. Die 2 zusätzlichen Punkte im Code Review werden für besondere
+Schaffungshöhe oder interessante Lösungen vergeben.
 
 | Abgabe bis            | Punkte (Tests) | Punkte (Review) |
 |----------------------------------------------------------|
@@ -99,6 +101,13 @@ Die Features zu jeder der 3 Seiten:
    * "Ja"-Knopf um eine Karte als richtig beantwortet zu markieren
    * "Nein"-Knopf um eine Karte als falsch beantwortet zu markieren
    * "Umdrehen"-Knopf um die jeweils andere Seite der Karte (Vorder- oder Rückseite) zu sehen
+
+## Ideen
+Diese Vorschläge sind keine Pflicht, sondern lediglich Ideen für sinnvolle Ergänzungen. Im Code Review
+werden diese aber auch die eigenen Ideen berücksichtigt und ggf. mit zusätzlichen Punkten bewertet.
+
+* Animation der drehenden Karten beim Klick auf "Umdrehen"
+* Sehr anspruchsvoll: Im- und Export der Lernkateien als CSV-Datei
 
 
 # Lern-Bereich
