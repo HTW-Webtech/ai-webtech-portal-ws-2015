@@ -11,6 +11,7 @@ if images.any?
     # FIXME: Execute this only when the size NEEDS to be changed. Otherwise this creates a new file
     # which seems to trigger imageoptim again, which seems to update the image and we are in a loop.
     if mini_magick_image.width > 700
+      puts "Resizing image: #{image_path} which is too wide: #{mini_magick_image.width} > 700"
       mini_magick_image.resize('700x1000>')
     end
     system "echo '#{image_path}' | #{IMAGEOPTIM_BIN_PATH}"
