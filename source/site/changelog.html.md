@@ -2,7 +2,7 @@
 Auf dieser Seite werden Änderungen an diesem Lern-Portal protokolliert.
 
 ### 26. November
-* Gitlist für alle Apps eingerichtet. Gitlist ist ein web front end für git und wird zukünftig für die CodeReviews eingesetzt.
+* Passwort-geschütztes [Gitlist](http://gitlist.htw-webtech.com) für Apps eingerichtet. Gitlist ist ein web front end für git und wird zukünftig für die CodeReviews eingesetzt.
 
 ### 25. November
 * HTTPs für <https://admin.htw-webtech.com> und <https://portal.htw-webtech.com>

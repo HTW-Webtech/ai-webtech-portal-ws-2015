@@ -10,6 +10,7 @@ Wenn Sie Fragen haben, können Sie mich unter <mailto:igelmund@htw-berlin.de> er
 * <http://admin.htw-webtech.com>: Die Aris App-Management Seite verwaltet die Zugangsdaten zum Einreichen von Code für
   die Übungen. Außerdem ist hier der aktuelle Punkte-Stand für den Kurs verwaltet.
 * <http://jenkins.htw-webtech.com>: Das Jenkins-CI führt die funktionalen Tests für die Übungen durch.
+* <http://gitlist.htw-webtech.com>: Eine Übersicht der git Projekte. Passwort-geschützter Zugang.
 * <http://files.htw-webtech.com>: Im Download-Bereich können Dateien (wie bspw. das Virtualbox-Image) heruntergeladen werden.
 
 # Wartung und Aktualität von Inhalten
