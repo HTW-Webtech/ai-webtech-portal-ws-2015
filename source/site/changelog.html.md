@@ -1,6 +1,12 @@
 # Changelog
 Auf dieser Seite werden Änderungen an diesem Lern-Portal protokolliert.
 
+### 26. November
+* Gitlist für alle Apps eingerichtet. Gitlist ist ein web front end für git und wird zukünftig für die CodeReviews eingesetzt.
+
+### 25. November
+* HTTPs für <admin.htw-webtech.com> und <portal.htw-webtech.com>
+
 ### 21. November
 * Neues Git-Tutorial von Codeacademy zu den Lern-Inhalten der [Git-Übung](exercises/git.html) eingetragen
 
