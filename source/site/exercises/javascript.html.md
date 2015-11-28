@@ -17,6 +17,9 @@ Einige Kunden der BgUGs hätten gerne eine App um Vokabeln zu lernen. "FlashCard
 Die Idee ist, dass jeder Kunde diese App auf seinem Mobiltelefon bspw. öffnen kann und dort Lernkarten mit je einem
 Text auf der Vorder- und Rückseite pflegen kann.
 
+### Jenkins Tests zu der Aufgabe
+[Spec auf github.com](https://github.com/HTW-Webtech/ai-webtech-functional-tests/blob/master/spec/exercises/exercise_3_spec.rb)
+
 ### Wireframes
 Der Designer hat hierfür ein paar Wireframes vorbereitet.
 
@@ -72,7 +75,7 @@ richtige oder falsche Antworten bisher gegeben wurden.
 ### Template
 
 Ein anderer Entwickler von BgUGs hat bereits eine Vorlage entwickelt, die dafür werden kann um
-die App fertig zu stellen.
+die App fertig zu stellen. Die App kann aber gerne auch ohne das Template entwickelt werden.
 
 * [Template Download](/downloads/exercises/javascript/flashcards-template.zip)
 

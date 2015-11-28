@@ -20,6 +20,9 @@ Dein Vorgesetzter hätte gerne eine Webseite mit drei Unterseiten:
 * Kontakt-Seite (contact.html) mit einem Kontakt-Formular
 * Impressum-Seite (imprint.html) mit der Adresse
 
+### Jenkins Tests zu der Aufgabe
+[Spec auf github.com](https://github.com/HTW-Webtech/ai-webtech-functional-tests/blob/master/spec/exercises/exercise_1_spec.rb)
+
 
 ### Startseite
 ![Die Startseite: index.html](exercises/html/start.png)

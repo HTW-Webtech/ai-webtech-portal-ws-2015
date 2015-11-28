@@ -22,6 +22,9 @@ Beispielsweise so könnte die Seite aussehen:
 
 ![Beispielhaftes Twotter-Mockup](exercises/css/twotter-mockup.png)
 
+### Jenkins Tests zu der Aufgabe
+[Spec auf github.com](https://github.com/HTW-Webtech/ai-webtech-functional-tests/blob/master/spec/exercises/exercise_2_spec.rb)
+
 ## Technische Anforderungen
 Die neue Twotter-Webseite soll die Folgenden Anforderungen erfüllen:
 
