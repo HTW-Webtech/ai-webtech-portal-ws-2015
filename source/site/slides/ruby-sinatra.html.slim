@@ -1,0 +1,334 @@
+/ Idiomatic Ruby: http://www.cbcg.net/talks/rubyidioms/
+
+section
+  section
+    h2 Agenda
+    ul
+      li.fragment Ruby?
+      li.fragment Geschichte
+      li.fragment Ruby lernen
+      li.fragment Objekte und Kontrollstrukturen
+      li.fragment Scripting mit Ruby
+      li.fragment Rubygems.org
+      li.fragment Gems und Bundler
+      li.fragment Web-Entwicklung mit Ruby
+      li.fragment Lernstoff
+
+section
+  section
+    h2 Kontext:
+    ul
+      li.fragment In 2 Wochen mit der 1. von 2 Rails-Übungen beginnen
+      li.fragment
+        | Grundlagen:
+        ul
+          li.fragment HTML + CSS ✓
+          li.fragment HTTP Request-Response Lebenszyklus ✓
+          li.fragment Ruby Grundlagen ☐
+          li.fragment Ruby Ökosystem ☐
+          li.fragment Model-View-Controller ☐
+          li.fragment Routing ☐
+
+  section
+    h2 Ruby?
+    = slide_image_tag 'ruby-sinatra/ruby-logo.png'
+
+    blockquote cite="https://www.ruby-lang.org/en/"
+      p A dynamic, open source programming language with a focus on simplicity and productivity.
+        It has an elegant syntax that is natural to read and easy to write.
+
+  section
+    h2 Ruby?
+    = code_block language: 'ruby' do
+      | # Ruby knows what you mean, even if you
+        # want to do math on an entire Array
+        cities  = %w[ London Oslo Paris Amsterdam Berlin ]
+        visited = %w[ Berlin Oslo ]
+
+        puts "I still need to visit the following cities:",
+             cities - visited
+
+  section
+    h2 Ruby?
+    p.fragment Eigenschaften von Ruby
+    ul
+      li.fragment OOP, funktional, imperativ
+      li.fragment Metaprogrammierung
+      li.fragment Dynamic typing and duck typing
+      li.fragment Flexible Syntax, Grundlage für <abbr title="Domain specific languages">DSLs</abbr>
+      li.fragment Garbage-Collected
+
+  section
+    h2 Geschichte
+    ul
+      li.fragment 1993: Yukihiro Matsumoto veröffentlicht erstmals Ruby (in Japan)
+      li.fragment 1999: Ruby-talk, die erste englisch-sprachige Mailing Liste zu Ruby
+      li.fragment 2000: "Ruby Programming" - erstes englischsprachiges Buch zu Ruby
+      li.fragment 2003: Ruby 1.8: LTS bis 2013
+      li.fragment 2005: Ruby on Rails veröffentlicht - Aufmerksamkeitshype für Ruby
+      li.fragment 2014: Ruby 2.2: Generational GC, div. Optimierungen
+
+  section
+    h2 Yukihiro Matsumoto
+    = slide_image_tag 'ruby-sinatra/matz.jpg'
+
+  section
+    h2 Ruby für C/C++ Programmierer
+    p Eine kurzgefasste Beschreibung der Unterschiede und Ähnlichkeiten von Ruby und C sowie C++
+    a href="https://www.ruby-lang.org/en/documentation/ruby-from-other-languages/to-ruby-from-c-and-cpp/"
+      To Ruby From C and C++
+
+  section
+    h2 Ruby lernen
+    ul
+      li.fragment Ruby lernen => Ruby-APIs lernen
+      li.fragment
+        | <a href"http://ruby-doc.org/>http://ruby-docs.org</a>: Dokumentation zur Core-API und Standard Library
+        ul
+          li.fragment Ruby Core: Alle Core Klassen wie bspw. String, Array, etc.
+          li.fragment Ruby Standard Library: Erweiterungen um bspw. CSV-Parsing, JSON, CGI, XML-Parsing, …
+      li.fragment Auf der letzten Folie sind Bücher und Tutorials
+
+section
+  section
+    h2 Objekte und Kontrollstrukturen
+    ul
+      li.fragment In Ruby sind alle Datentypen Objekte
+      li.fragment String, Array, Fixnum, Decimal, Date, …
+      li.fragment Methoden-Aufrufe finden auf Objekten statt, bspw: "Hallo".reverse => "ollaH"
+      li.fragment
+        | Für die Steuerung des Programms gibt es die üblichen Kontrollstrukturen
+        ul
+          li.fragment <pre>if, else, while, loop</pre>
+          li.fragment und zusätzliche Ruby-spezifische wie bspw. <pre>unless, until</pre>
+
+  section
+    h2 Objekte und Kontrollstrukturen
+    = code_block language: 'ruby' do
+      | if 2 > 1
+          puts "2 is greater than 1"
+        end
+        puts "2 is greater than 1" if 2 > 1
+        puts "2 is greater than 1" unless 1 >= 2
+
+        while 2 > 1
+          puts "2 is still greater than 1"
+        end
+
+        puts "2 is still greater than 1" until 1 >= 2
+
+  section
+    h2 Objekte und Kontrollstrukturen #2
+    ul
+      li.fragment Wichtigstes Lern-Werkzeug: IRB = Interactive Ruby Shell
+      li.fragment Im VirtualBox System könnt ihr im Terminal die `irb` starten und loslegen
+
+    .fragment= code_block language: 'ruby' do
+      | irb
+        irb(main):001:0> "Hallo".class
+        => String
+        irb(main):002:0> puts "Hallo"
+        Hallo
+        => nil
+
+  section
+    h2 Objekte: Strings
+    = code_block language: 'ruby' do
+      | "Hallo Welt".reverse
+        => "tleW ollaH"
+
+        "Hallo Welt".split(' ').reverse.join(' ')
+        => "Welt Hallo"
+
+        "Hallo Welt".downcase
+        => "hallo welt"
+
+        "Hallo Welt".class
+        => String
+
+        # Was kann eigentlich ein String?
+        String.instance_methods
+        => [:<==>, …] # Ein Array mit Methoden-Namen.
+
+  section
+    h2 Objekte: Array
+    = code_block language: 'ruby' do
+      | cities = ["Paris", "Cologne", "Berlin"]
+        cities.class
+        => Array
+
+        cities.sort # Returns a sorted Array
+        => ["Berlin", "Cologne", "Paris"]
+
+        cities.length
+        => 3
+
+        cities << "Amsterdam"
+        => ["Paris", "Cologne", "Berlin", "Amsterdam"]
+
+        cities.sort! # Changes the Array
+        => ["Amsterdam", "Berlin", "Cologne", "Paris"]
+
+  section
+    h2 Klasse und Instanz-Variablen
+    = code_block language: 'ruby' do
+      |
+        class Car
+          def initialize(color = 'blue')
+            @color = color
+          end
+
+          def paint(color)
+            @color = color
+          end
+
+          def describe
+            "I am a #{@color} car"
+          end
+        end
+
+        car = Car.new
+        car.describe
+        => "I am a blue car"
+        car.paint "yellow"
+        car.describe
+        => "I am a yellow car"
+
+
+  section
+    h2 Euer erstes Ruby Programm
+    .fragment= code_block language: 'ruby' do
+      | # Datei: hello.rb
+        def say_good_night(name)
+          puts "Good night #\{name}"
+        end
+        say_good_night "John"
+        say_good_night "Boy"
+        # Aufruf: ruby hello.rb
+        # => "Good night John"
+        #    "Good night Boy"
+
+  section
+    h2 Scripting mit Ruby
+    .fragment= code_block language: 'ruby' do
+      | # Datei: fizzbuzz.rb
+        limit = ARGV.first.to_i
+        puts "FizzBuzz for #\{limit}"
+
+        class FizzBuzzer
+          def initialize(limit)
+            @limit = limit
+          end
+
+          def print
+            1.upto(@limit).each do |i|
+              dividable_by_two   = i % 2 == 0
+              dividable_by_three = i % 3 == 0
+
+              if dividable_by_two && dividable_by_three
+                puts "fizzbuzz"
+              elsif dividable_by_two
+                puts "fizz"
+              elsif dividable_by_three
+                puts "buzz"
+              else
+                puts i
+              end
+            end
+          end
+        end
+        buzzer = FizzBuzzer.new(limit)
+        buzzer.print
+
+section
+  section
+    h2 Rubygems.org
+    ul
+      li.fragment Ruby liefert seit Version 1.9 standardmässig das gem-Skript mit aus
+      li.fragment Dank rubygems.org können Ruby-Entwickler Code miteinander teilen
+      li.fragment Das gem-Skript ist ein CLI für Rubygems.org. und dient dem Verwalten von Ruby-Code in sogenannten gems
+      li.fragment <a href="https://rubygems.org/">Rubygems.org</a> hostet 7014 gems mit fast 7 Milliarden Downloads (Stand: 2015-11-29)
+      li.fragment `gem install rails` installiert das aktuellste Rails
+
+  section
+    h2 Gems und Bundler
+    ul
+      li.fragment Versionsmanagement für (ruby)gems
+      li.fragment Deklaration von Software-Abhängigkeiten
+      li.fragment Früher: setup.rb-Skript mit `gem install gem-name -v version`
+      li.fragment Heute: Gemfile mit definierten Abhängigkeiten
+      li.fragment <a href="http://bundler.io/">Bundler</a> kümmert sich um Abhängigskeitsverwaltung und Installation der gems
+      li.fragment Bundler selbst ist wiederrum ein gem: Installation mit: `gem install bundler`
+
+  section
+    h2 Fizzbuzz mit Gemfile
+    = code_block language: 'ruby' do
+      | # Gemfile
+        source 'https://rubygems.org'
+        gem 'htw-fizzbuzz'
+
+    = code_block language: 'bash' do
+      | bundle install # lädt den HTW-Fizzbuzz runter
+                       # Speichert die Version von HTW-Fizzbuzz im Gemfile.lock
+
+    = code_block language: 'ruby' do
+      | # fizzbuzz.rb
+        require 'fizzbuzz'
+        Fizzbuzz.new.print
+
+    = code_block language: 'bash' do
+      | ruby fizzbuzz.rb 100
+
+section
+  section
+    h2 Web-Entwicklung mit Ruby
+    ul
+      li.fragment Erst Rails machte Ruby bekannt für die Web-Entwicklung
+      li.fragment Seitdem entstanden neben Rails auch Alternativen
+      li.fragment Sinatra: "Sinatra is a DSL for quickly creating web applications in Ruby with minimal effort"
+      li.fragment Padrino: "Padrino is a ruby framework built upon the Sinatra web library"
+      li.fragment Jekyll: "Jekyll is a simple, blog-aware, static site generator"
+
+  section
+    h2 Sinatra
+    = code_block language: 'ruby' do
+      | # Gemfile
+        source 'https://rubygems.org'
+        gem 'sinatra'
+
+    = code_block language: 'bash' do
+      | bundle install # lädt den HTW-Fizzbuzz runter
+                       # Speichert die Version von HTW-Fizzbuzz im Gemfile.lock
+
+    = code_block language: 'ruby' do
+      | # app.rb
+        require 'sinatra'
+        get '/ping' do
+          "pong!\n"
+        end
+
+    = code_block language: 'bash' do
+      | ruby app.rb
+        curl localhost:4567/ping
+        => pong!
+
+  section
+    h2 Sinatra Features
+    ul
+      li.fragment Views: Layouts und Templates zum verwalten von HTML-Code
+      li.fragment Static files: Bspw. CSS- und JavaScript-Dateien werden statisch ausgeliefert
+      li.fragment Filters, Helpers, Session-Verwaltung (Cookies),…
+
+  section
+    h2 Beispiel-App
+    .fragment= code_block language: 'bash' do
+      | git clone https://github.com/grekko/htw-sinatra.git
+
+section
+  section
+    h2 Ruby Lernstoff
+    ul
+      li:a href="http://tryruby.org/" TryRuby.org: Interaktives Ruby Tutorial im Browser
+      li:a href="https://www.ruby-lang.org/en/documentation/quickstart/" Ruby-Lang.org: Ruby Tutorials von den Ruby-Core Entwicklern
+      li:a href="https://www.codecademy.com/learn/ruby" Codeacademy: Learn to program ruby
+      li:a href="https://rubymonk.com/" RubyMonk: Tutorials zu idiomatischem Ruby-Code
