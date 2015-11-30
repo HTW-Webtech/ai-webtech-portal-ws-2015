@@ -26,3 +26,5 @@ node_modules/*
 
 # Ignore ctags file
 tags
+
+.byebug_history
