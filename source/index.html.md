@@ -6,7 +6,7 @@ zu der Veranstaltung, sowie wichtige [Links](#links) zu allen Diensten, die für
 Wenn Sie Fragen haben, können Sie mich unter <mailto:igelmund@htw-berlin.de> erreichen.
 
 ## Links
-* <http://slides.htw-webtech.com>: Das Lern-Portal (mit Präsentationen, Übungen und Links zu Lern-Inhalten).
+* <http://portal.htw-webtech.com>: Das Lern-Portal (mit Präsentationen, Übungen und Links zu Lern-Inhalten).
 * <http://admin.htw-webtech.com>: Die Aris App-Management Seite verwaltet die Zugangsdaten zum Einreichen von Code für
   die Übungen. Außerdem ist hier der aktuelle Punkte-Stand für den Kurs verwaltet.
 * <http://jenkins.htw-webtech.com>: Das Jenkins-CI führt die funktionalen Tests für die Übungen durch.
