@@ -1,6 +1,9 @@
 # Changelog
 Auf dieser Seite werden Änderungen an diesem Lern-Portal protokolliert.
 
+### 30. November
+* [Ruby Sinatra Folien](slides/ruby-sinatra.html) veröffentlicht.
+
 ### 26. November
 * Passwort-geschütztes [Gitlist](http://gitlist.htw-webtech.com) für Apps eingerichtet. Gitlist ist ein web front end für git und wird zukünftig für die CodeReviews eingesetzt.
 
