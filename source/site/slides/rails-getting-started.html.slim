@@ -1,0 +1,213 @@
+/
+  - Open classes
+  - DuckTyping
+  - Method missing
+  - Blocks/Procs
+
+   Rails lernen
+   Reihenfolge
+     * Front End ✓
+     * Ruby ✓
+     * Rails Version: 4.2.5
+     * Rails Guides: Links
+     * Rails Docs: Links
+
+  section
+    h2 Ruby Extensions: ActiveSupport
+    ul
+      li.fragment HTML Front End kann aus Layout und mehreren Templates bestehen
+      li.fragment Layout: Das Grundgerüst der Webseite enthält doctype, head, body und footer
+      li.fragment Template(s): In sich geschlossene Teile des HTML Front Ends werden in Templates gepflegt
+      li.fragment Beispiele: Navigation, Links
+
+  Pattern
+    + Learn debugging
+    + Learn proof of concept
+    + Online-Tutorials oder Bücher
+      * Offizielles Rails-Tutorial: Creating a blog application: http://guides.rubyonrails.org/getting_started.html
+
+  Antipattern
+    - Statt debugging Blog Posts lesen*
+    - *Stackoverflow
+
+
+section
+  section
+    h2 Agenda
+    ul
+      li.fragment Lern-Hinweise
+      li.fragment Rails a la Carte / The rails way
+      li.fragment MVC in Rails
+      li.fragment Routing
+      li.fragment Controller: ActionController
+      li.fragment Model: ActiveRecord
+      li.fragment View: ActionView
+      li.fragment Ruby Extensions: ActiveSupport
+      li.fragment Live-Coding
+      li.fragment Lern-Inhalte
+
+section
+  section
+    h2 Lern-Hinweise
+    ol
+      li.fragment Lern-Inhalte am Ende der Slides beachten
+      li.fragment Jetzt schon mit Rails experimenterien. Früh Erfahrungen machen.
+      li.fragment Bei Problemen nicht demotiviert sein. Gitter nutzen und Fragen
+      li.fragment Nächste Woche: Debugging Rails
+    p.fragment Blog-Post: <a href="https://medium.com/how-i-learned-ruby-rails/how-i-trained-to-learn-rails-e08c94e2a51e">"How I TRAINed to learn Rails"</a>
+
+section
+  section
+    h2 Rails is Omakase
+    figure
+      = slide_image_tag 'rails-getting-started/dhh-omakase.png'
+      figcaption Der Urheber von Rails, David Heinemeier Hannson
+
+  section
+    h2 Rails is Omakase
+    blockquote Omakase (お任せ o-makase?) is a Japanese phrase that means "I'll leave it up to you" (from Japanese "to entrust" (任せる makaseru?)
+
+    a href="http://david.heinemeierhansson.com/2012/rails-is-omakase.html" Dez 2012: Rails is omakase @ DHHs Blog
+
+  section
+    h2 Rails Menü
+    ul
+      li.fragment Kein Schweizer Taschenmesser. Schwerpunkt auf daten-zentrische Web-Applikationen mit HTML-Front End
+      li.fragment MVC-Pattern zur Trennung unterschiedlicher Aspekte der Applikation
+      li.fragment Convention over Configuration (CoC): Vorgabe/Richtlinien bei Bezeichnung von Klassen, SQL-Tabellen…, Ordner-/Dateinamen
+
+  section
+    h2 The rails way
+    ul
+      li.fragment Als Anfänger müssen keine technischen Entscheidungen getroffen werden
+      li.fragment Pragmatische Lösungen. Ziel: Produktivitätsmaximierung
+      li.fragment Rails ist heute noch Grundlage für Basecamp (seit 2005)
+      li.fragment Komplexität wird vor dem Entwickler abstrahiert/versteckt
+      li.fragment Rails-Apps sind sich häufig sehr ähnlich
+      li.fragment Beispiele für "The rails way" folgen im nächsten Abschnitt
+
+section
+  section
+    h2 MVC in Rails
+    = slide_image_tag 'rails-getting-started/mvc-rails.png'
+
+  section
+    h2 Request-Response Flow
+    ol
+      li.fragment Routing nimmt Request entgegen und delegiert an Controller
+      li.fragment Controller bekommt Request und Params und verrichtet seine Arbeit damit
+      li.fragment Das Ergebnis des Controllers ist eine View, JSON oder bspw. eine HTTP-Redirect
+
+  section
+    h2 Routing
+    ul
+      li.fragment Zusammenhang zwischen URI-Pfaden und Web-Ressourcen
+      li.fragment Anders: Verbindung zwischen URI und Code
+      li.fragment Beispiel: GET-Request nach http://example.com/users/1
+
+    p.fragment= slide_image_tag 'rails-getting-started/mvc-routing.png'
+
+  section
+    h2 RESTful Routing
+    ul
+      li.fragment Jede Lese-/Schreib-Interaktion mit der App wird über eine Route abgebildet
+      li.fragment CRUD-Operationen: Create, Read, Update, Delete
+      li.fragment POST /users (Create users) => 301 /users/1
+      li.fragment GET /user/1 (Read user)
+      li.fragment PUT /user/1 (Update user)
+      li.fragment DELETE /user/1 (Remove user) => 301 /users
+    p.fragment: a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm" Roy Thomas Fielding: Architectural Styles and the Design of Network-based Software Architectures
+
+  section
+    h2 Controller: ActionController
+    ul
+      li.fragment Das Routing findet den richtigen Controller und initialisiert ihn
+      li.fragment Controller: Middleman zwischen Views und Models
+      li.fragment CoC: Controller-Namen bei Ressourcen plural, bspw. UsersController
+
+    p= slide_image_tag 'rails-getting-started/mvc-controller.png'
+
+  section
+    h2 Controller: ActionController
+    ul
+      li.fragment Nimmt Request-Objekt und (User-Input) params entgegen
+      li.fragment Verwaltet Session- und Cookie-Daten
+      li.fragment Authentifizierung/Authorisierung von Nutzern
+      li.fragment Rendert Templates oder leitet Browser via HTTP-Header weiter
+      li.fragment Whitelisting von Parametern
+      li.fragment Speichern oder Lesen von Daten in/aus einer SQL-Quelle
+      li.fragment Starten von asynchronen Jobs (bspw. E-Mail Versand)
+
+  section
+    h2 Controller Beispiel
+    = code_block language: 'ruby' do
+      | class UsersController < ApplicationController
+          def index
+            render text: 'Hallo Welt'
+          end
+        end
+    p Jeder GET-Request and /users rendert den Text 'Hallo Welt'
+    = code_block language: 'ruby' do
+      | class UsersController < ApplicationController
+          def index
+            render
+          end
+        end
+    p CoC: Jeder GET-Request and /users rendert das Template: users/index.html.erb
+
+  section
+    h2 Models: ActiveRecord
+    ul
+      li.fragment Object-Relational-Mapping (ORM)
+      li.fragment ActiveRecord Pattern: Behavior and Data on same object
+      li.fragment Lese- und Schreibzugriff mit Ruby-Objekten auf SQL-Datenbank
+      li.fragment Vorraussetzung: Eine SQL-Datenbank und -Tabellen existieren bereits
+
+  section
+    h2 Models Beispiel
+    p Gegeben ist folgender Code
+    = code_block language: 'ruby' do
+      | class User < ActiveRecord::Base
+          # ActiveRecord versucht nun eine `users`-Tabelle zu finden und erzeugt dynamisch
+          # alle benötigten Attribut getter- und setter-Methoden auf der User-Klasse
+        end
+    p Lesen von records
+    = code_block language: 'ruby' do
+      | User.all
+        => [user1, user2, user3, …]
+        User.all.to_sql
+        =>
+
+    p Schreiben von records
+    = code_block language: 'ruby' do
+      | User.create({
+          email: 's0000@htw-berlin.com',
+          name: 'Hans Solo'
+        })
+        => user1
+  section
+    h2 Views: ActionView
+    ul
+      li.fragment HTML Front End kann aus Layout und mehreren Templates bestehen
+      li.fragment Layout: Das Grundgerüst der Webseite enthält doctype, head, body und footer
+      li.fragment Template(s): In sich geschlossene Teile des HTML Front Ends werden in Templates gepflegt
+      li.fragment Beispiele: Navigation, Links
+
+  section
+    h2 Views: Template Beispiel
+    = slide_image_tag 'rails-getting-started/view-templates.png'
+
+section
+  section
+    h2 Live Coding
+    p Video folgt noch an dieser Stelle
+
+section
+  section
+    h2 Lern-Inhalte
+    ul
+      li: a href="http://guides.rubyonrails.org/" Offizieller Rails-Guide
+      li: a href="https://www.railstutorial.org/book" Learn Web Development with Rails: Kostenloses eBook (nur via HTML)
+      li: a href="http://railsforzombies.org/" Rails for Zombies: Interaktives Online-Tutorial
+      li: a href="http://www.lynda.com/Ruby-Rails-tutorials/Creating-project/139989/159066-4.html" Lynda.com-Video "Ruby on Rails 4 Essential Training": Umfassende Video-Tutorials
+
