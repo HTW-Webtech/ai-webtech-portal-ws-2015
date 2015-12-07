@@ -42,7 +42,6 @@ section
       li.fragment Controller: ActionController
       li.fragment Model: ActiveRecord
       li.fragment View: ActionView
-      li.fragment Ruby Extensions: ActiveSupport
       li.fragment Live-Coding
       li.fragment Lern-Inhalte
 
@@ -57,6 +56,13 @@ section
     p.fragment Blog-Post: <a href="https://medium.com/how-i-learned-ruby-rails/how-i-trained-to-learn-rails-e08c94e2a51e">"How I TRAINed to learn Rails"</a>
 
 section
+  section
+    h2 Rails installieren
+    p Das Rails-Framework besteht aus einer Vielzahl von Ruby-Projekten. Installiert wird es so:
+    = code_block language: 'bash' do
+      | gem install rails
+        …
+
   section
     h2 Rails is Omakase
     figure
@@ -96,7 +102,7 @@ section
     ol
       li.fragment Routing nimmt Request entgegen und delegiert an Controller
       li.fragment Controller bekommt Request und Params und verrichtet seine Arbeit damit
-      li.fragment Das Ergebnis des Controllers ist eine View, JSON oder bspw. eine HTTP-Redirect
+      li.fragment Das Ergebnis des Controllers ist HTML-Code, JSON oder bspw. ein HTTP-Redirect
 
   section
     h2 Routing
@@ -135,7 +141,7 @@ section
       li.fragment Authentifizierung/Authorisierung von Nutzern
       li.fragment Rendert Templates oder leitet Browser via HTTP-Header weiter
       li.fragment Whitelisting von Parametern
-      li.fragment Speichern oder Lesen von Daten in/aus einer SQL-Quelle
+      li.fragment Speichern oder Lesen von Daten in/aus einer Daten-Quelle (SQL)
       li.fragment Starten von asynchronen Jobs (bspw. E-Mail Versand)
 
   section
@@ -146,7 +152,7 @@ section
             render text: 'Hallo Welt'
           end
         end
-    p Jeder GET-Request and /users rendert den Text 'Hallo Welt'
+    p Jeder GET-Request an den URI-Pfad `/users` rendert den Text 'Hallo Welt'
     = code_block language: 'ruby' do
       | class UsersController < ApplicationController
           def index
@@ -154,6 +160,13 @@ section
           end
         end
     p CoC: Jeder GET-Request and /users rendert das Template: users/index.html.erb
+
+  section
+    h2 Notiz: Rails-Framework
+    ul
+      li.fragment Rails API ist häufig Subclassing/Inheritance
+      li.fragment Bpsw. Alle Controller erben von ApplicationController
+      li.fragment Dasselbe gilt auch für die Models
 
   section
     h2 Models: ActiveRecord
@@ -185,6 +198,14 @@ section
           name: 'Hans Solo'
         })
         => user1
+
+  section
+    h2 Models: ActiveRecord
+    ul
+      li.fragment Es gibt unterschiedliche Adapter f. ActiveRecord
+      li.fragment MySQL, SQlite, Postgres, Oracle
+      li.fragment Kein NoSQL-Support. Dafür gibt es andere Projekte wie Mongoid
+
   section
     h2 Views: ActionView
     ul
