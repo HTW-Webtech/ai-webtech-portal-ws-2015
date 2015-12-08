@@ -72,12 +72,12 @@ Auf der Startseite kann der Nutzer verfolgen wie viele Lernkarten angelegt, sowi
 richtige oder falsche Antworten bisher gegeben wurden.
 
 
-### Template
+### Code-Vorlage
 
 Ein anderer Entwickler von BgUGs hat bereits eine Vorlage entwickelt, die dafür werden kann um
-die App fertig zu stellen. Die App kann aber gerne auch ohne das Template entwickelt werden.
+die App fertig zu stellen. Die Code-Vorlage ist auf github zu finden:
 
-* [Template Download](/downloads/exercises/javascript/flashcards-template.zip)
+* [Code-Vorlage](https://github.com/HTW-Webtech/ai-webtech-exercise-3-template)
 
 
 ## Technische Anforderungen
@@ -110,7 +110,8 @@ Diese Vorschläge sind keine Pflicht, sondern lediglich Ideen für sinnvolle Erg
 werden diese aber auch die eigenen Ideen berücksichtigt und ggf. mit zusätzlichen Punkten bewertet.
 
 * Animation der drehenden Karten beim Klick auf "Umdrehen"
-* Sehr anspruchsvoll: Im- und Export der Lernkateien als CSV-Datei
+* Karten können als "gelernt" markiert werden. Gelernte Karten sind zwar noch im Katalog, werden beim Lernen aber nicht mehr angezeigt.
+* Eher anspruchsvoll: Im- und Export der Lernkateien als CSV-Datei
 
 
 # Lern-Bereich
