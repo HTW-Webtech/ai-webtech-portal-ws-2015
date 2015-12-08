@@ -1,6 +1,12 @@
 # Changelog
 Auf dieser Seite werden Änderungen an diesem Lern-Portal protokolliert.
 
+### 8. Dezember
+* Hinweise zur Implementierung der Lösung von [Übung 4](exercises/javascript.html) hinzugefügt.
+
+### 7. Dezember
+* [Rails getting started Folien](slides/rails-getting-started.html) veröffentlicht.
+
 ### 30. November
 * [Ruby Sinatra Folien](slides/ruby-sinatra.html) veröffentlicht.
 

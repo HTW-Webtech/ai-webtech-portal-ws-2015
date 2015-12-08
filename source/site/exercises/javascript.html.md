@@ -79,6 +79,12 @@ die App fertig zu stellen. Die Code-Vorlage ist auf github zu finden:
 
 * [Code-Vorlage](https://github.com/HTW-Webtech/ai-webtech-exercise-3-template)
 
+### JavaScript Bibliotheken
+
+Die Code-Vorlage nutzt [jQuery](https://jquery.com/) und [Lockr](https://github.com/tsironis/lockr). Die Lockr-Bibliothek
+bietet zwei unterschiedliche APIs um Daten im localStorage zu verwalten. Von der Lockr-API sollten Sie der Einfachheit
+halber nur die `set` und `get`-API nutzen. Die `smember`, `srem` etc. Methoden sind für dieses Problem nur bedingt geeignet.
+
 
 ## Technische Anforderungen
 
