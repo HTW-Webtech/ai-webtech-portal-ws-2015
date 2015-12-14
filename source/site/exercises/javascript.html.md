@@ -42,9 +42,9 @@ einzelne Karten zu löschen, ein Formular zur Erstellung von neuen Lernkarten, s
 Knöpfe "Demodaten laden" und **"Daten löschen"**. Der **"Demodaten laden"**-Knopf löscht alle
 existieren Lernkarten und erzeugt die drei folgenden Karten (jeweils Vorder- und Rückseite):
 
-* Badezimmer, bathroom
-* Schachbrett, chess board
 * Kindergarten, kindergarten
+* Schachbrett, chess board
+* Badezimmer, bathroom
 
 Der **"Daten löschen"**-Knopf löscht alle Lernkarten, sowie die notierte Anzahl der richtigen
 und falschen Antworten. Der Knopf versetzt die App quasi in den Werkszustand.
