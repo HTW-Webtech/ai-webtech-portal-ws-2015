@@ -1,6 +1,9 @@
 # Changelog
 Auf dieser Seite werden Änderungen an diesem Lern-Portal protokolliert.
 
+### 13. Dezember
+* [Übungsübersicht](exercises.html) aktualisiert und [Übung 5: Rails Blog](exercises/rails-blog.html) hinzugefügt.
+
 ### 8. Dezember
 * Hinweise zur Implementierung der Lösung von [Übung 4](exercises/javascript.html) hinzugefügt.
 

@@ -1,26 +1,33 @@
 # JavaScript-Übung
+
 Deine Fähigkeiten haben überzeugt. Du hast dein Studium abgeschlossen und bei der BgUGs eine Stelle als
 Web-Entwickler angenommen. Das nächste Projekt an dem du arbeiten sollst ist um einiges anspruchsvoller
 die bisherigen Aufgaben.
 
 ## Allgemeines
+
 Für diese Aufgabe gibt es 2 bis 4 Punkte. Die 2 zusätzlichen Punkte im Code Review werden für besondere
-Schaffungshöhe oder interessante Lösungen vergeben.
+Schöpfungshöhe oder interessante Lösungen vergeben.
 
 | Abgabe bis            | Punkte (Tests) | Punkte (Review) |
 |----------------------------------------------------------|
 | 13.12.2015, 23.59 Uhr | 4              | 2-4             |
 {: .table .table-bordered }
 
+
 ## Briefing
+
 Einige Kunden der BgUGs hätten gerne eine App um Vokabeln zu lernen. "FlashCards" soll Sie heißen.
 Die Idee ist, dass jeder Kunde diese App auf seinem Mobiltelefon bspw. öffnen kann und dort Lernkarten mit je einem
 Text auf der Vorder- und Rückseite pflegen kann.
 
+
 ### Jenkins Tests zu der Aufgabe
+
 [Spec auf github.com](https://github.com/HTW-Webtech/ai-webtech-functional-tests/blob/master/spec/exercises/exercise_3_spec.rb)
 
 ### Wireframes
+
 Der Designer hat hierfür ein paar Wireframes vorbereitet.
 
 ![Die Startseite](exercises/javascript/flashcards-start.png)
@@ -79,6 +86,7 @@ die App fertig zu stellen. Die Code-Vorlage ist auf github zu finden:
 
 * [Code-Vorlage](https://github.com/HTW-Webtech/ai-webtech-exercise-3-template)
 
+
 ### JavaScript Bibliotheken
 
 Die Code-Vorlage nutzt [jQuery](https://jquery.com/) und [Lockr](https://github.com/tsironis/lockr). Die Lockr-Bibliothek
@@ -111,7 +119,9 @@ Die Features zu jeder der 3 Seiten:
    * "Nein"-Knopf um eine Karte als falsch beantwortet zu markieren
    * "Umdrehen"-Knopf um die jeweils andere Seite der Karte (Vorder- oder Rückseite) zu sehen
 
+
 ## Ideen
+
 Diese Vorschläge sind keine Pflicht, sondern lediglich Ideen für sinnvolle Ergänzungen. Im Code Review
 werden diese aber auch die eigenen Ideen berücksichtigt und ggf. mit zusätzlichen Punkten bewertet.
 
@@ -123,6 +133,7 @@ werden diese aber auch die eigenen Ideen berücksichtigt und ggf. mit zusätzlic
 # Lern-Bereich
 
 ## Artikel und Tutorials
+
 * [You Don't know JS](https://github.com/getify/You-Dont-Know-JS)
   Verschiedene JS-Bücher von Kyle Simpson kostenlos auf github.com. Interessant sind vor allem
   "this & Object Prototypes" sowie "Scope & Closures".
@@ -130,7 +141,9 @@ werden diese aber auch die eigenen Ideen berücksichtigt und ggf. mit zusätzlic
   Sehr gut geschriebene Einführung in JavaScript von Marijn Haverbeke. Es gibt zu den verschiedenen
   Aspekten von JavaScript jeweils tief gehende Übungen.
 
+
 ## Lynda-Videos
+
 * [JavaScript Essential Training](http://www.lynda.com/JavaScript-tutorials/JavaScript-Essential-Training/81266-2.html)
   JavaScript-Basics: Interessant für diejenigen, die noch Übung bei den Grundlagen brauchen.
 * [Debugging the Web: JavaScript](http://www.lynda.com/JavaScript-tutorials/Debugging-Web-JavaScript/383908-2.html)

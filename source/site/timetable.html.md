@@ -1,4 +1,4 @@
-| Termin | Datum      | Folien                                                  | Uebung                        |
+| Termin | Datum      | Präsentation                                            | Übung                        |
 |--------|------------|---------------------------------------------------------|-------------------------------|
 | 1.     | 2015-10-12 | [Übersicht](slides/start.html)                          | [Setup](exercises/setup.html) |
 | 1.     | 2015-10-12 | [Git](slides/git.html)                                  | [Git](exercises/git.html) |
@@ -9,12 +9,12 @@
 | 6.     | 2015-11-16 | [JavaScript](slides/javascript.html)                    | |
 | 7.     | 2015-11-23 | [Advanced JavaScript & jQuery](slides/advanced-javascript-and-jquery.html) | [JavaScript](exercises/javascript.html) |
 | 8.     | 2015-11-30 | [Ruby & Sinatra](slides/ruby-sinatra.html)              | |
-| 9.     | 2015-12-07 | | |
-| 10.     | 2015-12-14 | | |
-| 11.     | 2015-12-21 | | |
-| 12.     | 2016-01-04 | | |
-| 13.     | 2016-01-11 | | |
-| 14.     | 2016-01-18 | | |
-| 15.     | 2016-01-25 | | |
-| 16.     | 2016-02-01 | | |
+| 9.     | 2015-12-07 | [Rails: Getting started](slides/rails-getting-started.html)                | |
+| 10.    | 2015-12-14 | [Rails: Routing and ActionController](slides/rails-routing-controllers)    | [Rails Blog](exercises/rails-blog.html) |
+| 11.    | 2015-12-21 | [Rails: ActiveRecord and ActionView](slides/rails-activerecord-actionview) | |
+| 12.    | 2016-01-04 | [Rails: Asset Pipeline](slides/rails-asset-pipeline) | |
+| 13.    | 2016-01-11 | | |
+| 14.    | 2016-01-18 | | |
+| 15.    | 2016-01-25 | | |
+| 16.    | 2016-02-01 | | |
 {: .table .table-striped }
