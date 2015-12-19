@@ -13,7 +13,7 @@ zu implementieren und damit die ersten praktischen Erfahrungen mit dem Rails Fra
 
 | Abgabe bis            | Punkte (Tests) | Punkte (Review) |
 |----------------------------------------------------------|
-| 10.01.2015, 23.59 Uhr | 2              | 2               |
+| 10.01.2016, 23.59 Uhr | 2              | 2               |
 {: .table .table-bordered }
 
 
