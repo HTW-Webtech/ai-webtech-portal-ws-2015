@@ -1,0 +1,247 @@
+/
+  Web Application Threats
+  - Session hijacking
+  - Session Fixation
+  - CSRF
+  - XSS
+  - SQL Injection
+  - Redirection
+
+  Rails Spezifisches
+  - Secure Cookies (secure, httpOnly)
+  - Mass Assignment Bug (Strong Params)
+  - Sanitize output (UnsafeBuffer)
+
+  - Rails Sec: http://rubyonrails.org/security/
+  - Rails on Hackerone: https://hackerone.com/rails
+  - http://www.xssed.com/ (Seit 2012 inaktiv)
+
+  http://www.h-online.com/security/news/item/PHP-blunders-with-random-numbers-967525.html
+
+  Ressourcen
+  - https://www.owasp.org/index.php/Ruby_on_Rails_Cheatsheet
+  - https://github.com/presidentbeef/brakeman
+
+section
+  section
+    h1 Web Security
+    = slide_image_tag 'web-security/intro.png'
+
+  section
+    h2 Agenda
+    ul
+      li.fragment Allgemeines
+      li.fragment Application Threats
+      li.fragment Praxis-Beispiel: Rails-App
+      li.fragment Rails Security
+      li.fragment Open Web Application Security Project (OWASP)
+      li.fragment Ressourcen
+
+section
+  section
+    h2 Web Security Herausforderungen
+    ol
+      li.fragment Im Web öffentlich erreichbar?!
+      li.fragment Angriffe auf verschiedenen Ebenen
+      li.fragment HTTP, SQL, Ruby, JavaScript, Rails
+
+  section
+    h2 Angriffsziele
+    ul
+      li.fragment
+        | Back End-fokussiert (DNS, HTTP, SSL, Ruby, Rails, SQL)
+        ul
+          li.fragment Distributed Denial of Service (DDoS)
+          li.fragment Malicious File excecution
+          li.fragment SQL-Injection
+      li.fragment
+        | Front End-fokussiert (JavaScript, DOM)
+        ul
+          li.fragment Cross-Site Scripting (XSS)
+          li.fragment Cross-Site Request Forgery (CSRF)
+
+  section
+    h2 JavaScript
+    ul
+      li.fragment: a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy" Same-origin policy
+      li.fragment Cookie-Zugriff (document.cookie, Ausnahme httpOnly)
+      li.fragment LocalStorage (per origin)
+      li.fragment Download starten
+      li.fragment Nutzerverhalten simulieren
+
+  section
+    h2 Beispiel XSS: JS.Spacehero
+    ul
+      li.fragment
+        a href="https://en.wikipedia.org/wiki/Samy_%28computer_worm%29" AKA "Samy" - by Samy Kamkar
+      li.fragment 2005-10-04 MySpace, 1 Million Nutzer in 20 Std infiziert
+      li.fragment Fügte Text+Payload auf Besucherseite hinzu
+      li.fragment 3 Jahre Bewährung Jahre und Computerverbot f. Kamkar
+
+  section data-img=slide_image_src('web-security/background-heartbleed.png')
+    h2 Beispiel SSL/TLS: Heartbleed
+    ul
+      li.fragment: a href="http://heartbleed.com/" "Buffer over-read" Bug in OpenSSL
+      li.fragment Heartbeat Feature: Veröffentlicht März, 2012 (OpenSSL 1.0.1)
+      li.fragment Bug bekannt gemacht im April, 2014
+      li.fragment Private Schlüssel angreifbar -> HTTPs konnte entschlüsselt werden
+
+section
+  section
+    h2 Angriffsarten
+    ul
+      li.fragment SQL-Injection
+      li.fragment XSS: Cross-Site Scripting
+      li.fragment CSRF: Cross-Site Request Forgery
+      li.fragment Session Fixation
+
+  section
+    h2 SQL-Injection
+    = slide_image_tag 'web-security/sql-injection.png'
+    = code_block language: 'sql' do
+      | SELECT id FROM users WHERE password='password' AND user = '' OR 1=1--'
+
+    a href="https://www.owasp.org/index.php/SQL_Injection" OWASP: SQL-Injection
+
+  section
+    h2 XSS: Cross-Site Scripting
+    ul
+      li.fragment User-Input wird in Datenbank gespeichert
+      li.fragment Input enthält JavaScript-Code
+      li.fragment Grundlage für eine Vielzahl an anderen Attacken (bspw. auch DDoS)
+
+  section
+    h2 CSRF: Cross-Site Request Forgery
+    ul
+      li.fragment Setzt XSS vorraus
+      li.fragment Ermöglicht ungewünschte authorisierte Requests via JavaScript
+
+  section
+    h2 CSRF #2
+    = slide_image_tag 'web-security/csrf.png'
+
+  section
+    h2 Session Fixation
+    ul
+      li.fragment Setzt XSS vorraus
+      li.fragment Erzeugt gültige Session beim Dienst
+      li.fragment Zwingt User via JavaScript die Session auf
+
+  section
+    h2 Session Fixation #2
+    = slide_image_tag 'web-security/session-fixation.png'
+
+section
+  section
+    h1 Praxis-Beispiel
+
+section
+  section
+    h2 Rails-Security
+    ul
+      li.fragment Force SSL
+      li.fragment SQL-Injection
+      li.fragment Cross-Site Scripting
+      li.fragment Cross-Site Request Forgery
+      li.fragment Secure Cookies
+      li.fragment Session Highjacking
+
+  section
+    h2 Force SSL
+    ul
+      li.fragment Seit Rails 3 kann in der App SSL erzwungen werden
+      li.fragment Jeder Zugriff via HTTP erzwingt 302 auf HTTPs
+
+    .fragment= code_block language: 'ruby' do
+      | # config/environments/production.rb
+        Betterplace::Application.configure do
+          config.force_ssl = true
+        end
+
+  section
+    h2 SQL-Injection
+    p Rails SQL Schutz: Maskiert ', ", NULL Zeichen und Zeilenumbrüche
+    = code_block language: 'ruby' do
+      | User.find(user_id) # user_id wird automatisch maskiert
+
+    p Für komplexere Queries gibt die Placeholder "?"-Syntax
+    = code_block language: 'ruby' do
+      | User.where("login = ? AND password = ?", user, password).first
+        # user und password werden ebenfalls escaped
+
+  section
+    h2 XSS
+    ul
+      li.fragment User-Input / Bspw. aus DB oder Formular wird unsafe behandelt
+      li.fragment Bei Ausgabe im Template werden unsafe Strings escaped
+      li.fragment Bspw.: &lt;script&gt; wird zu &amp;lt;script&amp;gt;
+      li.fragment: a href="http://yehudakatz.com/2010/02/01/safebuffers-and-rails-3-0/" SafeBuffers and Rails 3.0
+
+  section
+    h2 CSRF
+    ul
+      li.fragment Rails generiert für jedes HTML-Formular einen Token
+      li.fragment Token wird an User-Session gebunden
+      li.fragment Ohne gültigen Token wird Request ignoriert
+
+  section
+    h2 Secure Cookies
+    ul
+      li.fragment Rails setzt Sicherheits-Flags bei Cookies
+      li.fragment secure: Nur bei HTTPs Verbindung übertragen
+      li.fragment httpOnly: Können nicht via JavaScript manipuliert werden
+
+  section
+    h2 Sessions
+    ul
+      li.fragment HTTP zustandslos und Klartext
+      li.fragment Session-ID via URL oder Cookie
+
+    .fragment=code_block do
+      | https://example.com?ssid=12312a # 12312a ist der geheime Token
+
+  section
+    h2 Sessions #2
+    ul
+      li.fragment HTTP zustandslos und Klartext
+      li.fragment Session-ID via URL oder Cookie
+      li.fragment
+        | Probleme:
+        ul
+          li.fragment Session-ID / Token == Zugriff
+          li.fragment Session-IDs erraten?!
+          li.fragment Session-ID in URL => Schlechte Idee
+          li.fragment Cookie Highjacking
+          li.fragment Man in the middle
+          li.fragment Session Fixation
+
+  section
+    h2 Session Highjacking
+    ul
+      li.fragment Session Expiry (Abgelaufene Sessions zeitig löschen)
+      li.fragment reset_session nach jedem Login (Session Fixation)
+
+section
+  section
+    h2 OWASP
+    ul
+      li.fragment Open Web Application Security Project
+      li.fragment Non-Profit Orga
+      li.fragment Dokumentiert Best Pratices
+      li.fragment Fokus auf Web-Applikationen
+
+  section
+    h2 Best Practices
+    ul
+      li.fragment Rails Security Guidelines lesen
+      li.fragment OWASP Guide lesen
+      li.fragment HTTPs aktivieren
+      li.fragment Keine Crypto implementieren
+
+section
+  section
+    h2 Ressourcen
+    ul
+      li: a href="https://www.owasp.org/index.php/Ruby_on_Rails_Cheatsheet" OWASP Cheatsheet: Rails
+      li: a href="https://github.com/presidentbeef/brakeman" Rails-gem: Brakeman
+
