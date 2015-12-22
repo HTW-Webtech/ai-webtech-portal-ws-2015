@@ -13,7 +13,7 @@ zu implementieren und damit die ersten praktischen Erfahrungen mit dem Rails Fra
 
 | Abgabe bis            | Punkte (Tests) | Punkte (Review) |
 |----------------------------------------------------------|
-| 10.01.2016, 23.59 Uhr | 2              | 2               |
+| 10.01.2016, 23.59 Uhr | 2              | 0               |
 {: .table .table-bordered }
 
 
@@ -26,10 +26,23 @@ Das folgende Video zeigt hierzu die wichtigsten Schritte:
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/uMpOxGj8EGs?rel=0" frameborder="0" allowfullscreen></iframe>
 
 
+### Basic Authorization / Passwortschutz
+
+In dem Rails-Tutorial wird im Abschnitt "Security" ein Passwortschutz via "Basic Authorization" eingerichtet.
+Verwenden Sie für den Passwortschutz den User admin und das Passwort admin, also:
+
+~~~ruby
+http_basic_authenticate_with name: "admin", password: "admin"
+~~~
+
+
 ### Jenkins Tests zu der Aufgabe
 
 Der Rails Blog wird ebenfalls via Jenkins getestet. Die Spec befindet sich auf
 [github.com](https://github.com/HTW-Webtech/ai-webtech-functional-tests/blob/master/spec/exercises/exercise_4_spec.rb).
+
+*Achtung*: Damit der Test auf den Passwort-geschützten Bereich zugreifen kann, sollten User und Passwort für
+die Basic Authorization admin/admin sein.
 
 
 ## Technische Anforderungen
