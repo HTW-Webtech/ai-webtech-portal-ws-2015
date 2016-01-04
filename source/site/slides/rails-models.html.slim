@@ -2,14 +2,238 @@
 
 section
   section
-    h2 Agenda
-    ul
-      li.fragment
+    h1 Rails ORM: ActiveRecord
 
 section
   section
-    h2
+    h2 Vorbereitung für Abschlussprojekt
     ul
-      li.fragment
+      li.fragment ActiveRecord-Objekte vor Controller oder Views bauen
+      li.fragment Abbildung von Projekt, Zeiterfassung und Rechnung
+      li.fragment Bspw.: Project-, Effort- und Invoice-Model
+      li.fragment Relationen zwischen Project, Effort und Invoice abbilden
+      li.fragment DB-Migrationen für Tabellen erzeugen
+      li.fragment Validierungen hinzufügen
+      li.fragment In Rails Console testen
 
+section
+  section
+    h2 ActiveRecord
+    ul
+      li.fragment= "ORM = Object Relational Mapping"
+      li.fragment Rails ORM: ActiveRecord
+      li.fragment Datenbank-Migrationen
+      li.fragment Relationen zu anderen Tabellen-Daten im Code abgebildet
+      li.fragment Validierungen von Datenkonsistenz im Code
+      li.fragment Abbildung von Vererbung in Datenbank-Tabelle (STI)
+
+  section
+    h2 ORM
+    ul
+      li.fragment Ziel: Persistierung von Objekten
+      li.fragment Problem: Relationale DB (<a href="http//de.wikipedia.org/wiki/Object-relational_impedance_mismatch">Impedance Mismatch</a>)
+      li.fragment Abstraktion zur Konvertierung von Daten zwischen zwei Typ-Systemen
+      li.fragment Soll SQL abstrahieren; Folglich wird oft nur ein Subset von Features benutzt
+      li.fragment Herausforderungen: komplexe Objektgraphen persistieren, Vererbung, Performance, …
+
+  section
+    h2 ORM Kritik
+    ul
+      li: a href="http://blog.codinghorror.com/object-relational-mapping-is-the-vietnam-of-computer-science/" Jeff Atwood - Object-Relational Mapping is the Vietnam of Computer Science
+      li: a href="http://martinfowler.com/bliki/OrmHate.html" Martin Fowler - ORM Hate
+      li: a href="http://seldo.com/weblog/2011/08/11/orm_is_an_antipattern" ORM is an Antipattern
+
+  section
+    h2 ActiveRecord: AR
+    ul
+      li.fragment Ruby ORM. Geschrieben für Rails.
+      li.fragment
+        | Prämissen:
+        ul
+          li.fragment Geschäftslogik und Persistenz-Logik sind in einem Objekt gekapselt
+          li.fragment Repräsentiert Relationen zu anderen Objekten (Persistieren von Objekt-Graphen)
+          li.fragment Abbildung von Vererbungshierarchien in Datenbank (STI)
+          li.fragment Validierungen von Nutzer-Eingaben vor dem Persistieren
+          li.fragment Datenkbank-Operationen wie Schema-Anpassungen, Index-Verwaltung, …
+
+  section
+    h2 AR Migrationen
+    ul
+      li.fragment DSL zur Modifikation eines DB-Schemas über die Zeit
+      li.fragment `rails generate migration CreateProducts`
+      li.fragment
+        | Features:
+        ul
+          li.fragment Erstellen von SQL-Tabellen
+          li.fragment Manipulieren von Tabellen
+          li.fragment Verwalten von SQL-Indizes
+          li.fragment Referenzielle Integritätsprüfung (Foreign Keys)
+      li.fragment rake db:migrate führt alle notwendigen Migrationen aus
+      li.fragment rake db:migrate:rollback rollt die letzte Migration zurück
+
+  section
+    h2 AR Migrationen Beispiel
+    p Beispiel einer reversiblen Migration
+    = code_block language: 'ruby' do
+      | class CreateProducts < ActiveRecord::Migration
+          def change
+            create_table :products do |t|
+              t.string :name
+              t.text :description
+
+              t.timestamps null: false
+            end
+          end
+        end
+
+  section
+    h2 AR Migrationen Beispiel
+    p Beispiel natives SQL
+    = code_block language: 'ruby' do
+      | class DropOldFields < ActiveRecord::Migration
+          def up
+            execute 'CREATE FUNCTION …' # Use native SQL
+          end
+
+          def down
+            execute 'DROP FUNCTION …'
+          end
+        end
+
+section
+  section
+    h2 AR Assoziationen
+    ul
+      li.fragment DSL zur Beschreibung von Objekt/Daten-Relationen
+      li.fragment Persistierung von Objekt-Graphen
+      li.fragment OOP-Zugriff auf Relationen
+      li.fragment
+        | Features:
+        ul
+          li.fragment One to One (Belong To, Has One)
+          li.fragment One to Many (Has Many)
+          li.fragment Many to Many (Has and belong to many)
+
+  section
+    h2 AR Assoziationen: Belongs to
+    = slide_image_tag 'rails-abschlussprojekt/associations-belongs-to.png'
+    = code_block language: 'ruby' do
+      | order = Order.find(3)  # SELECT * FROM orders WHERE id = 3;
+        order.customer.name    # SELECT * FROM customers WHERE id = 17;
+        => "Jolly Inc."
+
+  section
+    h2 AR Assoziationen: Has one
+    = slide_image_tag 'rails-abschlussprojekt/associations-has-one.png'
+    = code_block language: 'ruby' do
+      | supplier = Supplier.find(1)     # SELECT * FROM suppliers WHERE id = 1;
+        supplier.account.account_number # SELECT * FROM accounts WHERE supplier_id = 1;
+        => "128-171"
+
+  section
+    h2 AR Assoziationen: Has many
+    = slide_image_tag 'rails-abschlussprojekt/associations-has-many.png'
+    = code_block language: 'ruby' do
+      | customer = Customer.find(4) # SELECT * FROM customers WHERE id = 4;
+        customer.orders             # SELECT * FROM orders WHERE customer_id = 4;
+        => [<Order>, <Order>, …]
+
+  section
+    h2 AR Assoziationen erzeugen
+    = code_block language: 'ruby' do
+      | customer = Customer.find(4) # SELECT * FROM customers WHERE id = 4;
+        customer.orders.create(order_date: Date.current)
+        # Erzeugt einen Eintrag in der Orders-Tabelle mit customer_id = 4
+        # INSERT INTO customers (…, customers_id) VALUES (…, 4)
+
+section
+  section
+    h2 AR Validierungen
+    ul
+      li.fragment Ziel: Integrität von Daten sicherstellen
+      li.fragment Problem: Integritätsprüfung an verschiedenen Stellen (Front End, DB)
+      li.fragment
+        | Validierungen im Code
+        ul
+          li.fragment Datenbank-Agnostisch
+          li.fragment Sind leicht zu testen
+          li.fragment Generieren Nutzer-Feedback bei Fehlern
+
+  section
+    h2 AR Validierungen
+    ul
+      li.fragment Validierung passiert vor Persistenz: save, update, create
+      li.fragment Validierungen können umgangen werden (Vorsicht)
+      li.fragment Manuelle Validierung mit valid?
+
+  section
+    h2 AR Validierungen Beispiel
+    = code_block language: 'ruby' do
+      | class Person < ActiveRecord::Base
+          validates :name, presence: true
+        end
+        Person.create(name: "John Doe").valid? # => true
+        Person.create(name: nil).valid? # => false
+
+  section
+    h2 AR Validierungstypen
+    ul
+      li.fragment numericality: Wert muss (numerisch|größer null|gerade|ungerade) sein
+      li.fragment uniqueness: Wert soll in der DB-Tabelle einmalig vorkommen (via SQL-Check, Racy)
+      li.fragment presence: Wert darf nicht leer sein
+      li.fragment format: Wert muss RegExp matchen
+      li.fragment acceptance: Prüft ob bspw. Checkbox angehakt wurde
+      li.fragment …
+
+  section
+    h2 AR Validierungen: Format
+    = code_block language: 'ruby' do
+      | class Product < ActiveRecord::Base
+          validates :legacy_code, format: { with: /\A[a-zA-Z]+\z/,
+            message: "only allows letters" }
+        end
+        Product.create(legacy_code: '123').valid? # => false
+        Product.create(legacy_code: 'abc').valid? # => true
+
+  section
+    h2 AR Validierungen: Fehler
+    ul
+      li.fragment Validierungen erzeugen Fehler-Nachrichten auf den AR-Objekten
+      li.fragment Diese können im Front End (View) angezeigt werden
+      li.fragment Fehler-Nachrichten sind mit I18n übersetzbar
+
+    = code_block language: 'ruby' do
+      | class Product < ActiveRecord::Base
+          validates :title, presence: true
+        end
+        product = Product.create(title: nil).valid? # => false
+        product.errors.full_messages # => ['Title can't be blank']
+
+  section
+    h2 AR Validierungen: Anzeige im Front End
+    = code_block language: 'ruby' do
+      | # app/views/product.html.erb
+        <% if @product.errors.any? %>
+          <ul>
+          <% @product.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        <% end %>
+
+  section
+    h2 AR Validierungen: Anzeige im Front End
+    = code_block language: 'ruby' do
+      | # app/views/product.html.erb
+        <% if @product.errors.any? %>
+          <ul>
+          <% @product.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        <% end %>
+
+section
+  section
+    h2 Live Code
 
