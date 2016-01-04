@@ -10,3 +10,4 @@ Für den Umgang mit git werden in der [Git-Übung](exercises/git.html) die benö
 1. [CSS](exercises/css.html)
 1. [JavaScript](exercises/javascript.html)
 1. [Rails Blog](exercises/rails-blog.html)
+1. [Rails Abschlussprojekt](exercises/rails-invoicr.html)
