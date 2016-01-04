@@ -4,12 +4,25 @@ section
   section
     h2 Agenda
     ul
-      li.fragment
+      li.fragment Ordner-Struktur eines Rails-Projekts
+      li.fragment Front End Code
+      li.fragment Back End Code
 
 section
   section
-    h2
-    ul
-      li.fragment
-
+    h2 Ordner-Struktur
+    p Zu Beginn interessieren uns nur die folgenden Verzeichnisse
+    = code_block language: 'bash' do
+      | app
+        ├── assets          # Front End Code
+        │   ├── javascripts
+        │   └── stylesheets
+        ├── controllers     # Controller
+        ├── models          # Models
+        └── views           # HTML-Templates
+            └── layouts
+       config
+         └── routes.rb      # Routing
+       db
+         └── migrations     # Datenbank-Migrationen
 
