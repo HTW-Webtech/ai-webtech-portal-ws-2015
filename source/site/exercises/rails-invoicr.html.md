@@ -20,30 +20,57 @@ für den 9. Februar (15-19 Uhr) zu vereinbaren. Der Review wird 20 Minuten in An
 
 ## Briefing
 
+Tipp zur Vorgehensweise beim Bau der InvoicR-App. Die nächsten 3 Wochen wird es Lehrveranstaltungen zu
+den Themen Rails-Models, Controller/Routing und Views geben. Die InvoicR-App kann entsprechend dieser
+Veranstaltungen iterativ entwickelt werden. D.h. man beginnt mit den Rails-Models, baut dann die Controller/das Routing
+und zum Schluss erst die Views.
+
+Die Übungsstunden sollten dazu genutzt werden um Rückfragen zu klären.
+
+
+### Daten-Modelle
+
 Die InvoicR-App soll die folgenden Daten verwalten können:
 
 * Projekte:
-  * Titel (String: Name des Kunden/Projektbezeichnung die auf der Rechnung verwendet wird)
-  * Beschreibung (Text: Freitext für Notizen)
-  * Stundensatz in Euro (Integer: Stundensatz der mit dem Kunden/für das Projekt vereinbar wurde)
-  * Adresse-Straße (String: Angabe von Straße und Hausnummer des Kunden. Wird auf der Rechnung verwendet)
-  * Adresse-PLZ/Ort (String: Angabe von PLZ und Ort des Kunden. Wird auf der Rechnung verwendet)
-* Arbeitszeiten:
-  * Titel (String: Aufgabe/Tätigkeit die geleistet wurde)
-  * Beschreibung (Text: Freitext für beliebige Informationen)
-  * Minuten (Integer: Der Zeitaufwand der in die Aufgabe/Tätigkeit investiert wurde)
+  * Titel: Name des Kunden/Projektbezeichnung die auf der Rechnung verwendet wird)
+  * Beschreibung: Freitext für Notizen
+  * Stundensatz in Euro: Stundensatz der mit dem Kunden/für das Projekt vereinbar wurde
+  * Adressdaten: Angabe Kunden-Adresse zur Anzeige auf den Rechnungen
+* Arbeitszeiten/Aufwände:
+  * Titel: Aufgabe/Tätigkeit die geleistet wurde
+  * Beschreibung: Freitext für beliebige Informationen
+  * Minuten: Der Zeitaufwand der in die Aufgabe/Tätigkeit investiert wurde
 * Rechnungen:
-  * Titel (String: Titel/Betreff der Rechnung. Wird auf der Rechnung angezeigt.)
-  * Beschreibung (Text: Beschreibungstext für Rechnung)
-  * Rechnungshöhe: (Integer: Rechungsbetrag ist immer ein auf/abgerundeter Euro-Betrag)
-  * Umsatzsteuer-Betrag: (Dezimal-Wert: Rechnungsbetrag * 19% Umsatzsteuer. Soll auf der Rechnung dargestellt werden.)
+  * Titel: Titel/Betreff der Rechnung. Wird auf der Rechnung angezeigt
+  * Beschreibung: Beschreibungstext für Rechnung
+  * Rechnungshöhe: Der Rechungsbetrag soll immer ein rundeter Euro-Betrag sein
+  * Umsatzsteuer-Betrag: Rechnungsbetrag * 19% Umsatzsteuer. Soll auf der Rechnung dargestellt werden.
+
+
+### Daten-Validierungen
+
+Die Attribute der ActiveRecord-Models sollen die folgenden Validierungen enthalten.
+
+* Projekt
+  * Titel: Pflicht
+  * Beschreibung: Optional
+  * Stundensatz: Required. Ganzzahl größer 0
+* Arbeitszeit:
+  * Titel: Pflicht
+  * Beschreibung: Optional
+  * Minuten: Pflicht
+* Rechnung:
+  * Titel: Pflicht
+  * Beschreibung: Optional
+  * Rechnungshöhe: Pflicht. Ganzzahl größer 0
 
 
 ### Daten-Relationen
 
 Die App-Daten (Projekt, Zeiterfassung und Rechnung) stehen in folgender Beziehung zueinander:
 
-* Ein Projekt hat viele Zeiterfassungen
+* Ein Projekt hat viele Zeiterfassungen (One to many)
 * Eine Zeiterfassung gehört zu einem Projekt und zu einer Rechnung
 * Ein Projekt hat viele Rechnungen
 * Eine Rechnung gehört zu einem Projekt

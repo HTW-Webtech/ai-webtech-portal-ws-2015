@@ -235,5 +235,22 @@ section
 
 section
   section
-    h2 Live Code
+    h2 Live Coding
+
+  section
+    h2 Models
+    = code_block language: 'ruby' do
+      | # app/models/project.rb
+        class Project < ActiveRecord::Base
+          validate :title, presence: true
+          has_many :efforts
+        end
+
+        class Effort < ActiveRecord::Base
+          belongs_to :project
+        end
+
+        class Invoice < ActiveRecord::Base
+          belongs_to :project
+        end
 
