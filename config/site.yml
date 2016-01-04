@@ -12,6 +12,6 @@ development:
 production:
   <<: *shared
   revealjs_host: http://revealjs.htw-webtech.com
-  portal_host: http://portal.htw-webtech.com
+  portal_host: https://portal.htw-webtech.com # TODO: Delete me once HTTPs is disabled
   rsync_host: aris # Configure in ~/.ssh/config
 
