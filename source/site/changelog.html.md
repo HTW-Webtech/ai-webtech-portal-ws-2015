@@ -1,6 +1,12 @@
 # Changelog
 Auf dieser Seite werden Änderungen an diesem Lern-Portal protokolliert.
 
+### 4. Januar
+* Hinzugefügt: [Abschluss-Projekt Folien](slides/rails-abschlussprojekt.html)
+* Hinzugefügt: [Rails Project Structure Folien](slides/rails-project-structure.html)
+* Hinzugefügt: [Rails Models](slides/rails-models.html)
+* Hinzugefügt: [Abschluss-Projekt Übung](exercises/rails-invoicr.html)
+
 ### 13. Dezember
 * [Übungsübersicht](exercises.html) aktualisiert und [Übung 5: Rails Blog](exercises/rails-blog.html) hinzugefügt.
 
