@@ -1,0 +1,305 @@
+/
+  TODO: Rails PATCH vs PUT?
+
+section
+  section
+    h2 Agenda
+    ul
+      li.fragment Allgemeines zu Routes <-> Controllers
+      li.fragment Rails Routing
+      li.fragment Rails Controller
+
+section
+  section
+    h2 Rails Routes + Controllers
+    figure
+      = slide_image_tag 'rails-controllers/air-traffic-controller.jpg'
+      figcaption Rails' Routing-Funktionalität ordnet jedem Request den richtigen Controller zu
+
+  section
+    h2 Rails Routes + Controllers #2
+    ul
+      li.fragment Routes + Controllers definieren "API" einer APP
+      li.fragment Routes: Definieren API-Input
+      li.fragment Controllers: Implementieren API-Output (Response-Body + Codes)
+
+section
+  section
+    h2 Rails Routes
+    ul
+      li.fragment Verknüpfung von Controller-Code mit URI
+      li.fragment HTTP-Request Parameter parsing
+      li.fragment URL-Helper für Views (HTML-Templates)
+      li.fragment Konfigurationsdatei: config/routes.rb
+      li.fragment `rake routes`-Befehl listet Routes
+
+  section
+    h2 Rails Routes
+    ul
+      li.fragment CRUD-Operationen
+      li.fragment Basis-Operationen im Umgang mit Web-Ressourcen
+      li.fragment Ressource: Datenobjekt mit einer URI (e.g. http://foo.com/object/12)
+      li.fragment Translation der Operationen in HTTP-Aufrufe
+      li.fragment C[reate] => HTTP POST: Ressource(n) erzeugen
+      li.fragment R[ead] => HTTP GET: Ressource(n) lesen
+      li.fragment U[pdate] => HTTP PUT/PATCH: Ressource(n) ändern
+      li.fragment D[elete] => HTTP DELETE: Ressource(n) löschen
+
+  section
+    h2 Routes Beispiel
+    = code_block language: 'ruby' do
+      | # config/routes.rb
+        Rails.application.routes.draw do
+          resources :blogs
+        end
+
+    p Ausgeschriebene Variante
+    = code_block language: 'ruby' do
+      | # config/routes.rb
+        Rails.application.routes.draw do
+          # URI             # Controller (Klasse) + Action (Methode)
+          get '/blogs',     'blogs#index'
+          get '/blogs/:id', 'blogs#show'
+          …
+          post '/blogs',    'blogs#create'
+        end
+
+  section
+    h2 Routes Beispiel #2
+    = code_block language: 'bash' do
+      | $ rake routes
+          Prefix Verb   URI Pattern               Controller#Action
+            blogs GET    /blogs                    blogs#index
+                  POST   /blogs                    blogs#create
+         new_blog GET    /blogs/new                blogs#new
+        edit_blog GET    /blogs/:id/edit           blogs#edit
+             blog GET    /blogs/:id                blogs#show
+                  PATCH  /blogs/:id                blogs#update
+                  PUT    /blogs/:id                blogs#update
+                  DELETE /blogs/:id                blogs#destroy
+
+        # URL: http://www.example.com/blogs/123-abc
+          => params[:id] = "123-abc"
+        # URL: http://www.example.com/blogs/15
+          => params[:id] = "15"
+
+  section
+    h2 Semantik: GET /blogs/new
+    p "Gib mir ein HTML-Formular zur Erstellung eines Blogs"
+
+  section
+    h2 Semantik: POST /blogs
+    ul
+      li.fragment: strong "Nimm diese Paramter zur Erstellung eines neuen Blogs"
+      li.fragment Blog-Parameter (Titel, Beschreibung,…) sind im Body des Requests encodiert
+
+  section
+    h2 Semantik: GET /blogs/12
+    ul
+      li.fragment: strong "Gib mir den Blog mit der ID 12"
+      li.fragment Slugs/Permalinks sind Implementierungsdetail
+      li.fragment `/blogs/12-titel-des-blogs`
+
+  section
+    h2 Semantik: GET /blogs
+    ul
+      li.fragment: strong "Gib mir eine Liste von Blogs"
+      li.fragment Paginierung bspw. via GET-Parameter
+      li.fragment `/blogs?page=1`, `/blogs?page=2`
+
+  section
+    h2 Semantik: GET /blogs/12/edit
+    p "Gib mir ein HTML-Formular zur Bearbeitung des Blogs mit der ID 12"
+
+  section
+    h2 Semantik: PATCH/PUT /blogs/12
+    ul
+      li.fragment: strong "Übschreibe die Daten des Blogs mit der ID 12 mit den folgenden Parametern"
+      li.fragment Blog-Parameter sind im Body des Requests encodiert
+
+  section
+    h2 Semantik: DELETE /blogs/12
+    p "Lösche den Blog mit der ID 12"
+
+  section
+    h2
+    p "Lösche den Blog mit der ID 12"
+
+  section
+    h2 Nested/Verschachtelte Routes
+    ul
+      li.fragment Verschaltete Ressourcen via URI abbilden
+      li.fragment Gedacht um Model-Relations abzubilden
+
+  section
+    h2 Routes Beispiel
+    = code_block language: 'ruby' do
+      | # config/routes.rb
+        Rails.application.routes.draw do
+          resources :blogs do
+            resources :comments
+          end
+        end
+
+  section
+    h2 Nested Routes Beispiel
+    = code_block language: 'bash' do
+      | $ rake routes
+                     Prefix Verb   URI Pattern                                 Controller#Action
+              blog_comments GET    /blogs/:blog_id/comments(.:format)          comments#index
+                            POST   /blogs/:blog_id/comments(.:format)          comments#create
+           new_blog_comment GET    /blogs/:blog_id/comments/new(.:format)      comments#new
+          edit_blog_comment GET    /blogs/:blog_id/comments/:id/edit(.:format) comments#edit
+               blog_comment GET    /blogs/:blog_id/comments/:id(.:format)      comments#show
+                            PATCH  /blogs/:blog_id/comments/:id(.:format)      comments#update
+                            PUT    /blogs/:blog_id/comments/:id(.:format)      comments#update
+                            DELETE /blogs/:blog_id/comments/:id(.:format)      comments#destroy
+
+        # URL: http://www.example.com/blogs/123-abc/comments/12
+          => params[:id] = "12"
+          => params[:blog_id] = "123-abc"
+
+
+  section
+    h2 Routes Zusatz-Features
+    ul
+      li.fragment Bspw. namespacing + Passwort-Schutz
+      li.fragment `/admin/foo/bar` alles unter `/admin` ist Passwort-geschützt
+      li.fragment Redirects: bspw. `/old-system` => `/new-system`
+
+section
+  section
+    h2 Rails Controller
+    ul
+      li.fragment Input: Request, Output: Reponse mit:
+      li.fragment a) Code: HTTP Status Code
+      li.fragment b) Body: Text (meist HTML)
+      li.fragment Mittelsmann zwischen Model + Views
+      li.fragment Zugriff auf session, cookies, request, response
+      li.fragment Template-Rendering, HTTP-Redirects
+
+  section
+    h2 Controller Beispiel
+    = code_block language: 'ruby' do
+      | # app/controllers/welcome_controller.rb
+        class WelcomeController < ApplicationController
+          def show
+            render html: '<strong>Dieser Text wird gerendert</html>', status: 200 # Response-Code 200
+          end
+        end
+
+  section
+    h2 Controller Beispiel mit Model + View
+    = code_block language: 'ruby' do
+      | # app/controllers/blogs_controller.rb
+        class BlogsController < ApplicationController
+          # http://www.example.com/blogs/12
+          def show
+            @blog = Blog.find(params[:id]) # params[:id] => 12
+            # Der `render`-Aufruf ist optional. Ohne expliziten render-Aufruf, passiert:
+            # render template: 'blogs/show', status: 200
+          end
+
+          def edit
+            @blog = Blog.find(params[:id])
+            # Impliziter render-Aufuruf:
+            # render template: 'blogs/edit', status: 200
+          end
+        end
+
+  section
+    h2 Params
+    ul
+      li.fragment params-Hash bietet u.a. Lesezugriff auf GET/POST Parameter
+      li.fragment params unterstützt Strings/Arrays/Hashes
+
+  section
+    h2 Params Beispiel
+    = code_block language: 'ruby' do
+      | # app/controllers/blogs_controller.rb
+        # http://www.example.com/blogs/12
+        class BlogsController < ApplicationController
+          def show
+            params[:test] == 'bar'          # /blogs/12?test=bar
+            params[:xids] == ['1', '2']     # /blogs/12?xids[]=1&xids[]=2
+            params[:foo]  == { baz: 'bar' } # /blogs/12?foo[baz]=bar
+          end
+        end
+
+  section
+    h2 Strong Params
+    ul
+      li.fragment Rails Whitelisting-Feature für HTTP Parameter
+      li.fragment HTTP Parameter sind grundsätzlich als *unsafe* markiert
+      li.fragment Jeder Parameter muss via permit!-Aufruf *safe* markiert werden
+
+  section
+    h2 Strong Params Beispiel
+    = code_block language: 'ruby' do
+      | # app/controllers/blogs_controller.rb
+        class BlogsController < ApplicationController
+          def create
+            @blog = Blog.new(blog_params)
+          end
+
+          private
+
+          def blog_params
+            # Erzeugt einen neuen Hash der nur noch die als *safe* markierten
+            # Parameter :title und :description enthält.
+            # Beispiel: params[:blog] = { title: 'Test', category: 'Sport', evil: 'Code' }
+            # Wird mit:
+            params.require(:blog).permit(:title, :category)
+            # zu: { title: 'Test', category: 'Sport' }
+          end
+        end
+
+  section
+    h2 Template-Rendering
+    ul
+      li.fragment render-Methode ist implizit und auto-generiert Template-Pfad
+      li.fragment Alternativ kann `render` auch explizit aufgerufen werden
+      li.fragment Instanz-Variablen aus dem Controller sind in View verfügbar
+
+  section
+    h2 Template-Rendering Beispiel
+    = code_block language: 'ruby' do
+      | # app/controllers/blogs_controller.rb
+        class BlogsController < ApplicationController
+          def new
+            @blog = Blog.new
+            # Rendert implizit app/views/blogs/new.html.erb
+          end
+        end
+
+  section
+    h2 HTTP-Redirects
+    ul
+      li.fragment Ggf. soll ein GET/POST mit einem Redirect beantwortet werden
+      li.fragment Bspw. nach dem POST zum Erstellen einer Ressource folgt redirect zur Ressource
+
+  section
+    h2 HTTP-Redirects Beispiel
+    = code_block language: 'ruby' do
+      | # app/controllers/blogs_controller.rb
+        class BlogsController < ApplicationController
+          def create
+            @blog = Blog.new(blog_params)
+            if @blog.save
+              # Hier bekommt der Browser einen Redirect zu `blogs_path(@blog)`.
+              # `blogs_path(@blog)` erzeugt folgenden String: "/blogs/123",
+              # wobei 123 die ID von @blog ist.
+              redirect blogs_path(@blog)
+            else
+              # `render :edit` bedeutet dasselbe wie `render template: 'blogs/edit'`
+              render :edit
+            end
+          end
+        end
+
+  section
+    h2 Live-Coding
+    ul
+      li.fragment Scaffolding für Projekte
+      li.fragment Anlegen einer Route für Projekte
+      li.fragment Anlegen eines Controllers für Projekte
