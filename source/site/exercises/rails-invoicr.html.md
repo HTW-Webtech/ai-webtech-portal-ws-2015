@@ -55,7 +55,7 @@ Die Attribute der ActiveRecord-Models sollen die folgenden Validierungen enthalt
 * Projekt
   * Titel: Pflicht
   * Beschreibung: Optional
-  * Stundensatz: Required. Ganzzahl größer 0
+  * Stundensatz: Pflicht. Ganzzahl größer 0
 * Arbeitszeit:
   * Titel: Pflicht
   * Beschreibung: Optional
@@ -63,15 +63,15 @@ Die Attribute der ActiveRecord-Models sollen die folgenden Validierungen enthalt
 * Rechnung:
   * Titel: Pflicht
   * Beschreibung: Optional
-  * Rechnungshöhe: Pflicht. Ganzzahl größer 0
+  * Rechnungshöhe: Pflicht. Dezimalzahl größer 0
 
 
 ### Daten-Relationen
 
-Die App-Daten (Projekt, Zeiterfassung und Rechnung) stehen in folgender Beziehung zueinander:
+Die App-Daten (Projekt, Arbeitszeit und Rechnung) stehen in folgender Beziehung zueinander:
 
-* Ein Projekt hat viele Zeiterfassungen (One to many)
-* Eine Zeiterfassung gehört zu einem Projekt und zu einer Rechnung
+* Ein Projekt hat viele Arbeitszeiten (One to many)
+* Eine Arbeitszeit gehört zu einem Projekt und zu einer Rechnung
 * Ein Projekt hat viele Rechnungen
 * Eine Rechnung gehört zu einem Projekt
 * Eine Rechung hat viele Arbeitszeiten
@@ -82,11 +82,11 @@ Die App-Daten (Projekt, Zeiterfassung und Rechnung) stehen in folgender Beziehun
 Für die folgenden Funktionalitäten gibt es die entsprechenden Anzahl an Punkten.
 
 * 3 Punkte: CRUD-Operationen für Projekte
-* 3 Punkte: CRUD-Operationen für Zeiterfassungen (mit Relation zu einem Projekt)
-* 4 Punkte: CRUD-Operationen für Rechnungen (mit Relation zu N Zeiterfassungen)
+* 3 Punkte: CRUD-Operationen für Arbeitszeiten (mit Relation zu einem Projekt)
+* 4 Punkte: CRUD-Operationen für Rechnungen (mit Relation zu N Arbeitszeiten)
 * 2 Punkte: Druck-Vorschau für Rechnung (Einfache HTML-Seite mit allen Rechnungsdaten wie in der Beispiel-App s.u.)
 * 2 Punkt: Dynamisches Berechnen der Umsatzsteuer einer Rechnung
-* 2 Punkt: Vorberechnen des Rechnungsbetrags aus der Summe der Beträge der verknüpften Zeiterfassungen
+* 2 Punkt: Vorberechnen des Rechnungsbetrags aus der Summe der Beträge der verknüpften Arbeitszeiten
 
 
 ### Beispiel InvoicR-App
