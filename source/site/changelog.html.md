@@ -1,6 +1,9 @@
 # Changelog
 Auf dieser Seite werden Änderungen an diesem Lern-Portal protokolliert.
 
+### 10. Januar
+* Hinzugefügt: [Folien: Rails Controller + Routing](slides/rails-controllers.html)
+
 ### 4. Januar
 * Hinzugefügt: [Abschluss-Projekt Folien](slides/rails-abschlussprojekt.html)
 * Hinzugefügt: [Rails Project Structure Folien](slides/rails-project-structure.html)
