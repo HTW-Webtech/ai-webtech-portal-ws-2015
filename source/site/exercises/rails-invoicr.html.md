@@ -89,6 +89,16 @@ Für die folgenden Funktionalitäten gibt es die entsprechenden Anzahl an Punkte
 * 2 Punkt: Vorberechnen des Rechnungsbetrags aus der Summe der Beträge der verknüpften Arbeitszeiten
 
 
+### Datenmodell + Model testen
+
+Zu Beginn werdet ihr noch kein HTML-Front End haben um sicherstellen zu können, dass Euer Datenmodell
+und die Model-Validierungen und -Assoziationen so funktionieren wie Sie definiert wurden. Das ist kein
+Problem da ihr stattdessen diese einfach in der Rails-Konsole testen könnt.
+
+Das Youtube-Video zeigt euch wie man bspw. ein Projekt und Effort-Model testet.
+[Youtube: Models in Rails Konsole testen](https://youtu.be/lkv239opMNM)
+
+
 ### Beispiel InvoicR-App
 
 Die InvoicR-App wurde exemplarisch implementiert und ist unter der Adresse <http://327-kinky-castle.htw-webtech.com/>
