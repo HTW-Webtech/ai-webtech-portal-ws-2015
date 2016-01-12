@@ -96,7 +96,7 @@ und die Model-Validierungen und -Assoziationen so funktionieren wie Sie definier
 Problem da ihr stattdessen diese einfach in der Rails-Konsole testen könnt.
 
 Das Youtube-Video zeigt euch wie man bspw. ein Projekt und Effort-Model testet.
-[Youtube: Models in Rails Konsole testen](https://youtu.be/lkv239opMNM)
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/lkv239opMNM?rel=0" frameborder="0" allowfullscreen></iframe>
 
 
 ### Beispiel InvoicR-App
