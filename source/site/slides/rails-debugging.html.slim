@@ -1,0 +1,56 @@
+section
+  h1 Debugging
+
+section
+  section
+    h2 Agenda
+    ul
+      li.fragment Hintergrund Debugging
+      li.fragment rails console
+      li.fragment development.log
+      li.fragment (web) console
+      li.fragment Ressourcen: Chat und Rails docs
+
+  section
+    h2 Hintergrund Debugging
+    ul
+      li.fragment Neuland: Ruby, Rails API
+      li.fragment Verletzung von Konventionen
+      li.fragment Typisch bspw. SyntaxError: Ruby erlaubt flexible Syntax
+
+  section
+    h2 Rails console
+    ul
+      li.fragment Testet Model-Code in der console
+      li.fragment Youtube-Video dazu in den Übungsunterlagen
+
+  section
+    h2 Development.log
+    ul
+      li.fragment Jeder Request (mit Parametern) wird geloggt
+      li.fragment logs/development.log
+
+    .fragment= code_block language: 'bash' do
+      | # log/development.log
+        12:31:52 server.1 | Started POST "/users/1/apps" for ::1 at 2016-01-18 12:31:52 +0100
+        12:31:52 server.1 | Processing by AppsController#create as HTML
+        12:31:52 server.1 |   Parameters: {"utf8"=>"✓", "authenticity_token"=>"…", "app"=>{
+          "name"=>"sweet-panda", "ssh_key"=>"", "email"=>"gregoryigelmund@Gregorys-MacBook-Pro.local
+        "}, "env_vars"=>[{"name"=>"", "value"=>""}], "commit"=>"Create App", "user_id"=>"1"}
+
+  section
+    h2 (web) console
+    ul
+      li.fragment Default-Gem Seit Rails 4
+      li.fragment Web-basierte REPL die in development aktiviert ist
+      li.fragment Ermöglicht Inspection
+      li.fragment: a href="https://www.youtube.com/watch?v=qK4-sQ9ssSo" YouTube-Video zur WebConsole
+
+  section
+    h2 Ressourcen: Chat und Rails docs
+    ul
+      li.fragment Bei Rückfragen nutzt bitte:
+      li.fragment
+        | Link zu <a href="">Rails-Documentation</a>
+      li.fragment Übungstermine: 18.1, 25.1, 1.2
+      li.fragment Gitter-Chat
