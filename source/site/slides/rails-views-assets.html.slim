@@ -1,0 +1,432 @@
+/
+
+section
+  section
+    h2 Agenda
+    ul
+      li.fragment Template-Rendering
+      li.fragment ActionView::Base + ERB
+      li.fragment FormBuilder
+      li.fragment View Helper
+      li.fragment Custom Helper
+      li.fragment Assets
+
+section
+  section
+    h2 Template-Rendering
+    ul
+      li.fragment Controller wählt u.a. Template für HTTP-Response aus
+      li.fragment Genauer: Layout, Template und HTTP-Header
+
+    .fragment= code_block language: 'ruby' do
+      | # app/controllers/projects_controller.rb
+        class ProjectsController < ApplicationController
+          def show
+            render # Layout:   app/views/application.html.erb
+                   # Template: app/views/projects/show.html.erb
+          end
+        end
+
+  section
+    h2 Layout + Views
+    = slide_image_tag 'rails-views-assets/rails-layout-views.png'
+
+  section
+    h2 Layout
+    ul
+      li.fragment Template-Pfad app/views/layouts/application.html.erb
+      li.fragment
+        | Verantwortlich für das Standard HTML-Gerüst
+        ul
+          li.fragment Bspw. meta-Tags, favicon-Bild
+          li.fragment asset-Includes (CSS, JavaScript)
+          li.fragment HTML-Grid
+          li.fragment …
+      li.fragment yielded Template-Inhalt
+      li.fragment Included Layout-Bausteine via `render`
+
+  section
+    h2 Layout Beispiel
+    = code_block language: 'html' do
+      |# app/views/layouts/application.html.erb
+       <!DOCTYPE html>
+       <html>
+         <head>
+           <meta charset="utf-8">
+           <meta name="author" content="Gregory Igelmund">
+           <%= stylesheet_link_tag :application, media: 'all' %>
+           <%= javascript_include_tag :application %>
+         </head>
+         <body>
+           <%= render 'layouts/navigation' # Lädt das Navigation-Partial %>
+           <%= yield # Platzhalter für Template %>
+         </body>
+       </html>
+
+  section
+    h2 Templates
+    ul
+      li.fragment HTML-Bausteine die im Layout orchestriert werden
+      li.fragment Unterscheidung Templates + Partials
+      li.fragment Template: Zugeordnet zu einer Controller-Action
+      li.fragment Partial: Wiederverwendbarer modularer HTML-Block
+
+  section
+    h2 Template Beispiel
+    = code_block language: 'html' do
+      |# app/views/projects/show.html.erb
+       <h1><%= @project.title # @project wurde im Controller gesetzt %></h1>
+       <p><%= @project.description %></p>
+       <div>
+         <%=
+           link_to 'Bearbeiten', edit_project_path(@project) # link_to = Methode zur Erzeugung von Links
+                                                             # edit_project_path erzeugt URL
+         %>
+       </div>
+
+  section
+    h2 Partials
+    ul
+      li.fragment Vermeidet Redundanz beim Rendering desselben HTML-Blocks
+      li.fragment Anderer Zugriff auf Variablen als bei Templates
+      li.fragment Templates greifen auf Instanz-Variablen aus Controller zu
+      li.fragment Partials bekommen Variablen via Parameter übergeben
+      li.fragment Beispielsweise HTML-Formular (new.html.erb, edit.html.erb)
+
+  section
+    h2 Partials Beispiel
+    = code_block language: 'html' do
+      |# app/views/projects/new.html.erb
+       <h1>Neues Projekt</h1>
+       <%= render 'projects/form.html.erb', project: @project %>
+
+    = code_block language: 'html' do
+      |# app/views/projects/form.html.erb
+       # Hat nun Zugriff auf `project`
+       <%= form_for project do |f| %>
+         <%= f.text_field :title %>
+         <%= f.submit %>
+       <%= end %>
+
+section
+  section
+    h2 ActionView::Base + ERB
+    ul
+      li.fragment Layouts, Templates, Partials sind Views
+      li.fragment View: Beliebige* Template-Sprache
+      li.fragment Standard: Embedded Ruby oder ERB
+      li.fragment
+        | Alternative populäre Template-Sprachen
+        ul
+          li.fragment HAML
+          li.fragment Slim
+          li.fragment Liquid
+
+  section
+    h2 Embedded Ruby + HTML
+    ul
+      li.fragment Grundlage für Templating, Generierung von Text
+      li.fragment Logik: Konditionale/Schleifen im Template eingewoben
+
+    .fragment= code_block language: 'erb' do
+      |# app/views/projects/new.html.erb
+       <% if true %>          <%# Dieser Code erzeugt eine Leerzeile in der Ausgabe -%>
+       <%= "Shopping List" %> <%# Hier wird der Text "Shopping List" ausgegeben -%>
+       <% end -%>             <%# Diese Zeile erzeugt dank '-' keine Leerzeile -%>
+       <ol>
+       <% ["Banana", "Coconut"].each do |item| -%> <%# So wird über Elemente itereriert -%>
+         <li><%= item %><li>
+       <% end -%>
+       </ol>
+
+  section
+    h2 View-Objekt
+    ul
+      li.fragment Rendering im Kontext einer Instanz von ActionView::Base
+      li.fragment Zugriff im Template Rails Helpers
+      li.fragment
+        | Beispielsweise
+        ul
+          li.fragment FormBuilder
+          li.fragment URL-Helper
+          li.fragment NumberHelper
+          li.fragment SanititzeHelper
+          li.fragment CacheHelper
+          li.fragment …
+          li.fragment
+            | <a href="https://github.com/rails/rails/blob/master/actionview/lib/action_view/helpers.rb">Helper-Übersicht</a> und <a href="http://api.rubyonrails.org/">Dokumentation</a>
+      li.fragment Auch eigene Helper-Methoden möglich
+
+section
+  section
+    h2 FormBuilder
+    ul
+      li.fragment Konstruiert form-Element für Create/Update-Actions
+      li.fragment Generiert form-Attribute wie action-URL und method (POST/GET)
+      li.fragment Befüllt input-Elemente mit Inhalt (wenn existiert)
+      li.fragment Setzt `authenticity_token` zur Authorisierung eines POST-Requests
+      li.fragment UTF-8 Conformity Checkmark
+      li.fragment Ermöglicht Nested Attributes analog zu Model-Assoziationen
+
+  section
+    h2 FormBuilder API (Create)
+    = code_block language: 'erb' do
+      |# app/views/projects/_form.html.erb
+       # project ist noch nicht persistiert. Programmatisch kann dies
+       # bspw. in der Rails-Konsole so geprüft werden:
+       # `project.new_record?` oder `project.persisted?`
+       <%= form_for project do |f| %>
+         <%= f.label :title %>
+         <%= f.text_field :title %>
+       <% end %>
+
+    = code_block language: 'html' do
+      |# Erzeugt etwa folgendes HTML
+       <form accept-charset="UTF-8" action="/projects" method="post">
+         <input name="utf8" type="hidden" value="&#x2713;" />
+         <input name="authenticity_token" type="hidden" value="J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts=" />
+         <label for="project_title">Title</label>
+         <input id="project_title" name="project[title]" type="text" value="" />
+         <input type="submit" value="Create project" />
+       </form>
+
+  section
+    h2 FormBuilder API (Update)
+    = code_block language: 'erb' do
+      |# app/views/projects/_form.html.erb
+       # Dieses mal existiert project schon in der Datenbank und hat bspw.
+       # die ID 12, weshalb die Formular-URL dieses mal die ID enthält.
+       <%= form_for project do |f| %>
+         <%= f.label :title %>
+         <%= f.text_field :title %>
+       <% end %>
+
+    = code_block language: 'html' do
+      |# Erzeugt etwa folgendes HTML
+       <form accept-charset="UTF-8" action="/projects/12" method="post">
+         <input name="_method" type="hidden" value="patch" /> # Außerdem wird die HTTP-Methode auf PATCH gesetzt
+         <input name="utf8" type="hidden" value="&#x2713;" />
+         <input name="authenticity_token" type="hidden" value="J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts=" />
+         <label for="project_title">Title</label>
+         <input id="project_title" name="project[title]" type="text" value="Title des Projekts" />
+         <input type="submit" value="Update project" />
+       </form>
+
+  section
+    h2 FormBuilder API Manuell
+    = code_block language: 'erb' do
+      |# app/views/projects/new.html.erb
+       # Da die URL nun fest kodiert ist, kann das Formular jedoch nicht
+       # für verschiedene Controller-Actions wiederverwendet werden.
+       <%= form_for project, as: :post, url: '/projects', method: :patch, html: { class: "projects-form" } do |f| %>
+         <%= f.label :title %>
+         <%= f.text_field :title %>
+       <% end %>
+
+    = code_block language: 'html' do
+      |# Erzeugt etwa folgendes HTML
+       <form accept-charset="UTF-8" action="/projects" method="post">
+         <input name="_method" type="hidden" value="patch" /> # Außerdem wird die HTTP-Methode auf PATCH gesetzt
+         <input name="utf8" type="hidden" value="&#x2713;" />
+         <input name="authenticity_token" type="hidden" value="J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts=" />
+         <label for="project_title">Title</label>
+         <input id="project_title" name="project[title]" type="text" value="Title des Projekts" />
+         <input type="submit" value="Update project" />
+       </form>
+
+section
+  section
+    h2 View Helper
+    ul
+      li.fragment ActionView::Base stellt Helper-Code/Methoden bereit
+      li.fragment Bspw. FormBuilder
+      li.fragment URLHelper
+      li.fragment AssetTagHelper
+      li.fragment NumberHelper
+      li.fragment … CacheHelper, etc.
+
+  section
+    h2 URLHelper
+    ul
+      li.fragment Dynamisch generierte Methoden zur Erzeugung von URLs
+      li.fragment Methoden-Name wird aus Routes abgeleitet
+      li.fragment Mit `rake routes` werden die Methoden aufgelistet
+      li.fragment `_path` und `_url`-Helper. _url enthält Hostname
+
+  section
+    h2 URLHelper Beispiel
+    = code_block language: 'ruby' do
+      | # config/routes.rb
+        resources :projects
+
+    = code_block language: 'bash' do
+      | # rake routes
+              Prefix Verb   URI Pattern                  Controller#Action
+            projects GET    /projects(.:format)          projects#index
+                     POST   /projects(.:format)          projects#create
+         new_project GET    /projects/new(.:format)      projects#new
+        edit_project GET    /projects/:id/edit(.:format) projects#edit
+             project GET    /projects/:id(.:format)      projects#show
+
+  section
+    h2 URLHelper Beispiel #2
+    = code_block language: 'ruby' do
+      | # rails console
+        irb(main):001:0> app.projects_url
+        => "http://www.example.com/projects"
+        irb(main):002:0> app.edit_project_url(id: 12)
+        => "http://www.example.com/projects/12/edit"
+
+    = code_block language: 'ruby' do
+      | # app/views/projects/show.html.erb
+        <p><a href="<%= edit_project_path(@project) %>">Edit</a> Project</p>
+        …
+
+    = code_block language: 'html' do
+      | # Erzeugt folgenden HTML-Output
+        <p><a href="/project/12/edit">Edit</a> Project</p>
+        …
+
+    = code_block language: 'html' do
+      | # Alternativ: link_to-Helper
+        <p><%= link_to 'Edit', edit_project_path(@project) %>"> Project</p>
+        …
+
+  section
+    h2 AssetTagsHelper
+    ul
+      li.fragment Generiert HTML-Tags zur Einbindung von u.a. CSS-, JavaScript- und Bild-Dateien
+      li.fragment CSS/JS/Bilder: `app/assets/{stylesheets,javascripts,images}`
+      li.fragment Audio/Video: `public/{audios,videos}`
+      li.fragment
+        | AssetTagsHelper API
+        ul
+          li.fragment image_tag (Bindet bild aus app/assets/images ein)
+          li.fragment javascript_include_tag (Bindet JavaScript aus app/assets/javascripts ein)
+          li.fragment stylesheets_include_tag (Bindet Stylesheet aus app/assets/stylesheets ein)
+          li.fragment video_tag (Bindet Video aus public/videos-Ordner ein)
+          li.fragment audio_tag (Bindet Video aus public/audios-Ordner ein)
+
+  section
+    h2 AssetTagsHelper Beispiel
+    = code_block language: 'ruby' do
+      | # app/views/projects/show.html.erb
+        …
+        <%= image_tag 'foo/bar.png' %>          # Pfad: assets/images/foo/bar.png
+        <%= javascript_include_tag 'example' %> # Pfad: assets/javascripts/example.js
+        <%= video_tag 'kitten.mp4' %>           # Pfad: videos/kitten.mp4
+
+  section
+    h2 NumberHelper
+    ul
+      li.fragment Methoden zur Konvertierung von Zahlen in formatierte Strings
+      li.fragment Bspw: Telefonnummern, Prozentangaben, Währungen, …
+      li.fragment
+        | NumberHelper API
+        ul
+          li.fragment number_to_percentage (Prozentzahldarstellung)
+          li.fragment number_to_currency (Darstellung in Geldeinheiten mit Währung)
+          li.fragment number_to_phone (Darstellung als US-Telefonnummer)
+
+  section
+    h2 NumberHelper Beispiel
+    = code_block language: 'ruby' do
+      | # app/views/projects/show.html.erb
+        Umsatz mit dem Projekt:
+        <%= number_to_currency(@project.paid_invoices_amount_in_euro, unit: '€') %>
+
+  section
+    h2 Custom Helper
+    ul
+      li.fragment Methoden wie bspw. number_to_phone sind unbrauchbar, da US-spezifisch
+      li.fragment Oder es werden spezifische Formattierungen benötigt
+      li.fragment Alternative: Eigene Helper-Methoden implementieren
+      li.fragment Ruby-Module unter: app/helpers/name_of_your_module.rb
+
+  section
+    h2 Custom Helper Beispiel
+    = code_block language: 'ruby' do
+      | # app/helpers/invoice_helper.rb
+        module InvoiceHelper
+          # Creates a formatted €-representation of the given Integer
+          # 6010 => "€ 60,10"
+          # 1000 => "€ 10,00"
+          def format_amount(amount_in_cents)
+            amount_with_precision = amount_in_cents/100.to_f
+            formatted_amount = "%.2f" % amount_with_precision
+            "€ " + formatted_amount.gsub(".", ",")
+          end
+
+          # Helper-Methoden können wiederverwendet werden
+          def number_to_euro(amount_in_cents)
+            number_to_currency(amount_in_cents/100.to_f, precision: 2, unit: '€')
+          end
+        end
+
+    = code_block language: 'html' do
+      | # app/views/invoices/show.html.erb
+        <h1>Rechnungsbetrag</h1>
+        <p><%= format_amount(@invoice.amount_in_cents)</p>
+        <p><%= number_to_euro(@invoice.amount_in_cents)</p>
+
+  section
+    h2 Custom Helper
+    ul
+      li.fragment Alle Helper-Module in: app/helpers werden in ActionView::Base geladen
+      li.fragment Achtung: Die Methoden werden alle in denselben Namespace inkludiert
+
+    .fragment= code_block language: 'ruby' do
+      | # app/helpers/application_helper.rb
+        module AlphaHelper
+          def website_headline
+            "InvoicR"
+          end
+        end
+
+    .fragment= code_block language: 'ruby' do
+      | # app/helpers/zomg_helper.rb
+        module ZomgHelper
+          def website_headline
+            "ZOMG!"
+          end
+        end
+
+    .fragment= code_block language: 'ruby' do
+      | # app/views/welcome/show.html.erb
+        <h1><%= website_headline %></h1> # => "<h1>ZOMG!</h1>"
+
+section
+  section
+    h2 Assets
+    ul
+      li.fragment Asset-Verwaltung, Hauptordner: app/assets
+      li.fragment Sprocket-Manifest(s) zur Verwaltung
+      li.fragment JavaScripts: app/assets/javascripts/application.js
+      li.fragment Stylesheets: app/assets/stylesheets/application.css
+
+  section
+    h2 Assets: JavaScript
+    ul
+      li.fragment Eigene JavaScripts in app/assets/javascripts/script.js
+      li.fragment Eigene Ordner in app/assets/javascripts/foo/script.js
+      li.fragment Development: include aller JavaScript-Dateien
+      li.fragment Production: Concatenation, Fingerprinting
+
+    .fragment= code_block language: 'ruby' do
+      | # app/assets/javascripts/application.js
+        //= require jquery      # Lädt jquery-Manifest (aus Bibliothek via gem)
+        //= require jquery_ujs  # Lädt jQuery-UJS-Manifest (aus Bibliothek via gem)
+        //= require_tree .      # Lädt alle .js- oder .coffee-Dateien im Hauptordner
+        //= require_tree foo    # Lädt alle .js- oder .coffee-Dateien im Ordner: javascripts/foo
+
+  section
+    h2 Assets: Stylesheets
+    ul
+      li.fragment Eigene Stylesheets in app/assets/stylesheets/style.css
+      li.fragment Eigene Ordner in app/assets/stylesheets/foo/style.css
+    .fragment= code_block language: 'ruby' do
+      | # app/assets/stylesheets/application.css
+        /* ...
+        *= require_self   # Lädt alles CSS was noch folgt in dieser Datei
+        *= require_tree . # Lädt alle CSS-Dateien im stylesheets-Ordner
+        */
