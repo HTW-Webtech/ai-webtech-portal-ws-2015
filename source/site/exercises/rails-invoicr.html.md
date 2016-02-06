@@ -11,11 +11,11 @@ Erstellen von Rechnungen übernimmt. Der InvoicR.
 ## Abgabe / CodeReview
 
 CodeReview bis spätestens zur Übung am 8. Februar. Optional gibt es die Möglichkeit einen Ausweichtermin zum CodeReview
-für den 9. Februar (15-19 Uhr) zu vereinbaren. Der Review wird 20 Minuten in Anspruch nehmen.
+für den 9. Februar (15-19 Uhr) zu vereinbaren. Der Review wird max. 20 Minuten in Anspruch nehmen.
 
-* 1-3 Min. Vorstellung des Konzepts
-* 7-9 Min. Vorstellung der technischen Lösungen
-* 10 Min. CodeReview mit Fragen von mir
+* ca. 3 Min. Vorstellung der CRUD-Operationen im Browser
+* ca. 5 Min. Beschreibung eines beispielhaften Teils der Implementierung im Code
+* ca. 7-10 Min. Verschiedene CodeReview-Fragen
 
 
 ## Briefing
