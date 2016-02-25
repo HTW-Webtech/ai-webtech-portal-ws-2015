@@ -7,7 +7,7 @@ gem 'middleman'
 gem 'middleman-livereload'
 
 gem 'slim', '>= 3.0'
-gem 'bootstrap-sass', require: false
+gem 'bootstrap-sass'
 
 gem 'activesupport', require: false
 gem 'complex_config', require: 'complex_config/rude'
