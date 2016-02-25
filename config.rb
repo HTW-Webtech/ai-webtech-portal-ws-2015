@@ -13,10 +13,16 @@ use Middlewares::AccessControlAllowAllOrigins
 page 'site/slides/revealjs/*', layout: false
 page 'site/slides/index.html', layout: 'layout'
 
-Dir[__dir__ + '/source/site/slides/*'].each do |exercise_file|
-  file_name = File.basename(exercise_file).split('.html').first
+Dir[__dir__ + '/source/site/slides/*.slim'].each do |slide|
+  file_name = File.basename(slide).split('.html').first
   html_file = "#{file_name}.html"
   proxy "/site/slides/revealjs/#{html_file}", "/site/slides/#{html_file}"
+end
+
+Dir[__dir__ + '/source/site/slides/*.md'].each do |slidemd|
+  proxy "/site/slides/revealjs/foo.html", "/site/slides/template.html", layout: false, locals: {
+    markdown_filename: slidemd
+  }
 end
 
 # Template Engines
