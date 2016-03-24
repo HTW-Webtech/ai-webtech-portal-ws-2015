@@ -3,16 +3,6 @@ module AppHelpers
     current_page.data.title || 'Webentwicklung'
   end
 
-  def nav_li_link(title, url, opts = {})
-    "<li class='#{nav_li_class(url)}'>#{link_to(title, url, opts)}</li>"
-  end
-
-  def nav_li_class(url)
-    if current_page.path.include? url.split('/').last.split('.html').first
-      'active'
-    end
-  end
-
   def file_from_url(url)
     url.split('/').last.split('.').first
   end
@@ -25,7 +15,7 @@ module AppHelpers
 
   def link_to_slides(title, slides_name, theme: 'black', available_at: Date.current)
     if Date.current >= available_at
-      "<a href='/site/slides/#{slides_name}.html'>#{title}</a> (#{slides_link(slides_name, theme: theme)})"
+      "<a href='slides/#{slides_name}.html'>#{title}</a> (#{slides_link(slides_name, theme: theme)})"
     else
       "<abbr title='Noch nicht verfügbar'>#{title}</abbr>"
     end
