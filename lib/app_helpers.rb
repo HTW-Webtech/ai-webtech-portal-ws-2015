@@ -3,16 +3,6 @@ module AppHelpers
     current_page.data.title || 'Webentwicklung'
   end
 
-  def file_from_url(url)
-    url.split('/').last.split('.').first
-  end
-
-  def recursive_data(field, page)
-    page.data.fetch(field.to_s) do
-      page.parent ? recursive_data(field, page.parent) : ''
-    end
-  end
-
   def link_to_slides(title, slides_name, theme: 'black', available_at: Date.current)
     if Date.current >= available_at
       "<a href='slides/#{slides_name}.html'>#{title}</a> (#{slides_link(slides_name, theme: theme)})"
@@ -67,7 +57,6 @@ module AppHelpers
   def current_page_dir(page)
     __extract_paths(page).pop
   end
-
 
   def __extract_paths(page)
     page.path.split(?/).tap do |paths|
