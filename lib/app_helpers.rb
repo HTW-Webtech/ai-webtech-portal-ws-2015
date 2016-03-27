@@ -3,19 +3,37 @@ module AppHelpers
     current_page.data.title || 'Webentwicklung'
   end
 
-  def link_to_slides(title, slides_name, theme: 'black', available_at: Date.current)
-    if Date.current >= available_at
-      "<a href='slides/#{slides_name}.html'>#{title}</a> (#{slides_link(slides_name, theme: theme)})"
-    else
-      "<abbr title='Noch nicht verfügbar'>#{title}</abbr>"
-    end
+  def legacy_link_to_slides(title, slides_name, theme: 'black')
+    "<a href='slides/#{slides_name}.html'>#{title}</a> (#{revealjs_link "/site/courses/ws2015/slides/#{slides_name}.html"})"
   end
 
-  def slides_link(slides_name, theme:)
-    link_to 'View slides', revealjs_url(slides_name, theme: theme), target: '_blank'
+  def slide_name(file)
+    parts = slide_file_basename(file).split('-')
+    parts.shift
+    parts.map(&:capitalize) * ' '
   end
 
-  def revealjs_url(slides_name, theme:)
+  def slide_uri(file)
+    "slides/#{slide_file_basename(file)}.html"
+  end
+
+  def slide_file_basename(file)
+    File.basename(file, '.html.md')
+  end
+
+  def slide_path(file)
+    file.split('/source/').last.split('.md').first
+  end
+
+  def revealjs_link(slide_path, theme: 'black')
+    link_to 'View slides', revealjs_url(slide_path, theme: theme)
+  end
+
+  def revealjs_url(slide_path, theme:)
+    "/revealjs?theme=#{theme}&sourceURI=#{cc(:site).portal_host}/#{slide_path}"
+  end
+
+  def _revealjs_url(slides_name, theme:)
     "#{cc(:site).revealjs_host}/?theme=#{theme}&sourceURI=#{cc(:site).portal_host}/site/slides/revealjs/#{slides_name}.html"
   end
 

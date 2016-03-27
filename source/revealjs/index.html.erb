@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>reveal.js – The HTML Presentation Framework</title>
+    <!-- <meta name="description" content="A framework for easily creating beautiful presentations using HTML"> -->
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <%= stylesheet_link_tag 'reveal' %>
+    <%= stylesheet_link_tag 'reveal/theme/black' %>
+
+    <!-- Code syntax highlighting -->
+    <%= stylesheet_link_tag 'reveal/zenburn' %>
+
+    <!-- Printing and PDF exports -->
+    <!-- <script> -->
+    <!--   var link = document.createElement( 'link' ); -->
+    <!--   link.rel = 'stylesheet'; -->
+    <!--   link.type = 'text/css'; -->
+    <!--   link.href = window.location.search.match( /print&#45;pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css'; -->
+    <!--   document.getElementsByTagName( 'head' )[0].appendChild( link ); -->
+    <!-- </script> -->
+
+    <!--[if lt IE 9]>
+    <script src="<% asset_path(:js, 'reveal/plugin/html5shiv') %>"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+        <section>
+        </section>
+      </div>
+    </div>
+
+    <%= javascript_include_tag 'reveal/jquery-2.1.4' %>
+    <%= javascript_include_tag 'reveal/head.min' %>
+    <%= javascript_include_tag 'reveal' %>
+
+    <script>
+      var highlightCallback = function() {
+        jQuery(function() {
+          $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+        });
+      }
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      var initializeReveal = function() {
+        Reveal.initialize({
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
+
+          transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+          // Optional reveal.js plugins
+          dependencies: [
+            { src: '<%= asset_path(:js, 'reveal/classList.js') %>', condition: function() { return !document.body.classList; } },
+            { src: '<%= asset_path(:js, 'reveal/plugin/markdown/marked.js') %>', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: '<%= asset_path(:js, 'reveal/plugin/markdown/markdown.js') %>', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: '<%= asset_path(:js, 'reveal/plugin/highlight/highlight.js') %>', async: true, callback: highlightCallback },
+            // { src: 'plugin/zoom-js/zoom.js', async: true },
+            // { src: 'plugin/notes/notes.js', async: true }
+          ]
+        });
+      };
+
+      /* http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript */
+      var getParameterByName = function(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+      }
+      jQuery(function() {
+        var sourceURI = getParameterByName('sourceURI');
+        $('.slides').load(sourceURI + ' .content', function() {
+          var wrappedContent = $('.slides').html();
+          var content = '<section>' + $(wrappedContent).html() + '</section>';
+          content = content.replace(/<hr>/gi, '</section><section>');
+          $('.slides').html(content);
+          initializeReveal();
+        });
+      });
+    </script>
+
+  </body>
+</html>
+

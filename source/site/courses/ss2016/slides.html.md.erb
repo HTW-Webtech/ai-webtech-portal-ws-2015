@@ -1,0 +1,5 @@
+# Präsentationen
+
+<% Dir[__dir__ + '/slides/*.html.md'].each do |file| %>
+  1. [<%= slide_name(file) %>](<%= slide_uri(file) %>) (<%= revealjs_link slide_path(file) %>)
+<% end %>

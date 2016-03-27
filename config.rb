@@ -9,9 +9,10 @@ require 'active_support/core_ext/string/output_safety'
 Dir[__dir__ + '/lib/**/*.rb'].each { |rb| require_relative rb }
 
 # Reveal.js configuration
+page 'revealjs/*', layout: false
 use Middlewares::AccessControlAllowAllOrigins
-page 'site/slides/revealjs/*', layout: false
-page 'site/slides/index.html', layout: 'layout'
+# page 'site/slides/revealjs/*', layout: false
+# page 'site/slides/index.html', layout: 'layout'
 
 Dir[__dir__ + '/source/site/slides/*'].each do |exercise_file|
   file_name = File.basename(exercise_file).split('.html').first
