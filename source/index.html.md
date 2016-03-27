@@ -1,28 +1,29 @@
 # Webentwicklung
 
-Dies ist die Kursseite zur Lehrveranstaltung *Webentwicklung* an der HTW-Berlin. Hier finden Sie zu den jeweiligen
-Semester-Kursen alle wichtigen Übungs- und Lehrunterlagen.
+Diese Kursseite zur Lehrveranstaltung *Webentwicklung* an der HTW-Berlin fasst
+die Vorlesungsfolien, Übungsaufgaben und weiterführenden Lerninhalte zusammen.
+Dies umfasst jeweils das [aktuellste](site/courses/ss2016) und vergangene
+Semester dieser Lehrveranstaltung.
 
-Inhaltlich widmet sich diese Veranstaltung den Grundlagen basaler und moderner Web-Technologien. Dies reicht von HTTP,
-HTML, CSS hin zu verschiedenen Front und Back End Frameworks zur Entwicklung moderner Web-Applikationen.
+
+## Curriculum
+
+Ziel ist es die Grundlagen von Client- und Serverseitigen Programmiersprachen und
+Frameworks zur Entwicklung dynamischer Webanwendungen kennenzulernen. Hierzu gehören:
+
+* Grundlagen zu HTTP, HTML, JavaScript und CSS
+* Theorie und Praxis zum Einsatz von Frameworks für Fron und Back End
+* Übungsaufgaben anhand derer eigenständig eigene Webanwendungen realisiert werden
 
 Für Fragen bin ich unter <mailto:igelmund@htw-berlin.de> zu erreichen.
 
 
-## Wichtige Links für die Kursteilnehmer
+## Weiterführende Links
 
-* <http://portal.htw-webtech.com>: Das Lern-Portal (mit Präsentationen, Übungen und Links zu Lern-Inhalten).
-* <http://admin.htw-webtech.com>: Die Aris App-Management Seite verwaltet die Zugangsdaten zum Einreichen von Code für
-  die Übungen. Außerdem ist hier der aktuelle Punkte-Stand für den Kurs verwaltet.
-* <http://jenkins.htw-webtech.com>: Das Jenkins-CI führt die funktionalen Tests für die Übungen durch.
-* <http://gitlist.htw-webtech.com>: Eine Übersicht der git Projekte. Passwort-geschützter Zugang.
-* <http://files.htw-webtech.com>: Im Download-Bereich können Dateien (wie bspw. das Virtualbox-Image) heruntergeladen werden.
-
-
-## Wartung und Aktualität von Inhalten
-
-Vermeintlich fehlerhafte, obsolete oder veraltete Inhalte können gerne via korrigiert und mir via github Pull-Request
-vorgelegt werden. Hierzu ist zum Beginn jeder Inhaltseite ein *Edit on github*-Link zu sehen.
+* <http://portal.htw-webtech.com>: Diese Kursseite (mit Präsentationen, Übungen und Links zu Lern-Inhalten).
+* <http://admin.htw-webtech.com>: Aris: Hier werden Übungen und Punkte für die Kursteilnehmer verwaltet
+* <http://jenkins.htw-webtech.com>: Jenkins-CI: System für funktionale Tests zu einigen Übungsaufgaben
+* <http://files.htw-webtech.com>: Download-Bereich: Download des Virtualbox-Images für die Kursteilnehmer
 
 
 ## Gitter Chat
