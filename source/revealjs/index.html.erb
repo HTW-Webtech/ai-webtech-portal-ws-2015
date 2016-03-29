@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
     <%= stylesheet_link_tag 'reveal' %>
-    <%= stylesheet_link_tag 'reveal/theme/black' %>
+    <%= stylesheet_link_tag 'reveal/theme/simple' %>
 
     <!-- Code syntax highlighting -->
     <%= stylesheet_link_tag 'reveal/zenburn' %>
@@ -63,8 +63,10 @@
           progress: true,
           history: true,
           center: true,
+          width: 1024,
+          height: 768,
 
-          transition: 'slide', // none/fade/slide/convex/concave/zoom
+          transition: 'convex', // none/fade/slide/convex/concave/zoom
 
           // Optional reveal.js plugins
           dependencies: [
@@ -88,10 +90,20 @@
       jQuery(function() {
         var sourceURI = getParameterByName('sourceURI');
         $('.slides').load(sourceURI + ' .content', function() {
+
+          // Wrap in top level section
           var wrappedContent = $('.slides').html();
           var content = '<section>' + $(wrappedContent).html() + '</section>';
+
+          // Wrap each hr separated block into a section
           content = content.replace(/<hr>/gi, '</section><section>');
+
+          // Set the modified
           $('.slides').html(content);
+
+          // Add a .fragment class to each li
+          $('.slides li').addClass('fragment');
+
           initializeReveal();
         });
       });
