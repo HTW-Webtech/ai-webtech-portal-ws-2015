@@ -1,19 +1,19 @@
 # Webentwicklung
 
-Diese Kursseite zur Lehrveranstaltung *Webentwicklung* an der HTW-Berlin fasst
-die Vorlesungsfolien, Übungsaufgaben und weiterführenden Lerninhalte zusammen.
-Dies umfasst jeweils das [aktuellste](site/courses/ss2016) und vergangene
-Semester dieser Lehrveranstaltung.
+Die ist die Kursseite zur Lehrveranstaltung (LV) *Webentwicklung* an der HTW-Berlin. Die
+LV findet im Rahmen des Bachelor Studiengangs [Angewandte Informatik](http://ai-bachelor.htw-berlin.de/)
+statt. In der Navigation oben auf der Seite sind die Unterlagen zu den verschiedenen
+Semestern zu finden.
 
 
 ## Curriculum
 
-Ziel ist es die Grundlagen von Client- und Serverseitigen Programmiersprachen und
-Frameworks zur Entwicklung dynamischer Webanwendungen kennenzulernen. Hierzu gehören:
+Die Lehrziele sind eine Einführung in die Grundlagen Client- und Serverseitiger Programmiersprachen und
+Frameworks zur Entwicklung dynamischer Webanwendungen. Dies umfasst:
 
 * Grundlagen zu HTTP, HTML, JavaScript und CSS
 * Theorie und Praxis zum Einsatz von Frameworks für Fron und Back End
-* Übungsaufgaben anhand derer eigenständig eigene Webanwendungen realisiert werden
+* Übungsaufgaben anhand derer eigenständig verschiedene Webanwendungen realisiert werden
 
 Für Fragen bin ich unter <mailto:igelmund@htw-berlin.de> zu erreichen.
 
@@ -28,7 +28,7 @@ Für Fragen bin ich unter <mailto:igelmund@htw-berlin.de> zu erreichen.
 
 ## Gitter Chat
 
-Für den Austausch der Kursteilnehmer untereinander, sowie die Möglichkeit mir öffentlich eine Frage zu stellen ist auf dieser
-Seite das Chat-Modul *Gitter* eingebunden. Der !["Open Chat"](images/home/open-chat-gitter.png)-Button unten rechts auf der Seite
+Für einen zusätzlichen Austausch zwischen den Kursteilnehmern außerhalb der Veranstaltungstermine kann der
+*Gitter*-Chat auf dieser Seite genutzt werden. Der !["Open Chat"](images/home/open-chat-gitter.png)-Button unten rechts auf der Seite
 öffnet das Chat-Fenster.
 
