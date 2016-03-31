@@ -1,6 +1,6 @@
 module AppHelpers
-  def page_title(current_page)
-    current_page.data.title || 'Webentwicklung'
+  def page_title(page = current_page)
+    page.data.title || 'Webentwicklung'
   end
 
   def legacy_link_to_slides(title, slides_name, theme: 'black')
@@ -41,7 +41,7 @@ module AppHelpers
     image_tag slide_image_src(src), opts
   end
 
-  def view_on_github_url(page)
+  def view_on_github_url(page = current_page)
     "#{cc(:site).github_repo_url}/blob/master/source/#{page.file_descriptor.relative_path}"
   end
 
@@ -72,7 +72,7 @@ module AppHelpers
     ERB::Util.html_escape String.new(block.call)
   end
 
-  def current_page_dir(page)
+  def current_page_dir(page = current_page)
     __extract_paths(page).pop
   end
 

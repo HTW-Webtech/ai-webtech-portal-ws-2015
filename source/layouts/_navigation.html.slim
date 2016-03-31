@@ -9,5 +9,6 @@ nav.navbar.navbar-default.navbar-fixed-top
       a.navbar-brand href="/" WebTech
     #navbar-collapse.navbar-collapse.collapse
       ul.nav.navbar-nav
-        li: a href="/site/courses/ss2016/" SS2016
-        li: a href="/site/courses/ws2015/" WS2015
+        - data.courses.semester.each do |course, data|
+          li class=nav_active_class(course)
+            a href="/site/courses/#{course}/"= course.upcase

@@ -6,7 +6,7 @@
     <!-- Always force latest IE rendering engine or request Chrome Frame -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title><%= page_title(current_page) %></title>
+    <title><%= page_title %></title>
     <meta name="author" content="Gregory Igelmund">
 
     <%= stylesheet_link_tag 'vendor/prism' %>
@@ -20,14 +20,10 @@
     <link rel="icon" href="/images/favicon.png" type="image/x-icon">
   </head>
 
-  <body class="<%= page_classes %> <%= current_page_dir(current_page) %>">
-    <%= partial 'layouts/navigation', locals: { current_page: current_page } %>
+  <body class="<%= page_classes %> <%= current_page_dir %>">
+    <%= partial 'layouts/navigation' %>
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <a class="edit-on-github-btn button icon edit pull-left" target="_blank" href="<%= view_on_github_url(current_page) %>">Edit on github</a>
-        </div>
-      </div>
+      <%= partial 'layouts/course_navigation' %>
       <div class="row">
         <div class="col-md-12 content">
           <%= yield %>
