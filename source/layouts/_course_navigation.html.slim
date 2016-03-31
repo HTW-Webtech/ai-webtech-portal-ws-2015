@@ -1,0 +1,5 @@
+.row
+  .col-md-12.course-navigation
+    - current_course_nav_items.each do |title, url|
+      a.button.pull-left class=course_button_class(url) href=url = title
+    a.button.icon.edit.pull-right target="_blank" href=view_on_github_url "Edit on github"

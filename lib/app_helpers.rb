@@ -13,6 +13,38 @@ module AppHelpers
     parts.map(&:capitalize) * ' '
   end
 
+  # Returns the current course context.
+  # Either a string, e.g. "ss2016" or nil
+  #
+  # @return [String, nil]
+  def current_course
+    path = current_page.path.split('courses/').last || ''
+    path.split('/').first
+  end
+
+  def current_course_nav_items
+    course_name = current_course or return
+    data.courses.semester[course_name].to_h.each_with_object({}) do |(title, url), h|
+      h[title] = "/site/courses/#{course_name}/#{url}"
+    end
+  end
+
+  def nav_active_class(course)
+    if current_page.path.include? "/courses/#{course}/"
+      'active'
+    end
+  end
+
+  def course_button_class(url)
+    if "/#{current_page.path}".include? url
+      'active'
+    end
+  end
+
+  def current_course?
+    !!current_course
+  end
+
   def slide_uri(file)
     "slides/#{slide_file_basename(file)}.html"
   end
