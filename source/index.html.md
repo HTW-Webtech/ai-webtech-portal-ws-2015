@@ -3,6 +3,9 @@
 Die ist die Kursseite zur Lehrveranstaltung *Webentwicklung* für die Bachelor Studiengang
 [Angewandte Informatik](http://ai-bachelor.htw-berlin.de/) an der HTW-Berlin.
 
+* [Sommersemester 2016](site/courses/ss2016)
+* [Wintersemester 2015/2016](site/courses/ws2015)
+
 *[HTW]: Hochschule für Wirtschaft und Technik
 
 
@@ -27,7 +30,7 @@ dynamischer Webapplikationen. Dies umfasst:
 * <http://jenkins.htw-webtech.com>: Jenkins-CI: System für funktionale Tests zu einigen Übungsaufgaben
 * <http://files.htw-webtech.com>: Download-Bereich: Download des Virtualbox-Images für die Kursteilnehmer
 
-Für Rückfragen bin ich über <mailto:igelmund@htw-berlin.de> zu erreichen.
+Bei Rückfragen bin ich über <mailto:igelmund@htw-berlin.de> zu erreichen.
 
 
 ## Gitter Chat
