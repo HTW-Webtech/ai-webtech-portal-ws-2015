@@ -1,20 +1,34 @@
-| Termin | Datum      | Präsentation                                                              | Übung
-|--------|------------|---------------------------------------------------------------------------|-------
-| 1.     | 2016-04-06 | [Übersicht](slides/overview.html)                                         | [Setup](exercises/setup.html)
-| 1.     | 2016-04-13 | [Git](slides/git.html)                                                    | [Git](exercises/git.html)
-| 2.     | 2016-04-20 | [HTTP: Hypertext Transfer Protocol](slides/http.html)                     |
-| 3.     | 2016-04-27 | [HTML: Hypertext Markup Language](slides/html.html)                       | [HTML](exercises/html.html)
-| 4.     | 2016-05-04 | [Ruby: Grundlagen, Ökosystem und Sprachkonzepte](slides/ruby-basics.html) |
-| 5.     | 2016-05-11 | [Ruby: Web-Entwicklung mit Sinatra](slides/ruby-sinatra.html)             | [Hello Sinatra](exercises/hello-sinatra.html)
-| 6.     | 2016-05-18 | [Rails: Getting started](slides/rails-getting-started.html)               |
-| 7.     | 2016-05-25 | [Rails: Model-View-Controller](slides/rails-mvc.html)                     |
-| 8.     | 2016-06-01 | [Rails: Models & Migrations](slides/rails-ar-migrations.html)             | [Rails Tutorial](exercises/rails-tutorial.html)
-| 9.     | 2016-06-08 | [Rails: Routing & Controllers](slides/rails-routing-controllers.html)     |
-| 10.    | 2016-06-15 | [Rails: Views & Assets](slides/rails-views-assets.html)                   |
-| 11.    | 2016-06-29 | [JavaScript](slides/javascript.html)                                      | [JavaScript](exercises/javascript.html)
-| 12.    | 2016-06-22 | [CSS: Cascading Stylesheets Grundlagen](slides/css-basics.html)           |
-| 13.    | 2016-07-06 | [Advanced CSS & jQuery](slides/advanced-css-jquery.html)                  | [Abschlussprojekt](exercises/final-project.html)
-| 14.    | 2016-07-13 | [Extra: Web-Security](slides/web-security.html)                           |
-| 15.    | 2016-07-20 | [Extra: Caching all the things](slides/caching.html)                      |
-| 16.    | 2016-07-27 | [Extra: Rails Deployment](slides/rails-deployment.html)                   |
+# Terminplanung
+
+| Termin | Datum      | Präsentation                                                                   | Übung
+|--------|------------|--------------------------------------------------------------------------------|-------
+| 1.     | 2016-04-06 | [Kickoff](slides/kickoff.html), [Git](slides/git.html), [Web](slides/web.html) | [Setup](exercises/setup.html)
+| 2.     | 2016-04-13 | [HTTP](slides/http.html), [Browser](slides/browser.html)                       | [HTTP](exercises/http.html)
+| 3.     | 2016-04-20 | [HTML 5](slides/html5.html)                                                    | [HTML](exercises/html.html)
+| 4.     | 2016-04-27 | [Ruby: Grundlagen, Ökosystem und Sprachkonzepte](slides/ruby-basics.html)      | [Ruby](exercises/ruby.html)
+| 5.     | 2016-05-04 | [Webanwendungen mit Sinatra](slides/sinatra.html)                              | [Hello Sinatra](exercises/hello-sinatra.html)
+| 6.     | 2016-05-11 | [Ruby: Datenbank-Zugriff](slides/sinatra-db.html)                              | [Hello Database](exercises/hello-database.html)
+| 7.     | 2016-05-18 | [Rails: Getting started](slides/rails-getting-started.html)                    |
+| 8.     | 2016-05-25 | [Rails: MVC](slides/rails-mvc.html)                                            | [Rails Tutorial](exercises/rails-tutorial.html)
+| 9.     | 2016-06-01 | [Rails: Models & Migrations](slides/rails-ar-migrations.html)                  |
+| 10.    | 2016-06-08 | [Rails: Routing & Controllers](slides/rails-routing-controllers.html)          |
+| 11.    | 2016-06-15 | [Rails: Views & Assets](slides/rails-views-assets.html)                        | [Rails app](exercises/rails-app.html)
+| 12.    | 2016-06-22 | [CSS Grundlagen](slides/css-basics.html)                                       |
+| 13.    | 2016-06-29 | [Front-End Frameworks](slides/front-end-frameworks.html)                       | [Front End](exercises/front-end.html)
+| 14.    | 2016-07-06 | [JavaScript](slides/javascript.html)                                           |
+| 15.    | 2016-07-13 | [jQuery & JavaScript Apps](slides/jquery-js-apps.html)                         | [JavaScript](exercises/javascript.html)
+| 16.    | 2016-07-20 | [Advanced CSS & jQuery](slides/advanced-css-jquery.html)                       | [Abschlussprojekt](exercises/final-project.html)
+| 17.    | 2016-07-27 | *flexibel* |
+| 18.    | 2016-08-03 | *flexibel* |
 {: .table .table-striped }
+
+*flexibel*: Bei Interesse stehen u.a. die folgenden Themen zur Auswahl:
+
+* [Web-Security](slides/web-security.html)
+* [Caching all the things](slides/caching.html)
+* [Deployment von Rails Applikationen](slides/rails-deployment.html)
+
+*[HTTP]: Hypertext Transfer Protocol
+*[HTML]: Hypertext Markup Language
+*[CSS]: Cascading Stylesheets
+*[MVC]: Model-View-Controller
