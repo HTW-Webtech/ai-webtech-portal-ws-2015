@@ -1,6 +1,6 @@
 # Webentwicklung
 
-Die ist die Kursseite zur Lehrveranstaltung *Webentwicklung* für die Bachelor Studiengang
+Die ist die Kursseite zur Lehrveranstaltung *Webentwicklung* für den Bachelor Studiengang
 [Angewandte Informatik](http://ai-bachelor.htw-berlin.de/) an der HTW-Berlin.
 
 * [Sommersemester 2016](site/courses/ss2016)
