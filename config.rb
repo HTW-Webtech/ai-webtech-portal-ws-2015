@@ -10,9 +10,6 @@ Dir[__dir__ + '/lib/**/*.rb'].each { |rb| require_relative rb }
 
 # Reveal.js configuration
 page 'revealjs/*', layout: false
-use Middlewares::AccessControlAllowAllOrigins
-# page 'site/slides/revealjs/*', layout: false
-# page 'site/slides/index.html', layout: 'layout'
 
 Dir[__dir__ + '/source/site/slides/*'].each do |exercise_file|
   file_name = File.basename(exercise_file).split('.html').first
@@ -43,6 +40,5 @@ require 'binding_of_caller'
 configure :development do
   use BetterErrors::Middleware
   BetterErrors.application_root = __dir__
-  BetterErrors.logger = Middleman::Logger.singleton
 end
 
