@@ -1,4 +1,5 @@
 # Git-Übung
+
 Bei dieser Übung gibt es keine Punkte und es wird dafür keine App im Aris benötigt.
 Jedoch ist der Umgang mit Git die Grundlage für die folgenden Übungen. In dieser Übung
 soll ihr *Git* richtig konfiguriert werden und Sie sich mit dem *Git*-Werkzeug vertraut
