@@ -11,12 +11,6 @@ Dir[__dir__ + '/lib/**/*.rb'].each { |rb| require_relative rb }
 # Reveal.js configuration
 page 'revealjs/*', layout: false
 
-Dir[__dir__ + '/source/site/slides/*'].each do |exercise_file|
-  file_name = File.basename(exercise_file).split('.html').first
-  html_file = "#{file_name}.html"
-  proxy "/site/slides/revealjs/#{html_file}", "/site/slides/#{html_file}"
-end
-
 # Template Engines
 set :markdown_engine, :kramdown
 
