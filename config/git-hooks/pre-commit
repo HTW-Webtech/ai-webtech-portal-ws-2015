@@ -4,7 +4,8 @@ require 'fileutils'
 require 'mini_magick'
 IMAGEOPTIM_BIN_PATH='node_modules/.bin/imageoptim'
 
-images = `git diff --name-only --cached -- source/images`.lines.map &:chomp
+image_list_from_git = `git diff --name-only --cached -- source/images`.lines.map(&:chomp)
+images = image_list_from_git.select { |filepath| File.exists? filepath }
 if images.any?
   images.each do |image_path|
     mini_magick_image = MiniMagick::Image.new image_path
