@@ -35,3 +35,14 @@ end
 configure :development do
   activate :livereload, host: '127.0.0.1', apply_js_live: false
 end
+
+set :show_exceptions, false # Disable Rack::ShowExceptions middleware
+require 'better_errors'
+require 'binding_of_caller'
+
+configure :development do
+  use BetterErrors::Middleware
+  BetterErrors.application_root = __dir__
+  BetterErrors.logger = Middleman::Logger.singleton
+end
+
