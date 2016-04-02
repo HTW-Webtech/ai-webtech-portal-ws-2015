@@ -1,7 +1,7 @@
 # Sommersemester 2016
 
-Auf dieser Seite finden Sie die [Präsentationen](slides.html), [Übungsaufgaben](exercises.html),
-sowie einen [Terminplan](schedule.html) für das Semester.
+Auf dieser Seite finden Sie die [Präsentationen](slides.html), [Übungsaufgaben](exercises.html) und
+einen [Terminplan](schedule.html) für das Semester.
 
 
 ## Termine
@@ -13,13 +13,19 @@ findet die Übung von 17.30-19 Uhr im Raum C635 statt.
 ## Leistungsbewertung
 
 Die Abschlussnote für die Kursteilnehmer ergibt vorwiegend sich aus mehreren praktischen
-Übungen, sowie einer schriftlichen Abschlussprüfung. Die Übungsaufgaben werden während des
-Semesters bearbeitet und stellen 75% der bewerteten Endleistung dar. Die übrigen 25% können
-in der schriftlichen Abschlussprüfung erreicht werden.
+Übungen, sowie einer schriftlichen Abschlussprüfung.
 
-Jede Übungsaufgabe wird mit einem *CodeReview* vom Kursteilnehmer eingereicht. Der CodeReview
-geschieht im 1on1 und dauert etwa 5-20 Min. An dieser Stelle sollen Fremd- und Eigenleistung
-als solche deklariert und erläutert werden, sowie die eigene Lösung präsentiert werden.
-Bewertet wird die Erfüllung funktionaler Anforderungen, verschiedene qualitative Anforderungen,
-ggf. ästhetische Aspekte und die Präsentation selbst.
+Die Übungsaufgaben werden während des Semesters bearbeitet und stellen 75% der Bewertungsgrundlage.
+Die übrigen 25% werden in einer schriftlichen Abschlussklausur geprüft.
+
+
+### Übungsaufgaben
+
+Übungsaufgaben werden mit einem *CodeReview* vom Kursteilnehmer eingereicht. Ein CodeReview
+geschieht im 1on1 und dauert etwa 5-20 Min. Fremd- und Eigenleistung einer Lösung müssen als
+solche erkenntlich gemacht und erläutert werden.
+
+Bewertet wird die Erfüllung funktionaler Anforderungen, Berücksichtigung von [Coding Styles(?)](/site/manual.html#coding-styles),
+ggf. [Code Dokumentation(?)](/site/manual.html#code-documentation), ggf. ästhetische Aspekte bei
+der Umsetzung sowie die Präsentation selbst.
 
