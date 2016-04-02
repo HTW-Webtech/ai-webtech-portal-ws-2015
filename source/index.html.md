@@ -1,10 +1,8 @@
 # Webentwicklung
 
-Die ist die Kursseite zur Lehrveranstaltung *Webentwicklung* für den Bachelor Studiengang
-[Angewandte Informatik](http://ai-bachelor.htw-berlin.de/) an der HTW-Berlin.
-
-* [Sommersemester 2016](site/courses/ss2016)
-* [Wintersemester 2015/2016](site/courses/ws2015)
+Die ist die Kursseite zur Lehrveranstaltung *Webentwicklung* im Bachelor Studiengang
+[Angewandte Informatik](http://ai-bachelor.htw-berlin.de/) an der HTW-Berlin. Und hier
+finden Sie die Unterlagen für das aktuelle [Sommersemester 2016](site/courses/ss2016).
 
 *[HTW]: Hochschule für Wirtschaft und Technik
 
@@ -38,4 +36,12 @@ Bei Rückfragen bin ich über <mailto:igelmund@htw-berlin.de> zu erreichen.
 Für einen zusätzlichen Austausch zwischen den Kursteilnehmern außerhalb der Veranstaltungstermine kann der
 *Gitter*-Chat auf dieser Seite genutzt werden. Der "Open Chat"-Button unten rechts auf der Seite
 öffnet das Chat-Fenster.
+
+
+## Vergangene Semester
+
+An dieser Stelle werden auch die vergangenen Semester-Unterlagen archiviert:
+
+* [Wintersemester 2015/2016](site/courses/ws2015)
+
 
