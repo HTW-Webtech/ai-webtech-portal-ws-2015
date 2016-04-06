@@ -3,6 +3,8 @@
 source 'https://rubygems.org'
 
 gem 'middleman'
+# gem 'middleman-sprockets'
+gem 'middleman-sprockets', github: 'middleman/middleman-sprockets', branch: 'master'
 
 gem 'middleman-livereload'
 

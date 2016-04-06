@@ -17,6 +17,8 @@ set :markdown_engine, :kramdown
 set :images_dir, 'images'
 helpers AppHelpers # Load external helper files
 
+activate :sprockets
+
 # Production configuration
 configure :build do
   # activate :minify_javascript
