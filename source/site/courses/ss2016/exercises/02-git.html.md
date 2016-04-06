@@ -110,13 +110,42 @@ Mit dem folgenden Befehl kann das Dokument in die Staging area kopieren.
 git add index.html
 ~~~
 
+Und mit anschließend den ersten commit erzeugen.
+
+~~~
+git commit -m "Added index.html"
+~~~
+
+Nun kann die Änderung von gerade eben - der git commit - auf den Aris Server
+kopiert werden.
+
+~~~
+git push origin master --set-upstream
+~~~
+
+Das `--set-upstream`-Flag muss nur beim ersten `git push` benutzt werden. Alle
+Folgeänderungen werden ohne `--set-upstream` auf den Server kopiert.
+
+~~~
+git push origin master
+~~~
+
+Wenn der push funktioniert hat, kann nun die Webseite im Aris geöffnet werden:
+
+![Der Link zu einer App im Aris](exercises/setup/aris-open-web.png)
+
+Als nächstes bietet sich an bei Bedarf die Videos oder Ressourcen aus dem [Lern-Bereich](#lern-bereich)
+zu studieren.
+
 
 # Lern-Bereich
 
 Wer sich nach den folgenden Lern-Inhalten noch unsicher fühlt, soll sich an mich wenden. Das grundlegende
 Verständnis von Git und dessen Funktionalität ist wesentlich für den übrigen Teil der Veranstaltung.
 
+
 ## Einstieg
+
 * [Code school - Try Git](https://try.github.io)
   Interaktives Git-Tutorial im Browser. Erklärt in 25 Schritten alle wichtigen Git Befehle.
 * [Codeacademy: Create and explore a simple Git-managed project](https://www.codecademy.com/learn/learn-git)

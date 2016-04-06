@@ -1,7 +1,7 @@
 # Webententwicklung AI WS 2015
 
-Dieses Repository enthält die Lern-Inhalte zur VA "WS 2015: Webentwicklung" im Studiengang Angewandte Informatik.
-Dies umfasst die Präsentationen, Links und Übungsaufgaben.
+Dieses Repository umfasst die Kursseite zur Lehrveranstaltung Webentwicklung im
+Bachelor Studiengang Angewandte Informatik an der HTW-Berlin.
 
 
 ## Demo
