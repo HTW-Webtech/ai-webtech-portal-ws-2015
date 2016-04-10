@@ -11,7 +11,7 @@ Dir[__dir__ + '/lib/**/*.rb'].each { |rb| require_relative rb }
 # Reveal.js configuration
 page 'revealjs/*', layout: false
 
-# Template Engines
+# Template Engine
 set :markdown_engine, :kramdown
 
 set :images_dir, 'images'
@@ -19,17 +19,13 @@ helpers AppHelpers # Load external helper files
 
 activate :sprockets
 
-# Production configuration
-configure :build do
-  # activate :minify_javascript
-end
-
 # Development configuration
 configure :development do
   activate :livereload, host: '127.0.0.1', apply_js_live: false
 end
 
-set :show_exceptions, false # Disable Rack::ShowExceptions middleware
+# Better Errors support for middleman
+set :show_exceptions, false
 require 'better_errors'
 require 'binding_of_caller'
 
