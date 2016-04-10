@@ -18,6 +18,7 @@ fragt git nach dem aktuellen Author-Informationen.
 ~~~
 git config --get-regexp user
 ~~~
+{: .lang-bash }
 
 Um Git nun den richtigen Author (Deinen Namen und Deine E-Mail Adresse) mitzuteilen:
 
@@ -25,6 +26,7 @@ Um Git nun den richtigen Author (Deinen Namen und Deine E-Mail Adresse) mitzutei
 git config --global user.name "Max Mustermann"         # Der richtige Name
 git config --global user.email "s000001@htw-berlin.de" # E-Mail mit Matrikelnummer
 ~~~
+{: .lang-bash }
 
 Um zu prüfen, ob die Einstellungen übernommen wurden, erneut die Author-Informationen
 abfragen:
@@ -32,6 +34,8 @@ abfragen:
 ~~~
 git config --get-regexp user
 ~~~
+{: .lang-bash }
+
 
 Das Ergebnis sollten jetzt der angegebene Name und E-Mail-Adresse sein.
 
@@ -39,6 +43,7 @@ Das Ergebnis sollten jetzt der angegebene Name und E-Mail-Adresse sein.
 user.name Max Mustermann
 user.email s000001-berlin.de
 ~~~
+{: .lang-bash }
 
 
 # Aris App
@@ -70,13 +75,15 @@ So sieht bspw. eine neu erstellte App aus.
 
 ## Neues Projekt-Verzeichnis und git konfigurieren
 
-Legen Sie nun auf Ihrem Arbeitsrechner ein neues leeres Projekt-Verzeichnis an.
-
-Erzeugen Sie ein leeres neues git Repository:
+Legen Sie nun für die 1. Aufgabe ein neues leeres Projekt-Verzeichnis an und
+erzeugen Sie ein leeres neues git Repository:
 
 ~~~
+mkdir aufgabe1
+cd aufgabe1
 git init
 ~~~
+{: .lang-bash }
 
 Konfigurieren Sie das neu angelegte git Repository mit den *Git access* Daten
 aus der vormals erzeugten Aris App.
@@ -84,11 +91,18 @@ aus der vormals erzeugten Aris App.
 ~~~
 git remote add origin ssh://********@htw-webtech.com/var/apps/*********/code
 ~~~
+{: .lang-bash }
 
-Jetzt ist ihr lokales git Repository verknüpft und als nächstes wird ein HTML-Dokument
+Jetzt ist ihr lokales git Repository mit einem git Repository auf dem Server
+verknüpft.
+
+
+### Ein
+
+Als nächstes wird ein HTML-Dokument
 mit dem Namen "index.html" und dem folgenden Inhalt in das Projekt-Verzeichnis gelegt:
 
-~~~html
+~~~
 <!DOCTYPE html>
 <html>
 <body>
@@ -96,6 +110,7 @@ mit dem Namen "index.html" und dem folgenden Inhalt in das Projekt-Verzeichnis g
 </body>
 </html>
 ~~~
+{: .lang-html }
 
 Nun erkennt git, dass eine noch unbekannte Datei – die index.html – gerade angelegt
 wurde.
@@ -103,18 +118,21 @@ wurde.
 ~~~
 git status
 ~~~
+{: .lang-bash }
 
 Mit dem folgenden Befehl kann das Dokument in die Staging area kopieren.
 
 ~~~
 git add index.html
 ~~~
+{: .lang-bash }
 
 Und mit anschließend den ersten commit erzeugen.
 
 ~~~
 git commit -m "Added index.html"
 ~~~
+{: .lang-bash }
 
 Nun kann die Änderung von gerade eben - der git commit - auf den Aris Server
 kopiert werden.
@@ -122,6 +140,7 @@ kopiert werden.
 ~~~
 git push origin master --set-upstream
 ~~~
+{: .lang-bash }
 
 Das `--set-upstream`-Flag muss nur beim ersten `git push` benutzt werden. Alle
 Folgeänderungen werden ohne `--set-upstream` auf den Server kopiert.
@@ -129,6 +148,7 @@ Folgeänderungen werden ohne `--set-upstream` auf den Server kopiert.
 ~~~
 git push origin master
 ~~~
+{: .lang-bash }
 
 Wenn der push funktioniert hat, kann nun die Webseite im Aris geöffnet werden:
 
