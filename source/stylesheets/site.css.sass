@@ -50,6 +50,47 @@ p img
   @extend .image-box-shadow
 
 
+// Lists
+ul, ol
+  line-height: 1.7em
+
+
 // Course navigation
 .course-navigation a
   z-index: 1
+
+
+// Timeline
+
+.timeline
+  counter-reset: timeline
+
+  li
+    counter-increment: timeline
+    position: relative
+    list-style-type: none
+
+    &:before
+      content: counter(timeline)
+      position: absolute
+      left: -3em
+      top: 0.15em
+      width: 2em
+      height: 2em
+      background-image: linear-gradient(#599bdc, #3072b3)
+      color: #fff
+      border-radius: 2em
+      text-align: center
+      line-height: 2em
+      font-size: 0.7em
+
+    &:after
+      content: ""
+      position: absolute
+      left: -1.55em
+      top: 1.25em
+      border-left: 0.25em #337ab7 solid
+      height: 0.75em
+
+    &:last-child:after
+      content: none
