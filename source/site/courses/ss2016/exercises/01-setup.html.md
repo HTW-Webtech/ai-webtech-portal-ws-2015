@@ -20,10 +20,10 @@ Für diejenigen die auf die Virtualbox verzichen möchten ist die benötigte Sof
 im folgenden aufgelistet:
 
 * Editor: Wahlweise [Atom](https://atom.io/) oder [Vim](http://www.vim.org/)
-* Versionskontrolle: [Git (Version: 2.6.7)](https://git-scm.com)
+* Versionskontrolle: [Git: Version: 2.6.7)](https://git-scm.com)
 * Optionale git GUI: [Git Cola](https://git-cola.github.io)
-* Programmiersprache: [Ruby (Version: 2.2.3p173](https://www.ruby-lang.org/en)
-* Ruby Bibliotheken (gems): [Rails (Version: 4.2.6](http://rubyonrails.org/)
+* Programmiersprache: [Ruby Version: 2.2.3p173](https://www.ruby-lang.org/en)
+* Ruby Bibliotheken (gems): [Rails: Version: 4.2.6](http://rubyonrails.org/)
 * Browser: [Google Chrome](https://www.google.com/chrome/)
 
 
