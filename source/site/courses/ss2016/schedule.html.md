@@ -12,9 +12,9 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 
 | Termin | Datum      | Präsentation                                                   | Übung
 |--------|------------|----------------------------------------------------------------|-------
-| 1.     | 2016-04-06 | [Kickoff](slides/kickoff.html), [Git](slides/git.html)                  | [Setup](exercises/01-setup.html), [Git](exercises/02-git.html)
-| 2.     | 2016-04-13 | [HTTP](slides/http.html), [Browser & Web](slides/browser-and-web.html)  | [HTTP](exercises/03-http.html)
-| 3.     | 2016-04-20 | [HTML 5](slides/html5.html)                                    | [HTML](exercises/html.html)
+| 1.     | 2016-04-06 | [Kickoff](slides/01-kickoff.html), [Git](slides/02-git.html)                  | [Setup](exercises/01-setup.html), [Git](exercises/02-git.html)
+| 2.     | 2016-04-13 | [HTTP](slides/03-http.html), [Browser & Web](slides/04-browser-and-web.html)  | [HTTP](exercises/03-http.html)
+| 3.     | 2016-04-20 | [HTML 5](slides/05-html5.html)                                    | [HTML](exercises/html.html)
 {: .table .table-hover }
 
 
