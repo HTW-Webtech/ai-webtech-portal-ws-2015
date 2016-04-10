@@ -35,10 +35,11 @@ module AppHelpers
     end
   end
 
-  def course_button_class(url)
-    if "/#{current_page.path}".include? url
-      'active'
-    end
+  def course_button_class(url, page = current_page)
+    url = "#{url}index.html" if url.end_with? ?/
+    begin
+      return 'active' if page.url == url
+    end while page = page.parent
   end
 
   def current_course?
