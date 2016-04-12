@@ -97,10 +97,10 @@ Jetzt ist ihr lokales git Repository mit einem git Repository auf dem Server
 verknüpft.
 
 
-### Ein
+### HTML-Dokument im git einchecken
 
-Als nächstes wird ein HTML-Dokument
-mit dem Namen "index.html" und dem folgenden Inhalt in das Projekt-Verzeichnis gelegt:
+Erzeugen Sie als nächtes in demselben Verzeichnis - dem Working Directory von git -
+ein HTML-Dokument (index.html) mit dem folgenden Inhalt:
 
 ~~~
 <!DOCTYPE html>
@@ -112,30 +112,35 @@ mit dem Namen "index.html" und dem folgenden Inhalt in das Projekt-Verzeichnis g
 ~~~
 {: .lang-html }
 
-Nun erkennt git, dass eine noch unbekannte Datei – die index.html – gerade angelegt
-wurde.
+Mit dem `git status`-Befehl lässt sich anziegen, dass git diese noch unbekannte
+Datei nun gerne im Repository verwalten möchte.
 
 ~~~
 git status
 ~~~
 {: .lang-bash }
 
-Mit dem folgenden Befehl kann das Dokument in die Staging area kopieren.
+Mit dem folgenden Befehl wird das HTML-Dokument in die Staging von git kopiert.
 
 ~~~
 git add index.html
 ~~~
 {: .lang-bash }
 
-Und mit anschließend den ersten commit erzeugen.
+Und anschließen kann git mitgeteilt werden aus allen Dateien in der Staging area
+einen commit zu erzeugen. Das `-m`-Flag soll eine kurze inhaltliche Beschreibung
+der Änderung sein. In diesem Fall wurde die das HTML-Dokument hinzugefügt.
 
 ~~~
 git commit -m "Added index.html"
 ~~~
 {: .lang-bash }
 
-Nun kann die Änderung von gerade eben - der git commit - auf den Aris Server
-kopiert werden.
+
+### Lokales git Repository zum Aris server synchronisieren
+
+Nun kann die Änderung von gerade eben auf den Aris Server kopiert werden. Dies
+geschieht einfach mit dem `git push`-Befehl.
 
 ~~~
 git push origin master --set-upstream
