@@ -8,3 +8,4 @@ verwaltet. Mehr dazu in der [Setup-Übung](exercises/setup.html).
 
 1. [Setup](exercises/01-setup.html), [Git](exercises/02-git.html)
 1. [HTTP](exercises/03-http.html)
+{: .timeline }
