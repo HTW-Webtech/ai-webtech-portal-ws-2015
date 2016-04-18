@@ -1,3 +1,10 @@
+<!---
+Notes:
+https://developer.mozilla.org/en-US/docs/Web/HTTP
+http://cursor-education.github.io/web-request-response-webinar/
+https://beier.f4.htw-berlin.de/presentations/http/
+-->
+
 # HTTP
 
 Hypertext Transfer Protocol
