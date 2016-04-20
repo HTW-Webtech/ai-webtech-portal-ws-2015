@@ -30,6 +30,7 @@ Hypertext Transfer Protocol
 * Kommunikation über TCP Port 80/443
   * Port 80: HTTP
   * Port 443: HTTPs
+* 90% Use Case: Browser fordert Webseite/Dokument an
 
 *[HTTP]: Hypertext Transfer Protocol
 
@@ -39,17 +40,15 @@ Hypertext Transfer Protocol
 
 ![Request Response](slides/http/request-response.png)
 
-* [Liste](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) von HTTP Headern
-
 ---
 
 # Ablauf
 
 * Browser möchte http://google.com laden
 * google.com wird via DNS zur IPv4 oder IPv6 aufgelöst
-* Je nach Protokoll wird TCP auf Port 80/443 geöffnet
-* Browser sendet in ASCII den GET-Request
-* Server bekommt GET-Request und liefert Response
+* TCP-Verbindung auf Port 80 wird geöffnet
+* Browser sendet ASCII den GET-Request als ASCII Byte-Stream
+* Server nimmt GET-Request entgegen und erzeugt Response
 
 ---
 
@@ -142,7 +141,29 @@ Das Domain Name System ist ein hierarchisches dezentrales Adressbuch.
 
 ---
 
-# HTTP Verben
+# DNS Beispiel
+
+~~~
+dig +short google.com
+216.58.201.206
+
+dig +short amazon.com
+54.239.25.208
+54.239.26.128
+54.239.17.6
+54.239.17.7
+54.239.25.192
+54.239.25.200
+~~~
+{: .lang-bash }
+
+* Weiter mit HTTP-Operationen (Verben)
+
+---
+
+# HTTP Operationen (Verben)
+
+95%* der HTTP-Operationen sind Lesezugriffe (GET Requests).
 
 | Methode | Bedeutung |
 |---------|------------
@@ -155,15 +176,39 @@ Das Domain Name System ist ein hierarchisches dezentrales Adressbuch.
 
 ---
 
+# HTTP POST Beispiel
+
+Absenden eines HTML-Formulars zur Anmeldung beim LSF.
+
+~~~
+POST /qisserver/rds?state=user&type=1 HTTP/1.1
+Host: lsf.htw-berlin.de
+
+username=s*****&password=*******&submit=Jetzt+einloggen
+~~~
+{: .lang-http }
+
+---
+
 # HTTP: POST, PUT, PATCH?
 
-* POST: Nicht [idempontent](http://www.infoq.com/news/2013/04/idempotent)
+| POST | Ressource erstellen/überschreiben
+| PUT | Ressource erstellen/ändern
+| PATCH | Verändert eine Ressource
+
+## Unterschiede
+
+* Idempotenz: Mehrfaches Ausführen einer Operation bleibt ohne Effekte
 * PUT: Ist idempontent
 * PATCH: Partielle Änderungen
+* POST: Nicht [idempontent](http://www.infoq.com/news/2013/04/idempotent)
+  * Erneutes versenden eines Formulars erzeugt neue Bestellung
 
 ---
 
 # HTTP Status Codes
+
+Dreistelliger Code zur Status-Beschreibung eines HTTP Requests.
 
 | Code | Gruppe
 |---------|------------
@@ -194,7 +239,10 @@ Eine [umfassende Liste](https://httpstatuses.com/) von HTTP Status Codes
 
 * Request und Response
 * Meta-Informationen zur Operation, bspw. Sprache, Format, Auth, Caching
+* Format: `name-des-headers: wert`
+  * Laut Spezifikation dürfen beliebige Header mit einem `X-` hinzugefügt werden
 * Teils komplementär teils substitive Features
+* [Liste](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) von HTTP Headern
 
 ---
 
@@ -323,6 +371,9 @@ Cookie: JSESSIONID=EC008CA524686D897C0DB00B1C575.ajp13_qis1
 
 * Google: Dev Tools
 * Firefox: Dev Tools (ehem. Firebug?)
+* Beispiele:
+  * Login im LSF
+  * Aufruf von
 
 ---
 
