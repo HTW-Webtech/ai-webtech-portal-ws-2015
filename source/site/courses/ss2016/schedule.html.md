@@ -13,8 +13,8 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 | Termin | Datum      | Präsentation                                                                  | Übung
 |--------|------------|-------------------------------------------------------------------------------|-------
 | 1.     | 2016-04-06 | [Kickoff](slides/01-kickoff.html), [Git](slides/02-git.html)                  | [Setup](exercises/01-setup.html), [Git](exercises/02-git.html)
-| 2.     | 2016-04-13 | [HTTP](slides/03-http.html), [Browser & Web](slides/04-browser-and-web.html)  | [HTTP](exercises/03-http.html)
-| 3.     | 2016-04-20 | [HTML 5](slides/05-html5.html)                                                | [HTML](exercises/html.html)
+| 2.     | 2016-04-20 | [HTTP](slides/03-http.html)                                                   | [HTTP](exercises/03-http.html)
+| 3.     | 2016-04-27 | [HTML 5](slides/05-html5.html)                                                | [HTML](exercises/04-html.html)
 {: .table .table-hover }
 
 
@@ -22,14 +22,14 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 
 | Termin | Datum      | Präsentation                                                                   | Übung
 |--------|------------|--------------------------------------------------------------------------------|-------
-| 4.     | 2016-04-27 | [Ruby: Grundlagen, Ökosystem und Sprachkonzepte](slides/ruby-basics.html)      | [Ruby](exercises/ruby.html)
-| 5.     | 2016-05-04 | [Webanwendungen mit Sinatra](slides/sinatra.html)                              | [Hello Sinatra](exercises/hello-sinatra.html)
-| 6.     | 2016-05-11 | [Ruby: Datenbank-Zugriff](slides/sinatra-db.html)                              | [Hello Database](exercises/hello-database.html)
-| 7.     | 2016-05-18 | [Rails: Getting started](slides/rails-getting-started.html)                    | -
-| 8.     | 2016-05-25 | [Rails: MVC](slides/rails-mvc.html)                                            | [Rails Tutorial](exercises/rails-tutorial.html)
-| 9.     | 2016-06-01 | [Rails: Models & Migrations](slides/rails-ar-migrations.html)                  | -
-| 10.    | 2016-06-08 | [Rails: Routing & Controllers](slides/rails-routing-controllers.html)          | -
-| 11.    | 2016-06-15 | [Rails: Views & Assets](slides/rails-views-assets.html)                        | [Rails app](exercises/rails-app.html)
+| 4.     | 2016-05-04 | [Ruby: Grundlagen, Ökosystem und Sprachkonzepte](slides/ruby-basics.html)      | [Ruby](exercises/ruby.html)
+| 5.     | 2016-05-11 | [Webanwendungen mit Sinatra](slides/sinatra.html)                              | [Hello Sinatra](exercises/hello-sinatra.html)
+| 6.     | 2016-05-18 | [Ruby: Datenbank-Zugriff](slides/sinatra-db.html)                              | [Hello Database](exercises/hello-database.html)
+| 7.     | 2016-05-25 | [Rails: Getting started](slides/rails-getting-started.html)                    | -
+| 8.     | 2016-06-01 | [Rails: MVC](slides/rails-mvc.html)                                            | [Rails Tutorial](exercises/rails-tutorial.html)
+| 9.     | 2016-06-08 | [Rails: Models & Migrations](slides/rails-ar-migrations.html)                  | -
+| 10.    | 2016-06-15 | [Rails: Routing & Controllers](slides/rails-routing-controllers.html)          | -
+| 11.    | 2016-06-22 | [Rails: Views & Assets](slides/rails-views-assets.html)                        | [Rails app](exercises/rails-app.html)
 {: .table .table-hover }
 
 
@@ -37,11 +37,11 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 
 | Termin | Datum      | Präsentation                                                                   | Übung
 |--------|------------|--------------------------------------------------------------------------------|-------
-| 12.    | 2016-06-22 | [CSS Grundlagen](slides/css-basics.html)                                       | -
-| 13.    | 2016-06-29 | [Front-End Frameworks](slides/front-end-frameworks.html)                       | [Front End](exercises/front-end.html)
-| 14.    | 2016-07-06 | [JavaScript](slides/javascript.html)                                           | -
-| 15.    | 2016-07-13 | [jQuery & JavaScript Apps](slides/jquery-js-apps.html)                         | [JavaScript](exercises/javascript.html)
-| 16.    | 2016-07-20 | [Advanced CSS & jQuery](slides/advanced-css-jquery.html)                       | [Abschlussprojekt](exercises/final-project.html)
+| 12.    | 2016-06-29 | [CSS Grundlagen](slides/css-basics.html)                                       | -
+| 13.    | 2016-07-06 | [Front-End Frameworks](slides/front-end-frameworks.html)                       | [Front End](exercises/front-end.html)
+| 14.    | 2016-07-13 | [JavaScript](slides/javascript.html)                                           | -
+| 15.    | 2016-07-20 | [jQuery & JavaScript Apps](slides/jquery-js-apps.html)                         | [JavaScript](exercises/javascript.html)
+| 16.    | 2016-07-27 | [Advanced CSS & jQuery](slides/advanced-css-jquery.html)                       | [Abschlussprojekt](exercises/final-project.html)
 {: .table .table-hover }
 
 
