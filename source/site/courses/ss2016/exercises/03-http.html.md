@@ -61,7 +61,7 @@ cd Aufgabe2
 git init
 echo "e6f49b" > secret.txt
 …
-~~
+~~~
 {: .lang-bash }
 
 Das wars schon. Um zu prüfen ob die `secret.txt` richtig hochgeladen wurde, kann
