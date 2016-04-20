@@ -61,7 +61,7 @@ module AppHelpers
     link_to 'View slides', revealjs_url(slide_path, theme: theme)
   end
 
-  def revealjs_url(slide_path, theme:)
+  def revealjs_url(slide_path, theme: 'black')
     "/revealjs?theme=#{theme}&sourceURI=#{cc(:site).portal_host}/#{slide_path}"
   end
 
