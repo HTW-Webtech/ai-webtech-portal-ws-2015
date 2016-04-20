@@ -61,7 +61,11 @@ cd Aufgabe2
 git init
 echo "e6f49b" > secret.txt
 …
-~~~
+~~
 {: .lang-bash }
 
-Das wars schon. Ob das secret richtig ist erfahren Sie nach dem Abgabetermin im Aris.
+Das wars schon. Um zu prüfen ob die `secret.txt` richtig hochgeladen wurde, kann
+die Webseite der App geöffnet und der Dateipfad zur `/secret.txt` angehangen werden.
+
+Für die App `145-happy-banana` ist das die URL <http://145-happy-banana.htw-webtech.com/secret.txt>
+
