@@ -20,9 +20,10 @@ für die 2. Aufgabe zum Aris-Server hochladen.
 
 Um ihr persönliches *secret* zu erfahren brauchen Sie zunächst URL unter der dieses versteckt ist.
 
-Das folgende Tutorial zeigt wie für die App `happy-banana` mit der ID `145` das secret herausgefunden wird.
+Das folgende Tutorial zeigt am Beispiel einer fiktiven App mit dem Namen `145-happy-banana`
+wie Sie das secret herausfinden können.
 
-ID und App-Name muss bei Ihnen natürlich durch die eigenen App-ID und -Namen ersetzt werden.
+Ersetzen Sie `145-happy-banana` durch Ihren eigenen App-Namen für die 2. Übung.
 
 
 ### URL erfahren
