@@ -102,8 +102,7 @@
           $('.slides').html(content);
 
           // Add a .fragment class to each li and p
-          $('.slides li').addClass('fragment');
-          $('.slides p').addClass('fragment');
+          $('.slides').find('li, p, pre, h2, table').addClass('fragment');
 
           initializeReveal();
         });
