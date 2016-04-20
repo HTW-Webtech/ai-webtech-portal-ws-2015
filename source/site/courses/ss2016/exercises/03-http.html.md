@@ -12,6 +12,7 @@ für die 2. Aufgabe zum Aris-Server hochladen.
 
 # Aufgabenstellung
 
+1. Eine zweite App im Aris anlegen.
 1. Secret erfahren
 1. Secret als `secret.txt` via `git` auf den Aris-Server hochladen
 
@@ -50,8 +51,8 @@ Das secret für die App ist also `e6f49b`.
 
 ### Secret auf Aris-Server hochladen
 
-Erzeugen Sie wie schon für die 1. Aufgabe eine neue App im Aris. In einem neuen
-Git-Repistory soll nun eine `secret.txt`-Datei mit dem secret als Inhalt angelegt werden.
+In einem neuen Git-Repistory soll nun für die 2. App im Aris eine `secret.txt`-Datei
+mit dem secret als Inhalt hochgeladen werden.
 
 Für das o.g. Beispiel könnte das so aussehen:
 
