@@ -86,6 +86,12 @@ Das Formular verschickt die Eingaben via `POST` an die Adresse `/contact`. Versc
 * message
 
 
+### Impressum
+
+* Auf der Impressum-Seite soll die Adresse als `<address>`-Element beschrieben werden. Das HTML-Element bei [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address)
+* Die Telefonnummer soll als Link mit `tel:03050190` im href-Attribut umgesetzt werden. Mehr dazu bei [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+
+
 ## Ressourcen
 
 Bazinga-Logo:
@@ -106,7 +112,9 @@ auffrischen möchten finden hier Links zu m.E. relevanten Online-Ressourcen.
 * [HTML/Tutorials/HTML5-Grundstruktur](http://wiki.selfhtml.org/wiki/HTML/Tutorials/HTML5-Grundstruktur)
   Aufbau und Grundstruktur für HTML5 basierte Webseiten.
 
+
 ## Lynda-Videos
+
 * [HTML Essential Training: James Williamson](http://www.lynda.com/HTML-tutorials/HTML-Essential-Training/170427-2.html)
   Sehr sehr sehr umfangreiche Video-Lektionen zu HTML5. Kapitel 1-6 sind HTML-Grundlagen, während Kapitel 7
   und 8 sich mit CSS und JavaScript beschäftigen. Ziemlich guter Sprecher!
