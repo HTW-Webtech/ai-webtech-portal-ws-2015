@@ -2,7 +2,7 @@
 
 Du studierst im 5. Semester Informatik und möchtest endlich mal Praxis-Erfahrung sammeln.
 Vor kurzem hat dir jemand empfohlen dich bei der <abbr title="Bazinga! gUGs">BgUGs</abbr> zu bewerben.
-Das hat auch geklappt und heute hast du deinen ersten Tag im 2-wöchtigen Praktikum bei der BgUGs.
+Das hat auch geklappt und heute hast du deinen ersten Arbeitstag.
 
 
 ## Allgemeines
@@ -16,18 +16,29 @@ Das hat auch geklappt und heute hast du deinen ersten Tag im 2-wöchtigen Prakti
 ## Briefing
 
 Die BgUGs möchte bald ein neues Produkt auf den Markt bringen und hätte gerne eine Webseite um
-das Produkt zu bewerben. Die Produkt-Seite soll im 1. Schritt nicht besonders schön aussehen.
+das Produkt zu bewerben. Das Augenmerk bei der Aufgabe liegt vorerst auf dem Markup und nicht der Ästhetik.
 
-Dein Vorgesetzter hätte gerne eine Webseite mit drei Unterseiten:
+Die Webseite besteht aus folgenden drei Teilen:
 
-* Startseite (index.html) mit einer Produkt-Beschreibung
-* Kontakt-Seite (contact.html) mit einem Kontakt-Formular
-* Impressum-Seite (imprint.html) mit der Adresse
+* Startseite (index.html). Diese Seite dient als Landingpage und beinhaltet die Marketing-relevante Texte.
+* Kontakt-Seite (contact.html). Über diese Seite sollen Kunden Kontakt mit der BgUGs aufnehmen können.
+* Impressum-Seite (imprint.html). Zu jeder Seite gehört ein Impressum das den Herausgeber und Verantwortlichen deklariert.
+
+Die genauen Inhalte werden in den folgenden Abschnitten beschrieben.
 
 
 ### Jenkins Tests zu der Aufgabe
 
-[Spec auf github.com](https://github.com/HTW-Webtech/ai-webtech-functional-tests/blob/master/spec/exercises/exercise_1_spec.rb)
+Um sicherstellen zu können, dass alle formalen Anforderungen an die Webseite
+erfüllt sind gibt es eine [technische Spezifikation](https://github.com/HTW-Webtech/ai-webtech-functional-tests/blob/master/spec/exercises/html_spec.rb).
+
+Ob deine Lösung alle Anforderungen erfüllt siehst du unter dem "Jenkins"-Link
+neben deiner App im Aris.
+
+
+## Anforderungen
+
+Im folgenden ein paar Mockups zu den drei Unterseiten.
 
 
 ### Startseite
@@ -51,24 +62,29 @@ Alle drei Webseiten sollen die folgenden Anforderungen erfüllen:
 
 * Keine Fehler bei der Prüfung der Webseite mit dem W3C Markup Validator: <https://validator.w3.org>
 * Im `head` des HTML-Dokuments befinden sich [meta](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)-Tags mit Angaben zu:
-  * author = dein Name
-  * keywords = "bazinga"
-* Auf allen Webseiten ist das Bazinga-Logo eingebunden. Der `img`-Tag soll als src `bazinga-logo.png` eingetragen haben.
-* Es existiert eine Navigation mit drei Links zu allen Seiten: `index.html`, `contact.html` und `imprint.html`
+  * dem Author: `<meta name="author" …>` => Dein Name
+  * Keywords: `<meta name="keywords" …>` => Keywords: bazinga
+* Auf allen Webseiten ist das Bazinga-Logo eingebunden. Der `img`-Tag soll als `src`-Attribut `bazinga-logo.png` enthalten.
+* Auf allen Seiten ist eine Navigation mit drei Links zu den jeweils anderen Seiten: `index.html`, `contact.html` und `imprint.html`
 
 
 ### Die Startseite
 
-Füge eine eine Produkt-Beschreibung hinzu, die den Text **Lorem Ipsum** enthält.
+Produkt-Beschreibung:
+
+~~~
+Bazinga! Focus on getting your software into the hands of your customers. Let us take care of providing you with the flexible, scalable and up-to-date build environments.
+~~~
 
 
 ### Die Kontakt-Seite
 
-Das Formular verschickt die Eingaben via `POST` an die Adresse `/contact`. Verschickt werden die folgenden Felder:
+Das Formular verschickt die Eingaben via `POST` an die Adresse `/contact`. Verschickt werden sollen die folgenden Felder:
 
 * name
 * email
 * message
+
 
 ## Ressourcen
 
