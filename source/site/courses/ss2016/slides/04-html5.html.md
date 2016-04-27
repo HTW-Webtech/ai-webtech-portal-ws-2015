@@ -8,7 +8,13 @@ HyperText Markup Language
 
 * Hypertext?
 * Markup Language
-* HTML und DOM
+* HTML Struktur & Elemente
+* Valides HTML
+* Historie zu HTML
+* Standards: W3C vs WHATWG
+* HTML Content Categories
+* HTML Beispiele
+* Praxis-Tipps
 
 ---
 
@@ -73,7 +79,7 @@ Text
 
 ---
 
-# HTML Boilerplate
+# HTML Grundstruktur
 
 1. HTML-Dokument definiert Doctype: Version der Spezifikation
   * Verschiedene Doctypes. Heute nur der HTML5 Doctype relevant
@@ -85,7 +91,7 @@ Text
 
 ---
 
-# HTML Boilerplate Beispiel
+# HTML Grundstruktur Beispiel
 
 ~~~
 <!DOCTYPE html>
@@ -112,7 +118,7 @@ Text
 
 ---
 
-# Geschichte von HTML
+# Historie zu HTML
 
 * 1996: Standard vom W3C [W3C History](http://www.w3.org/History.html)
 * 2004: WHATWG-Gründung [Mailing-Liste](https://whatwg.org/news/start)
@@ -123,7 +129,7 @@ Text
 
 ---
 
-# Zwei Standards seitdem
+# Zwei parallele Standards
 
 ![W3C vs WHATWG Spec](slides/html/w3c-vs-whatwg-spec.png)
 
