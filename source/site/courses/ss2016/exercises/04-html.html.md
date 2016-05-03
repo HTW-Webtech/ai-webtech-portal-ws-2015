@@ -1,8 +1,10 @@
 # HTML-Übung
 
 Du studierst im 5. Semester Informatik und möchtest endlich mal Praxis-Erfahrung sammeln.
-Vor kurzem hat dir jemand empfohlen dich bei der <abbr title="Bazinga! gUGs">BgUGs</abbr> zu bewerben.
+Vor kurzem hat dir jemand empfohlen dich bei der B!gUG zu bewerben.
 Das hat auch geklappt und heute hast du deinen ersten Arbeitstag.
+
+*[B!gUG]: Bazinga! Gemeinnützige Unternehmergesellschaft
 
 
 ## Allgemeines
