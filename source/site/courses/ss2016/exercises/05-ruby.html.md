@@ -146,9 +146,15 @@ auf Lynda sind zwar zeitintensiv, bieten aber eine wichtige Grundlage für die n
   Browser-basiertes interaktives Einsteiger-Tutorial. Man lernt Syntax und die grundlegenden
   Klassen wie String, Array und Hashes kennen.
 
+
 ## Lynda-Videos
 
 * [Ruby Essential Training: Kevin Skoglund](http://www.lynda.com/Ruby-tutorials/Welcome/47905/57934-4.html)
   Sehr umfangreiche Video-Lektionen zu den Grundlagen der Ruby-Programmierspache. Mit 7 Stunden Laufzeit
   auch entsprechend zeitintensiv. Kapitel 2-6 sind zu empfehlen um die Grundlagen zu vertiefen.
 
+
+## Bücher
+
+* [Humble little ruby Book](http://www.humblelittlerubybook.com/)
+  Ggf. ein bisschen out of date, aber gute Grundlage und kostenlos
