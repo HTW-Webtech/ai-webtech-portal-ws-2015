@@ -22,7 +22,7 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 
 | Termin | Datum      | Präsentation                                                                   | Übung
 |--------|------------|--------------------------------------------------------------------------------|-------
-| 4.     | 2016-05-04 | [Ruby: Grundlagen, Ökosystem und Sprachkonzepte](slides/ruby-basics.html)      | [Ruby](exercises/ruby.html)
+| 4.     | 2016-05-04 | [Ruby: Grundlagen, Ökosystem und Sprachkonzepte](slides/ruby-basics.html)      | [Ruby](exercises/05-ruby.html)
 | 5.     | 2016-05-11 | [Webanwendungen mit Sinatra](slides/sinatra.html)                              | [Hello Sinatra](exercises/hello-sinatra.html)
 | 6.     | 2016-05-18 | [Ruby: Datenbank-Zugriff](slides/sinatra-db.html)                              | [Hello Database](exercises/hello-database.html)
 | 7.     | 2016-05-25 | [Rails: Getting started](slides/rails-getting-started.html)                    | -
