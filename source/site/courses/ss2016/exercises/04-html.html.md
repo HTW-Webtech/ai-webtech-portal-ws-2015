@@ -9,11 +9,10 @@ Das hat auch geklappt und heute hast du deinen ersten Arbeitstag.
 
 ## Allgemeines
 
-| Abgabe bis            | Punkte (Tests) | Punkte (Review) |
-|----------------------------------------------------------|
-| 8. Mai, 23.59 Uhr  | 2              | 2               |
-{: .table .table-bordered }
-
+| Git Abgabe bis    | Punkte (Jenkins) | CodeReview am | Punkte (CodeReview) |
+|----------------------------------------------------------------------------|
+| 8. Mai, 23:59 Uhr | 2 Punkte         | 11. Mai       | bis 2 Punkte |
+{: .table.table-bordered }
 
 ## Briefing
 

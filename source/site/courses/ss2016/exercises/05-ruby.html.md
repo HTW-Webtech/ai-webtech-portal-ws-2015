@@ -9,10 +9,10 @@ Ruby-Kenntnisse sind noch sehr rudimentär. Das soll sich ändern.
 
 ## Allgemeines
 
-| Abgabe bis            | Punkte (Tests) | Punkte (Review) |
-|----------------------------------------------------------|
-| 15. Mai, 23.59 Uhr    | 2              | 0               |
-{: .table .table-bordered }
+| Git Abgabe bis     | Punkte (Jenkins) | CodeReview      |
+|---------------------------------------------------------|
+| 15. Mai, 23:59 Uhr | 2 Punkte         | kein CodeReview |
+{: .table.table-bordered }
 
 
 ## Briefing
@@ -146,6 +146,9 @@ auf Lynda sind zwar zeitintensiv, bieten aber eine wichtige Grundlage für die n
   Browser-basiertes interaktives Einsteiger-Tutorial. Man lernt Syntax und die grundlegenden
   Klassen wie String, Array und Hashes kennen.
 
+* [codeacademy: Ruby](https://www.codecademy.com/learn/ruby)
+  Interaktives Beginner-Tutorial von Code Academy. Gute Grundlage um die Datentypen und
+  Kontrollstrukturen von Ruby zu lernen.
 
 ## Lynda-Videos
 

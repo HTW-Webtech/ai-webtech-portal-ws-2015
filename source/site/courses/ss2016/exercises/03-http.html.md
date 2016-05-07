@@ -4,9 +4,9 @@ In dieser Übung sollen Sie mittels zwei HTTP-Anfragen ein *secret* erfahren,
 dieses in einem neuen Git-Repository als `secret.txt` speichern und via `git`
 für die 2. Aufgabe zum Aris-Server hochladen.
 
-| Abgabetermin | Punkte |
-|-----------------------|
-| 2016-04-26 23:59 CEST | 2 |
+| Git Abgabe bis | Jenkins Test Punkte | CodeReview |
+|---------------------------------------------------|
+| 26. April 23:59 CEST | 2 | kein CodeReview        |
 {: .table.table-bordered }
 
 
