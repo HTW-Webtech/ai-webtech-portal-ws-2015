@@ -48,4 +48,4 @@ Diese kryptische Zeichenkette ist nun der öffentliche SSH Schlüssel, der im
 nächsten Schritt in Ihrem Profil auf dem Aris-Server eingetragen werden muss.
 
 Kopieren Sie sich diesen öffentlichen Schlüssel bspw. in eine Textdatei außerhalb
-der Virtualbox. Weiter geht es mit der [Einrichtung Ihres Aris-Accounts](01-setup.html#erstellen-eines-aris-accounts)
+der Virtualbox. Weiter geht es mit der [Einrichtung Ihres Aris-Accounts](dev-env.html#erstellen-eines-aris-accounts)

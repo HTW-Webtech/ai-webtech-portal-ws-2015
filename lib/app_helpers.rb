@@ -7,7 +7,7 @@ module AppHelpers
     "<a href='slides/#{slides_name}.html'>#{title}</a> (#{revealjs_link "/site/courses/ws2015/slides/#{slides_name}.html"})"
   end
 
-  def slide_name(file)
+  def readable_file_name(file)
     parts = slide_file_basename(file).split('-')
     parts.shift
     parts.map(&:capitalize) * ' '

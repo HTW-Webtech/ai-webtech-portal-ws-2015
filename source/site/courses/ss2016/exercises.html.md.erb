@@ -6,8 +6,8 @@ verwaltet. Mehr dazu in der [Setup-Übung](exercises/setup.html).
 
 ## Übungaufgaben
 
-1. [Setup](exercises/01-setup.html), [Git](exercises/02-git.html)
-1. [HTTP](exercises/03-http.html)
-1. [HTML](exercises/04-html.html)
-1. [Ruby](exercises/05-ruby.html)
+1. [Setup](exercises/setup/dev-env.html), [Git](exercises/setup/git.html)
+<% Dir[__dir__ + '/exercises/*.html.md'].each do |file| %>
+  1. [<%= readable_file_name(file) %>](<%= file %>)
+<% end %>
 {: .timeline }

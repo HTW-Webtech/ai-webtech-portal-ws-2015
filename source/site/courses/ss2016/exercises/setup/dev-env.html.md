@@ -14,7 +14,7 @@ Prinzipiell bleibt jedem Teilnehmer offen seine Entwicklungsumgebung selbst einz
 Wenn Sie jedoch einen ausreichend leistungsstarken Computer haben, empfehle ich die
 Nutzung der Virtualbox:
 
-* [Anleitung zur Einrichtung der Virtualbox](01a-virtualbox.html)
+* [Anleitung zur Einrichtung der Virtualbox](virtualbox.html)
 
 Für diejenigen die auf die Virtualbox verzichen möchten ist die benötigte Software
 im folgenden aufgelistet:
@@ -54,5 +54,5 @@ Kopieren Sie den vollständigen Schlüssel in das Textfeld.
 
 ![Public ssh key einfügen und speichern](exercises/setup/aris-setup2.png)
 
-Als nächstes geht es weiter mit der [Übung zu *Git*](02-git.html).
+Als nächstes geht es weiter mit der [Übung zu *Git*](git.html).
 
