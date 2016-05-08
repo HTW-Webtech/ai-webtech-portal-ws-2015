@@ -8,6 +8,6 @@ verwaltet. Mehr dazu in der [Setup-Übung](exercises/setup.html).
 
 1. [Setup](exercises/setup/dev-env.html), [Git](exercises/setup/git.html)
 <% Dir[__dir__ + '/exercises/*.html.md'].each do |file| %>
-  1. [<%= readable_file_name(file) %>](<%= file %>)
+  1. [<%= readable_file_name(file) %>](<%= exercise_url(file) %>)
 <% end %>
 {: .timeline }

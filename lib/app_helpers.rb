@@ -8,7 +8,7 @@ module AppHelpers
   end
 
   def readable_file_name(file)
-    parts = slide_file_basename(file).split('-')
+    parts = html_file_basename(file).split('-')
     parts.shift
     parts.map(&:capitalize) * ' '
   end
@@ -45,11 +45,15 @@ module AppHelpers
     !!current_course
   end
 
-  def slide_uri(file)
-    "slides/#{slide_file_basename(file)}.html"
+  def slide_url(file)
+    "slides/#{html_file_basename(file)}.html"
   end
 
-  def slide_file_basename(file)
+  def exercise_url(file)
+    "exercises/#{html_file_basename(file)}.html"
+  end
+
+  def html_file_basename(file)
     File.basename(file, '.html.md')
   end
 
