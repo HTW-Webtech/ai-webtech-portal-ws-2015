@@ -11,7 +11,7 @@ Das hat auch geklappt und heute hast du deinen ersten Arbeitstag.
 
 | Git Abgabe bis    | Punkte (Jenkins) | CodeReview am | Punkte (CodeReview) |
 |----------------------------------------------------------------------------|
-| 8. Mai, 23:59 Uhr | 2 Punkte         | 11. Mai       | bis 2 Punkte |
+| 8. Mai, 23:59 Uhr | 2 Punkte         | 11. Mai       | 2 Punkte |
 {: .table.table-bordered }
 
 ## Briefing
@@ -59,38 +59,41 @@ Im folgenden ein paar Mockups zu den drei Unterseiten.
 
 ## Technische Anforderungen
 
-Alle drei Webseiten sollen die folgenden Anforderungen erfüllen:
+Es sollen insgesamt drei statische Webseiten angelegt werden:
 
-* Keine Fehler bei der Prüfung der Webseite mit dem W3C Markup Validator: <https://validator.w3.org>
-* Im `head` des HTML-Dokuments befinden sich [meta](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)-Tags mit Angaben zu:
+* `index.html`: Die ist die Startseite.
+* `contact.html`: Ein HTML Kontaktformular (ohne Versand).
+* `imprint.html`: Enthält eine Adresse.
+
+
+Alle drei Seiten soll:
+
+* das HTML-Markup mit dem W3C Markup Validator geprüft worden sein: <https://validator.w3.org>
+* im `head` des Dokuments die folgenden [meta](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta)-Tags vorhanden sein:
   * dem Author: `<meta name="author" …>` => Dein Name
-  * Keywords: `<meta name="keywords" …>` => Keywords: bazinga
-* Auf allen Webseiten ist das Bazinga-Logo eingebunden. Der `img`-Tag soll als `src`-Attribut `bazinga-logo.png` enthalten.
-* Auf allen Seiten ist eine Navigation mit drei Links zu den jeweils anderen Seiten: `index.html`, `contact.html` und `imprint.html`
+  * Keywords: `<meta name="keywords" …>` => Ein paar beliebige Keywords, bspw. `bazinga`, `scalable product`, …
+* das Bazinga-Logo eingebunden sein. Der `img`-Tag muss als `src`-Attribut den String `bazinga-logo.png` enthalten.
+* eine Navigation mit Links zu den jeweils anderen Seiten: `index.html`, `contact.html` und `imprint.html` zu sehen sein.
 
 
 ### Die Startseite
 
-Produkt-Beschreibung:
-
-~~~
-Bazinga! Focus on getting your software into the hands of your customers. Let us take care of providing you with the flexible, scalable and up-to-date build environments.
-~~~
+* Enthält einen Paragraphen mit dem mind. dem folgenden Produktext: `Bazinga! Focus on getting your software`
 
 
 ### Die Kontakt-Seite
 
-Das Formular verschickt die Eingaben via `POST` an die Adresse `/contact`. Verschickt werden sollen die folgenden Felder:
-
-* name
-* email
-* message
+* Enthält ein HTML-Formular mit den folgenden Eingabefeldern:
+  * name
+  * email
+  * message
+* Das Formular wird via HTTP `POST` an die URL `/contact` verschickt.
 
 
 ### Impressum
 
-* Auf der Impressum-Seite soll die Adresse als `<address>`-Element beschrieben werden. Das HTML-Element bei [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address)
-* Die Telefonnummer soll als Link mit `tel:03050190` im href-Attribut umgesetzt werden. Mehr dazu bei [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+* Auf der Impressum-Seite soll die Adresse als [Address](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address)-Element beschrieben werden.
+* Die Telefonnummer im Adressblock soll als [Anchor](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) mit `tel:03050190` als `href`-Attribut umgesetzt werden.
 
 
 ## Ressourcen
