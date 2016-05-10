@@ -41,10 +41,6 @@ Zu beachten für den Code Review:
   * Unnötige Verzögerungen bei der Präsentation können dazu führen, dass der Termin neu vereinbart werden muss
 * Fremd- und Eigenleistungen müssen im Quellcode deutlich hervorgehoben werden
 
-Bewertet wird die Erfüllung funktionaler Anforderungen, Berücksichtigung von [Coding Styles(?)](/site/manual.html#coding-styles),
-ggf. [Code Dokumentation(?)](/site/manual.html#code-documentation), ggf. ästhetische Aspekte bei
-der Umsetzung sowie die Präsentation selbst.
-
 
 ## Slack-Chat
 
