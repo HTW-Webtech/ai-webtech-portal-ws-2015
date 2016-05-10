@@ -46,3 +46,12 @@ ggf. [Code Dokumentation(?)](/site/manual.html#code-documentation), ggf. ästhet
 der Umsetzung sowie die Präsentation selbst.
 
 
+## Slack-Chat
+
+Viele viele E-Mail-Anfragen von Studierenden drehen sich um ähnliche oder dasselbe Problem.
+Bei der 1on1-Kommunikation über E-Mail gehen oft wichtige Informationen für andere Studierende verloren.
+
+Um diese unnötigen Redundanzen zu minimieren gibt es einen Slack-Chat für die Lehrveranstaltung in der
+Fragen zu inhaltlichen und organisatorischen Aspekten besprochen werden sollen.
+
+Eine Einladung für den Chat kann man sich hier holen: [Slack-Chat Einladung](https://htw-webtech-slack-invite.herokuapp.com)
