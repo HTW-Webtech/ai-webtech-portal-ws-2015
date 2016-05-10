@@ -36,6 +36,7 @@ wird für alle Studierenden in der Gruppe vergeben.
 
 Zu beachten für den Code Review:
 
+* Der Termin findet parallel zur Übung in einem *anderen Raum (C638)* statt
 * Jeder bringt den Quellcode seiner eigenen Lösung vorzeigebereit zum Code Review mit
   * Wer keinen Laptop mitbringen kann, soll sich mind. 24h vor dem Termin via E-Mail melden
   * Unnötige Verzögerungen bei der Präsentation können dazu führen, dass der Termin neu vereinbart werden muss
