@@ -25,15 +25,24 @@ Für jede Übungsaufgabe wird eine Code-Lösung via git auf dem Aris-Server eing
 
 Jeder Studierender reicht seine **eigenständig** entwickelte Lösung zu einer Übung ein.
 
-Einige Übungsaufgaben werden mit einem *CodeReview* eingereicht. Zu jedem CodeReview bringt
-eine Gruppe von Studierenden ihre jeweiligen Lösungen mit. Einer aus der Gruppe stellt
-nun seine Lösung zur erst der Gruppe vor und dann zur Diskussion. Fremd- und
-Eigenleistungen sollen deutlich hervorgehoben werden.
+#### Code Review
 
-Ein CodeReview nimmt je nach Aufgabe 5-20 Min. in Anspruch. Die Note für den CodeReview
+Einige Übungsaufgaben werden mit einem *Code Review* eingereicht. Einer der Gruppe präsentiert
+seine Lösung der Gruppe vor. Diese wird im Anschluss diskutiert, sowie inhaltliche Fragen zu
+der Umsetzung gestellt die von der gesamten Gruppe beantwortet werden können.
+
+Ein Code Review nimmt je nach Aufgabe 5-20 Min. in Anspruch. Die Note für den Code Review
 wird für alle Studierenden in der Gruppe vergeben.
+
+Zu beachten für den Code Review:
+
+* Jeder bringt den Quellcode seiner eigenen Lösung vorzeigebereit zum Code Review mit
+  * Wer keinen Laptop mitbringen kann, soll sich mind. 24h vor dem Termin via E-Mail melden
+  * Unnötige Verzögerungen bei der Präsentation können dazu führen, dass der Termin neu vereinbart werden muss
+* Fremd- und Eigenleistungen müssen im Quellcode deutlich hervorgehoben werden
 
 Bewertet wird die Erfüllung funktionaler Anforderungen, Berücksichtigung von [Coding Styles(?)](/site/manual.html#coding-styles),
 ggf. [Code Dokumentation(?)](/site/manual.html#code-documentation), ggf. ästhetische Aspekte bei
 der Umsetzung sowie die Präsentation selbst.
+
 
