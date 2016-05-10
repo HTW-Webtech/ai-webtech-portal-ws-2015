@@ -31,13 +31,6 @@ dynamischer Webapplikationen. Dies umfasst:
 Bei Rückfragen bin ich über <mailto:igelmund@htw-berlin.de> zu erreichen.
 
 
-## Gitter Chat
-
-Für einen zusätzlichen Austausch zwischen den Kursteilnehmern außerhalb der Veranstaltungstermine kann der
-*Gitter*-Chat auf dieser Seite genutzt werden. Der "Open Chat"-Button unten rechts auf der Seite
-öffnet das Chat-Fenster.
-
-
 ## Vergangene Semester
 
 An dieser Stelle werden auch die vergangenen Semester-Unterlagen archiviert:
