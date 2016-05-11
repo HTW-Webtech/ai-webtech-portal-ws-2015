@@ -62,9 +62,8 @@ Besucherzähler gebaut werden, der auf jeder Seite angezeigt wird und sich folge
 
 * Beim allerersten Aufruf wird der Zähler auf 1 gesetzt und zeigt unten am Ende der Seite den Text: `Das ist ihr 1. Seitenaufruf.`
 * Beim Laden einer beliebigen anderen Seite wird der Zähler inkrementiert: `Das ist ihr 2. Seitenaufruf.`
-* Der Zähler wird in einer `session` verwaltet. Der eigentliche Wert wird somit in einem Cookie im
-  Browser eines Besuchers gespeichert.
-  * D.h. der Besucherzähler zählt nicht ALLE Seitenaufrufe, sondern die eines Browsers
+* Der Besucherzähler soll in einer `session` via Browser-Cookie verwaltet werden.
+  * D.h. der Besucherzähler zählt nicht ALLE Seitenaufrufe, sondern die eines Browsers einzelnen Browsers.
 
 
 #### Tipps zur Umsetzung
