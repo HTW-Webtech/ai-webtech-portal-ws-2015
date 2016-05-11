@@ -27,9 +27,9 @@ Jeder Studierender reicht seine **eigenständig** entwickelte Lösung zu einer �
 
 #### Code Review
 
-Einige Übungsaufgaben werden mit einem *Code Review* eingereicht. Einer der Gruppe präsentiert
-seine Lösung der Gruppe vor. Diese wird im Anschluss diskutiert, sowie inhaltliche Fragen zu
-der Umsetzung gestellt die von der gesamten Gruppe beantwortet werden können.
+Einige Übungsaufgaben werden mit einem *Code Review* eingereicht. Einer aus der Gruppe stellt
+seine Lösung der Rest vor. Anschließend wird die Lösung iskutiert, sowie inhaltliche Fragen zur
+Umsetzung gestellt. Diese Fragen können von jedem in der Gruppe beantwortet werden.
 
 Ein Code Review nimmt je nach Aufgabe 5-20 Min. in Anspruch. Die Note für den Code Review
 wird für alle Studierenden in der Gruppe vergeben.
@@ -39,7 +39,7 @@ wird für alle Studierenden in der Gruppe vergeben.
 * Der Termin findet parallel zur Übung in einem **anderen Raum (C638)** statt
 * Seid bitte **3-5 Min. vor Beginn** des Code Reviews vorbereitet vor dem Raum
 * Jeder bringt den Quellcode seiner eigenen Lösung auf dem eigenen Laptop zum Code Review mit
-  * Wer keinen Laptop mitbringen kann, soll sich **mind. 24h vor** dem Termin via [E-Mail](mailto:igelmund@htw-berlin) oder Slack-Chat melden
+  * Wer keinen Laptop mitbringen kann, soll sich via [E-Mail](mailto:igelmund@htw-berlin) oder Slack-Chat vorher melden
   * Unnötige Verzögerungen bei der Präsentation können dazu führen, dass der Termin neu vereinbart werden muss
 * Fremd- und Eigenleistungen müssen im Quellcode deutlich hervorgehoben werden
 * Es werden im Anschluss an den Code Review einige inhaltliche Fragen gestellt. I.d.R. beziehen die Fragen sich auf die Folieninhalte des jeweiligen Themas.

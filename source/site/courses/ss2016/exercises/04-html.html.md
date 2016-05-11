@@ -14,6 +14,7 @@ Das hat auch geklappt und heute hast du deinen ersten Arbeitstag.
 | 8. Mai, 23:59 Uhr | 2 Punkte         | 11. Mai       | 2 Punkte |
 {: .table.table-bordered }
 
+
 ## Briefing
 
 Die BgUGs möchte bald ein neues Produkt auf den Markt bringen und hätte gerne eine Webseite um

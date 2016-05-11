@@ -92,6 +92,7 @@ Nachdem ein Formular an die Adresse `/contact` abgesendet wurde, soll der Nutzer
 ![Kontaktformular nach dem Absenden](exercises/sinatra/contact-after.png)
 
 
+
 ### Admin-Seite: admin.html
 
 Im Footer jeder Seite soll der Link zum Admin-Bereich `admin.html` prominent platziert sein.
@@ -115,6 +116,11 @@ verwendet werden:
 Wenn das Passwort richtig angegeben wurde, sieht der Nutzer nun die vorerst noch leere Admin-Seite.
 
 ![Die Admin Seite: admin.html](exercises/sinatra/admin.png)
+
+
+#### Tipps zur Umsetzung
+
+* TODO: Folgen noch. Besonders der Teil für den Passwort-Schutz
 
 
 ## Hosting der Sinatra-App auf Heroku
