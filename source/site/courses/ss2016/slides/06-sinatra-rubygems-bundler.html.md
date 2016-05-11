@@ -434,9 +434,14 @@ $ curl localhost:4567?greeting=Hallo%20Hans!
 
 # Sinatra Sessions
 
-* Ermöglicht Zugriff auf Browser-Cookies
-* Einfache Daten können pro Browser gespeichert werden
-* Zu Beginn muss Feature aktiviert werden
+* Ermöglicht Lese-/Schreibzugriff auf Browser-Cookies
+* Verwaltet Informationen die über mehrere Requests erhalten bleiben
+* Standard-Einstellunge
+  * Inaktiv: muss erst aktiviert werden
+  * Expiration: Gültig bis der Cookie gelöscht wird
+* Alternative Session-Implementierungen:
+  * `Rack::Session::Pool`: speichert Daten im Prozess, im Browse-Cookie nur die ID
+  * Bspw. ein zentraler Redis-Store
 
 ~~~
 require 'sinatra/base'
@@ -452,7 +457,7 @@ end
 # Sinatra Sessions
 
 * Zugriff über `session`-Objekt, ähnlich wie bei `params`.
-* So kann `@greeting` zwischen mehreren Requests persistiert werden
+* Mit dem `session`-Objekt kann `@greeting` zwischen mehreren Requests persistiert werden
 
 ~~~
 require 'sinatra/base'
@@ -481,7 +486,9 @@ Funktioniert nur in Verbindung mit Cookies.
 
 * Repetetiver Code in einer App kann mit [Filtern](http://www.sinatrarb.com/intro.html#Filters) realisiert werden
 * Code der für jeden Request ausgeführt wird
-* Anwendungszweck Session-Informationen auswerten
+* Anwendungszweck:
+  * Logging für statistische Auswertungen
+  * In der Sinatra-Übung
 
 ---
 
@@ -492,15 +499,15 @@ require 'sinatra/base'
 
 class MyApp < Sinatra::Base
   before do
-    @greeting = 'Hallo Frank!'
+    log "Processing request at: #{request.path}"
   end
 
   get '/' do
-    erb :index        # Hat Zugriff auf `@greeting`
+    erb :index        # Vor dem get / wird das Logging ausgeführt
   end
 
   get '/contact' do
-    erb :contact      # Hat Zugriff auf `@greeting`
+    erb :contact      # Vor dem get /contact wird das Logging ausgeführt
   end
 end
 ~~~
@@ -508,7 +515,7 @@ end
 
 ---
 
-# Weitere Features
+# Weitere Sinatra Features
 
 * Datei-Uploads
 * Streaming-Responses (Chat)
