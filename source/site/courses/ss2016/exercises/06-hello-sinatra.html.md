@@ -38,6 +38,7 @@ für das eigene Sinatra-Projekt genutzt werden.
 cd ~/Workspace
 git clone https://github.com/HTW-Webtech/ai-sinatra-base aufgabe6
 cd aufgabe6
+bundle install
 ruby app.rb  # Startet die Sinatra-App
 ~~~
 
