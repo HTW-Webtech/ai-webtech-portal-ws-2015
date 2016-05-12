@@ -120,7 +120,9 @@ Wenn das Passwort richtig angegeben wurde, sieht der Nutzer nun die vorerst noch
 
 #### Tipps zur Umsetzung
 
-* TODO: Folgen noch. Besonders der Teil für den Passwort-Schutz
+In der Sinatra-Dokumentation gibt es im Abschnitt [Authentication](http://www.sinatrarb.com/faq.html#auth) Hinweise
+wie man einen simplen HTTP Basic Auth Schutz für eine einzelne Seite implementiert.
+
 
 
 ## Hosting der Sinatra-App auf Heroku
