@@ -54,3 +54,8 @@ Um diese unnötigen Redundanzen zu minimieren gibt es einen Slack-Chat für die 
 Fragen zu inhaltlichen und organisatorischen Aspekten besprochen werden sollen.
 
 Eine Einladung für den Chat kann man sich hier holen: [Slack-Chat Einladung](https://htw-webtech-slack-invite.herokuapp.com)
+
+
+## Bei Fragen
+
+E-Mails werden von mir grundsätzlich alle beantwortet, jedoch ausschließlich unter der Woche zwischen 20-22 Uhr.
