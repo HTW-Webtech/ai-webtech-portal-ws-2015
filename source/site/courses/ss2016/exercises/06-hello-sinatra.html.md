@@ -41,6 +41,7 @@ cd aufgabe6
 bundle install
 ruby app.rb  # Startet die Sinatra-App
 ~~~
+{: .lang-bash }
 
 
 ## Anforderungen
