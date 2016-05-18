@@ -55,6 +55,20 @@ Unter <https://htw-sinatra-hello-world.herokuapp.com/> siehst du eine exemplaris
 der beschriebenen Features.
 
 
+### Meta-Tag zur App-Identifizierung
+
+Die Seite wird nicht mehr auf dem Aris Server gehostet. Mehr dazu in einem folgenden Abschnitt.
+
+Damit die App identifiziert werden kann, soll jede Ihrer Seite einen App-spezifischen Meta-Tag enthalten.
+
+Bspw. für eine App mit dem Namen `1-smoking-dingo` wird der folgende Meta-Tag erwartet:
+
+~~~
+<meta data-app-slug="1-smoking-dingo"> <!-- Dieser Meta-Tag hat kein name/content Attribut -->
+~~~
+{: .lang-html }
+
+
 ### Besucherzähler auf jeder Seite
 
 Um der Seite ohne viel Aufwand das Gefühl von Dynamik zu verleihen soll ein sehr rudimentärer
