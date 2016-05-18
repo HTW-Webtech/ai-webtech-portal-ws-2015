@@ -15,7 +15,7 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 | 1.     | 2016-04-06 | [Kickoff](slides/01-kickoff.html), [Git](slides/02-git.html)                  | [Setup](exercises/01-setup.html), [Git](exercises/02-git.html)
 | 2.     | 2016-04-20 | [HTTP](slides/03-http.html)                                                   | [HTTP](exercises/03-http.html)
 | 3.     | 2016-04-27 | [HTML 5](slides/05-html5.html)                                                | [HTML](exercises/04-html.html)
-{: .table .table-hover }
+{: .table .table-striped }
 
 
 ## Back End
@@ -24,13 +24,13 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 |--------|------------|--------------------------------------------------------------------------------|-------
 | 4.     | 2016-05-04 | [Ruby: Grundlagen, Ökosystem und Sprachkonzepte](slides/05-ruby.html)          | [Ruby](exercises/05-ruby.html)
 | 5.     | 2016-05-11 | [Sinatra, Rubygems, Bundler](slides/06-sinatra-rubygems-bundler.html)          | [Sinatra](exercises/06-hello-sinatra.html)
-| 6.     | 2016-05-18 | [Ruby: Datenbank-Zugriff](slides/07-datamapper.html)                           | [Hello Database](exercises/07-hello-database.html)
+| 6.     | 2016-05-18 | [Ruby: Datenbank-Zugriff](slides/07-datamapper.html)                           | -
 | 7.     | 2016-05-25 | [Rails: Getting started](slides/rails-getting-started.html)                    | -
 | 8.     | 2016-06-01 | [Rails: MVC](slides/rails-mvc.html)                                            | [Rails Tutorial](exercises/08-rails-tutorial.html)
 | 9.     | 2016-06-08 | [Rails: Models & Migrations](slides/rails-ar-migrations.html)                  | -
 | 10.    | 2016-06-15 | [Rails: Routing & Controllers](slides/rails-routing-controllers.html)          | -
 | 11.    | 2016-06-22 | [Rails: Views & Assets](slides/rails-views-assets.html)                        | [Rails app](exercises/09-rails-app.html)
-{: .table .table-hover }
+{: .table .table-striped }
 
 
 ## Front End
@@ -42,7 +42,7 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 | 14.    | 2016-07-13 | [JavaScript](slides/javascript.html)                                           | -
 | 15.    | 2016-07-20 | [jQuery & JavaScript Apps](slides/jquery-js-apps.html)                         | [JavaScript](exercises/javascript.html)
 | 16.    | 2016-07-27 | [Advanced CSS & jQuery](slides/advanced-css-jquery.html)                       | [Abschlussprojekt](exercises/final-project.html)
-{: .table .table-hover }
+{: .table .table-striped }
 
 
 ## Extras
@@ -58,7 +58,7 @@ Nach Interesse stehen die folgenden Themen zur Auswahl:
 |--------|------------|--------------------------------------------------------------------------------|-------
 | 17.    | 2016-07-27 | ? | -
 | 18.    | 2016-08-03 | ? | -
-{: .table .table-hover }
+{: .table .table-striped }
 
 
 *[HTTP]: Hypertext Transfer Protocol
