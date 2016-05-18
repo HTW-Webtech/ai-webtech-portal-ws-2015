@@ -24,12 +24,12 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 |--------|------------|--------------------------------------------------------------------------------|-------
 | 4.     | 2016-05-04 | [Ruby: Grundlagen, Ökosystem und Sprachkonzepte](slides/05-ruby.html)          | [Ruby](exercises/05-ruby.html)
 | 5.     | 2016-05-11 | [Sinatra, Rubygems, Bundler](slides/06-sinatra-rubygems-bundler.html)          | [Sinatra](exercises/06-hello-sinatra.html)
-| 6.     | 2016-05-18 | [Ruby: Datenbank-Zugriff](slides/07-datamapper.html)                           | -
-| 7.     | 2016-05-25 | [Rails: Getting started](slides/rails-getting-started.html)                    | -
+| 6.     | 2016-05-18 | -                                                                              | -
+| 7.     | 2016-05-25 | [Ruby: Datenbank-Zugriff](slides/07-datamapper.html)                           | [Hello Database](exercises/07-databases.html)
 | 8.     | 2016-06-01 | [Rails: MVC](slides/rails-mvc.html)                                            | [Rails Tutorial](exercises/08-rails-tutorial.html)
 | 9.     | 2016-06-08 | [Rails: Models & Migrations](slides/rails-ar-migrations.html)                  | -
-| 10.    | 2016-06-15 | [Rails: Routing & Controllers](slides/rails-routing-controllers.html)          | -
-| 11.    | 2016-06-22 | [Rails: Views & Assets](slides/rails-views-assets.html)                        | [Rails app](exercises/09-rails-app.html)
+| 10.    | 2016-06-15 | [Rails: Routing & Controllers](slides/rails-routing-controllers.html)          | [Rails app](exercises/09-rails-app.html)
+| 11.    | 2016-06-22 | [Rails: Views & Assets](slides/rails-views-assets.html)                        | -
 {: .table .table-striped }
 
 
