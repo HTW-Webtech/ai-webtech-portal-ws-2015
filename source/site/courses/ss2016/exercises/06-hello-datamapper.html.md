@@ -122,10 +122,8 @@ ContactRequest.auto_upgrade!
 ~~~
 {: .lang-ruby }
 
-
 Die Datei wird im Projekt-Ordner abgespeichert und via Ruby-`require` in der  `app.rb`
 nachgeladen. Dazu wird in der `app.rb` in der 1. Zeile den folgender Code hinzugefügt:
-
 
 ~~~
 # app.rb
@@ -135,13 +133,32 @@ require './datamapper' # Lädt den Code aus der `datamapper.rb`-Datei
 {: .lang-ruby }
 
 
+### Datenbank-Zugriff auf Heroku
+
+Lokal wird für die Sinatra App als Datenbank SQLite3 benutzt. Für Heroku gibt es
+anstelle von SQLite3 die Möglichkeit eine PostgreSQL-Datenbank zu nutzen.
+
+Um die PostgreSQL-Datenbank auf Heroku zu aktivieren, muss diese als Add-On im
+[Heroku-Dashboard](https://dashboard.heroku.com/apps) für die jeweilige Applikation aktiviert werden.
+
+1. Für die ausgewählte App den Reiter *Resources* öffnen
+1. Im Abschnitt *Add-ons* nach "Heroku Postgres" suchen
+1. Heroku Postgres auswählen und als "Plan" die Hobby-Version aktivieren
+
+![Heroku Add-On Suche](exercises/datamapper/heroku-addon-suche.png)
+
+![Heroku Postgres auswählen](exercises/datamapper/heroku-addon-auswahl.png)
+
 
 ## Hinweise zur Implementierung von Update/Delete
 
-Die UPDATE und DELETE-Operationen sollen via HTTP PATCH (Kontaktanfrage bearbeiten) und HTTP DELETE (Kontaktanfrage löschen) durchgeführt werden.
+Das Bearbeiten und Löschen von Kontaktanfragen soll jeweils mit HTTP PATCH (Bearbeiten)
+und HTTP DELETE (Löschen) realisiert werden.
 
-Die wenigsten Browser unterstützen jedoch PATCH oder DELETE für den HTTP-Request zu definieren.
+Die wenigsten Browser unterstützen jedoch ausschließlich GET und POST, weshalb dann
+doch ein HTTP POST anstelle von PATCH und DELETE genutzt wird. Um dem Web-Server aber
+ein HTTP PATCH und HTTP DELETE vorzugaukeln bietet Sinatra einen Workaround, den `method_override`.
 
-Sinatra bietet hierfür mit `method_override` einen Workaround. Mehr dazu in der [Dokumentation](http://www.sinatrarb.com/configuration.html#methodoverride---enabledisable-the-post-method-hack),
+Mehr dazu in der [Dokumentation](http://www.sinatrarb.com/configuration.html#methodoverride---enabledisable-the-post-method-hack),
 außerdem diesem [Blogpost](http://mikeebert.tumblr.com/post/26877173686/quick-tip-using-put-and-delete-in-sinatra).
 
