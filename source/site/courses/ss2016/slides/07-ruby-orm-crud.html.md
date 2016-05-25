@@ -1,38 +1,44 @@
-# Ruby -> RDBMS
+# Ruby ORM: CRUD
 
 ---
 
 # Agenda
 
-* Data driven web applications
+* Data-driven web applications
 * RDBMS vs. NoSQL
+* CRUD
 * OOP und RDBMS
 * RDBMS Zugriff
 * ORM: Design Pattern
-* ActiveRecord Beispiel-Code
-* Ruby ORMs
+* DataMapper Beispiel-Code für CRUD
 
 ---
 
-# Data driven web applications
+# Data-driven web applications
 
 ![Ruby App und Datenbank](slides/database/ruby-database-sketch.png)
 
+---
+
+# Data-driven web applications
+
 * Web-Applikationen bieten Nutzern Lese-/Schreibzugriff
-  * Kurzlebig: Sessions, Warenkorb? (E-Commerce)
-  * Langlebig: Nutzerkonto, Bestellungen (E-Commerce)
-* Langlebige Daten meist in RDBMS
-* Unterscheidung RDBMS und NoSQL
+  * Kurzlebig: Login, Warenkorb
+  * Langlebig: Nutzerkonto, Bestellungen
+* Langlebige Daten meist in (RD)BMS
+  * RDBMS: Relationale Datenbank
+* RDBMS <-> NoSQL
+
+[Sitepoint: SQL vs. NoSQL](http://www.sitepoint.com/sql-vs-nosql-differences/)
 
 ---
 
 # RDBMS vs. NoSQL
 
-* Klassen von Systemen zum Speichern meist langlebiger Daten
 * RDBMS: Relationale Datenbanksysteme
   * Daten in Tabellen organisiert
   * Datenrelationen über Fremdschlüssel
-  * Normalisierung von Daten
+  * Daten werden häufig Normalisiert (1NF, 2NF, …)
   * Transaktionssicherheit
   * …
 * NoSQL: Nicht-relationale Systeme
@@ -45,15 +51,110 @@
 
 ---
 
+# CRUD
+
+* Akronym/Systematik für Basis-Funktionen von Datenoperationen
+  * [C]reate: Erzeugt Ressource(n)
+  * [R]read: Liest Ressource(n)
+  * [U]pdate: Ändert Ressource(n)
+  * [D]elete: Löscht Ressource(n)
+
+[Wikipedia: CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
+
+---
+
+# CRUD: Web
+
+* Web-Applikationen mit CRUD nutzen oft Semantik von HTTP-Methoden
+* URL-Schema für CRUD-Operationen (RESTful)
+
+| Operation | SQL | HTTP Method | URL |
+|-------------------------------------|
+| Create | INSERT | POST | /users |
+|----------------------------------|
+| Read | SELECT | GET | /users/1 |
+|-------------------------------|
+| Update | UPDATE | PUT/PATCH | /users/1 |
+|-------------------------------|
+| Delete | DELETE | DELETE | /users/1 |
+|-------------------------------|
+
+[Wikipedia: Representational State Transfer](https://en.wikipedia.org/wiki/Representational_state_transfer)
+
+---
+
+# CRUD Create: Web Beispiel
+
+* `POST http://example.com/users`
+  * Erzeugt neue User-Ressource
+  * Daten werden im Request-Body mitgesendet
+
+---
+
+# CRUD Read: Web Beispiel
+
+* `GET http://example.com/users.html`
+  * Liest alle User-Ressourcen
+
+* `GET http://example.com/users/1.html`
+  * Liest die User-Ressource mit der ID 1
+
+---
+
+# CRUD Update: Web Beispiel
+
+* `PUT http://example.com/users/6.html`
+  * Überschreibt die User-Ressource mit der ID 6
+
+---
+
+# CRUD Delete: Web Beispiel
+
+* `DELETE http://example.com/users/5.html`
+  * Löscht die User-Ressource mit der ID 5
+
+---
+
+# Non-CRUD Operationen
+
+* CRUD deckt nur Basis-Operationen ab
+* Komplexe oder individuelle Operationen müssen individuell gelöst werden, bspw:
+  * Merge von Ressourcen
+  * Toggle eines binären Zustands
+
+* Beispiel Merge von Ressourcen
+  * `PUT http://example.com/user-merge/4/17`
+  * Kopiert alle Daten vom Nutzer mit der ID 4 zum Nutzer mit Id 17
+
+Weiter: SQL-Zugriff für CRUD
+
+---
+
+# CRUD -> SQL
+
+* Um CRUD-Operationen umzusetzen wird DB-Zugriff benötigt
+* Zwei unterschiedliche Ansätze für Datenzugriff
+  * Nativer SQL-Zugriff
+    * SQL-Strings werden mit der DB ausgetauscht
+    * Typ-Konvertierung (bspw. String -> Int) manuell
+  * ORM-Zugriff
+* ORM-Zugrff für Beginn
+* OOP <-> RDBMS Differenzen
+
+---
+
 # OOP und RDBMS
 
-* Herausforderungen/Unterschiede
-  * Keine komplexen Datenstrukturen in RDBMS
+* Herausforderungen
+  * Konvertierung von Datenstrukturen
+    * RDBMS kennen Tabellen, kein Hash, Struct,…
   * Typisierung von Daten
-  * Identität von Daten (Mapping von Objekt <-> Tabellen)
+  * Identität von Daten
+    * Laufzeit: Objekt über Speicheradresse o.ä. adressierbar
+    * Persistenz: Identifizierung über Primärschlüssel
   * …
-  * [Object-relational Impedance Mismatch](https://de.wikipedia.org/wiki/Object-relational_impedance_mismatch)
-* Zwei unterschiedliche Ansätze für Datenzugriff
+
+[Object-relational Impedance Mismatch](https://de.wikipedia.org/wiki/Object-relational_impedance_mismatch)
 
 ---
 
@@ -85,10 +186,10 @@ orders[0].created_at.class
 
 # ORM: Design Pattern
 
-* Design Pattern: Object-relational Mapper
-* Verbindet RDBMS und OOP
+* Abstraktion für OOP-Style Datenzugriff
+* ORM: Design Pattern = Object-relational Mapper
   * Erzeugt/Löscht/Modifiziert Daten in Tabellen
-* Generiert SQL aus Ruby-Code
+* Generiert SQL aus (Ruby-)Code
 * Typ-Konvertierung: Konvertiert Daten in Ruby-Objekte
   * Nicht alle Daten sind Strings
   * Mapping zwischen DB-Typ und Ruby-Objekt
@@ -100,9 +201,9 @@ orders[0].created_at.class
 # ORM: Design Pattern
 
 * Zwei alternative Design Patterns
-  * [Data Mapper](http://www.martinfowler.com/eaaCatalog/activeRecord.html)
-  * [Active Record](http://www.martinfowler.com/eaaCatalog/activeRecord.html)
-* Fokus: Active Record
+  * [Data Mapper Pattern](http://www.martinfowler.com/eaaCatalog/activeRecord.html)
+  * [Active Record Pattern](http://www.martinfowler.com/eaaCatalog/activeRecord.html)
+* Fokus: Active Record Pattern
   * Anfängerfreundliches Design Pattern
   * Persistenz und Verhalten in einem Objekt
 * Disclaimer: ORMs haben Probleme
@@ -113,14 +214,21 @@ orders[0].created_at.class
 
 ---
 
-# Active Record Design Pattern
+# DataMapper: Active Record Pattern
 
 * Eine Zeile pro SQL-Tabelle ist ein Ruby-Objekt (genauer: Record)
 * DB-Funktionalität, Daten und sonstige Methoden im Record enkapsuliert
-* ActiveRecord: Ruby Implementierung des Active Record Pattern
+* *[DataMapper](http://datamapper.org/)*: Ruby Implementierung des Active Record Pattern
+  * bietet verschiedene Adapater (MySQL, PostgreSQL, …)
+  * Entwicklung eingestellt
+  * Nachfolger: [Ruby Object Mapper](http://rom-rb.org/), Data Mapper Pattern
+
+---
+
+# DataMapper Beispiel
 
 ~~~
-# ActiveRecord Pseudocode
+# DataMapper Pseudocode
 peter = User.new(firstname: 'Peter', lastname: 'Pan')
 peter.id         # `.id` ist der Primärschlüssel in der DB-Tabelle
 => nil           # Da dieses Objekt noch nicht gespeichert ist: nil
@@ -130,26 +238,151 @@ peter.id         # `INSERT INTO users (firstname, lastname) VALUES ('Peter', 'Pa
 ~~~
 {: .lang-ruby }
 
-Weitere Beispiele für Datenzugiff und -modifikation, Typkonvertierung und Assoziationen
+[DataMapper: Getting started](http://datamapper.org/getting-started.html)
 
 ---
 
-# ActiveRecord: Datenzugriff
+# DataMapper: Konzepte
+
+* Models: Mapping-Definition von Tabellenspalten zu Ruby-Objekt
+* Associations: Definiton von Objekt-Relationen
+* Migrations: Beschreiben Tabellen/Daten-Modifikationen über Zeit
+* Wir benötigen vorerst nur Models
+* Zunächst Konfiguration f. DB-Zugriff
 
 ---
 
-# Ruby ORMs
+# DataMapper: Konfiguration
 
-* Ruby ORM Implementierungen
-  * ActiveRecord (Standard ORM in Rails)
-  * DataMapper (Alternative zu ActiveRecord)
-* ActiveRecord:
-  * Leichter Einstieg, wenig Konfiguration
-  * Basis für die Rails-Applikationen
-  * RDBMS-Support/Adapter: MySQL, PostgreSQL, MSSQL
+~~~
+# orm.rb
+require 'data_mapper' # Lädt DataMapper ORM Code
+
+DataMapper.setup(:default, 'sqlite::memory:')
+# An in-memory Sqlite3 connection
+~~~
+{: .lang-ruby }
 
 ---
 
+# DataMapper: Models
+
+~~~
+# blog_post.rb
+require 'orm' # Lädt die DataMapper-Konfiguration
+
+class BlogPost # Plural des Klassennamens ist Tabellen-Name
+  include DataMapper::Resource    # Lädt ORM-Code
+
+  property :id,         Serial    # An auto-increment integer key
+  property :title,      String    # A varchar type string, for short strings
+  property :body,       Text      # A text block, for longer string data.
+end
+
+DataMapper.auto_migrate! # Erzeugt automatisch die SQL-Tabellen
+~~~
+{: .lang-ruby }
+
+* Erzeugte SQL-Tabellen
+
+---
+
+# DataMapper: SQL-Tabellen
+
+* `DataMapper.auto_migrate!` erzeugt SQL-Tabelle für `BlogPost`-Records
+* Je nach RDBMS wird der passende Spaltentyp konfiguriert
+* Beispiel-Tabelle:
+
+|-------------------|
+| id | title | body |
+|-------------------|
+| Typ: Integer | Typ: String | Typ: Text |
+|-------------------|
+
+* Weiter: CRUD-Operationen mit DataMapper-Model
+
+---
+
+# DataMapper: Create
+
+~~~
+# create.rb
+require 'blog_post' # Lädt die DataMapper Model-Definition
+
+new_post = BlogPost.create(title: 'Hello World', body: 'yadda yadda')
+# DataMapper erzeugt BlogPost via SQL-INSERT
+
+new_post.id # => Gibt id zurück
+=> 1
+~~~
+{: .lang-ruby }
+
+---
+
+# DataMapper: Read
+
+~~~
+# read.rb
+require 'blog_post' # Lädt die DataMapper Model-Definition
+
+post = BlogPost.find(1) # Liest BlogPost mit der ID 1
+# DataMapper erzeugt SQL-SELECT, lädt Datenbank-Eintrag
+# und erzeugt `post`-Objekt mit Datenkbank-Werten
+
+post.id
+=> 1
+~~~
+{: .lang-ruby }
+
+---
+
+# DataMapper: Update
+
+~~~
+# update.rb
+require 'blog_post' # Lädt die DataMapper Model-Definition
+
+post = BlogPost.find(1) # Liest BlogPost mit der ID 1
+post.title # Gibt `title` zurück
+=> "Hello World"
+
+post.update(title: 'Bye bye World')
+# Überschreibt `title`-Wert für Datenbank-Eintrag mit der ID
+
+post.title # Liest title
+=> "Bye bye World"
+~~~
+{: .lang-ruby }
+
+---
+
+# DataMapper: Delete
+
+~~~
+# delete.rb
+require 'blog_post' # Lädt die DataMapper Model-Definition
+
+post = BlogPost.find(1) # Liest BlogPost mit der ID 1
+
+post.destroy
+# DataMapper erzeugt SQL-DELETE und löscht Datenbank-Eintrag mit der ID
+
+post.id
+=> nil # ID exitiert nicht mehr
+~~~
+{: .lang-ruby }
+
+---
+
+# ORM Vertiefen
+
+* Mehr zu ORMs in der Rails ActiveRecord LF / Übung
+* Alternative zu ORM: Object Mapper / Data Mapper Pattern
+  * [Ruby Object Mapper](http://rom-rb.org/): Komplexere/Flexiblere Konzepte zur Problemlösung
+* Artikel zu ORM-Problemen
+  * [Martin Fowler: ORM Hate](http://martinfowler.com/bliki/OrmHate.html)
+  * [Jeff Atwood: ORM is the Vietnam of Computing](http://blog.codinghorror.com/object-relational-mapping-is-the-vietnam-of-computer-science/)
+  * [Yegor Bugayenko: ORM Is an Offensive Anti-Pattern](http://www.yegor256.com/2014/12/01/orm-offensive-anti-pattern.html)
 
 ---
 
