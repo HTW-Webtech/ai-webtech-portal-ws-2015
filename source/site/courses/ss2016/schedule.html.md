@@ -12,9 +12,9 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 
 | Termin | Datum      | Präsentation                                                                  | Übung
 |--------|------------|-------------------------------------------------------------------------------|-------
-| 1.     | 2016-04-06 | [Kickoff](slides/01-kickoff.html), [Git](slides/02-git.html)                  | [Setup](exercises/01-setup.html), [Git](exercises/02-git.html)
-| 2.     | 2016-04-20 | [HTTP](slides/03-http.html)                                                   | [HTTP](exercises/03-http.html)
-| 3.     | 2016-04-27 | [HTML 5](slides/05-html5.html)                                                | [HTML](exercises/04-html.html)
+| 1.     | 2016-04-06 | [Kickoff](slides/01-kickoff.html), [Git](slides/02-git.html)                  | [Setup](exercises/setup/dev-env.html), [Git](exercises/setup/git.html)
+| 2.     | 2016-04-20 | [HTTP](slides/03-http.html)                                                   | [HTTP](exercises/02-http.html)
+| 3.     | 2016-04-27 | [HTML 5](slides/05-html5.html)                                                | [HTML](exercises/03-html.html)
 {: .table .table-striped }
 
 
@@ -22,13 +22,13 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 
 | Termin | Datum      | Präsentation                                                                   | Übung
 |--------|------------|--------------------------------------------------------------------------------|-------
-| 4.     | 2016-05-04 | [Ruby: Grundlagen, Ökosystem und Sprachkonzepte](slides/05-ruby.html)          | [Ruby](exercises/05-ruby.html)
-| 5.     | 2016-05-11 | [Sinatra, Rubygems, Bundler](slides/06-sinatra-rubygems-bundler.html)          | [Sinatra](exercises/06-hello-sinatra.html)
+| 4.     | 2016-05-04 | [Ruby: Grundlagen, Ökosystem und Sprachkonzepte](slides/05-ruby.html)          | [Ruby](exercises/04-ruby.html)
+| 5.     | 2016-05-11 | [Sinatra, Rubygems, Bundler](slides/06-sinatra-rubygems-bundler.html)          | [Sinatra](exercises/05-hello-sinatra.html)
 | 6.     | 2016-05-18 | -                                                                              | -
-| 7.     | 2016-05-25 | [Ruby: Datenbank-Zugriff](slides/07-datamapper.html)                           | [Hello Database](exercises/07-databases.html)
-| 8.     | 2016-06-01 | [Rails: MVC](slides/rails-mvc.html)                                            | [Rails Tutorial](exercises/08-rails-tutorial.html)
-| 9.     | 2016-06-08 | [Rails: Models & Migrations](slides/rails-ar-migrations.html)                  | -
-| 10.    | 2016-06-15 | [Rails: Routing & Controllers](slides/rails-routing-controllers.html)          | [Rails app](exercises/09-rails-app.html)
+| 7.     | 2016-05-25 | [Ruby: ORM, CRUD](slides/07-ruby-orm-crud.html)                                | [Hello Database](exercises/06-hello-datamapper.html)
+| 8.     | 2016-06-01 | [Rails: MVC](slides/rails-mvc.html)                                            | -
+| 9.     | 2016-06-08 | [Rails: Models & Migrations](slides/rails-ar-migrations.html)                  | [Rails Tutorial](exercises/07-rails-tutorial.html)
+| 10.    | 2016-06-15 | [Rails: Routing & Controllers](slides/rails-routing-controllers.html)          | [Rails app](exercises/08-rails-app.html)
 | 11.    | 2016-06-22 | [Rails: Views & Assets](slides/rails-views-assets.html)                        | -
 {: .table .table-striped }
 
