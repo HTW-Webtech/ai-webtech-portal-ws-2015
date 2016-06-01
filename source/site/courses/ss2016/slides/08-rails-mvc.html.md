@@ -32,12 +32,12 @@ Lernziele:
   * Problemstellung
 * Rails Philosophie
 * Rails MVC
-  * MVC+
   * Philosohpie
-* Projektstruktur
-* Routing + Controller
-* Views
-* Models
+* Request -> Response Zyklus
+  * Routing + Controller
+  * Views
+  * Models
+* Rails MVC+
 
 ---
 
@@ -407,52 +407,17 @@ Rails Views
 
 ![MVC in Rails](slides/rails-getting-started/mvc-rails.png)
 
-Weiter: Projektstruktur
-
 ---
 
-# Rails Projektstruktur
+# Rails MVC+
 
-* Rails erzeugt umfassende Projekt-Struktur mit jedem Projekt
-* Jedes Rails-Projekt startet mit:
-
-    rails new projekt-name
-    …
-
----
-
-# Rails Projektstruktur
-
-~~~
-tree . -L 1 # Nur 1. Ordnerebene anzeigen
-.
-├── Gemfile      # ruby gems die dieses Projekt benutzt
-├── Gemfile.lock
-├── README.md
-├── Rakefile     # ähnlich wie ein Makefile
-├── app          # Hier lebt der Haupt-Code
-| …
-└── vendor
-~~~
-{: .lang-bash }
-
----
-
-# Rails Projektstruktur
-
-~~~
-tree app -L 1 # Nur 1. Ordnerebene anzeigen
-app
-├── assets       # JavaScript, CSS und Bild-Dateien und Schriftarten
-├── channels     # Ruby-Klassen für Web-Sockets Kommunikation (bpsw. Realtime-Chat)
-├── controllers  # Controller-Code
-| …
-├── jobs         # ActiveJob-Code für Background-Processing
-├── mailers      # ActionMailer-Code für E-Mail Versand
-├── models       # ActiveRecord-Code DB-Zugriff via ORM
-└── views        # Template-Dateien
-~~~
-{: .lang-bash }
+* Rails bietet nicht nur Werkzeuge für Request -> Response
+  * `ActionMailer`: Versand von E-Mails
+  * `ActionCable`: WebSockets-Implementierung für Realtime-Features (bspw. Chat)
+  * `ActiveJob`: Background-Processing Abstraktion
+  * `Asset-Pipeline`: Optimierung von Front-End assets
+  * …
+* Zusätzlich kommen Community-Erweiterungen,…
 
 ---
 
@@ -476,9 +441,9 @@ app
 
 ---
 
-# Bis dahin
+# Bis dahin: Lerntipps
 
 * Lynda-Video [Ruby on Rails: Essential Training](http://www.lynda.com/Ruby-Rails-tutorials/Welcome/139989/159038-4.html)
-  * Nutzt Video als Lern-Unterstützung
+* Medium-Artikel: [How I TRAINed to learn Rails: A Guide to Learning Rails in 2 months](https://medium.com/how-i-learned-ruby-rails/how-i-trained-to-learn-rails-e08c94e2a51e#.ga4s88q2r)
 
 ---
