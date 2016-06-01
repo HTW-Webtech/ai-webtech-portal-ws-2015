@@ -325,7 +325,7 @@ new_post.id # => Gibt id zurück
 # read.rb
 require 'blog_post' # Lädt die DataMapper Model-Definition
 
-post = BlogPost.find(1) # Liest BlogPost mit der ID 1
+post = BlogPost.first(1) # Liest BlogPost mit der ID 1
 # DataMapper erzeugt SQL-SELECT, lädt Datenbank-Eintrag
 # und erzeugt `post`-Objekt mit Datenkbank-Werten
 
@@ -342,7 +342,7 @@ post.id
 # update.rb
 require 'blog_post' # Lädt die DataMapper Model-Definition
 
-post = BlogPost.find(1) # Liest BlogPost mit der ID 1
+post = BlogPost.first(1) # Liest BlogPost mit der ID 1
 post.title # Gibt `title` zurück
 => "Hello World"
 
@@ -362,7 +362,7 @@ post.title # Liest title
 # delete.rb
 require 'blog_post' # Lädt die DataMapper Model-Definition
 
-post = BlogPost.find(1) # Liest BlogPost mit der ID 1
+post = BlogPost.first(1) # Liest BlogPost mit der ID 1
 
 post.destroy
 # DataMapper erzeugt SQL-DELETE und löscht Datenbank-Eintrag mit der ID
