@@ -158,22 +158,27 @@ Um die PostgreSQL-Datenbank auf Heroku zu aktivieren, muss diese als Add-On im
 ![Heroku Postgres auswählen](exercises/datamapper/heroku-addon-auswahl.png)
 
 
-### Ausgabe mehrerer Konaktanfragen
+### Aufgabe DELETE: Löschen von Kontaktanfragen via HTTP DELETE
 
-
-
-https://portal.htw-webtech.com/site/courses/ss2016/slides/06-sinatra-rubygems-bundler.html#erb-schleifen
-
-
-## Hinweise zur Implementierung von Update/Delete
-
-Das Bearbeiten und Löschen von Kontaktanfragen soll jeweils mit HTTP PATCH (Bearbeiten)
+Das Bearbeiten und Löschen von Kontaktanfragen soll jeweils mit HTTP PUT (Bearbeiten)
 und HTTP DELETE (Löschen) realisiert werden.
 
 Die wenigsten Browser unterstützen jedoch ausschließlich GET und POST, weshalb dann
-doch ein HTTP POST anstelle von PATCH und DELETE genutzt wird. Um dem Web-Server aber
-ein HTTP PATCH und HTTP DELETE vorzugaukeln bietet Sinatra einen Workaround, den `method_override`.
+doch ein HTTP POST anstelle von PUT und DELETE genutzt wird. Um dem Web-Server aber
+ein HTTP PUT und HTTP DELETE vorzugaukeln bietet Sinatra einen Workaround, den `method_override`.
 
 Mehr dazu in der [Dokumentation](http://www.sinatrarb.com/configuration.html#methodoverride---enabledisable-the-post-method-hack),
 außerdem diesem [Blogpost](http://mikeebert.tumblr.com/post/26877173686/quick-tip-using-put-and-delete-in-sinatra).
 
+
+### Aufgabe READ: Ausgabe von mehrere Kontaktanfragen
+
+Auf der Übersichtsseite `GET /admin/contact-requests.html` sollen mehrere Kontaktanfragen
+dargestellt werden. Dazu müssen Sie zunächst alle Anfragen aus der Datenbank lesen und
+anschließend diese mit einer Art Schleife in der View ausgeben.
+
+Zum Auslesen aller Datenbank-Objekte können Sie den `ContactRequest.all`-Aufruf nutzen.
+Rückgabe ist ein Array von Kontaktanfragen.
+
+Um dieses Array nun in der View ausgeben zu können, bietet Ruby die `.each`-Methode auf
+einem Array an. Mehr dazu in den Folien unter [ERB-Schleifen](https://portal.htw-webtech.com/site/courses/ss2016/slides/06-sinatra-rubygems-bundler.html#erb-schleifen).

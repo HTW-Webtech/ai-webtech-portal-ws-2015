@@ -365,9 +365,9 @@ end
 <!-- Template: views/tasks.erb -->
 <body>
   <ol>
-    <%- @tasks.each do |task| %>
+    <% @tasks.each do |task| %>
       <li><%= task %></li>
-    <%- end %>
+    <% end %>
   </ol>
 </body>
 ~~~
