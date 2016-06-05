@@ -25,6 +25,8 @@ von mir getestet und bewertet.
 Da Sie nun Ihre Lösung für die Live-Ansicht auf heroku deployen, sollten Sie daran denken Ihre
 Lösung ebenfalls noch via git zum Aris-Server hochzuladen.
 
+Nutzen Sie dazu einfach wie bisher den `git remote add` Code-Schnipsel von der Aris-Webseite.
+
 
 ## Beispiel-Implementierung
 
