@@ -9,7 +9,7 @@ des Web-Frameworks Sinatra einige dynamische Features bekommen.
 
 | Git Abgabe bis    | Punkte (Jenkins) | CodeReview ab | Punkte (CodeReview) |
 |----------------------------------------------------------------------------|
-| 29. Mai, 23:59 Uhr | 6 Punkte         | 1. Juni       | 2 Punkte |
+| 29. Mai, 23:59 Uhr | 6 Punkte         | 1. Juni       | 0-4 Punkte |
 {: .table.table-bordered }
 
 
