@@ -26,10 +26,10 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 | 5.     | 2016-05-11 | [Sinatra, Rubygems, Bundler](slides/06-sinatra-rubygems-bundler.html)          | [Sinatra](exercises/05-hello-sinatra.html)
 | 6.     | 2016-05-18 | -                                                                              | -
 | 7.     | 2016-05-25 | [Ruby: ORM, CRUD](slides/07-ruby-orm-crud.html)                                | [Hello Database](exercises/06-hello-datamapper.html)
-| 8.     | 2016-06-01 | [Rails: MVC](slides/rails-mvc.html)                                            | -
-| 9.     | 2016-06-08 | [Rails: Models & Migrations](slides/rails-ar-migrations.html)                  | [Rails Tutorial](exercises/07-rails-tutorial.html)
-| 10.    | 2016-06-15 | [Rails: Routing & Controllers](slides/rails-routing-controllers.html)          | [Rails app](exercises/08-rails-app.html)
-| 11.    | 2016-06-22 | [Rails: Views & Assets](slides/rails-views-assets.html)                        | -
+| 8.     | 2016-06-01 | [Rails: MVC](slides/08-rails-mvc.html)                                         | -
+| 9.     | 2016-06-08 | [Rails: Models & Migrations](slides/09-rails-models-migrations.html)           | -
+| 10.    | 2016-06-15 | [Rails: Routing & Controllers](slides/10-rails-routing-controllers.html)       | [Rails Tutorial](exercises/07-rails-tutorial.html)
+| 11.    | 2016-06-22 | [Rails: Views & Assets](slides/11-rails-views-assets.html)                     | -
 {: .table .table-striped }
 
 
@@ -37,11 +37,11 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 
 | Termin | Datum      | Präsentation                                                                   | Übung
 |--------|------------|--------------------------------------------------------------------------------|-------
-| 12.    | 2016-06-29 | [CSS Grundlagen](slides/css-basics.html)                                       | -
-| 13.    | 2016-07-06 | [Front-End Frameworks](slides/front-end-frameworks.html)                       | [Front End](exercises/front-end.html)
-| 14.    | 2016-07-13 | [JavaScript](slides/javascript.html)                                           | -
-| 15.    | 2016-07-20 | [jQuery & JavaScript Apps](slides/jquery-js-apps.html)                         | [JavaScript](exercises/javascript.html)
-| 16.    | 2016-07-27 | [Advanced CSS & jQuery](slides/advanced-css-jquery.html)                       | [Abschlussprojekt](exercises/final-project.html)
+| 12.    | 2016-06-29 | [CSS Grundlagen](slides/12-css-basics.html)                                    | -
+| 13.    | 2016-07-06 | [Front-End Frameworks](slides/13-front-end-frameworks.html)                    | -
+| 14.    | 2016-07-13 | [JavaScript](slides/14-javascript.html)                                        | -
+| 15.    | 2016-07-20 | [jQuery & JavaScript Apps](slides/15-jquery-js-apps.html)                      | -
+| 16.    | 2016-07-27 | [Advanced CSS & jQuery](slides/16-advanced-css-jquery.html)                    | -
 {: .table .table-striped }
 
 
