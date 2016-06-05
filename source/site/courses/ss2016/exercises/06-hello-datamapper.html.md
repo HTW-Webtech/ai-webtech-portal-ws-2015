@@ -16,8 +16,14 @@ für die Kontaktanfragen erweitert werden.
 
 ## Jenkins-Test
 
-Die Jenkins-Test sind noch in Arbeit und sind auf [github](https://github.com/HTW-Webtech/ai-webtech-functional-tests/blob/master/spec/exercises/datamapper_spec.rb)
-zu finden.
+Für diese Aufgabe werden keine automatischen Tests bereitgestellt. Die Ergebnisse werden manuell
+von mir getestet und bewertet.
+
+
+## Lösung zum Aris Server hochladen
+
+Da Sie nun Ihre Lösung für die Live-Ansicht auf heroku deployen, sollten Sie daran denken Ihre
+Lösung ebenfalls noch via git zum Aris-Server hochzuladen.
 
 
 ## Beispiel-Implementierung
@@ -148,6 +154,13 @@ Um die PostgreSQL-Datenbank auf Heroku zu aktivieren, muss diese als Add-On im
 ![Heroku Add-On Suche](exercises/datamapper/heroku-addon-suche.png)
 
 ![Heroku Postgres auswählen](exercises/datamapper/heroku-addon-auswahl.png)
+
+
+### Ausgabe mehrerer Konaktanfragen
+
+
+
+https://portal.htw-webtech.com/site/courses/ss2016/slides/06-sinatra-rubygems-bundler.html#erb-schleifen
 
 
 ## Hinweise zur Implementierung von Update/Delete
