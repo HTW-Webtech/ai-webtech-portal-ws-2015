@@ -1,4 +1,4 @@
-/* http://prismjs.com/download.html?themes=prism-twilight&languages=markup+css+clike+javascript+bash+ruby&plugins=line-numbers+autolinker+wpd+show-language+highlight-keywords+previewer-base+previewer-color */
+/* http://prismjs.com/download.html?themes=prism-twilight&languages=markup+css+clike+javascript+bash+ruby+css-extras+git+http+json+yaml&plugins=line-numbers+autolinker+wpd+show-language+highlight-keywords+previewer-base+previewer-color+command-line */
 /**
  * prism.js Twilight theme
  * Based (more or less) on the Twilight theme originally of Textmate fame.
@@ -7,7 +7,7 @@
 code[class*="language-"],
 pre[class*="language-"] {
 	color: white;
-	direction: ltr;
+	background: none;
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	text-align: left;
 	text-shadow: 0 -.1em .2em black;
@@ -42,13 +42,13 @@ pre[class*="language-"] {
 	padding: 1em;
 }
 
-pre[class*="language-"]::selection {
-	/* Safari */
+pre[class*="language-"]::-moz-selection {
+	/* Firefox */
 	background: hsl(200, 4%, 16%); /* #282A2B */
 }
 
 pre[class*="language-"]::selection {
-	/* Firefox */
+	/* Safari */
 	background: hsl(200, 4%, 16%); /* #282A2B */
 }
 
@@ -71,6 +71,7 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 	border: .13em solid hsl(0, 0%, 33%); /* #545454 */
 	box-shadow: 1px 1px .3em -.1em black inset;
 	padding: .15em .2em .05em;
+	white-space: normal;
 }
 
 .token.comment,
@@ -158,11 +159,11 @@ pre[data-line] {
 }
 
 .line-highlight {
-	background: -moz-linear-gradient(left, hsla(0, 0%, 33%, .1) 70%, hsla(0, 0%, 33%, 0)); /* #545454 */
-	background: -o-linear-gradient(left, hsla(0, 0%, 33%, .1) 70%, hsla(0, 0%, 33%, 0)); /* #545454 */
-	background: -webkit-linear-gradient(left, hsla(0, 0%, 33%, .1) 70%, hsla(0, 0%, 33%, 0)); /* #545454 */
+	background: -moz-linear-gradient(to right, hsla(0, 0%, 33%, .1) 70%, hsla(0, 0%, 33%, 0)); /* #545454 */
+	background: -o-linear-gradient(to right, hsla(0, 0%, 33%, .1) 70%, hsla(0, 0%, 33%, 0)); /* #545454 */
+	background: -webkit-linear-gradient(to right, hsla(0, 0%, 33%, .1) 70%, hsla(0, 0%, 33%, 0)); /* #545454 */
 	background: hsla(0, 0%, 33%, 0.25); /* #545454 */
-	background: linear-gradient(left, hsla(0, 0%, 33%, .1) 70%, hsla(0, 0%, 33%, 0)); /* #545454 */
+	background: linear-gradient(to right, hsla(0, 0%, 33%, .1) 70%, hsla(0, 0%, 33%, 0)); /* #545454 */
 	border-bottom: 1px dashed hsl(0, 0%, 33%); /* #545454 */
 	border-top: 1px dashed hsl(0, 0%, 33%); /* #545454 */
 	left: 0;
@@ -258,7 +259,7 @@ div.prism-show-language {
 	position: relative;
 }
 
-div.prism-show-language > div.prism-show-language-label[data-language] {
+div.prism-show-language > div.prism-show-language-label {
 	color: black;
 	background-color: #CFCFCF;
 	display: inline-block;
@@ -368,5 +369,39 @@ div.prism-show-language > div.prism-show-language-label[data-language] {
 .prism-previewer-color:before {
 	background-color: inherit;
 	background-clip: padding-box;
+}
+
+.command-line-prompt {
+	border-right: 1px solid #999;
+	display: block;
+	float: left;
+	font-size: 100%;
+	letter-spacing: -1px;
+	margin-right: 1em;
+	pointer-events: none;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.command-line-prompt > span:before {
+	color: #999;
+	content: ' ';
+	display: block;
+	padding-right: 0.8em;
+}
+
+.command-line-prompt > span[data-user]:before {
+	content: "[" attr(data-user) "@" attr(data-host) "] $";
+}
+
+.command-line-prompt > span[data-user="root"]:before {
+	content: "[" attr(data-user) "@" attr(data-host) "] #";
+}
+
+.command-line-prompt > span[data-prompt]:before {
+	content: attr(data-prompt);
 }
 
