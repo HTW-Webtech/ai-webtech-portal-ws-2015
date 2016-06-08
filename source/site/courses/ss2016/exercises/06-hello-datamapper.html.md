@@ -105,6 +105,9 @@ bundle install --without=production # Ignoriert lokal den 'dm-postgres-adapter'
 ~~~
 {: .lang-bash }
 
+Der `bundle install`-Aufruf erzeugt ggf. ein `.bundle`-Verzeichnis im Projekt-Ordner. Diesen NICHT
+in dem git-repository hinzufügen. Stattdessen sollte das Verzeichnis nach dem Installieren wieder gelöscht werden.
+
 
 ### DataMapper-Konfiguration
 
