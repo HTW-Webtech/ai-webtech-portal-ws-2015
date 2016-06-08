@@ -27,7 +27,7 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 | 6.     | 2016-05-18 | -                                                                              | -
 | 7.     | 2016-05-25 | [Ruby: ORM, CRUD](slides/07-ruby-orm-crud.html)                                | [Hello Database](exercises/06-hello-datamapper.html)
 | 8.     | 2016-06-01 | [Rails: MVC](slides/08-rails-mvc.html)                                         | -
-| 9.     | 2016-06-08 | [Rails: Command Line](slides/09-rails-cli.html), [Rails: ActiveRecord](slides/09-rails-activerecord.html) | -
+| 9.     | 2016-06-08 | [Rails: Command Line](slides/09-rails-cli.html), [Rails: ActiveRecord](slides/10-rails-activerecord.html) | -
 | 10.    | 2016-06-15 | [Rails: Routing & Controllers](slides/10-rails-routing-controllers.html)       | [Rails Tutorial](exercises/07-rails-tutorial.html)
 | 11.    | 2016-06-22 | [Rails: Views & Assets](slides/11-rails-views-assets.html)                     | -
 {: .table .table-striped }
