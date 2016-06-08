@@ -34,7 +34,7 @@ Agenda:
 # Rails installieren
 
 ~~~
-$ gem install rails -v '4.2.6'
+gem install rails -v '4.2.6'
 ~~~
 {: .lang-bash }
 
@@ -43,14 +43,14 @@ $ gem install rails -v '4.2.6'
 * Rails Version == 4.2.6
 
 ~~~
-$ rails -v
+rails -v
 => Rails 4.2.6
 ~~~
 {: .lang-bash }
 
 ~~~
 # Update für Virtualbox
-$ gem update
+gem update
 …
 ~~~
 {: .lang-bash }
@@ -65,13 +65,13 @@ $ gem update
 1. <http://localhost:3000> öffnen
 
 ~~~
-$ rails new project-name
+rails new project-name
 …
-$ cd project-name
-$ git init
-$ git add .
-$ git commit -m 'Neues Rails Projekt-Template erzeugt'
-$ rails server # Open in Browser: http://localhost:3000
+cd project-name
+git init
+git add .
+git commit -m 'Neues Rails Projekt-Template erzeugt'
+rails server # Open in Browser: http://localhost:3000
 ~~~
 {: .lang-bash }
 
