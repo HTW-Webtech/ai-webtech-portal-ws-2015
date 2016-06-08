@@ -49,11 +49,13 @@ Agenda:
 
 # Aufgaben von Models
 
-* Persistenz-Zugriff: ORM
-  * CRUD-Operationen zum Lesen/Schreiben in DB
-  * Relationen modellieren
-* Validierungen: Datenqualität sichern
+* CRUD-Operationen zum Lesen/Schreiben in DB
+* Assoziationen: Modellieren von Relationen
+* Validierungen: Sicherung von Datenqualität
 * Callbacks: Lifecycle-Management von Daten
+  * Mehr Infos hier
+  * [The Problem with Rails Callbacks](http://samuelmullen.com/2013/05/the-problem-with-rails-callbacks/)
+  * [Offizielle Rails Docs zu Callbacks](http://guides.rubyonrails.org/active_record_callbacks.html)
 
 Zunächst: Konventionen
 
@@ -98,8 +100,8 @@ product.name
 
 # Migrationen
 
-* Model-Attribute leiten sich von existierenden DB Tabellen ab
-* Erzeugung/Verwaltung von DB Tabellen mit `Migrationen`
+* SQL-Tabellen manuell verwalten oder skripten
+* Manuelle Verwaltung ist fehleranfällig, daher `Migrationen`
 * `Migration`:
   * Ruby-Skript in Projekt-Ordner unter: `db/migrate`
   * Wird mit `rails generate migration NameDerMigration` erzeugt
@@ -568,7 +570,7 @@ Person.new(name: nil).valid?        # => false
 
 # Arten von Validierungen
 
-* `numericality`: Wert muss (numerisch|größer null|gerade|ungerade) sein
+* `numericality`: Wert muss {numerisch, größer null, gerade, ungerade} sein
 * `uniqueness`: Wert soll in der DB-Tabelle einmalig vorkommen (via SQL-Check, Racy)
 * `presence`: Wert darf nicht leer sein
 * `format`: Wert muss RegExp matchen
@@ -581,7 +583,7 @@ Person.new(name: nil).valid?        # => false
 
 ~~~
 class Address < ActiveRecord::Base
-  validates :plz, numericality: true, length: 5
+  validates :plz, numericality: true, length: { is: 5 }
 end
 
 address1 = Address.new(plz: 123)
