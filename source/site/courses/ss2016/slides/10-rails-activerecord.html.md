@@ -454,8 +454,8 @@ customer.orders.create(description: 'Neue Bestellung')
 
 # Oder Objekt wird erzeugt und via `push` oder `<<` der Assoziation hinzugefügt
 new_order = Order.create(description: 'Neue Bestellung')
-customer.order.push(new_orders)
-customer.order << new_orders
+customer.orders.push(new_orders)
+customer.orders << new_orders
 ~~~
 {: .lang-ruby }
 
