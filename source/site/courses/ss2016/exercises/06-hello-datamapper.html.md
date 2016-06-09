@@ -161,17 +161,34 @@ Um die PostgreSQL-Datenbank auf Heroku zu aktivieren, muss diese als Add-On im
 ![Heroku Postgres auswählen](exercises/datamapper/heroku-addon-auswahl.png)
 
 
-### Aufgabe DELETE: Löschen von Kontaktanfragen via HTTP DELETE
+### Aufgabe DELETE/UPDATE
 
-Das Bearbeiten und Löschen von Kontaktanfragen soll jeweils mit HTTP PUT (Bearbeiten)
-und HTTP DELETE (Löschen) realisiert werden.
+Das Löschen/Bearbeiten von Kontaktanfragen via HTTP DELETE bzw. HTTP PUT unterstützen die wenigsten Browser.
 
-Die wenigsten Browser unterstützen jedoch ausschließlich GET und POST, weshalb dann
-doch ein HTTP POST anstelle von PUT und DELETE genutzt wird. Um dem Web-Server aber
-ein HTTP PUT und HTTP DELETE vorzugaukeln bietet Sinatra einen Workaround, den `method_override`.
+Diese haben i.d.R. lediglich HTTP GET und HTTP POST implementiert, bspw. HTTP POST für den Versand eines
+HTML Formulars.
 
-Mehr dazu in der [Dokumentation](http://www.sinatrarb.com/configuration.html#methodoverride---enabledisable-the-post-method-hack),
-außerdem diesem [Blogpost](http://mikeebert.tumblr.com/post/26877173686/quick-tip-using-put-and-delete-in-sinatra).
+Um die Implementierung auf Server-Seite jedoch mit den richtigen HTTP Verben, also DELETE und PUT, zu realisieren
+bieten viele Web-Frameworks dem Browser/Client einen Workaround einen HTTP POST semantisch als DELETE, PUT, PATCH, …
+auszuzeichnen.
+
+Auch Sinatra bietet einen solchen Workaround:
+
+1. Dieser muss in der App zunächst aktiviert werden, mehr hier in der [Dokumentation](http://www.sinatrarb.com/configuration.html#methodoverride---enabledisable-the-post-method-hack)
+2. HTML Formulare beschreiben das eigentlich gemeinte HTTP Verb mit einer `_method`-Variable.
+
+~~~
+<form method="post" action="/submit">
+  <input type="hidden" name="_method" value="PUT">
+  <!--
+    Das Formular wird zwar als HTTP POST versendet, der Server erkennt jedoch, dass eigentlich ein HTTP PUT
+    gemeint ist und interpretiert die HTTP Anfrage als solchen. Dasselbe gilt für andere Methoden wie bspw. DELETE
+  -->
+</form>
+~~~
+{: .lang-html }
+
+Mehr Details zu dem Mechanismus in diesem [Blogpost](http://mikeebert.tumblr.com/post/26877173686/quick-tip-using-put-and-delete-in-sinatra).
 
 
 ### Aufgabe READ: Ausgabe von mehrere Kontaktanfragen
