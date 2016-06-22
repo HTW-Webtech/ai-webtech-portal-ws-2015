@@ -155,13 +155,13 @@ edit_blog GET    /blogs/:id/edit    blogs#edit
 
 # Semantik: GET /blogs/new
 
-* Gib ein HTML-Formar zur Erstellung eines Blogs zurück
+* Gib ein HTML-Formular zur Erstellung eines Blogs zurück
 
 ---
 
 # Semantik: GET /blogs/12/edit
 
-* Gib ein HTML-Formar zur Bearbeitung des Blogs mit der ID 12 zurück
+* Gib ein HTML-Formular zur Bearbeitung des Blogs mit der ID 12 zurück
 
 ---
 
@@ -193,7 +193,7 @@ edit_blog GET    /blogs/:id/edit    blogs#edit
 * CRUD reicht i.d.R. nicht aus um Funktionalität abzubilden, Beispiel:
 
   Ein Blog soll nicht direkt veröffentlicht werden, da der Inhalt meist häufig überarbeit werden soll.
-  Es soll einen Toogle-Mechanismus geben der den Blog aktiv/inaktiv schaltet.
+  Es soll einen Toogle-Mechanismus geben der den Blog öffentlich/nicht-öffentlich schaltet.
 
 ---
 
@@ -204,7 +204,7 @@ edit_blog GET    /blogs/:id/edit    blogs#edit
 Rails.application.routes.draw do
   resources :blogs do
     member do
-      post 'toggle_activation'
+      post 'toggle_publish'
     end
   end
 end
@@ -212,21 +212,21 @@ end
 {: .lang-ruby }
 
 ~~~
-                Prefix Verb   URI Pattern                            Controller#Action
-toggle_activation_blog POST   /blogs/:id/toggle_activation(.:format) blogs#toggle_activation
-                 blogs GET    /blogs(.:format)                       blogs#index
-                       POST   /blogs(.:format)                       blogs#create
-              new_blog GET    /blogs/new(.:format)                   blogs#new
-             edit_blog GET    /blogs/:id/edit(.:format)              blogs#edit
-                  blog GET    /blogs/:id(.:format)                   blogs#show
-                       PATCH  /blogs/:id(.:format)                   blogs#update
-                       PUT    /blogs/:id(.:format)                   blogs#update
-                       DELETE /blogs/:id(.:format)                   blogs#destroy
+        Prefix Verb   URI Pattern                            Controller#Action
+toggle_publish POST   /blogs/:id/toggle_activation(.:format) blogs#toggle_publish
+         blogs GET    /blogs(.:format)                       blogs#index
+               POST   /blogs(.:format)                       blogs#create
+      new_blog GET    /blogs/new(.:format)                   blogs#new
+     edit_blog GET    /blogs/:id/edit(.:format)              blogs#edit
+          blog GET    /blogs/:id(.:format)                   blogs#show
+               PATCH  /blogs/:id(.:format)                   blogs#update
+               PUT    /blogs/:id(.:format)                   blogs#update
+               DELETE /blogs/:id(.:format)                   blogs#destroy
 ~~~
 {: .lang-ruby }
 
-* URI Pattern: `POST /blogs/:id/toggle_activation`
-* Controller#Action: `BlogsController` => `toggle_activation`-Methode
+* URI Pattern: `POST /blogs/:id/toggle_publish`
+* Controller#Action: `BlogsController` => `toggle_publish`-Methode
 
 ---
 
@@ -237,14 +237,14 @@ toggle_activation_blog POST   /blogs/:id/toggle_activation(.:format) blogs#toggl
 Rails.application.routes.draw do
   resources :blogs do
     member do
-      post 'toggle_activation'
+      post 'toggle_publish'
     end
   end
 end
 ~~~
 
-* URI Pattern: `POST /blogs/:id/toggle_activation`
-* Controller#Action: `BlogsController` => `toggle_activation`-Methode
+* URI Pattern: `POST /blogs/:id/toggle_publish`
+* Controller#Action: `BlogsController` => `toggle_publish`-Methode
 * Weiter verschaltete Routen
 
 ---
@@ -254,7 +254,7 @@ end
 * Häufig stehen Ressourcen in Beziehung zueinander
 * Bspw. in Übung `Blogs` <-> `Kommentare`
 * Diese Beziehung kann über das Routing in URLs ausgedrückt werden
-* Dabei werden URLs verschachtelt/genested
+  * Dazu werden URLs verschachtelt
 
 ~~~
 # config/routes.rb
@@ -300,10 +300,10 @@ $ rake routes
 * Beispiel Blogs:
 
 ~~~
-   Prefix Verb   URI Pattern      Controller#Action
-    blogs GET    /blogs           blogs#index
-          POST   /blogs           blogs#create
-edit_blog GET    /blogs/:id/edit  blogs#edit
+   Prefix Verb  URI Pattern      Controller#Action
+    blogs GET   /blogs           blogs#index
+          POST  /blogs           blogs#create
+edit_blog GET   /blogs/:id/edit  blogs#edit
 ~~~
 
 * Prefix: Bietet eine `_path` und eine `_url`-Methode
@@ -311,7 +311,7 @@ edit_blog GET    /blogs/:id/edit  blogs#edit
   * `_url`: URL-Pfad mit Domain
   * `blogs_path` => `/blogs`
   * `blogs_url` => `http://www.example.com/blogs`
-  * `edit_blogs_path(id: 12)` => `/blogs/12/edit`
+  * `edit_blog_path(id: 12)` => `/blogs/12/edit`
 
 ---
 
@@ -328,7 +328,7 @@ edit_blog GET    /blogs/:id/edit  blogs#edit
 {: .lang-bash }
 
 * `blog_comments_path(blog_id: 1)` => `/blogs/1/comments`
-* `new_blog_comment_url` => `http://www.example.com/blogs/1/comments/new`
+* `new_blog_comment_url(blog_id: 1)` => `http://www.example.com/blogs/1/comments/new`
 * Weiter: Sonstige Routing Features
 
 ---
@@ -394,7 +394,7 @@ end
 {: .lang-ruby }
 
 ~~~
-# app/views/blogs/index.html.rb
+# app/views/blogs/index.html.erb
 <h1><%= @greeting %></h1>
 ~~~
 {: .lang-html }
@@ -566,14 +566,16 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     if @blog.save
-      # Hier bekommt der Browser einen Redirect zu `blogs_path(@blog)`.
-      # `blogs_path(@blog)` erzeugt folgenden String: "/blogs/123",
-      # wobei 123 die ID von @blog ist.
-      redirect blogs_path(@blog)
+      redirect blog_path(@blog)
     else
-      # `render :edit` bedeutet dasselbe wie `render template: 'blogs/edit'`
-      render :edit
+      render :edit # `render :edit` bedeutet dasselbe wie `render template: 'blogs/edit'`
     end
+  end
+
+  private
+
+  def blog_params
+    params.require(:blog).permit(:title, :description)
   end
 end
 ~~~
