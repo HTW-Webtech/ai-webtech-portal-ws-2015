@@ -1,50 +1,53 @@
 # Rails Tutorial
 
-Nachdem du nun alle relevanten Front End Technologien gesehen hast, geht es jetzt mit Ruby on Rails in die
-Back End Welt. Mit JavaScript, HTML und CSS können heutzutage beeindruckende Applikationen entwickelt werden,
-aber die Persistenz und Aufbereitung von Nutzerdaten findet meist noch auf dem Server statt.
+Nachdem du nun die Eckpfeiler (Models, Views und Controller) des Rails Framework kennengelernt hast,
+kannst du gleich deine 1. Rails-Applikation realisieren.
 
-Ziel dieser Übung ist ein triviales Blog- und Kommentar-System nach dem offiziellen
-["Getting Started"-Tutorial](http://guides.rubyonrails.org/getting_started.html) auf <http://guides.rubyonrails.org/>
-zu implementieren und damit die ersten praktischen Erfahrungen mit dem Rails Framework zu sammeln.
+Ziel dieser Übung ist das offizielle ["Getting Started"-Tutorial](http://guides.rubyonrails.org/getting_started.html)
+von Rails abzuschließen.
+
+Die Rails-Applikation soll abschließend auf Heroku deployed werden, weshalb deine ersten Arbeitsschritte
+von den Angaben im Tutorial abweichen, mehr dazu unten im Briefing-Aschnitt.
 
 
 ## Allgemeines
 
 | Git Abgabe bis      | Punkte (Jenkins) | CodeReview ab | Punkte (CodeReview) |
 |------------------------------------------------------------------------------|
-| 26. Juni, 23:59 Uhr | 0-2 Punkte       | -             | -                   |
+| 3. Juli, 23:59 Uhr  | 0-2 Punkte       | -             | -                   |
 {: .table.table-bordered }
 
 
 ## Jenkins Tests zu der Aufgabe
 
-Der Rails Blog wird ebenfalls via Jenkins getestet. Die Spec befindet sich auf
-[github.com](https://github.com/HTW-Webtech/ai-webtech-functional-tests/blob/master/spec/exercises/exercise_4_spec.rb).
-
-*Achtung*: Damit der Test auf den Passwort-geschützten Bereich zugreifen kann, sollten User und Passwort für
-die Basic Authorization admin/admin sein.
+Deine Rails-Applikation wird wieder via Jenkins getestet. Die Spec befindet sich auf
+[github.com](https://github.com/HTW-Webtech/ai-webtech-functional-tests/blob/master/spec/exercises/rails_tutorial_spec.rb).
 
 
 ## Briefing
 
+In dem ["Getting Started"-Tutorial](http://guides.rubyonrails.org/getting_started.html)
+fehlen einige Arbeitsschritte die im Folgenden beschrieben werden.
+
+
 ### PostgreSQL Server installieren
 
-Um in der Virtualbox in einer der Produktion möglichst ähnlichen Umgebung zu arbeiten, muss auf der Virtualbox
-zunächst ein PostgreSQL-Server installiert werden:
+Es empfiehlt sich bei der Entwicklung eine der Produktion möglichst ähnliche
+Arbeitsumgebung herzustellen. Da die Applikation auf Heroku einen PostgreSQL-Server nutzen
+wird, soll zunächst ein solcher installiert werden:
 
 Im Terminal in der Virtualbox die folgenden Befehle ausführen:
 ~~~
 sudo apt-get update              # Aktualisiert den Index von apt
 sudo apt-get install postgresql  # Installiert den postgreSQL Server
 createdb                         # Erzeugt eine Datenbank
-psql                             # Öffnet eine postgres-shell, wenn alles funktioniert hat
+psql                             # Zugriff auf den Sever testen: Wenn alles funktioniert hat öffnet sich eine Shell
 \q                               # Schließt die postgres-shell wieder
 ~~~
-{: lang-bash }
+{: .lang-bash }
 
 
-### Rails-App erstellen
+### Rails-Projekt erzeugen
 
 Rails benötigt für den Zugriff auf den PostgreSQL-Server einige Konfigurationsdateien, die
 mit dem folgenden Befehl automatisch angelegt werden.
@@ -54,18 +57,66 @@ Im Terminal:
 cd Workspace            # In das Workspace-Verzeichnis wechseln
 rails -v                # Prüfen, dass Rails in der Version 4.2.x verfügbar ist
 rails new Uebung-7 --database=postgresql
-…
+~~~
+
+Rails hat nun eine Konfigurationsdatei für den Zugriff auf die PostgreSQL-DB angelegt. Diese
+befindet sich in dem Projekt in dem Pfad: `config/database.yml`.
+
+Wichtig ist, dass in der `database.yml` die folgenden Einträge vorhanden sind:
+
+~~~
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: Aufabe7_development
+
+test:
+  <<: *default
+  database: Aufabe7_test
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+~~~
+{: .lang-yaml }
+
+Für die lokale Entwicklung wird eine Datenbank mit dem Namen `Aufgabe7_development` konfiguriert,
+die Test-Datenbank kann vorerst ignoriert werden und für Produktion stellt Heroku eine Umgebungsvariable
+mit einer `DATABASE_URL` bereit. Wie diese DATABASE_URL funktioniert erfährst du [hier](http://www.jguru.com/faq/view.jsp?EID=690).
+
+Um die Verbindung zur DB zu testen, führe folgende Befehle aus:
+
+~~~
+rake db:create             # Erzeugt deine lokale Datenbank
+rails server               # Startet den Rails Server für deine Applikation
+open http://localhost:3000 # Öffnet die Rails-Applikation in einen Browser
+~~~
+{: .lang-bash }
+
+Wenn dies funktioner hat, kannst du alle Änderungen via git speichern.
+
+~~~
 git init
 git add .
 git commit -m "Hello World"
 ~~~
-{: lang-bash }
+{: .lang-bash }
 
 
 ### Heroku Deployment
 
-Heroku bietet mit dem `rails_12factor`-gemein paar Optimierungen für das Rails-Deployment. Um diese
-zu nutzen, müssen die folgenden drei Zeilen im `Gemile` eingetragen werden.
+Nun wird noch eine Heroku-App mit PostgreSQL-DB benötigt. Diese Schritte sind mit denen aus der
+DataMapper-Aufgabe identisch. Du brauchst eine neue Heroku-App und fügst dieser als Add-On
+eine Postgres-DB hinzu.
+
+Zusätzlich zur Datenbank sollte für das Deployment von Rails-Applikationen auf Heroku
+das `rails_12factor`-gem für die Produktions-Umgebung konfiguriert werden.
+
+Dazu muss lediglich im `Gemfile` folgender Eintrag erzeugt werden:
 
 ~~~
 # Gemfile
@@ -73,18 +124,23 @@ group :production do
   gem 'rails_12factor'
 end
 ~~~
-{: lang-ruby }
-
+{: .lang-ruby }
 
 Anschließend müssen diese Änderungen noch mit Bundler in das Gemfile.lock übertragen werden.
 
 ~~~
-bundle install
+bundle install    # Aktualisiert das Gemfile.lock nach einer Änderung im Gemfile
 git add .
 git commit -m 'Add rails_12factor gem'
 git push heroku master
+heroku open       # Öffnet die Heroku-App.
 ~~~
-{: lang-bash }
+{: .lang-bash }
+
+
+Anschließend sollte die folgende Seite sichtbar sein:
+
+![Heroku Rails Startseite](exercises/rails-tutorial/heroku-first-page.png)
 
 
 Von hier an kann dem Rails-Tutorial gefolgt werden. Hinweis: Um Ihre Änderungen effektiv debuggen zu können,
@@ -92,7 +148,7 @@ sollten Sie das Tutorial zunächst auf Ihrem lokalen Computer erfolgreich abschl
 alle Änderungen auch zum Heroku-Server hochladen.
 
 
-### Rails Tutorial
+## Rails Tutorial
 
 Grundlage ist die offizielle ["Getting Started"-Anleitung](http://guides.rubyonrails.org/getting_started.html). Zu den zentralen Features gehört:
 
@@ -108,11 +164,22 @@ Grundlage ist die offizielle ["Getting Started"-Anleitung](http://guides.rubyonr
 In dem Rails-Tutorial wird im Abschnitt "Security" ein Passwortschutz via "Basic Authorization" eingerichtet.
 Verwenden Sie für den Passwortschutz den User admin und das Passwort admin, also:
 
-~~~ruby
+~~~
 http_basic_authenticate_with name: "admin", password: "admin"
 ~~~
 
+### Meta Tag mit data-app-slug
 
+Wie bei den bisherigen Apps soll auch die Rails-Applikation den folgenden `<meta>`-Tag enthalten
+um die Applikation eindeutig identifizieren zu können:
+
+~~~
+<meta data-app-slug="app-id-aus-dem-aris">
+~~~
+{: .lang-html }
+
+Damit dieser Meta-Tag auf allen Seiten der Rails-Applikation verfügbar ist, kann er in das Applikations-Layout
+eingetragen werden `app/views/layouts/application.html.erb`.
 
 
 # Lern-Bereich
