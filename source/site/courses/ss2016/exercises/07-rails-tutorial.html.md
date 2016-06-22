@@ -37,6 +37,7 @@ Arbeitsumgebung herzustellen. Da die Applikation auf Heroku einen PostgreSQL-Ser
 wird, soll zunächst ein solcher installiert werden:
 
 Im Terminal in der Virtualbox die folgenden Befehle ausführen:
+
 ~~~
 sudo apt-get update              # Aktualisiert den Index von apt
 sudo apt-get install postgresql  # Installiert den postgreSQL Server
@@ -53,11 +54,13 @@ Rails benötigt für den Zugriff auf den PostgreSQL-Server einige Konfigurations
 mit dem folgenden Befehl automatisch angelegt werden.
 
 Im Terminal:
+
 ~~~
 cd Workspace            # In das Workspace-Verzeichnis wechseln
 rails -v                # Prüfen, dass Rails in der Version 4.2.x verfügbar ist
 rails new Uebung-7 --database=postgresql
 ~~~
+{: .lang-bash }
 
 Rails hat nun eine Konfigurationsdatei für den Zugriff auf die PostgreSQL-DB angelegt. Diese
 befindet sich in dem Projekt in dem Pfad: `config/database.yml`.
@@ -167,6 +170,7 @@ Verwenden Sie für den Passwortschutz den User admin und das Passwort admin, als
 ~~~
 http_basic_authenticate_with name: "admin", password: "admin"
 ~~~
+{: .lang-ruby }
 
 ### Meta Tag mit data-app-slug
 
