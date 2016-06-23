@@ -58,38 +58,26 @@ Im Terminal:
 ~~~
 cd Workspace            # In das Workspace-Verzeichnis wechseln
 rails -v                # Prüfen, dass Rails in der Version 4.2.x verfügbar ist
-rails new Uebung-7 --database=postgresql
+rails new Aufgabe7 --database=postgresql
 ~~~
 {: .lang-bash }
 
 Rails hat nun eine Konfigurationsdatei für den Zugriff auf die PostgreSQL-DB angelegt. Diese
 befindet sich in dem Projekt in dem Pfad: `config/database.yml`.
 
-Wichtig ist, dass in der `database.yml` die folgenden Einträge vorhanden sind:
+Wichtig ist, dass in der `database.yml` der Eintrag für `production` den folgenden Wert hat:
 
 ~~~
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-
-development:
-  <<: *default
-  database: Aufabe7_development
-
-test:
-  <<: *default
-  database: Aufabe7_test
-
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
 ~~~
 {: .lang-yaml }
 
-Für die lokale Entwicklung wird eine Datenbank mit dem Namen `Aufgabe7_development` konfiguriert,
-die Test-Datenbank kann vorerst ignoriert werden und für Produktion stellt Heroku eine Umgebungsvariable
-mit einer `DATABASE_URL` bereit. Wie diese DATABASE_URL funktioniert erfährst du [hier](http://www.jguru.com/faq/view.jsp?EID=690).
+Die App nutzt eine Umgebungsvariable `DATABASE_URL`. Wie diese funktioniert erfährst du [hier](http://www.jguru.com/faq/view.jsp?EID=690).
+
+
+#### PostgreSQL Verbindung testen
 
 Um die Verbindung zur DB zu testen, führe folgende Befehle aus:
 
