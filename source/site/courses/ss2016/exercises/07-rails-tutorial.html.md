@@ -139,6 +139,21 @@ sollten Sie das Tutorial zunächst auf Ihrem lokalen Computer erfolgreich abschl
 alle Änderungen auch zum Heroku-Server hochladen.
 
 
+### Heroku DB migrieren
+
+Im Verlauf des Tutorials wurde mehrfach der Befehl `rake db:migrate` ausgeführt. Dieser sorgt dafür, dass alle
+Migrations-Skripte in der konfigurierten Datenbank ausgeführt werden.
+
+Dies muss auch auf dem Heroku-Server manuell angestoßen werden. Der Befehl dafür ist:
+
+~~~
+heroku run rake db:migrate
+~~~
+{: .lang-bash }
+
+![DB]: Datenbank
+
+
 ## Rails Tutorial
 
 Grundlage ist die offizielle ["Getting Started"-Anleitung](http://guides.rubyonrails.org/getting_started.html). Zu den zentralen Features gehört:
