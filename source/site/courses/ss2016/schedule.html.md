@@ -37,7 +37,7 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 
 | Termin | Datum      | Präsentation                                                                                            | Übung
 |--------|------------|---------------------------------------------------------------------------------------------------------|-------
-| 12.    | 2016-06-29 | [Rails: Views & Assets](slides/12-rails-views-assets.html), [CSS Grundlagen](slides/12-css-basics.html) | [Abschlussprojekt](exercises/08-abschlussprojekt.html)
+| 12.    | 2016-06-29 | [Rails: Views & Assets](slides/12-rails-views-assets.html), [CSS Grundlagen](slides/13-css-basics.html) | [Abschlussprojekt](exercises/08-abschlussprojekt.html)
 | 13.    | 2016-07-06 | [UI Frameworks](slides/13-ui-frameworks.html)                                                           | -
 | 14.    | 2016-07-13 | [JavaScript](slides/14-javascript.html), [jQuery](slides/15-jquery.html)                                | -
 | 15.    | 2016-07-20 | -                                                                                                       | -
