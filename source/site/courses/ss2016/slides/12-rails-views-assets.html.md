@@ -19,8 +19,8 @@
 * Alle drei sind Views:
   * HTML-Code mit Ruby für serverseitige Dynamik im HTML
 * Layout + Template
-  * Generieren zusammen die HTML-Seite
-  * Layout, Template können Partials verwenden
+  * Controller wählt Layout und Template
+  * Layout, Template nutzen bei Bedarf Partials
 * Partial
   * Fasst redundanten HTML + Ruby zusammen
 
@@ -40,15 +40,24 @@
 
 # Template-Rendering
 
-* Controller wählt u.a. Template für HTTP-Response aus
-* Genauer: Layout, Template und HTTP-Header
-
 ~~~
 # app/controllers/projects_controller.rb
 class ProjectsController < ApplicationController
   def show
     render # Layout:   app/views/application.html.erb
            # Template: app/views/projects/show.html.erb
+  end
+end
+~~~
+{: .lang-ruby }
+
+~~~
+# app/controllers/projects_controller.rb
+class ProjectsController < ApplicationController
+  def show
+    render template: 'test', layout: 'custom'
+    # Layout-Pfad:   app/layouts/custom.html.erb
+    # Template-Pfad: app/views/projects/test.html.erb
   end
 end
 ~~~
@@ -94,10 +103,6 @@ end
 
 * HTML-Bausteine die im Layout eingesetzt werden
 * Standard-Template: Dateipfad zum Template aus Controller-Action abgeleitet
-
----
-
-# Template Beispiel
 
 ~~~
 <!--
