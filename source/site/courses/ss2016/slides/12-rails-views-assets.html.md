@@ -383,6 +383,14 @@ end
 
 ---
 
+# Custom Helper schreiben
+
+* Tipps zum Schreiben von Helper-Code:
+  * [Custom View Helpers in Rails 4](http://www.rails-dev.com/custom-view-helpers-in-rails-4)
+  * [Understanding and extending Rails form helpers](http://mixandgo.com/blog/understanding-and-extending-rails-form-helpers)
+
+---
+
 # JavaScript/CSS einbinden
 
 * Eigene JavaScripts in `app/assets/javascripts` ablegen
