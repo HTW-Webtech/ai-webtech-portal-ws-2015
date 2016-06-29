@@ -14,7 +14,7 @@ von den Angaben im Tutorial abweichen, mehr dazu unten im Briefing-Aschnitt.
 
 | Git Abgabe bis      | Punkte (Jenkins) | CodeReview ab | Punkte (CodeReview) |
 |------------------------------------------------------------------------------|
-| 3. Juli, 23:59 Uhr  | 0-2 Punkte       | -             | -                   |
+| 3. Juli, 23:59 Uhr  | 0-2 Punkte       | 6. Juli       | 0-6 Punkte          |
 {: .table.table-bordered }
 
 
