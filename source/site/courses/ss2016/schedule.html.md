@@ -48,16 +48,10 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 
 Nach Interesse stehen die folgenden Themen zur Auswahl:
 
+* [React Intro](slides/rect-intro.html)
 * [Web-Security](slides/web-security.html)
 * [Caching all the things](slides/caching.html)
 * [Deployment von Rails Applikationen](slides/rails-deployment.html)
-
-
-| Termin | Datum      | Präsentation                                                                   | Übung
-|--------|------------|--------------------------------------------------------------------------------|-------
-| 17.    | 2016-07-27 | ? | -
-| 18.    | 2016-08-03 | ? | -
-{: .table .table-striped }
 
 
 *[HTTP]: Hypertext Transfer Protocol
