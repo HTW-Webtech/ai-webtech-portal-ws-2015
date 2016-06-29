@@ -69,12 +69,15 @@ Beziehen sich auf beliebige Attribute von HTML-Elementen
 * Eine bereits besuchte Webseite/Link ist :visited
 * Beispiel für fast alle Elemente: :hover
 * Zustand kann auch Ordnung bedeuten. Bspw. :last-child oder :first-child
-* = code_block
-  | <ul>
-      <li>Erster</li> // li:first-child
-      <li>Nix</li>
-      <li>Letzter</li> // li:last-child
-    </ul>
+
+~~~
+<ul>
+  <li>Erster</li> // li:first-child
+  <li>Nix</li>
+  <li>Letzter</li> // li:last-child
+</ul>
+~~~
+{: .lang-html }
 
 ---
 
@@ -117,12 +120,10 @@ Quelle: Beier (<a href="https://beier.f4.htw-berlin.de/presentations/css/">Unter
 
 * HTML ist als Baum-Struktur beschrieben
 * Manche CSS-Regeln werden von Eltern auf Kinder vererbt
-li.fragment
-  | Sortierung
-  ol
-    * Quelle und Wichtigkeit: Author > Browser (!important)
-    * Spezifizität
-    * Reihenfolge im Stylesheet (Last man standing)
+* Sortierung
+  1. Quelle und Wichtigkeit: Author > Browser (!important)
+  1. Spezifizität
+  1. Reihenfolge im Stylesheet (Last man standing)
 
 ---
 
@@ -133,8 +134,7 @@ li.fragment
   * direction
   * font-size
   * text-align
-
-*Non-Inherited Properties
+* Non-Inherited Properties
   * background-color
   * border
 
