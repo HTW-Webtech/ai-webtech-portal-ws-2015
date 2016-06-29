@@ -1,0 +1,267 @@
+
+# Cascading Stylesheets
+
+---
+
+# Agenda
+
+* CSS Syntax
+* CSS Selektor Typen
+
+---
+
+# CSS
+
+* Cascading Stylesheets
+* HTML beschreibt den Inhalt eines Dokumentes
+* CSS beschreibt die Präsentation eines HTML/XML-Dokuments
+* Beispiel: [CSS Zengarden](http://www.csszengarden.com)
+
+---
+
+# CSS Selektoren
+
+![CSS Selector](slides/css-basics/selector.png)
+
+* Selektor: Addressiert HTML Elemente
+* CSS-Regel: Modifiziert Darstellung der adressierten Elemente
+
+---
+
+# Einfaches Beispiel
+
+<%= cssdeck_snippet 'cogy1xxq' %>
+
+---
+
+# Syntax: CSS Selektor-Typen
+
+* Problem: Wie adressiere ich die Elemente meines Dokuments? Lösung: Selektoren
+* <a href="http://www.w3.org/TR/css3-selectors/#type-selectors">(Element) Type-Selektoren</a>: h1, p, li
+* ⚠️ <a href="http://www.w3.org/TR/css3-selectors/#id-selectors">ID-Selektoren</a>: #navigation, #footer, #submit-order
+* <a href="http://www.w3.org/TR/css3-selectors/#class-html">Class-Selektoren</a>: .logo, .button, .call-to-action
+* <a href="http://www.w3.org/TR/css3-selectors/#pseudo-classes">Pseudo-Class-Selektoren</a>: :hover, :active, :first-child
+* <a href="http://www.w3.org/TR/css3-selectors/#attribute-selectors">Attribute-Selektoren</a>: [target=_blank], [href^=mailto], input[type=date]
+* <a href="http://www.w3.org/TR/css3-selectors/#pseudo-elements">Pseudo-Element-Selektoren</a>: ::first-letter, ::first-line
+* <a href="http://www.w3.org/TR/css3-selectors/#combinators">Kombinations-Selektoren</a>: nav a, nav > a, h1 + p
+
+---
+
+# Class-Selektoren
+
+Beziehen sich auf das HTML-Attribut class
+
+<%= cssdeck_snippet '0t9yxb6k' %>
+
+---
+
+# Attribut-Selektoren
+
+Beziehen sich auf beliebige Attribute von HTML-Elementen
+
+<%= cssdeck_snippet 'uyxabcye' %>
+
+---
+
+# Pseudo-Class-Selektoren
+
+* Beziehen sich auf den Zustand eines HTML-Elements. Bspw. Links:
+* Eine bereits besuchte Webseite/Link ist :visited
+* Beispiel für fast alle Elemente: :hover
+* Zustand kann auch Ordnung bedeuten. Bspw. :last-child oder :first-child
+* = code_block
+  | <ul>
+      <li>Erster</li> // li:first-child
+      <li>Nix</li>
+      <li>Letzter</li> // li:last-child
+    </ul>
+
+---
+
+# Pseudo-Class-Selektoren #2
+
+<%= cssdeck_snippet 'on0cclrr' %>
+
+---
+
+# Pseudo-Element-Selektoren
+
+* Ähnlich wie :last-child addressieren Sie Ordnung, bspw. ::first-letter
+* Besonders jedoch: mit content kann ein Dokument manipuliert werden
+
+---
+
+# Pseudo-Element-Selektoren #2
+
+<%= cssdeck_snippet 'xtqwae6l' %>
+
+---
+
+# Kombinations-Selektoren
+
+* Ebenfalls ähnlich wie :last-child, aber komplexere Möglichkeiten
+* Man kann direkte oder indirekte Nachbarn adressieren
+* Sowie direkte oder indirekte Kinder
+
+---
+
+# Kombinations-Selektoren #2
+
+<%= cssdeck_snippet 'qf5aqlnv' %>
+
+Quelle: Beier (<a href="https://beier.f4.htw-berlin.de/presentations/css/">Unterlagen: Webentwicklung</a>)
+
+---
+
+# Cascading: Vererbung von Eigenschaften
+
+* HTML ist als Baum-Struktur beschrieben
+* Manche CSS-Regeln werden von Eltern auf Kinder vererbt
+li.fragment
+  | Sortierung
+  ol
+    * Quelle und Wichtigkeit: Author > Browser (!important)
+    * Spezifizität
+    * Reihenfolge im Stylesheet (Last man standing)
+
+---
+
+# Cascading: Vererbung
+
+* [Inherited Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance)
+  * color
+  * direction
+  * font-size
+  * text-align
+
+*Non-Inherited Properties
+  * background-color
+  * border
+
+* Übersicht auf <a href="http://www.w3.org/TR/CSS21/propidx.html">w3.org</a>
+
+---
+
+# Cascading: Vererbung Beispiel
+
+<%= cssdeck_snippet 'ksnrvtnq' %>
+
+---
+
+# Cascading: Spezifizität
+
+* Mächtiges (und komplexes) Regelwerk für die Priorisierung von Regeln
+* Ordnung
+  * Je spezifischer ein Selektor, desto höher seine Präzedenz
+* Spezifizität erhöhen durch bspw.
+  * Mehrere CSS-Klassen pro HTML-Element
+  * Kombination von Selektoren
+  * `!important`-Anweisung
+* [Details zur Berechnung der Spezifizität](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
+
+---
+
+# Cascading: Spezifizität Beispiel #2
+
+<%= cssdeck_snippet 'pvecsyea' %>
+
+---
+
+# Reihenfolge
+
+Cascading: Reihenfolge
+
+<%= cssdeck_snippet 'r8l4rrsj' %>
+
+---
+
+# CSS mit HTML verknüpfen
+
+* Zusammenführung von CSS + HTML auf verschiedene Arten
+* Inline vs. Extern (include via @import oder link-Tag)
+* Normalfall: CSS als externe Datei via `<link>`-Tag eingebunden
+  * Wiederverwendbarkeit von CSS
+  * Separates Browser-Caching für HTML und CSS
+* Wie immer… gibt es auch hier Ausnahmen…
+
+---
+
+# CSS via link-Tag
+
+~~~
+<!-- index.html -->
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/relative/path/to/host/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="http://cdn.example.com/style.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <p>Text</p>
+  </body>
+</html>
+~~~
+{: .lang-html }
+
+---
+
+# CSS include: Media Types
+
+* Unterstützung für Ausgabe-Medien <a href="http://www.w3.org/TR/CSS21/media.html">(W3C: Media Types)</a>, u.a.:
+  * handheld: Bildschirm auf mobilen Endgeräten (⚡ <a href="http://meiert.com/en/blog/20090630/handheld-media-type-rip/">Kein Support</a>)
+  * speech: "Intended for speech synthesizers."
+  * … einige mehr die man selten/nie sieht: braille, tv, tty, projection, …
+  * print: Druckvorschau, Druck
+  * screen: Quasi-Standard
+
+~~~
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" media="screen, print, tv" />
+~~~
+{: .lang-html }
+
+---
+
+# Pause: Ein bisschen Geschichte
+
+* CSS definiert heutzutage eine Fülle an Features. Wie kam es dazu?
+* <a href="http://www.w3.org/People/howcome/p/cascade.html">1994: Proposal von Håkon W Lie</a>
+* <a href="http://www.w3.org/Style/LieBos2e/history/Overview.html">1996: CSS Level 1 veröffentlicht</a>
+* <a href="http://www.w3.org/Style/LieBos2e/history/Overview.html">1997: Gründing einer CSS Working-Group innerhalb W3C</a>
+* <a href="http://www.w3.org/standards/history/CSS2">1998: CSS Level 2 veröffentlicht</a>
+* <a href="http://www.w3.org/standards/history/CSS2">2011: CSS Level 2 rev1 veröffentlicht</a>
+* 13 Jahre zwischen CSS 2 und 2.1
+* Seitdem modulare Lösung
+
+---
+
+# CSS 3 Modules
+
+![CSS 3 Modules](slides/css-basics/css3-modules.png)
+
+
+---
+
+# CSS 3 Module: Beispiele
+
+[Color Module](http://www.w3.org/TR/css3-color/)
+
+* Color-Units: <abbr title="red, green, blue">rgb</abbr>, <abbr title="hue, saturation, lightness">hsl</abbr>
+* Extended color keywords: <span style="color: green">green</span>, <span style="color: magenta">magenta</span>, <span style="color: mediumaquamarine">mediumaquamarine</span>
+
+[Flexible Box Layout](http://www.w3.org/TR/css3-flexbox/)
+
+![Flexbox Example](slides/css-basics/css3-flexbox-example.png)
+
+
+---
+
+# Ressourcen
+* [Lynda: CSS Fundamentals](http://www.lynda.com/Web-Interactive-CSS-tutorials/CSS-Fundamentals/80436-2.html)
+* [Lynda: CSS Selectors](http://www.lynda.com/CSS-tutorials/CSS-Selectors/192036-2.html)
+* [Lynda: CSS: Core Concepts](http://www.lynda.com/Web-Interactive-CSS-tutorials/CSS-Core-Concepts/80435-2.html)
+
+---
+
+# Done

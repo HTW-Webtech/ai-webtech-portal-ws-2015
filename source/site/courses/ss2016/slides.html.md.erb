@@ -1,6 +1,6 @@
 # Präsentationen
 
-<% Dir[__dir__ + '/slides/*.html.md'].each do |file| %>
+<% Dir[__dir__ + '/slides/*.html.*'].each do |file| %>
   1. [<%= readable_file_name(file) %>](<%= revealjs_url slide_path(file) %>) ([Druckansicht](<%= slide_url(file) %>))
 <% end %>
 {: .timeline }

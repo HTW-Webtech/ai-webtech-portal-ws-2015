@@ -86,9 +86,12 @@ module AppHelpers
   end
 
   def cssdeck_snippet(id, version: 0, show: 'html,output', height: 400)
-    "<pre class='_cssdeck_embed' data-pane='#{show}' data-height=#{height} data-user='grekko' data-href='#{id}' data-version='#{version}'></pre>" +
-    "<script async src='//cssdeck.com/assets/js/embed.js'></script><br/>" +
-    "<a href='http://cssdeck.com/labs/#{id}'>Zum Code-Snippet</a>"
+    content = <<-EOS
+<pre class="_cssdeck_embed" data-pane="#{show}" data-height="#{height}" data-user="grekko" data-href="#{id}" data-version="#{version}"></pre>
+<script async src="//cssdeck.com/assets/js/embed.js"></script><br/>
+<a href="http://cssdeck.com/labs/#{id}">Zum Code-Snippet</a>
+EOS
+    content.strip.html_safe
   end
 
   def jsfiddle_snippet(id, height: 400)
