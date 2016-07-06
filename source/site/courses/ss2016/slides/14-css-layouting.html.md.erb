@@ -1,0 +1,336 @@
+# CSS Layouting
+
+---
+
+# Agenda
+
+* CSS Layouts
+* Anforderungen
+* Werkzeuge
+* Grundlagen CSS Layout
+  * Annahmen
+  * CSS Standards
+  * Grundbausteine
+* Flexbox Layouts
+
+---
+
+# CSS Bibel
+
+[CSS-Tricks.com](https://css-tricks.com/)
+
+---
+
+# CSS Layouts
+
+* D̶e̶s̶i̶g̶n̶t̶h̶e̶o̶r̶i̶e̶, Ä̶s̶t̶h̶e̶t̶i̶k̶
+* Grundbausteine für Layouts im Web
+  * Darstellung von Elementen
+  * Arrangement von Elementen
+* Moderne Lösungen
+* Besondere Herausforderungen
+
+---
+
+# Herausforderungen
+
+* Mobile Devices (Responsive Design)
+  * Amazon > 60% mobile ([Black Friday, 2014](https://techcrunch.com/2014/12/26/amazon-2014-holiday-sales/))
+* Web Applications (Komplexe UI)
+
+![Google Sheet](slides/ui-frameworks/google-sheets.png)
+
+---
+
+# Responsive Design
+
+* Unterstützung versch. Bildschirmgrößen (Breite)
+  * Smartphones, Laptops, Desktops…
+  * 320 < 340 < 345 < 360 < 500 < … [CSS Pixel](http://mydevice.io/devices/) Breite
+  * 800 < 1024 < 1280 < 1400 < 1440 < 1680 [CSS Pixel](http://www.geek.com/laptop-screen-size-resolution/) Breite
+  * [CSS Pixel vs Physical Pixel](http://www.quirksmode.org/blog/archives/2010/04/a_pixel_is_not.html)
+* Neue Interaktionskonzepte
+  * Tap / Swipe / Pinch / …
+* … Connecitivity, Performance, …
+* Später mehr dazu…
+
+---
+
+# Web Applications
+
+![Komplexe UI Elemente](slides/ui-frameworks/komplexe-ui-elemente.png)
+
+* Komplexe UI Elemente: verschachtelte Menüs, Colorpicker, …
+* Vorerst die Grundlagen
+
+---
+
+# Werkzeuge
+
+* HTML, CSS, (JavaScript)
+  * Kaum native Elemente
+  * Standards, Bibliotheken, Frameworks,…
+* Developer Tools / Firebug
+  * [Chrome Devtools](https://developer.chrome.com/devtools)
+  * [Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools)
+  * [Opera Dragonfly](http://www.opera.com/dragonfly/)
+
+---
+
+# Begriffe/Einheiten
+
+`viewport`: Die Fläche des sichtbaren Fensterbereichs
+
+![Viewport](slides/ui-frameworks/viewport.png)
+
+---
+
+# Begriffe/Einheiten
+
+* Abstände/Größenangaben in CSS Pixel
+* `px`: CSS Pixel != Physical Pixel (Pixel Ratio per Browser)
+
+![CSS Pixel auf dem iPhone](slides/ui-frameworks/css-pixel.png)
+
+Übersicht auf [mydevice.io/devices](http://mydevice.io/devices/)
+
+---
+
+# Begriffe/Einheiten
+
+* Absolute Einheiten:
+  * `mm`, `in`, …
+* Relative Einheiten:
+  * `%` im Verhältnis zum Eltern-Element
+  * `em`, `rem`: im Verhältnis zur Schriftgröße
+* Übersicht der Einheiten [MDN: Length](https://developer.mozilla.org/en-US/docs/Web/CSS/length), [W3 Schools](http://www.w3schools.com/cssref/css_units.asp)
+
+---
+
+# Demo
+
+Chrome Dev Tools
+
+* Interaktion mit HTML Elementen
+* Responsive Preview
+* …
+
+---
+
+# Grundlagen CSS Layout
+
+* [How Browsers work (Layout-Engine)](http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/#Layout), Tali Garsiel and Paul Irish (2011)
+* [What [You] Should Know About Webpage Rendering](http://frontendbabel.info/articles/webpage-rendering-101/), Alexander Skutin (2014)
+* [MDN: CSS Layout](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Layout), Grundlagen-Einführung in Layouting mit CSS
+
+---
+
+# CSS Box Model
+
+![CSS Box Model](slides/ui-frameworks/box-model.png)
+
+---
+
+# CSS Box Model
+
+* Jedes HTML-Element ist ein Rechteck mit folgenden Eigenschaften
+  * width * height (Innhaltsbereich: content box)
+  * padding (Innenabstand von Inhalt zum Rand)
+  * border (Der Rand einer Box, kann auch 0 sein)
+  * margin (Außenabstand einer Box)
+* Effektive Größe:
+  * Summe: width/height, padding, border, margin
+
+---
+
+# Demo Dev Tools
+
+CSS Box Model Dev Tools
+
+![CSS Box Model im Chrome](slides/ui-frameworks/box-model-chrome.png)
+
+---
+
+# CSS Box Model interaktiv
+
+<%= cssdeck_snippet 'kq84e6dx' %>
+
+---
+
+# CSS Property: box-sizing
+
+* Zwei Arten die Breite/Höhe von Elementen zu berechnen
+  * box-sizing: content-box (default)
+    * `padding`, `border`, `margin` werden zu `width` addiert
+  * box-sizing: border-box (IE 6)
+    * `padding` und `border` sind Teil von `width`
+
+<%= cssdeck_snippet 'ybjxl2yr' %>
+
+---
+
+# Visual formatting model
+
+* Grundordnung von Elementen: Normal Flow
+* Steuerung über die `display`-Eigenschaft
+* Sechs relevante Typen im Flow
+  * CSS2: `block`, `inline`, `inline-block`, `none`, …
+  * CSS3: `flex`, `flex-item`, …
+* Mehr zum Visual Formatting Model
+  * [W3C CSS 2.1: Visual formatting model](https://www.w3.org/TR/CSS21/visuren.html)
+  * [MDN Visual formatting model](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Visual_formatting_model)
+
+<%= cssdeck_snippet 'ajnhujyy' %>
+
+---
+
+# CSS Property: display
+
+* `display`: inline / block / inline-block / none / … / grid / flex
+* `inline`: Nur so breit/hoch wie Inhalt (Text/Bild) vorgibt
+* `block`: Nimmt volle verfügbare Breite des Parents ein
+* `inline-block`: So breit/hoch wie Inhalt. Manipulierbar
+* `none`: Element wird nicht gerendert
+* `grid`: (experimentelles Grid-Layout) Nur IE: 8% global Support
+* `flex`: (Flexbox Layout) Später mehr dazu
+* weitere: … table, table-caption, table-group, …
+
+---
+
+# Elemente-Positionierung
+
+* Positionierung mit Innen/Außenabstand nur bedingt möglich
+* CSS Eigenschaften `position` und `float`
+  * `position`: Ermöglicht realisierung trivialer Layouts
+  * `float`: Flexiblere Layouts, sehr viel komplexeres Verhalten
+* Zunächst `position`
+
+---
+
+# CSS Property: position
+
+* position beeinflusst die Position und Orientierung von Elementen
+* `position`: `static`, `relative`, `absolute`, `fixed`
+* `static`: Das Standard-Verhalten, ignoriert z-index
+* `relative`: Positionierbar. Berücksichtigt z-index. Rahmen für absolute. Flow bleibt.
+* `absolute`: Positionierbar relativ zu parent (!= static)
+* `fixed`: Positionierbar relativ zum Viewport des Browsers.
+* Positionierung via: `top`, `left`, `right`, `bottom`
+
+---
+
+# Position Layout Beispiel
+
+<%= cssdeck_snippet 'vhegcrx1' %>
+
+---
+
+# Float
+
+* Entfernt Elemente aus dem `Normal Flow`
+* Ursprünglich für Bilder gedacht
+
+![Floats für Bilder](slides/ui-frameworks/float-images.png)
+
+Quelle: https://css-tricks.com/all-about-floats/
+
+---
+
+# Float
+
+* Oft für Layouting genutzt
+* Relativ komplexes Verhalten, daher fehleranfällig
+* Floats: Vergangenheit, Zukunft: Flexbox
+
+![Floats für Layouts](slides/ui-frameworks/float-layouts.png)
+
+Quelle: https://css-tricks.com/all-about-floats/
+
+---
+
+# Float Layout Beispiel
+
+<%= cssdeck_snippet 'xa6rghqn' %>
+
+---
+
+# Flexbox Layouts
+
+* W3C: [Flexible Layout Module Level 1](http://www.w3.org/TR/css-flexbox-1/)
+* Zwei neue display-Typen: `flex-container`, `flex-item`
+* Zwei-Achsen (main, cross) Koordinatensytem für Layouting
+
+![Flexbox Layout](slides/css-advanced/flexbox-layout.png)
+
+---
+
+# Flexbox Beispiel
+
+<%= cssdeck_snippet 'vbfwlhpw' %>
+
+---
+
+# Flexbox Besonderheiten
+
+* Ermöglicht Beziehung zwischen `flex-Container` und `flex-items`
+* Ein Element mit `display: flex` wird zum `flex-container`
+  * Alle Kinder-Elemente werden automatisch zu `flex-items`
+* `flex-items` können nun anhand der `main` und `cross`-axis orientiert werden
+
+<%= cssdeck_snippet 'usoo71yv' %>
+
+---
+
+# Responsive Design
+
+* Herausforderungen mobiler Endgeräte
+  * Diversität von Bildschirmgrößen
+  * Touch statt Pointer: kein Hover
+  * Orientation: Landspace vs Portrait
+  * Browser: Android, Opera Mini, …
+* Lösungsansatz: Media Queries => Responsive Design
+
+---
+
+# Definition
+
+> Responsive web design is a web development approach that creates dynamic changes to the appearance of a website, depending on the screen size and orientation of the device being used […].
+> RWD is **one approach** to the problem of designing for the multitude of devices available to customers, ranging from tiny phones to huge desktop monitors.
+
+Quelle: [nngroup.com](https://www.nngroup.com/articles/responsive-web-design-definition/)
+
+Wie wurde das Problem denn bisher gelöst?
+
+---
+
+# Media Queries
+
+* [W3C: Media Queries](http://www.w3.org/TR/css3-mediaqueries/), seit 2012
+* Konditionale für CSS Regeln
+* `@media KONDITION { CSS-CODE }`
+* Konditionen bspw. `min-width`, `screen`, `orientation` …
+
+~~~
+/* Auf Geräten deren Viewport kleiner als 500px ist wird Werbung ausgeblendet */
+@media (max-width: 500px) {
+  .advertisement {
+    display: none;
+  }
+}
+~~~
+{: .lang-css }
+
+Flexbox und Media Queries
+
+<%= cssdeck_snippet 'vbfwlhpw' %>
+
+---
+
+# Lerninhalte
+
+* [Flebox.io](http://flexbox.io/), kostenloses Flexbox Youtube Tutorial von Wes Bos
+* [Flexbox Froggy](http://flexboxfroggy.com/), Interaktives Browserspiel zum Erlernen von Flexbox
+* [Learn CSS Layout](http://learnlayout.com/flexbox.html), Grundlagen-Tutorial zu CSS Layouting
+* … gerne mehr auf Anfrage
+
+---
