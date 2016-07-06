@@ -38,17 +38,17 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 | Termin | Datum      | Präsentation                                                                                            | Übung
 |--------|------------|---------------------------------------------------------------------------------------------------------|-------
 | 12.    | 2016-06-29 | [Rails: Views & Assets](slides/12-rails-views-assets.html), [CSS Grundlagen](slides/13-css-basics.html) | [Abschlussprojekt](exercises/08-abschlussprojekt.html)
-| 13.    | 2016-07-06 | [UI Frameworks](slides/13-ui-frameworks.html)                                                           | -
-| 14.    | 2016-07-13 | [JavaScript](slides/14-javascript.html), [jQuery](slides/15-jquery.html)                                | -
+| 13.    | 2016-07-06 | [CSS Layouting](slides/14-css-layouting.html)                                                           | -
+| 14.    | 2016-07-13 | [JavaScript](slides/15-javascript.html)                                                                 | -
 | 15.    | 2016-07-20 | -                                                                                                       | -
 | 16.    | 2016-07-27 | [React Intro](slides/16-react-intro.html)                                                               | -
 {: .table .table-striped }
+
 
 ## Extras
 
 Nach Interesse stehen die folgenden Themen zur Auswahl:
 
-* [React Intro](slides/rect-intro.html)
 * [Web-Security](slides/web-security.html)
 * [Caching all the things](slides/caching.html)
 * [Deployment von Rails Applikationen](slides/rails-deployment.html)
