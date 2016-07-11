@@ -73,9 +73,10 @@ Für die folgenden Funktionalitäten gibt es die entsprechenden Anzahl an Punkte
   * 4 Punkte: Für Rechnungen (inkl. Assoziation/Relation zu Arbeitszeiten)
 
 * Statistiken auf Startseite (3 Punkte):
-  * 1 Punkt: Anzahl der insgesamt erfassten Arbeitszeiten (in Minuten oder wahlweise Stunden)
-  * 1 Punkt: Summer der in Rechnung gestellten Arbeitszeiten (in Minuten oder wahlweise Stunden)
-  * 1 Punkt: Statistik über die in Rechnung gestellten Arbeitszeiten (Summer aller in Rechnung gestellten Minuten)
+  * Die Statistiken beziehen sich immer auf alle Projekte & Arbeitszeiten
+  * 1 Punkt: Summe der erfassten Arbeitszeiten (in Minuten oder wahlweise Stunden)
+  * 1 Punkt: Summe der in Rechnung gestellten Arbeitszeiten (in Minuten oder wahlweise Stunden)
+  * 1 Punkt: Summe des in Rechnung gestellten Gesamt-Brutto-Betrags
 
 * Zusätzliche Features (3 Punkte):
   * 1 Punkt: Druck-Vorschau für Rechnung (Einfache HTML-Seite mit allen Rechnungsdaten wie in der Beispiel-App s.u.)
