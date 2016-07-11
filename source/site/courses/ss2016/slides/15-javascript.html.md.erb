@@ -1,0 +1,374 @@
+<!--
+
+TODOS
+=====
+* Erwähnung von Server-side JavaScript (Node)
+* Erwähnung von TypeScript, Dart, React
+
+Key Take aways
+==============
+
+* JS ist die hippe neue High-level Sprache, weil Node, weil Community, weil Tooling
+* JS hat viele PRO Features, bspw. Generatoren, Functions as first class citizen
+* JS hat viele Narben
+* JS ist extrem schnell für eine High-Level Sprache
+* JS ist die einzige Sprache die im Front End des Webs läuft
+* Es gibt viele Ansätze JavaScript attraktiv für Enterprise-Anwendungen zu machen, bspw.
+  Dart von Google, TypeScript von Microsoft, React von Facebook, etc.
+
+-->
+
+---
+
+# JavaScript
+
+---
+
+# Agenda
+
+* Wozu JavaScript?
+* Ein bisschen Geschichte
+* Features und Syntax
+* REPL und Debugging
+* JavaScript und HTML
+* Document Object Model
+* UI Events
+* Moderne Browser APIs
+
+---
+
+# Wozu JavaScript?
+
+<%= cssdeck_snippet 'sf3ghn76', show: 'html,output' %>
+
+---
+
+# Was bisher geschah
+
+<!-- https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript -->
+
+* 1994: Unter Zeitdruck von Brandon Eich für Netscape 4.0 erdacht und implementiert
+* 1996-97: <abbr title="European Computer Manufacturers Association">ECMA</abbr> übernimmt das Projekt und nennt es ECMAScript (Weitere: CDROM, JSON, …)
+* 2005:
+  * Jesse James Gerret prägte den Begriff AJAX
+  * JavaScript Bibliotheken wie Prototype.js, Mootools, jQuery werden populär
+
+*[AJAX]: Asynchronous JavaScript and XML
+
+---
+
+# Was bisher geschah #2
+
+* 2009: Womit wir aktuell (noch) arbeiten
+  * ECMAScript 5 durch Zusammenschluss verschiedener Parteien
+  * Ryan Dahl veröffentlicht NodeJS - Eventgetriebenes JS auf dem Server
+* 2015: ECMAScript 6: "Harmony" / "ES.next" approved
+* 2016: 90%+ Support, see [ECMAScript Compat Table](https://kangax.github.io/compat-table/es6/)
+
+---
+
+# JavaScript-Features
+
+* Skriptsprache -> Interpretiert
+* Kein manuelles Memory-Management (GC)
+* Protoypische Vererbung, seit ES6 auch Klassen
+* Single-Threaded (im Browser)
+* Fehlertolerant (strict mode)
+
+---
+
+# Kommentare, Variablen
+
+~~~
+<!--/ a one line comment
+<!--* this is a longer,
+   multi-line comment
+*/
+<!--/ Debugging
+console.log("hello world"); // => "hello world"
+debugger; // JS interpreter hält hier an
+<!--/ Deklaration von Variablen
+var a; // a ist nun undefined
+console.log(a); // => undefined
+console.log(b); // => ReferenceError
+~~~
+{: .lang-javascript }
+
+---
+
+# Datentypen
+
+~~~
+typeof false; typeof true // "Boolean"
+typeof 1;                 // "Number"
+typeof 3.1415;            // "Number". Zahlen sind 64bit Floats
+                          // 1 sign, 10 scale, 53 precision
+
+10000000000000000 === 10000000000000001 // => true
+typeof null;              // "object"
+typeof "Hi";              // "String"
+reg = new RegExp()
+now = new Date()
+…
+~~~
+{: .lang-javascript }
+
+---
+
+# Kontrollstrukturen
+
+~~~
+if(true) {
+  console.log(42);
+} else {
+  console.log("Will never happen!");
+}
+
+while(true) {
+  console.log("Will never end");
+}
+
+switch(42) {
+  case 42:
+    console.log("Is 42!");
+  break;
+  default:
+    console.log("I am not 42");
+}
+~~~
+{: .lang-javascript }
+
+---
+
+# Operatoren
+
+<!-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness -->
+
+~~~
+1 == 1        // Gleichheit
+1 == "1"      // => true
+1 === 1       // Strikte Gleichheit
+1 === "1"     // => false
+1 >= 2        // => true
+10 / 2        // => 5
+9 % 2         // => 1
+var i=0;      // i === 0
+i++;          // i === 1
+true && false // => false
+false || true // => true
+~~~
+{: .lang-javascript }
+
+---
+
+# Implicit Type Coercion
+
+[Funky JS Conversion](https://dorey.github.io/JavaScript-Equality-Table/)
+
+~~~
+"Hi " + 42 // => "Hi 42"
+7 * "42"   // => 294
+1 == "1"   // => true
+!!"42"     // => true
+!!""       // => false
+!!0        // => false
+~~~
+{: .lang-javascript }
+
+---
+
+# Explicit Cocercion
+
+~~~
+"Hi" + 42.toString()      // "Hi 42"
+7 * Number.parseInt("42") // => 294
+Boolean("42")             // => true
+~~~
+{: .lang-javascript }
+
+---
+
+# Funktionen
+
+~~~
+function answer() {
+  return 42;
+} // a wurde nun an das globale Window-Objekt gehangen
+
+var square = function(x) {
+  return x*x;
+}
+
+square(answer()) // => 42^2 = 1764
+~~~
+{: .lang-javascript }
+
+---
+
+# REPL und der Debugger
+
+<!-- Wie bekomme ich Einblick in den Code, was er tut etc. -->
+
+<%= js_snippet 'ueb6bztw' %>
+
+---
+
+# Fibonacci in JavaScript
+
+<%= js_snippet 'adatciy1' %>
+
+---
+
+# Arrays und Objekt-Literale
+
+~~~
+var arr = [1, true, "Bar", new Date()];
+var obj = {
+  foo: 'bar',
+  'foo 2': 'baz',
+  bar: function() {
+    return 42;
+  }
+};
+obj.foo             // => 'bar'
+obj['foo 2']        // => 'baz'
+obj.bar             // => function() { }
+obj.bar()           // => 42
+~~~
+{: .lang-javascript }
+
+---
+
+# Beispiel: BMI-Rechner
+
+~~~
+var Bob = {
+  ageInYears: 42,
+  heightInCm: 175,
+  weightInKg: 80
+}
+
+var BmiForPerson = function(person) {
+  var heightInM = person.heightInCm / 100;
+  return person.weightInKg / ( heightInM * heightInM );
+};
+
+BmiForPerson(Bob)  // => 26.122…
+~~~
+{: .lang-javascript }
+
+---
+
+# JavaScript und HTML
+
+~~~
+<html>
+  <head>…</head>
+  <body>
+    …
+    <script src="js/jquery.js"></script>
+    <script src="http://google-cdn.com/js/jquery-plugin.js"></script>
+    <script>
+      alert("Ich warte bis alle externen Skripte sind geladen!");
+    </script>
+  <body>
+</html>
+~~~
+{: .lang-html }
+
+---
+
+# Document Object Model (DOM)
+
+<!-- https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction -->
+
+* API: JS -> HTML/Browser
+* Spezifiert Interfaces für Interaktion mit HTML-Elementen
+* Bietet Zugriff auf diverse Browser-APIs
+  * HTML-Manipulation
+  * Browser/Window Eigenschaften
+  * Event-Handling
+  * Web Storage API
+  * Battery Status API
+  * GeoLocation
+  * …
+
+---
+
+# HTML-Manipulation
+
+<!-- Element im DOM erzeugen und manipulieren -->
+
+<%= cssdeck_snippet 'xltpmf7x', show: 'html,output' %>
+
+---
+
+# HTML-Manipulation #2
+
+<!-- Element dynamisch erzeugen -->
+
+<%= js_snippet 'lphc1u0n' %>
+
+---
+
+# Browser/Window Eigenschaften
+
+~~~
+window.innerHeight // => 920
+window.location.href // => Gibt aktuelle Web-Adresse zurück
+window.location.href = "https://www.google.com" // Adress-Eingabe via JS
+window.localStorage // Zugriff auf den LocalStorage vom Browser
+~~~
+{: .lang-javascript }
+
+---
+
+# Event-Handling
+
+* Browser erzeugt UI Events bei Nutzer-Interaktion
+* Bspw. Mausklick, Tastatur-Eingabe, Fenster wird bewegt
+* Diese UI Events können via Eventhandler mit JavaScript genutzt werden
+* UI Events folgenden einem 3-Phasen-Konzept: Capture->Target->Bubble
+
+---
+
+# Event-Handling #2
+
+![Event Model](slides/javascript/event-model-dispatch-flow.png)
+
+---
+
+# Event-Handling #3
+
+<%= cssdeck_snippet 'fvhqsnwt', show: 'js,output' %>
+
+---
+
+# Event-Handling Tricks
+
+<%= cssdeck_snippet 'z5pzhvus', show: 'js,output' %>
+
+---
+
+# Web Storage API: localStorage
+
+<%= cssdeck_snippet 'xnkaimrp', show: 'js,output' %>
+
+---
+
+# Battery Status API
+
+<%= cssdeck_snippet 'tfffqhax', show: 'js,output' %>
+
+---
+
+# Geolocation
+<%= cssdeck_snippet 'mugganh4', show: 'js,output' %>
+
+---
+
+# Links
+
+* [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS), von Kyle Simpson kostenlos auf github.com
+* [Eloquent JavaScript](http://eloquentjavascript.net), von Marijn Haverbeke
+
