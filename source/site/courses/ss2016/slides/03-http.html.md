@@ -47,8 +47,8 @@ Hypertext Transfer Protocol
 * Browser möchte http://google.com laden
 * google.com wird via DNS zur IPv4 oder IPv6 aufgelöst
 * TCP-Verbindung auf Port 80 wird geöffnet
-* Browser sendet ASCII den GET-Request als ASCII Byte-Stream
-* Server nimmt GET-Request entgegen und erzeugt Response
+* Browser sendet GET-Request als ASCII Byte-Stream
+* Server nimmt Request entgegen und generiert Response
 
 ---
 
@@ -63,12 +63,20 @@ Accept-Language: en,de;q=0.8,en-US;q=0.6
 ~~~
 {: .lang-http }
 
-* *GET /* Ich möchte das root-Dokument
-* *HTTP/1.1* Ich spreche HTTP 1.1
-* *Host google.com* Hiermit können verschiedene Hosts pro IP angesprochen werden
-* *Accept* Wenn es mehrere Formate gibt, habe ich diese Prioritäten: HTML > XML > *
-* *User-Agent* Verrät Euer OS (+Version), Browser (+Version) und ggf. Tablet/Smartphone
-* *Accept-Language* Wenn es verschiedene Sprachen verfügbar sind: En > De
+* **Request Line**:
+  * *GET /* Ich möchte das root-Dokument
+  * *HTTP/1.1* Ich spreche HTTP 1.1
+* **Header**
+  * *Host google.com* Host-Angabe ermöglicht verschiedene Hosts pro IP Adresse
+  * *Accept* Wenn es mehrere Formate gibt, habe ich diese Prioritäten: HTML > XML > *
+  * *User-Agent* Verrät Euer OS (+Version), Browser (+Version) und ggf. Tablet/Smartphone
+  * *Accept-Language* Wenn es verschiedene Sprachen verfügbar sind: En > De
+
+* Optional: Body
+  * Leere Zeile
+  * **Body**
+    * Ein GET-Request hat keinen Body
+    * [Übersicht an Requests](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Summary_table) die einen Body haben
 
 ---
 
@@ -88,7 +96,7 @@ Content-Encoding: gzip
 {: .lang-http }
 
 * *HTTP/1.1* Ich spreche HTTP 1.1
-* *200* OK - Standard Code wenn Dokument erfolgreich ausgeliefert wird
+* *200* OK - Status Code wenn Dokument erfolgreich ausgeliefert wird
 * *Content-Type* Beschreibt den Typ
 * *Content-Length* Größe des Dokuments in Bytes
 * *Content-Encoding* Der Dokument-Inhalt ist komprimiert ([GNU zip](https://tools.ietf.org/html/rfc1952))
@@ -133,8 +141,10 @@ scheme:[//[user:password@]host[:port]][/]path[?query][#fragment]
 
 Das Domain Name System ist ein hierarchisches dezentrales Adressbuch.
 
-* Assoziation von verschiedenen Informationen mit Domains
-* Bspw. IP-Adressen, aber auch SMTP Server, reverse Domain lookups
+* Assoziation von Meta-Informationen mit Domains
+  * Domain -> IP-Adresse
+  * Domain -> Mail Exchange Server
+  * …
 * UDP Port 53
 * Massive Implikationen auf Security und Performance einer Web-Applikation
 * UNIX-Kommando `dig` bietet einfachen Lesezugriff auf DNS-Einträge
@@ -163,7 +173,7 @@ dig +short amazon.com
 
 # HTTP Operationen (Verben)
 
-95%* der HTTP-Operationen sind Lesezugriffe (GET Requests).
+Die meisten HTTP-Operationen sind Lesezugriffe (GET Requests).
 
 | Methode | Bedeutung |
 |---------|------------
@@ -199,7 +209,7 @@ username=s*****&password=*******&submit=Jetzt+einloggen
 ## Unterschiede
 
 * Idempotenz: Mehrfaches Ausführen einer Operation bleibt ohne Effekte
-* PUT: Ist idempontent
+* PUT: [Idempontent](http://www.infoq.com/news/2013/04/idempotent)
 * PATCH: Partielle Änderungen
 * POST: Nicht [idempontent](http://www.infoq.com/news/2013/04/idempotent)
   * Erneutes versenden eines Formulars erzeugt neue Bestellung
@@ -238,10 +248,9 @@ Eine [umfassende Liste](https://httpstatuses.com/) von HTTP Status Codes
 # HTTP Header
 
 * Request und Response
-* Meta-Informationen zur Operation, bspw. Sprache, Format, Auth, Caching
-* Format: `name-des-headers: wert`
+* Meta-Informationen zum HTTP Request, bspw. Sprache, Format, Auth, Caching
+* Format: `bezeichner-des-headers: wert`
   * Laut Spezifikation dürfen beliebige Header mit einem `X-` hinzugefügt werden
-* Teils komplementär teils substitive Features
 * [Liste](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) von HTTP Headern
 
 ---
