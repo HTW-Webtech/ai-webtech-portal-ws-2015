@@ -20,11 +20,11 @@ HyperText Markup Language
 
 # Hypertext?
 
-* Problem: Tim Berners Lee suchte (1980+) nach Lösung Forschungsergebnisse zu teilen
-* Idee: Informationen als strukturierte Dokumente referenzierbar/teilbar machen
-* Ziel: Austausch dieser Dokumente (via HTTP)
+* Tim Berners Lee suchte (1980+) nach Möglichkeit Forschungsergebnisse zu teilen
+* Problem: Wie können Informationen in Form von Dokumenten referenzierbar und damit teilbar gemacht werden?
+* Lösungsvorschlag: Austausch von Dokumenten via HTTP, Referenzierung über URIs bzw. URLs
 * Hypertext meint Text, der [Links](#) zu anderen Dokumenten enthält
-* Damals SGML, Heute Hypertext Markup Language oder "HTML 5"
+* Heute Hypertext Markup Language oder "HTML 5" (Vorgänger von HTML: SGML)
 * Was ist diese Markup Language?
 
 *[SGML]: Standard Generalized Markup Language
@@ -58,6 +58,7 @@ HyperText Markup Language
 ~~~
 {: .lang-html }
 
+Anzeige im Browser:
 ~~~
 Text
 ~~~
@@ -66,14 +67,14 @@ Text
 
 # HTML Struktur
 
-* Jedes Dokument beginnt mit einem Doctype und `<html>`-Element: root
-* Innerhalb vom root: *Elemente* mit *Attributen*
+* Root eines HTML-Dokuments: `<html>`-Element
+* Innerhalb von `<html>` befinden sich `<html>` und `<head>`
 * Verschachtelung folgt Regeln
-* Wie sieht ein HTML-Element aus?
+* Definition: HTML-Element und HTML-Tag
 
 ---
 
-# HTML Elemente
+# HTML Tags und HTML Elemente
 
 ![HTML Tags](slides/html/html-element.png)
 
@@ -144,9 +145,9 @@ Text
 # HTML Elemente
 
 * Zweistellige Zahl an HTML-Elementen. [Übersicht auf MDN.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
-* Organisiert in sogenannten Content Categories
-* Jede dieser Kategorie enthält Regeln für die HTML Elemente
-* Bspw. über Verschachtelung von Elementen
+* Organisiert in *Content Categories*
+* Jede *Category* beschreibt Regeln
+  * Bspw. zu Verschachtelung
 
 ![Content Categories](slides/html/content-categories.jpg)
 
