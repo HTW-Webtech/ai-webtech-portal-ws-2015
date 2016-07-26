@@ -32,7 +32,7 @@ Key Take aways
 * REPL und Debugging
 * JavaScript und HTML
 * Document Object Model
-* UI Events
+* Event Handling
 * Moderne Browser APIs
 
 ---
@@ -48,7 +48,8 @@ Key Take aways
 <!-- https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript -->
 
 * 1994: Unter Zeitdruck von Brandon Eich für Netscape 4.0 erdacht und implementiert
-* 1996-97: <abbr title="European Computer Manufacturers Association">ECMA</abbr> übernimmt das Projekt und nennt es ECMAScript (Weitere: CDROM, JSON, …)
+* [Designing a language in 10 Days](https://www.computer.org/csdl/mags/co/2012/02/mco2012020007.html)
+* 1996-97: <abbr title="European Computer Manufacturers Association">ECMA</abbr> übernimmt das Projekt und nennt es ECMAScript (Andere ECMA-Projekte: CDROM, JSON, …)
 * 2005:
   * Jesse James Gerret prägte den Begriff AJAX
   * JavaScript Bibliotheken wie Prototype.js, Mootools, jQuery werden populär
@@ -59,10 +60,10 @@ Key Take aways
 
 # Was bisher geschah #2
 
-* 2009: Womit wir aktuell (noch) arbeiten
-  * ECMAScript 5 durch Zusammenschluss verschiedener Parteien
+* 2009: ECMAScript 5
+  * Bis vor kurzem noch der aktuelle Standard
   * Ryan Dahl veröffentlicht NodeJS - Eventgetriebenes JS auf dem Server
-* 2015: ECMAScript 6: "Harmony" / "ES.next" approved
+  * 2015: ECMAScript 6: "Harmony" => ES 2015
 * 2016: 90%+ Support, see [ECMAScript Compat Table](https://kangax.github.io/compat-table/es6/)
 
 ---
@@ -80,14 +81,17 @@ Key Take aways
 # Kommentare, Variablen
 
 ~~~
-<!--/ a one line comment
-<!--* this is a longer,
-   multi-line comment
+// a one line comment
+/*
+this is a longer,
+multi-line comment
 */
-<!--/ Debugging
+
+// Debugging
 console.log("hello world"); // => "hello world"
 debugger; // JS interpreter hält hier an
-<!--/ Deklaration von Variablen
+
+// Deklaration von Variablen
 var a; // a ist nun undefined
 console.log(a); // => undefined
 console.log(b); // => ReferenceError
@@ -325,10 +329,10 @@ window.localStorage // Zugriff auf den LocalStorage vom Browser
 
 # Event-Handling
 
-* Browser erzeugt UI Events bei Nutzer-Interaktion
+* Browser feuert Events bei Nutzer-Interaktion
 * Bspw. Mausklick, Tastatur-Eingabe, Fenster wird bewegt
-* Diese UI Events können via Eventhandler mit JavaScript genutzt werden
-* UI Events folgenden einem 3-Phasen-Konzept: Capture->Target->Bubble
+* Diese Events können via `Eventhandler` mit JavaScript genutzt werden
+* Events folgenden einem 3-Phasen-Konzept: Capture->Target->Bubble
 
 ---
 
@@ -364,6 +368,22 @@ window.localStorage // Zugriff auf den LocalStorage vom Browser
 
 # Geolocation
 <%= cssdeck_snippet 'mugganh4', show: 'js,output' %>
+
+---
+
+# Spannende JavaScript APIs
+
+* [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API): rendering interactive 3D and 2D graphics within any compatible web browser without the use of plug-ins.
+* [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API): open an interactive communication session between the user's browser and a server
+* [ServiceWorker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API): enable the creation of effective offline experiences
+
+---
+
+# Weitere JavaScript Projekte
+
+* [NodeJS](https://nodejs.org/en/): Event-driven I/O server-side JavaScript environment based on V8
+* [Emscripten](https://github.com/kripken/emscripten): An LLVM-to-JavaScript Compiler
+* [ASM.js](http://asmjs.org/): a strict subset of JavaScript that can be used as a low-level, efficient target language for compilers.
 
 ---
 
