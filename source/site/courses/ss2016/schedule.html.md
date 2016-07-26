@@ -41,17 +41,8 @@ Vorlesungen und Übungen sind in vier Themenblöcke unterteilt.
 | 13.    | 2016-07-06 | [CSS Layouting](slides/14-css-layouting.html)                                                           | -
 | 14.    | 2016-07-13 | [JavaScript](slides/15-javascript.html)                                                                 | -
 | 15.    | 2016-07-20 | -                                                                                                       | -
-| 16.    | 2016-07-27 | [React Intro](slides/16-react-intro.html)                                                               | -
+| 16.    | 2016-07-27 | -                                                                                                       | -
 {: .table .table-striped }
-
-
-## Extras
-
-Nach Interesse stehen die folgenden Themen zur Auswahl:
-
-* [Web-Security](slides/web-security.html)
-* [Caching all the things](slides/caching.html)
-* [Deployment von Rails Applikationen](slides/rails-deployment.html)
 
 
 *[HTTP]: Hypertext Transfer Protocol
