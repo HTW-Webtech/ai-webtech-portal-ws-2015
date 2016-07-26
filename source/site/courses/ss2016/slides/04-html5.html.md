@@ -58,7 +58,9 @@ HyperText Markup Language
 ~~~
 {: .lang-html }
 
-Anzeige im Browser:
+
+Darstellung im Browser:
+
 ~~~
 Text
 ~~~
