@@ -54,7 +54,7 @@ module AppHelpers
   end
 
   def html_file_basename(file)
-    File.basename(file, '.html.md')
+    File.basename(File.basename(file, '.erb'), '.html.md')
   end
 
   def slide_path(file)
