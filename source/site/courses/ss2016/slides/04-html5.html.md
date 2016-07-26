@@ -202,9 +202,9 @@ Text
 
 # Überschriften
 
-* `h1` Wichtigste Überschrift
-* `h2` 2. wichtigste Überschrift
-* `h3` …
+* `<h1>` Wichtigste Überschrift
+* `<h2>` 2. wichtigste Überschrift
+* `<h3>` …
 
 ~~~
 <h1>Urheberrecht: Die digitale Urheberrechtsreform versackt im Fiasko</h1>
@@ -216,10 +216,10 @@ Text
 
 # Text-Auszeichnung
 
-* `strong` Wichtigkeit
-* `em` Hervorhebung (ähnlich strong, oft differential)
-* `small` Das Kleingedruckte
-* `blockquote` Zitat
+* `<strong>` Wichtigkeit
+* `<em>` Hervorhebung (ähnlich strong, oft differential)
+* `<small>` Das Kleingedruckte
+* `<blockquote>` Zitat
 * …
 
 ~~~
@@ -234,8 +234,8 @@ Text
 
 # Semantische Erweiterung
 
-* `abbr` Abkürzung, bspw.
-* `time` maschinenlesbares Datum
+* `<abbr>` Abkürzung, bspw.
+* `<time>` maschinenlesbares Datum
 
 
 ~~~
@@ -248,8 +248,8 @@ Text
 
 # Links und iFrames
 
-* `a` Anker/Anchor mit Verweis auf anderes Dokument oder andere Stelle in demselben Dokument
-* `iframe` Bindet externes Dokument ein
+* `<a>` Anker/Anchor mit Verweis auf anderes Dokument oder andere Stelle in demselben Dokument
+* `<iframe>` Bindet externe HTML-Dokumente ein
 
 ~~~
 Auf <a href="https://github.com/" title="Github">github</a>
@@ -266,10 +266,10 @@ ist u.a. die W3C Spec zu finden.
 
 # Bilder, Video und Audio
 
-* `img` Externe Bilder einbinden
-* `audio` Audiodaten im Browser
-* `video` Video-Dateien im Browser
-* `canvas` Zeichenfläche
+* `<img>` Externe Bilder einbinden
+* `<audio>` Audiodaten im Browser
+* `<video>` Video-Dateien im Browser
+* `<canvas>` Zeichenfläche
 
 ~~~
 <img src="http://example.com/logo.png" alt="Firmenlogo von Example" />
@@ -288,10 +288,10 @@ ist u.a. die W3C Spec zu finden.
 
 # HTML Formulare
 
-* `input` (text, button, color, date, email)
-* `label` (bezieht sich auf input)
-* `progress` (%-Anzeige)
-* `select` (Auswahl von Elementen)
+* `<input>` Eingabefeld mit verschiedenen Typen: `text`, `button`, `color`, …
+* `<label>` Beschreibungstext für ein `<input>`-Tag
+* `<progress>` %-Anzeige
+* `<select>` Auswahl von Elementen
 
 ~~~
 <form action="" method="post">
