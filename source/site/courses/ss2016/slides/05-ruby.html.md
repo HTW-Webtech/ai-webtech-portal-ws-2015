@@ -160,7 +160,7 @@ PI = 3        # => 3
 
 ---
 
-# If/Else und Boolsche Ausdrücke
+# If/Else und boolsche Ausdrücke
 
 ~~~
 # Einfache boolsche Ausdrücke müssen nicht geklammert `()` werden
@@ -368,9 +368,9 @@ puts age
 
 * In anderen Sprachen: Assoziatives Array, Dictionary oder HashMap
 * Key/Index-Value Datenstruktur mit flexiblen Indizes
-  * Key/Index bspw. String, Integer oder auch Symbol
+  * Key/Index: beliebiges Objekt, aber meist String, Integer oder Symbol
   * Value: beliebiges Objekt
-* Erstellung via Hash-Literal oder `Hash.new`
+* Instantiierung via Hash-Literal `{ a: "b" }` oder `Hash.new`
 * Modifikation über `[]`-Methode auf Hash
 
 ---
@@ -423,12 +423,12 @@ puts over18
 
 # Enumerable
 
-* Ruby Arrays und Hashes sind Enumerables
-* Enumerable-Methoden helfen Element-Sammlung effektiv zu verarbeiten
+* Ruby Arrays und Hashes erben Methoden vom [`Enumerable`-Modul](http://ruby-doc.org/core-2.3.1/Enumerable.html)
+* `Enumerable`-Methoden helfen Sammlungen von Elementen zu verarbeiten
 * Bspw. mit folgenden Methoden
   * `.each` führt einen Code Block für jedes Element einmal aus
   * `.select` sammelt alle Elemente die in einem Code Block `true` ergeben
-  * `.detect` sammelt nur das 1. Element das in einem Code Blocke `true` ergibt
+  * `.detect` sammelt nur das 1. Element das in einem Code Block `true` ergibt
   * …
 
 ---
