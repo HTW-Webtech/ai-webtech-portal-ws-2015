@@ -47,6 +47,7 @@ HyperText Markup Language
 # HTML Beispiel
 
 ~~~
+<!DOCTYPE html>
 <html>
   <head>
     <title>Hallo Welt</title>
