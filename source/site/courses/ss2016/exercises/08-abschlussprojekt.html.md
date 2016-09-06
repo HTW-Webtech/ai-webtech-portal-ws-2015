@@ -1,20 +1,40 @@
 # Abschlussprojekt
 
-Wahlweise kann das [Rails Invoicr Projekt](abschlussprojekt/invoicr.html) oder eine eigene
-Projektidee umgesetzt werden. Eigene Projektideen können ggf. auch zu zweit bearbeitet werden.
+Das Abschlussprojekt kann im ersten oder zweiten Prüfungszeitraum bearbeitet werden.
 
-# Allgemeines
+Wahlweise kann ein vorgegebenes Projekt oder eine eigene Projektidee umgesetzt werden.
+Eigene Projektideen müssen zunächst vorgestellt und die zu bearbeitenden Features
+im Detail besprochen worden sein.
 
-| Git Abgabe bis       | Punkte      |
-|------------------------------------|
-| 3. August, 23:59 Uhr | 0-16 Punkte |
+Bei der Umsetzung einer eigenen Projektidee besteht auch die Möglichkeit diese
+zu zweit zu bearbeiten.
+
+# Abgabe
+
+Zur Abgabe des Projekts soll – wie für jede Übung zuvor auch – eine neue App im
+Aris angelegt werden. Unter dieser App soll:
+
+* die URL zur einer lauffähigen Version des umgesetzten Projekts gesetzt sein (bspw. Heroku)
+* **UND** der vollständige Quelltext via git hochgeladen werden
+
+
+## 1. Prüfungszeitraum
+
+Als Projektvorschlag dienst der [Rails Invoicr](abschlussprojekt/invoicr.html).
+
+
+| Beginn           | Abgabe bis                | Punkte      |
+|------------------------------------------------------------|
+| 29. Juli 2016    | 3. August 2016, 23:59 Uhr | 0-16 Punkte |
 {: .table.table-bordered }
 
-# Projektabgabe
 
-Aus zeitlichen Gründen wird es keinen CodeReview für das Abschlussprojekt geben. Um die Punkte für diesen
-Beleg zu bekommen muss bis zum *3. August um 23.59 Uhr*:
+## 2. Prüfungszeitraum
 
-* Im Aris-Server eine neue App angelegt worden sein
-* Die URL zur Heroku-App für das Abschlussprojekt hinterlegt sein
-* Der vollständige Quellcode zusätzlich zum Aris-Server hochgeladen sein
+Als Projektvorschlag dienst [PatMan](abschlussprojekt/patman.html), eine Web-Applikation für Patientenmanagement.
+
+
+| Beginn             | Abgabe bis                 | Punkte      |
+|---------------------------------------------------------------|
+| 7. September 2016  | 8. Oktober 2016, 23:59 Uhr | 0-16 Punkte |
+{: .table.table-bordered }
